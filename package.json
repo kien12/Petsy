@@ -1,40 +1,43 @@
 {
   "name": "Petsy",
   "private": true,
-  "dependencies": {
-    "@babel/core": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.16.7",
-    "babel-loader": "^8.2.5",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-redux": "^8.0.1",
-    "react-router-dom": "^6.3.0",
-    "redux": "^4.2.0",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2"
-  },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kien12/Petsy.git"
+    "url": "git+https://github.com/kien12/Kientsy.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kien12/Petsy/issues"
+    "url": "https://github.com/kien12/Kientsy/issues"
   },
-  "homepage": "https://github.com/kien12/Petsy#readme"
+  "homepage": "https://github.com/kien12/Kientsy#readme",
+  "dependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.4.0",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1"
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  }
 }

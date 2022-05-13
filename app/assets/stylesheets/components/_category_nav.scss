@@ -1,0 +1,12 @@
+.categories-nav {
+  display: flex;
+  justify-content: space-around;
+  border: 0.75rem;
+  background-color: yellow;
+}
+
+.categories-nav div:hover {
+  cursor: pointer;  
+
+
+}

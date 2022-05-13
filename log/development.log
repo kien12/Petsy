@@ -468,3 +468,353 @@ Processing by Api::CategoriesController#index as JSON
 Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/" for ::1 at 2022-05-13 15:40:29 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__1083815113020427344_70177739562200'
+
+Started POST "/__better_errors/e01be164322fd51a/variables" for ::1 at 2022-05-13 15:40:29 -0700
+Started GET "/" for ::1 at 2022-05-13 15:40:59 -0700
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 246ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__3899972160701309845_70097467548940'
+
+Started POST "/__better_errors/050ddf820c1cea1e/variables" for ::1 at 2022-05-13 15:41:00 -0700
+Started GET "/" for ::1 at 2022-05-13 15:41:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__3899972160701309845_70097468290760'
+
+Started POST "/__better_errors/6eb3048859bfbffc/variables" for ::1 at 2022-05-13 15:41:11 -0700
+Started GET "/" for ::1 at 2022-05-13 15:41:13 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__3899972160701309845_70097468341820'
+
+Started POST "/__better_errors/dc897f46b432e72f/variables" for ::1 at 2022-05-13 15:41:14 -0700
+Started GET "/" for ::1 at 2022-05-13 15:41:59 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4509936077413324317_70204732157520'
+
+Started POST "/__better_errors/e68fc41edb364794/variables" for ::1 at 2022-05-13 15:42:00 -0700
+Started GET "/" for ::1 at 2022-05-13 15:42:19 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4509936077413324317_70204772166720'
+
+Started POST "/__better_errors/a25297bdebc02e3e/variables" for ::1 at 2022-05-13 15:42:20 -0700
+Started GET "/" for ::1 at 2022-05-13 15:42:36 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - Invalid CSS after "...ase/reset.scss'": expected selector or at-rule, was "@import 'compon...":
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4509936077413324317_70204777538780'
+
+Started POST "/__better_errors/01c8d8983370494b/variables" for ::1 at 2022-05-13 15:42:36 -0700
+Started GET "/" for ::1 at 2022-05-13 15:43:41 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4509936077413324317_70204724416840'
+
+Started POST "/__better_errors/64857202f84a1441/variables" for ::1 at 2022-05-13 15:43:41 -0700
+Started GET "/" for ::1 at 2022-05-13 15:44:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4509936077413324317_70204777394700'
+
+Started POST "/__better_errors/e9deab4472af31f0/variables" for ::1 at 2022-05-13 15:44:45 -0700
+Started GET "/" for ::1 at 2022-05-13 15:45:10 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: base/reset.scss.
+Load paths:
+  /Users/kien/Petsy/app/assets/config
+  /Users/kien/Petsy/app/assets/images
+  /Users/kien/Petsy/app/assets/javascripts
+  /Users/kien/Petsy/app/assets/stylesheets
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.8/app/assets/javascripts
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.8/lib/assets/compiled
+  /Users/kien/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/kien/Petsy/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4509936077413324317_70204732716780'
+
+Started POST "/__better_errors/b8d4a03b9ff6b818/variables" for ::1 at 2022-05-13 15:45:10 -0700
+Started GET "/" for ::1 at 2022-05-13 15:46:09 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 1105ms (Views: 1102.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/categories" for ::1 at 2022-05-13 15:46:11 -0700
+Processing by Api::CategoriesController#index as JSON
+  Rendering api/categories/index.json.jbuilder
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/api/categories/index.json.jbuilder:1
+  Rendered api/categories/index.json.jbuilder (21.9ms)
+Completed 200 OK in 44ms (Views: 28.7ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/" for ::1 at 2022-05-13 15:48:21 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 71ms (Views: 68.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/categories" for ::1 at 2022-05-13 15:48:21 -0700
+Processing by Api::CategoriesController#index as JSON
+  Rendering api/categories/index.json.jbuilder
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/api/categories/index.json.jbuilder:1
+  Rendered api/categories/index.json.jbuilder (1.4ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2022-05-13 15:53:12 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 67ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/categories" for ::1 at 2022-05-13 15:53:13 -0700
+Processing by Api::CategoriesController#index as JSON
+  Rendering api/categories/index.json.jbuilder
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/api/categories/index.json.jbuilder:1
+  Rendered api/categories/index.json.jbuilder (2.1ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2022-05-13 15:56:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 62ms (Views: 58.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/categories" for ::1 at 2022-05-13 15:56:04 -0700
+Processing by Api::CategoriesController#index as JSON
+  Rendering api/categories/index.json.jbuilder
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/api/categories/index.json.jbuilder:1
+  Rendered api/categories/index.json.jbuilder (2.5ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.9ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(71236373589931095)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProduct (20220513231743)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (33.6ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying NOT NULL, "description" text NOT NULL, "seller_id" integer NOT NULL, "price" decimal(10,2) NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220513231743_create_product.rb:3
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_seller_id_and_name" ON "products"  ("seller_id", "name")[0m
+  ↳ db/migrate/20220513231743_create_product.rb:11
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20220513231743_create_product.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (3.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220513231743"]]
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(71236373589931095)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(71236373589931095)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCategoryIdToProductsTable (20220513234405)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "products" ADD "category_id" integer NOT NULL[0m
+  ↳ db/migrate/20220513234405_add_category_id_to_products_table.rb:3
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_category_id" ON "products"  ("category_id")[0m
+  ↳ db/migrate/20220513234405_add_category_id_to_products_table.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220513234405"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(71236373589931095)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kien/.rbenv/versions/2.5.1/bin/annotate:23

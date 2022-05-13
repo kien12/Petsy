@@ -20,7 +20,6 @@ componentDidMount() {
     // console.log(this.props);
     return (
       <div className='categories-nav'>
-        <h1>category_navbar</h1>
         {categoriesList}
       </div>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { Link } from 'react-router-dom'
 
 class CategoryNav extends React.Component {
   constructor(props){
@@ -12,9 +12,13 @@ componentDidMount() {
 }
   render() {
     const categoriesList = this.props.categories.map(category => (
-      <div key={`${category.name}-${category.id}`}> 
+      <Link
+        key={`${category.name}-${category.id}`}
+        to={`/categories/${category.id}`}
+        > 
         {category.name}
-      </div>
+        
+      </Link>
       ))
     // console.log('render')
     // console.log(this.props);

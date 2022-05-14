@@ -8,6 +8,7 @@ class Api::CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by(id: params[:id])
+    
     render 'api/categories/show'
   end
 

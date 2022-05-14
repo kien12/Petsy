@@ -7,7 +7,7 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    fetchAllCategories: () => dispatch(fetchAllCategories()),
+    fetchAllCategories: () => dispatch(fetchAllCategories())
 });
 
 export default connect(mSTP, mDTP)(CategoryNav);

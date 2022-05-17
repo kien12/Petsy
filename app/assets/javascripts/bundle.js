@@ -52,6 +52,41 @@ var fetchCategoryProducts = function fetchCategoryProducts(categoryId) {
 
 /***/ }),
 
+/***/ "./frontend/actions/product_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/product_actions.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_ALL_PRODUCTS": () => (/* binding */ RECEIVE_ALL_PRODUCTS),
+/* harmony export */   "RECEIVE_PRODUCT": () => (/* binding */ RECEIVE_PRODUCT),
+/* harmony export */   "fetchProduct": () => (/* binding */ fetchProduct)
+/* harmony export */ });
+/* harmony import */ var _util_product_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/product_utils */ "./frontend/util/product_utils.js");
+
+var RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
+var RECEIVE_ALL_PRODUCTS = 'RECEIVE_ALL_PRODUCTS';
+
+var ReceiveProduct = function ReceiveProduct(product) {
+  return {
+    type: RECEIVE_PRODUCT,
+    product: product
+  };
+};
+
+var fetchProduct = function fetchProduct(productId) {
+  return function (dispatch) {
+    return _util_product_utils__WEBPACK_IMPORTED_MODULE_0__.fetchProduct(productId).then(function (product) {
+      return dispatch(ReceiveProduct(product));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/app.jsx":
 /*!*************************************!*\
   !*** ./frontend/components/app.jsx ***!
@@ -430,17 +465,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _category_product_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./category_product_reducer */ "./frontend/reducers/category_product_reducer.js");
 /* harmony import */ var _categories_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./categories_reducer */ "./frontend/reducers/categories_reducer.js");
+/* harmony import */ var _products_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./products_reducer */ "./frontend/reducers/products_reducer.js");
 
 
 
-var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
+
+var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
   categories: _categories_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  categoryProducts: _category_product_reducer__WEBPACK_IMPORTED_MODULE_0__["default"]
+  categoryProducts: _category_product_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
+  products: _products_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entitiesReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/products_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/products_reducer.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/product_actions */ "./frontend/actions/product_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var ProductsReducer = function ProductsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_product_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PRODUCT:
+      return Object.assign({}, _defineProperty({}, action.product.id, action.product));
+    // case RECEIVE_ALL_PRODUCTS:
+    // return Object.assign({}, action.product)
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductsReducer);
 
 /***/ }),
 
@@ -527,6 +601,33 @@ var fetchCategoryProducts = function fetchCategoryProducts(categoryId) {
   return $.ajax({
     method: 'GET',
     url: "api/categories/".concat(categoryId)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/product_utils.js":
+/*!****************************************!*\
+  !*** ./frontend/util/product_utils.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchAllProducts": () => (/* binding */ fetchAllProducts),
+/* harmony export */   "fetchProduct": () => (/* binding */ fetchProduct)
+/* harmony export */ });
+var fetchAllProducts = function fetchAllProducts() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/products'
+  });
+};
+var fetchProduct = function fetchProduct(productId) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/products/".concat(productId)
   });
 };
 

@@ -13,6 +13,9 @@ ActiveRecord::Base.transaction do
 #CATEGORIES
   dog = Category.create!(name: 'Dogs') #id: 1
   cat = Category.create!(name: 'Cats') #id: 2
+  bird = Category.create!(name: 'Birds') #id 3
+  fish = Category.create!(name: 'Fishes') #id 4
+  mammal = Category.create!(name: "Mammals") #id 5
 #PRODUCTS
   dog_product_1 = Product.create!(
     name: 'Big Bone',
@@ -30,6 +33,47 @@ ActiveRecord::Base.transaction do
     quantity: 2,
     price: 10.99
   )
+  dog_product_2 = Product.create!(
+    name: 'Tiny Bone', 
+    description: "One really tiny", 
+    seller_id: 1, 
+    category_id: 1, 
+    quantity: 2,
+    price: 10.99
+  )
+  dog_product_2 = Product.create!(
+    name: 'Tiny Bone', 
+    description: "One really tiny", 
+    seller_id: 1, 
+    category_id: 1, 
+    quantity: 2,
+    price: 10.99
+  )
+  dog_product_2 = Product.create!(
+    name: 'Tiny Bone', 
+    description: "One really tiny", 
+    seller_id: 1, 
+    category_id: 1, 
+    quantity: 2,
+    price: 10.99
+  )
+  dog_product_2 = Product.create!(
+    name: 'Tiny Bone', 
+    description: "One really tiny", 
+    seller_id: 1, 
+    category_id: 1, 
+    quantity: 2,
+    price: 10.99
+  )
+  dog_product_2 = Product.create!(
+    name: 'Tiny Bone', 
+    description: "One really tiny", 
+    seller_id: 1, 
+    category_id: 1, 
+    quantity: 2,
+    price: 10.99
+  )
+   
   
   cat_product_2 = Product.create!(
     name: 'Flea Collar', 

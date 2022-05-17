@@ -1,0 +1,19 @@
+.category-products-container {
+    display: flex;
+    justify-content: space-around;
+    border: 0.75rem;
+    background-color: black;
+    
+    flex-wrap: wrap;
+  }
+
+  .product-info-container {
+    display: flex;
+    justify-content: space-evenly;
+    border: 0.75rem;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    
+  }
+ 

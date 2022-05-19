@@ -63,6 +63,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RECEIVE_ALL_PRODUCTS": () => (/* binding */ RECEIVE_ALL_PRODUCTS),
 /* harmony export */   "RECEIVE_PRODUCT": () => (/* binding */ RECEIVE_PRODUCT),
+/* harmony export */   "fetchAllProducts": () => (/* binding */ fetchAllProducts),
 /* harmony export */   "fetchProduct": () => (/* binding */ fetchProduct)
 /* harmony export */ });
 /* harmony import */ var _util_product_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/product_utils */ "./frontend/util/product_utils.js");
@@ -77,10 +78,21 @@ var ReceiveProduct = function ReceiveProduct(product) {
   };
 };
 
+var ReceiveAllProducts = products = {
+  type: RECEIVE_ALL_PRODUCTS,
+  products: products
+};
 var fetchProduct = function fetchProduct(productId) {
   return function (dispatch) {
     return _util_product_utils__WEBPACK_IMPORTED_MODULE_0__.fetchProduct(productId).then(function (product) {
       return dispatch(ReceiveProduct(product));
+    });
+  };
+};
+var fetchAllProducts = function fetchAllProducts() {
+  return function (dispatch) {
+    return _util_product_utils__WEBPACK_IMPORTED_MODULE_0__.fetchAllProducts().then(function (products) {
+      return dispatch(ReceiveAllProducts(products));
     });
   };
 };
@@ -506,8 +518,9 @@ var ProductsReducer = function ProductsReducer() {
   switch (action.type) {
     case _actions_product_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_PRODUCT:
       return Object.assign({}, _defineProperty({}, action.product.id, action.product));
-    // case RECEIVE_ALL_PRODUCTS:
-    // return Object.assign({}, action.product)
+
+    case _actions_product_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_PRODUCTS:
+      return Object.assign({}, action.products);
 
     default:
       return state;

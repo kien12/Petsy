@@ -1,0 +1,38 @@
+.product-top-container {
+  display: flex;
+  border: 4px solid greenyellow;
+  margin: 20px 20px;
+  font-family: 'Martel', serif;
+}
+
+.product-image {
+  border: 2px solid red;
+  width: 60%;
+}
+
+.product-details {
+  border: 2px solid blue;
+  width: 40%;
+  // font-family: 'Courier New', Courier, monospace;
+  font-family: 'Optima', serif;
+}
+
+.product-details h1 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.product-details h2:nth-child(4) {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.product-details-description {
+  font-size: 14px;
+  font-weight: 600;
+  color: #727272;
+}
+
+.product-showpage-quantity {
+  max-width: auto;
+}

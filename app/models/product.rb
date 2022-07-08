@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer          not null
+#  quantity    :integer          not null
 #
 class Product < ApplicationRecord
   validates :name, :description, :seller_id, :category_id, presence: true
@@ -18,5 +19,7 @@ class Product < ApplicationRecord
     foreign_key: :category_id,
     class_name: "Category"
 
-    
+  belongs_to :seller,
+    foreign_key: :seller_id,
+    class_name: "Seller"
 end

@@ -9,10 +9,21 @@ const ReceiveProduct = (product) => {
     product
   }
 }
+const ReceiveAllProducts = (products) => {
+  return {
+    type: RECEIVE_ALL_PRODUCTS,
+    products
+  }
+}
 
 export const fetchProduct = (productId) => dispatch => {
   return ProductApiUtil.fetchProduct(productId)
     .then( product => dispatch(ReceiveProduct(product)))
-} 
+}
+
+export const fetchAllProducts = () => dispatch => {
+  return ProductApiUtil.fetchAllProducts()
+    .then( products => dispatch(ReceiveAllProducts(products)))
+}
 
 

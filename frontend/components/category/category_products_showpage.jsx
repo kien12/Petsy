@@ -11,7 +11,7 @@ class CategoryProductShowPage extends React.Component {
     window.scrollTo(0, 0);
   }
   componentDidUpdate(prevProps){
-    if (prevProps.match.params.id !== this.props.match.paramsid) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
       this.props.fetchCategoryProducts(this.props.match.params.id)
     }
   }
@@ -21,7 +21,7 @@ class CategoryProductShowPage extends React.Component {
     <div className='product-info-container'>
       <Link
         key={`${product.name}-${product.id}`}
-        to={`{/products/${product.id}`}
+        to={`/products/${product.id}`}
       >
         <h2>{product.name}</h2>
         <p>{product.description}</p>

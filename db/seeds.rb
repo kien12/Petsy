@@ -10,6 +10,11 @@ require 'open-uri'
 ActiveRecord::Base.transaction do
   Category.destroy_all
   Product.destroy_all
+  Seller.destroy_all
+#SELLERS
+  seller_1 = Seller.create!(name: 'Clifford')
+  seller_2 = Seller.create!(name: 'Tony')
+
 #CATEGORIES
   dog = Category.create!(name: 'Dogs') #id: 1
   cat = Category.create!(name: 'Cats') #id: 2

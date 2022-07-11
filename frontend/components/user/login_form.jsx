@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='modal-display'>
         <div className='modal-signup-register'>
           <div>Sign In</div>
           <button>Register</button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginFormContainer from '../session/login_form_container';
+import LoginFormContainer from '../user/login_form_container';
 // import SignupFormContainer from '../session/signup_form_container';
 //props = { modal, closeModal}
 //destructure ==> {modal, closeModal} <- this from container = props;

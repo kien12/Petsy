@@ -1,4 +1,4 @@
-import * UserApiUtil from '../util/user_util'
+import * as UserApiUtil from '../util/user_util'
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';

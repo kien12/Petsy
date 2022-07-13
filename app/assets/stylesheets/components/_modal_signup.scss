@@ -1,13 +1,30 @@
+.modal-display {
+  font-family: 'Taviraj', serif;
+  border: 5px solid yellow;
+  min-width: 29%;
+  min-height: 50%;
+  background-color: white;
+  
+}
+
 .modal-signup-register{
   border: 2px solid green;
   display: flex;
   justify-content: space-between;
+  padding: 20px;
+  font-family: inherit;
+}  
 
+.modal-signup-register div{
+  // font-family: inherit;
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.modal-display {
-  border: 5px solid yellow;
-  max-width: 40%;
-  max-height: 60%;
-  background-color: white;
+.modal-sign-in-text {
+  font-family: Arial, sans-serif;
+  // font-family: inherit;
+  font-size: 10px;
 }
+
+

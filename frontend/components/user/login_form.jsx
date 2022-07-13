@@ -13,22 +13,29 @@ class LoginForm extends React.Component {
     return (
       <div className='modal-display'>
         <div className='modal-signup-register'>
-          <div>Sign In</div>
+          <div className='modal-sign-in-text'>Sign In</div>
           <button>Register</button>
         </div>
         <form>
-          <label>Email Address</label>
-          <input 
-            type="text" 
-            name='Email Address'
-          />
-          <label>Password</label>
-          <input 
-            type="password" 
-            name='Password'
-          />
-          <button>Sign In</button>
+          <div>
+            <label>Email Address</label> <br />
+            <input 
+              type="text" 
+              name='Email Address'
+            />
+            </div>
+            <div>
+              <label>Password</label> <br />
+              <input 
+                type="password" 
+                name='Password'
+              />
+            </div>
+            <br />
+            <button>Sign In</button>
           </form>   
+          <button>Demo</button>
+          
       </div>
     )
   }

@@ -1,17 +1,20 @@
 .modal-display {
   // font-family: 'Taviraj', serif;
-  border: 5px solid yellow;
+  // border: 5px solid yellow;
   min-width: 29%;
   min-height: 50%;
+  border-radius: 30px;
   background-color: white;
-  
+  padding: 40px 30px;
 }
 
 .modal-signup-register{
-  border: 2px solid green;
+  overflow: hidden;
+  // border: 2px solid green;
   display: flex;
+  // background-color: red;
   justify-content: space-between;
-  padding: 20px;
+  // padding: 20px 20px;
   // font-family: inherit;
 }  
 

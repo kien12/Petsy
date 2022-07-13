@@ -18,14 +18,14 @@ class LoginForm extends React.Component {
         </div>
         <form>
           <div>
-            <label>Email Address</label> <br />
+            <label className='test'>Email Address</label> <br />
             <input 
               type="text" 
               name='Email Address'
             />
             </div>
             <div>
-              <label>Password</label> <br />
+              <label className='test'>Password</label> <br />
               <input 
                 type="password" 
                 name='Password'

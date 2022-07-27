@@ -23,6 +23,31 @@
   font-family: 'Taviraj';
   font-size: 20px;
   font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.modal-register-button {
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-sign-in-email {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.modal-sign-in-password {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.modal-sign-in-button {
+  border-radius: 12px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 90%;
+  height: 35px;
 }
 
 // .test {

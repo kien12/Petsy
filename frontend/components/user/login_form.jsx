@@ -22,13 +22,16 @@ class LoginForm extends React.Component {
             <input 
               type="text" 
               name='Email Address'
+              placeholder="enter email"
             />
             </div>
+            <br/>
             <div>
               <label className='modal-sign-in-password'>Password</label> <br />
               <input 
                 type="password" 
                 name='Password'
+                placeholder="enter password"
               />
             </div>
             <br />

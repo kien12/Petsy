@@ -30,10 +30,10 @@
 
 .modal-sign-in-text {
   // font-family: 'Permanent Marker';
-  font-family: 'Taviraj';
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-family: inherit;
+  font-size: 23px;
+  // font-weight: 600;
+  padding-bottom: 20px;
 }
 
 .modal-register-button {
@@ -51,13 +51,14 @@
 
 .modal-sign-in-email {
   font-size: 15px;
-  font-weight: 600;
+  // font-weight: 600;
   margin-bottom: 20px;
 }
 
 .modal-sign-in-password {
   font-size: 15px;
-  font-weight: 600;
+  // font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .modal-sign-in-button {
@@ -77,6 +78,18 @@
   background-color: green;
   color: white;
   text-align: center;
+}
+
+.form-field {
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  border: 0.5px solid #e8f0fe;
+  font-size: 1.5vh;
+  height: 50px;
+  width: 100%;
+  text-indent: 10px;
+  margin: 10px 0 10px 0;
 }
 // .test {
   // font-family: 'Permanent Marker';

@@ -1,0 +1,106 @@
+.modal-display {
+  // font-family: 'Taviraj', serif;
+  // border: 5px solid yellow;
+  min-width: 350px;
+  max-width: 23vw;
+  min-height: 450px;
+  max-height: 550px;
+  border-radius: 30px;
+  background-color: white;
+  padding: 40px 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: fixed;
+  box-sizing: border-box;
+  font-family: 'Roboto Serif', serif;
+}
+
+.modal-signup-register{
+  overflow: hidden;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  height: auto;
+  background-color: white;  
+  font-family: inherit;
+  // padding: 20px 20px;
+  // font-family: inherit;
+}  
+
+.modal-sign-in-text {
+  // font-family: 'Permanent Marker';
+  font-family: inherit;
+  font-size: 23px;
+  display: inline-block;
+  // font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.modal-register-button {
+  border-radius: 12px;
+  margin-bottom: 20px;
+  max-width: 100px;
+  min-width: 70px;
+  height: auto;
+  background-color: white;
+  border: 1.5px solid #523313;
+  font-size: 15px;
+  border-radius: 17px;
+  padding: 8px;
+  font-family: inherit;
+}
+
+.modal-sign-in-email {
+  font-size: 15px;
+  font-family: inherit;
+  // font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.modal-sign-in-password {
+  font-size: 15px;
+  font-family: inherit;
+  // font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.modal-sign-in-button {
+  border-radius: 12px;
+  font-family: inherit;
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 280px;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.modal-demo-button {
+  font-family: inherit;
+  width: 280px;
+  height: 35px;
+  border-radius: 12px;
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.form-field {
+  display: flex;
+  font-family: inherit;
+  justify-content: center;
+  border-radius: 3px;
+  border: 0.5px solid #e8f0fe;
+  font-size: 1.5vh;
+  height: 50px;
+  width: 100%;
+  text-indent: 10px;
+  margin: 10px 0 10px 0;
+}
+// .test {
+  // font-family: 'Permanent Marker';
+// }
+

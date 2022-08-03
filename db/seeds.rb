@@ -11,6 +11,11 @@ ActiveRecord::Base.transaction do
   Category.destroy_all
   Product.destroy_all
   Seller.destroy_all
+  User.destroy_all
+#USERS
+  user_1 = User.create!(username: 'Tommy', email: 'TommyTurnip@gmail.com', password: 'vegetables')
+  user_2 = User.create!(username: 'Ken', email: 'BarbieNKen@gmail.com', password: 'barbieworld')
+  user_3 = User.create!(username: 'Barbie', email: 'KenNBarbie@gmail.com', password: 'barbieworld')
 #SELLERS
   seller_1 = Seller.create!(name: 'Clifford')
   seller_2 = Seller.create!(name: 'Tony')

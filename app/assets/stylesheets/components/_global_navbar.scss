@@ -1,0 +1,24 @@
+.top-nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-nav-bar-logo {
+  border: 2px solid red;
+  min-width: 10%;
+}
+
+.top-nav-bar-search-bar {
+  border: 2px solid blue;
+  min-width: 70%;
+}
+
+.top-nav-bar-login {
+  border: 2px solid orange;
+  min-width: 10%;
+}
+
+.top-nav-bar-cart {
+  border: 2px solid black;
+  min-width: 10%;
+}

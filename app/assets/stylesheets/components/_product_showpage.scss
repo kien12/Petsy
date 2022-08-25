@@ -3,8 +3,27 @@
   font-family: 'Roboto Serif', serif;
   border: 4px solid greenyellow;
   margin: 20px 20px;
-  font-family: 'Martel', serif;
+  font-family: 'Roboto Serif', serif;
 }
+
+.product-showpage-container {
+  font-family: 'Roboto Serif', serif;
+}
+
+.product-seller-name {
+  font-family: inherit;
+  font-size: 16px;
+  margin: 10px 10px;
+}
+
+.product-item-name {
+  font-family: inherit;
+  font-size: 25px;
+  margin: 10px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
 
 .product-image {
   border: 2px solid red;
@@ -13,29 +32,50 @@
   overflow: hidden;
 }
 
-. {
-  border: 2px solid blue;
-  width: 40%;
-  // font-family: 'Courier New', Courier, monospace;
-  font-family: inherit;
+.product-price {
+  font-family: 'Taviraj', serif;
+  font-weight: 400;
+  font-size: 26px;
+  margin: 10px 0px 50px 10px;
 }
 
-.h1 {
-  font-size: 25px;
-  font-weight: 500;
-}
-
-.h2:nth-child(4) {
-  font-weight: 600;
-  font-size: 20px;
-}
-
-.-description {
-  font-size: 50px;
-  font-weight: 600;
-  color: #727272;
-}
-
-.product-showpage-quantity {
+.product-quantity {
   max-width: auto;
+  font-family: inherit;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.product-quantity-bar {
+  margin: 5px 0px 10px 10px;
+  width: 50%;
+  height: 40px;
+  box-shadow: 1px 1px 10px #e8e8e8;
+  // background-color: transparent;
+  font-family: 'Taviraj', serif;
+}
+
+.product-add-to-cart-button {
+  width: 50%;
+  height: 40px;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  margin-left: 10px;
+}
+
+.product-description {
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-family: 'Taviraj', serif;
+}
+
+.product-details {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-weight: 300;
+  font-family: 'Taviraj', serif;
 }

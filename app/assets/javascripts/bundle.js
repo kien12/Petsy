@@ -757,11 +757,15 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-details"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-        className: "product-showpage-container"
-      }, seller_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "$", price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        className: "product-showpage-quantity"
+        className: "product-seller-name"
+      }, "Clifford's Store"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        className: "product-item-name"
+      }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+        className: "product-price"
+      }, "$", price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        className: "product-quantity"
       }, "Quantity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-        className: "product-showpage-quantity"
+        className: "product-quantity-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
       }, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
@@ -772,9 +776,13 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
         value: "4"
       }, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "5"
-      }, "5"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-        className: "product-details-description"
-      }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", null, "REVIEW COMPONENT"));
+      }, "5")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "product-add-to-cart-button"
+      }, "Add to Cart")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        className: "product-description"
+      }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+        className: "product-details"
+      }, description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", null, "REVIEW COMPONENT"));
     }
   }]);
 

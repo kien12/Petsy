@@ -29,25 +29,26 @@ class ProductShowPage extends React.Component {
             <img src={window.testProductPicture} alt="image" />
             {/* <a> image </a> */}
           </div>
-          <div className='product-details'
-          >
-            <h2 className='product-showpage-container'>{seller_name}</h2>
-            <h1>{name}</h1>
-            <h2>${price}</h2>
+          <div className='product-details'>
+            {/* seller name is hard coded */}
+            <h2 className='product-seller-name'>Clifford's Store</h2>
+            <h1 className='product-item-name'>{name}</h1>
+            <h2 className='product-price'>${price}</h2>
             <div>
-              <label className="product-showpage-quantity">Quantity</label><br></br>
-                <select className="product-showpage-quantity">
+              <label className="product-quantity">Quantity</label><br/>
+                <select className="product-quantity-bar">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
               </select>
+            <button className="product-add-to-cart-button">Add to Cart</button>
             </div>
             <br>
             </br>
-            <span className='product-details-description'>Description</span>
-            <h2>{description}</h2>
+            <span className='product-description'>Description</span>
+            <h2 className='product-details'>{description}</h2>
           </div>
         </section>
         <section>REVIEW COMPONENT</section>

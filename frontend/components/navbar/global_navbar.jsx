@@ -1,6 +1,7 @@
 import React from 'react';
 import CategoryNavContainer from '../category/category_nav_container';
 import SearchBarContainer from './search_result'
+
 class GlobalNavBar extends React.Component {
   constructor(props) {
     super(props)

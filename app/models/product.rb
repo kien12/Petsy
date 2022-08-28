@@ -22,4 +22,8 @@ class Product < ApplicationRecord
   belongs_to :seller,
     foreign_key: :seller_id,
     class_name: "Seller"
+
+    has_many :reviews,
+      foreign_key: :product_id,
+      class_name: 'Review'
 end

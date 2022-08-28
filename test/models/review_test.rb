@@ -8,6 +8,7 @@
 #  user_id    :integer          not null
 #  product_id :integer          not null
 #  rating     :integer          not null
+#  body       :text
 #
 require 'test_helper'
 

@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
   }
 
   demoUser() {
-    const user = { email: 'BarbieNKen@gmail.com', password: 'barbieworld'}
+    const user = { email: 'Admin@admin.com', password: '@Admin'}
     this.props.login(user).then(this.props.closeModal)
   }
 
@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
       <div className='modal-display' onClick={ e => e.stopPropagation()}>
         <div className='modal-signup-register'>
           <div className='modal-sign-in-text'>Sign In</div>
-          <button className='modal-register-button'>Register</button>
+          <button className='modal-register-button' onClick={() =>this.props.otherForm('signup')}>Register</button>
         </div>
         <form>
           <div>

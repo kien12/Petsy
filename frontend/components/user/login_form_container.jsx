@@ -14,11 +14,7 @@ const mSTP = state => {
 const mDTP = dispatch => {
   return {
     login: user => dispatch(login(user)),
-    otherForm: (
-      <button onClick={() => dispatch(openModal('signup'))}>
-        Signup
-      </button>
-    ),
+    otherForm: (state) => dispatch(openModal(state)),
     closeModal: () => dispatch(closeModal()),
     openModal: (modal) => dispatch(openModal(modal))
   }

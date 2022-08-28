@@ -9,6 +9,7 @@ class GlobalNavBar extends React.Component {
 
 
   render() {
+    const { logout, currentUser } = this.props;
 
     console.log("this.props", this.props);
     return (
@@ -21,8 +22,8 @@ class GlobalNavBar extends React.Component {
           <div className='top-nav-bar-search-bar'>
             <SearchBarContainer/>
           </div>
-          {this.props.currentUser ? (
-            <button className='top-nav-bar-login' >Log Out</button>
+          {currentUser ? (
+            <button className='top-nav-bar-login' onClick={logout}>Log Out</button>
            ) : (
             <button className='top-nav-bar-login' onClick={() => this.props.openModal('login')}>Sigh in</button>
            )}

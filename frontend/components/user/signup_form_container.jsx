@@ -1,4 +1,4 @@
-import { connect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { signup } from '../../actions/user_action'
 import React from 'react';
@@ -12,12 +12,8 @@ const mSTP = ({ errors }) => ({
 
 
 const mDTP = dispatch => ({
-  processForm: user => dispatch(signup(user)),
-  otherForm: (
-    <button onClick={() => dispatch(openModal('login'))}>
-      Login
-    </button>
-  ),
+  signup: user => dispatch(signup(user)),
+  otherForm: (state) => dispatch(openModal(state)),
   closeModal: () => dispatch(closeModal()),
 })
 

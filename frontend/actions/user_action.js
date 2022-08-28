@@ -24,7 +24,7 @@ const receiveErrors = (errors) => {
   }
 }
 
-const signup = (user) => dispatch => {
+export const signup = (user) => dispatch => {
   return UserApiUtil.signup(user)
     .then( 
       user => dispatch(receiveCurrentUser(user)),
@@ -32,7 +32,7 @@ const signup = (user) => dispatch => {
     )
 }
 
-const login = (user) => dispatch => {
+export const login = (user) => dispatch => {
   return UserApiUtil.login(user)
     .then(
       user => dispatch(receiveCurrentUser(user)),
@@ -40,7 +40,7 @@ const login = (user) => dispatch => {
     )
 }
 
-const logout = () => dispatch => {
+export const logout = () => dispatch => {
   return UserApiUtil.logout()
     .then(
       () => dispatch(logout()),

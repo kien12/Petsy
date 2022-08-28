@@ -143,7 +143,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "LOGOUT_CURRENT_USER": () => (/* binding */ LOGOUT_CURRENT_USER),
 /* harmony export */   "RECEIVE_CURRENT_USER": () => (/* binding */ RECEIVE_CURRENT_USER),
-/* harmony export */   "RECEIVE_ERRORS": () => (/* binding */ RECEIVE_ERRORS)
+/* harmony export */   "RECEIVE_ERRORS": () => (/* binding */ RECEIVE_ERRORS),
+/* harmony export */   "login": () => (/* binding */ login),
+/* harmony export */   "logout": () => (/* binding */ logout),
+/* harmony export */   "signup": () => (/* binding */ signup)
 /* harmony export */ });
 /* harmony import */ var _util_user_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/user_util */ "./frontend/util/user_util.js");
 
@@ -180,7 +183,6 @@ var signup = function signup(user) {
     });
   };
 };
-
 var login = function login(user) {
   return function (dispatch) {
     return _util_user_util__WEBPACK_IMPORTED_MODULE_0__.login(user).then(function (user) {
@@ -190,7 +192,6 @@ var login = function login(user) {
     });
   };
 };
-
 var logout = function logout() {
   return function (dispatch) {
     return _util_user_util__WEBPACK_IMPORTED_MODULE_0__.logout().then(function () {
@@ -623,7 +624,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props);
+      console.log("this.props", this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -633,7 +634,9 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
         alt: "petsy-logo"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar-search-bar"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_result__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_result__WEBPACK_IMPORTED_MODULE_2__["default"], null)), this.props.currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "top-nav-bar-login"
+      }, "Log Out") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "top-nav-bar-login",
         onClick: function onClick() {
           return _this.props.openModal('login');
@@ -671,8 +674,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var mSTP = function mSTP(state) {
+  return {
+    currentUser: state.sessions.currentUserId
+  };
+};
+
 var mDTP = function mDTP(dispatch) {
   return {
+    login: function login(user) {
+      return dispatch((0,_actions_user_action__WEBPACK_IMPORTED_MODULE_2__.login)(user));
+    },
     openModal: function openModal(modal) {
       return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__.openModal)(modal));
     },
@@ -682,7 +694,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(null, mDTP)(_global_navbar__WEBPACK_IMPORTED_MODULE_0__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mSTP, mDTP)(_global_navbar__WEBPACK_IMPORTED_MODULE_0__["default"]));
 
 /***/ }),
 
@@ -993,6 +1005,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       email: '',
       password: ''
     };
+    _this.demoUser = _this.demoUser.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
@@ -1013,7 +1026,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      this.props.processForm(this.state).them(function () {
+      this.props.login(this.state).then(function () {
         return _this3.props.closeModal();
       });
     }
@@ -1021,10 +1034,10 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     key: "demoUser",
     value: function demoUser() {
       var user = {
-        email: 'guest@guest.com',
-        password: 'password'
+        email: 'BarbieNKen@gmail.com',
+        password: 'barbieworld'
       };
-      this.props.processForm(user).then(this.props.closeModal);
+      this.props.login(user).then(this.props.closeModal);
     }
   }, {
     key: "render",
@@ -1057,7 +1070,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "modal-sign-in-button"
       }, "Sign In")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "modal-demo-button"
+        className: "modal-demo-button",
+        onClick: this.demoUser
       }, "Demo"));
     }
   }]);
@@ -1082,7 +1096,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _login_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login_form */ "./frontend/components/user/login_form.jsx");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_action */ "./frontend/actions/user_action.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
 
 
 
@@ -1096,11 +1114,19 @@ var mSTP = function mSTP(state) {
 
 var mDTP = function mDTP(dispatch) {
   return {
-    openModal: function openModal(modal) {
-      return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__.openModal)(modal));
+    login: function login(user) {
+      return dispatch((0,_actions_user_action__WEBPACK_IMPORTED_MODULE_2__.login)(user));
     },
+    otherForm: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("button", {
+      onClick: function onClick() {
+        return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__.openModal)('signup'));
+      }
+    }, "Signup"),
     closeModal: function closeModal() {
-      return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__.closeModal)());
+      return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__.closeModal)());
+    },
+    openModal: function openModal(modal) {
+      return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__.openModal)(modal));
     }
   };
 };

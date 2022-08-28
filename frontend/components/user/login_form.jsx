@@ -8,6 +8,7 @@ class LoginForm extends React.Component {
       password: ''
     }
 
+    this.demoUser = this.demoUser.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -20,13 +21,13 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state)
-      .them(() => this.props.closeModal())
+    this.props.login(this.state)
+      .then(() => this.props.closeModal())
   }
 
   demoUser() {
-    const user = { email: 'guest@guest.com', password: 'password'}
-    this.props.processForm(user).then(this.props.closeModal)
+    const user = { email: 'BarbieNKen@gmail.com', password: 'barbieworld'}
+    this.props.login(user).then(this.props.closeModal)
   }
 
   render() {
@@ -57,8 +58,9 @@ class LoginForm extends React.Component {
             </div>
             <br />
             <button className='modal-sign-in-button'>Sign In</button>
+        
           </form>   
-          <button className='modal-demo-button'>Demo</button>
+          <button className='modal-demo-button' onClick={this.demoUser}>Demo</button>
           
       </div>
     )

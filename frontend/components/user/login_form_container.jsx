@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import LoginForm from './login_form';
+import { login } from '../../actions/user_action';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import React from 'react';
 
 const mSTP = state => {
   return {
@@ -11,8 +13,14 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
   return {
-    openModal: (modal) => dispatch(openModal(modal)),
-    closeModal: () => dispatch(closeModal())
+    login: user => dispatch(login(user)),
+    otherForm: (
+      <button onClick={() => dispatch(openModal('signup'))}>
+        Signup
+      </button>
+    ),
+    closeModal: () => dispatch(closeModal()),
+    openModal: (modal) => dispatch(openModal(modal))
   }
 }
 

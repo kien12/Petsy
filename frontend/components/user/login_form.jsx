@@ -7,11 +7,31 @@ class LoginForm extends React.Component {
       email: '',
       password: ''
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(type) {
+    return (e) => {
+      this.setState({ [type]: e.target.value});
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.processForm(this.state)
+      .them(() => this.props.closeModal())
+  }
+
+  demoUser() {
+    const user = { email: 'guest@guest.com', password: 'password'}
+    this.props.processForm(user).then(this.props.closeModal)
   }
 
   render() {
     return (
-      <div className='modal-display'>
+      <div className='modal-display' onClick={ e => e.stopPropagation()}>
         <div className='modal-signup-register'>
           <div className='modal-sign-in-text'>Sign In</div>
           <button className='modal-register-button'>Register</button>

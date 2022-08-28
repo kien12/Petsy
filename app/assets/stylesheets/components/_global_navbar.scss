@@ -1,6 +1,11 @@
 .top-nav-bar {
   display: flex;
   justify-content: space-between;
+  margin-left: 75px;
+  margin-top: 20px;
+  background-color: #D3D3D3;
+  border: 2px solid black;
+  
 }
 
 // .top-nav-bar-logo {
@@ -16,21 +21,23 @@
 .top-nav-bar-search-bar input {
   width: 100%;
   height: 40px;
+  border-radius: 25px;
   text-align: center;
 }
 
 .top-nav-bar-login {
   border: 2px solid orange;
   min-width: 10%;
-  
+  background-color: #D3D3D3;
 }
 
 .top-nav-bar-cart {
   border: 2px solid black;
   min-width: 10%;
+  background-color: #D3D3D3;
 }
 
 .logo img {
-  width: 60px;
-  margin-left: 20px;
+  width: 100%;
+  height: 100%;
 }

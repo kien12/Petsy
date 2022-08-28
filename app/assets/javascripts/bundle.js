@@ -1236,11 +1236,11 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
           return e.stopPropagation();
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "modal-signup-register"
+        className: "modal-register-signup"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "modal-sign-in-text"
+        className: "modal-register-text"
       }, "Register"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "modal-register-button",
+        className: "modal-signin-button",
         onClick: function onClick() {
           return _this4.props.otherForm('login');
         }

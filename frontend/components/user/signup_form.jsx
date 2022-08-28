@@ -28,9 +28,9 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className='modal-display' onClick={ e => e.stopPropagation()}>
-        <div className='modal-signup-register'>
-          <div className='modal-sign-in-text' >Register</div>
-          <button className='modal-register-button' onClick={() => this.props.otherForm('login')}>Sign In</button>
+        <div className='modal-register-signup'>
+          <div className='modal-register-text' >Register</div>
+          <button className='modal-signin-button' onClick={() => this.props.otherForm('login')}>Sign In</button>
         </div>
         <form onSubmit={this.handleSubmit}>
           <div>

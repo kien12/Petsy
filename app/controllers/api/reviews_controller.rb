@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class Api::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
@@ -11,21 +11,12 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+    render '/api/reviews'
   end
 
   def show
     @review = Review.find_by(id: params[:id])
-    render '/api/reviews/:id'
-  end
-
-  def destroy
-    @review = Review.find_by(id: params[:id])
-    
-    if @review
-      @review.delete
-    else
-      render json: ['Review does not exist'], status: 422
-    end
+    render '/api/reviews/show'
   end
 
   def update
@@ -36,6 +27,16 @@ class ReviewsController < ApplicationController
       render json: @review.errors.full_messages, status: 422
     end
   end
+
+  def destroy
+    @review = Review.find_by(id: params[:id])
+    if @review
+      @review.delete
+    else
+      render json: ['Review does not exist'], status: 422
+    end
+  end
+
 
 
   private

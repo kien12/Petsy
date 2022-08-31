@@ -12,6 +12,8 @@ ActiveRecord::Base.transaction do
   Product.destroy_all
   Seller.destroy_all
   User.destroy_all
+  Review.destroy_all
+  
 #USERS
   user_1 = User.create!(username: 'Tommy', email: 'TommyTurnip@gmail.com', password: 'vegetables')
   user_2 = User.create!(username: 'Ken', email: 'BarbieNKen@gmail.com', password: 'barbieworld')
@@ -94,6 +96,21 @@ ActiveRecord::Base.transaction do
     quantity: 4,
     price: 30.00
   )
-  
+
+
+ ### REVIEWS 
+  review_1 = Review.create!(
+    user_id: 1,
+    product_id: 1,
+    rating: 5,
+    body: 'testing 1'
+  )
+
+  review_2 = Review.create!(
+    user_id: 1,
+    product_id: 1,
+    rating: 5,
+    body: 'testing 2'
+  )
   
 end

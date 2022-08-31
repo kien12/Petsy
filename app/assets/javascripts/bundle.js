@@ -132,6 +132,56 @@ var fetchAllProducts = function fetchAllProducts() {
 
 /***/ }),
 
+/***/ "./frontend/actions/review_action.js":
+/*!*******************************************!*\
+  !*** ./frontend/actions/review_action.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_ALL_REVIEWS": () => (/* binding */ RECEIVE_ALL_REVIEWS),
+/* harmony export */   "RECEIVE_REVIEW": () => (/* binding */ RECEIVE_REVIEW),
+/* harmony export */   "fetchAllReview": () => (/* binding */ fetchAllReview),
+/* harmony export */   "fetchReview": () => (/* binding */ fetchReview)
+/* harmony export */ });
+/* harmony import */ var _util_review_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/review_utils */ "./frontend/util/review_utils.js");
+
+var RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+var RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS';
+
+var ReceiveReview = function ReceiveReview(review) {
+  return {
+    type: RECEIVE_REVIEW,
+    review: review
+  };
+};
+
+var ReceiveAllReview = function ReceiveAllReview(reviews) {
+  return {
+    type: RECEIVE_ALL_REVIEWS,
+    reviews: reviews
+  };
+};
+
+var fetchReview = function fetchReview(reviewId) {
+  return function (dispatch) {
+    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.fetchReview(reviewId).then(function (review) {
+      return dispatch(ReceiveReview(review));
+    });
+  };
+};
+var fetchAllReview = function fetchAllReview() {
+  return function (dispatch) {
+    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.fetchReview().then(function (reviews) {
+      return dispatch(ReceiveReview(reviews));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/user_action.js":
 /*!*****************************************!*\
   !*** ./frontend/actions/user_action.js ***!
@@ -1409,20 +1459,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _category_product_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./category_product_reducer */ "./frontend/reducers/category_product_reducer.js");
 /* harmony import */ var _categories_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./categories_reducer */ "./frontend/reducers/categories_reducer.js");
 /* harmony import */ var _products_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./products_reducer */ "./frontend/reducers/products_reducer.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _reviews_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reviews_reducer */ "./frontend/reducers/reviews_reducer.js");
 
 
 
 
 
-var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_4__.combineReducers)({
+
+var entitiesReducer = (0,redux__WEBPACK_IMPORTED_MODULE_5__.combineReducers)({
   categories: _categories_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   categoryProducts: _category_product_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
   products: _products_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entitiesReducer);
@@ -1519,6 +1572,43 @@ var ProductsReducer = function ProductsReducer() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/reviews_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/reviews_reducer.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_review_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/review_action */ "./frontend/actions/review_action.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var ReviewsReducer = function ReviewsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_review_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_REVIEW:
+      return Object.assign({}, _defineProperty({}, action.review.id, action.review));
+
+    case _actions_review_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_REVIEWS:
+      return Object.assign({}, action.reviews);
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewsReducer);
 
 /***/ }),
 
@@ -1773,6 +1863,33 @@ var fetchProduct = function fetchProduct(productId) {
   return $.ajax({
     method: 'GET',
     url: "api/products/".concat(productId)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/review_utils.js":
+/*!***************************************!*\
+  !*** ./frontend/util/review_utils.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchAllReviews": () => (/* binding */ fetchAllReviews),
+/* harmony export */   "fetchReview": () => (/* binding */ fetchReview)
+/* harmony export */ });
+var fetchAllReviews = function fetchAllReviews() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/reviews'
+  });
+};
+var fetchReview = function fetchReview(reviewId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/reviews/".concat(id)
   });
 };
 

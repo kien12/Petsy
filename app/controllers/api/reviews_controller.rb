@@ -8,10 +8,10 @@ class Api::ReviewsController < ApplicationController
       render json: @review.errors.full_messages, status: 422
     end
   end
-
+#does not work
   def index
     @reviews = Review.all
-    render '/api/reviews'
+    render '/api/reviews/index'
   end
 
   def show

@@ -2052,8 +2052,10 @@ var fetchProduct = function fetchProduct(productId) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createReview": () => (/* binding */ createReview),
 /* harmony export */   "getAllReviews": () => (/* binding */ getAllReviews),
-/* harmony export */   "getReview": () => (/* binding */ getReview)
+/* harmony export */   "getReview": () => (/* binding */ getReview),
+/* harmony export */   "modifyReview": () => (/* binding */ modifyReview)
 /* harmony export */ });
 var getAllReviews = function getAllReviews() {
   return $.ajax({
@@ -2065,6 +2067,24 @@ var getReview = function getReview(reviewId) {
   return $.ajax({
     method: 'GET',
     url: "/api/reviews/".concat(reviewId)
+  });
+};
+var createReview = function createReview(review) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/reviews',
+    data: {
+      review: review
+    }
+  });
+};
+var modifyReview = function modifyReview(reviewId, review) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/reviews/".concat(reviewId),
+    data: {
+      review: review
+    }
   });
 };
 

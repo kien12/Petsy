@@ -142,6 +142,7 @@ var fetchAllProducts = function fetchAllProducts() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RECEIVE_ALL_REVIEWS": () => (/* binding */ RECEIVE_ALL_REVIEWS),
+/* harmony export */   "RECEIVE_ERRORS": () => (/* binding */ RECEIVE_ERRORS),
 /* harmony export */   "RECEIVE_REVIEW": () => (/* binding */ RECEIVE_REVIEW),
 /* harmony export */   "fetchAllReviews": () => (/* binding */ fetchAllReviews),
 /* harmony export */   "fetchReview": () => (/* binding */ fetchReview)
@@ -150,32 +151,44 @@ __webpack_require__.r(__webpack_exports__);
 
 var RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 var RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS';
+var RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
-var ReceiveReview = function ReceiveReview(review) {
+var receiveReview = function receiveReview(review) {
   return {
     type: RECEIVE_REVIEW,
     review: review
   };
 };
 
-var ReceiveAllReview = function ReceiveAllReview(reviews) {
+var receiveAllReview = function receiveAllReview(reviews) {
   return {
     type: RECEIVE_ALL_REVIEWS,
     reviews: reviews
   };
 };
 
+var receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_ERRORS,
+    errors: errors
+  };
+};
+
 var fetchReview = function fetchReview(reviewId) {
   return function (dispatch) {
     return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.getReview(reviewId).then(function (review) {
-      return dispatch(ReceiveReview(review));
+      return dispatch(receiveReview(review));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
     });
   };
 };
 var fetchAllReviews = function fetchAllReviews() {
   return function (dispatch) {
     return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.getAllReviews().then(function (reviews) {
-      return dispatch(ReceiveAllReview(reviews));
+      return dispatch(receiveAllReview(reviews));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
     });
   };
 };
@@ -1600,12 +1613,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_errors_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users_errors_reducer */ "./frontend/reducers/users_errors_reducer.js");
+/* harmony import */ var _reviews_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviews_errors_reducer */ "./frontend/reducers/reviews_errors_reducer.js");
 
 
-var errorsReducer = (0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
-  userErrors: _users_errors_reducer__WEBPACK_IMPORTED_MODULE_0__["default"]
+
+var errorsReducer = (0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
+  userErrors: _users_errors_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
+  reviewErrors: _reviews_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (errorsReducer);
 
@@ -1679,6 +1695,41 @@ var ProductsReducer = function ProductsReducer() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/reviews_errors_reducer.js":
+/*!*****************************************************!*\
+  !*** ./frontend/reducers/reviews_errors_reducer.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _actions_review_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/review_action */ "./frontend/actions/review_action.js");
+
+
+var ReviewsErrorsReducer = function ReviewsErrorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_review_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ERRORS:
+      return action.errors;
+
+    case _actions_review_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_REVIEWS:
+      return Object.assign({}, action.reviews);
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewsErrorsReducer);
 
 /***/ }),
 

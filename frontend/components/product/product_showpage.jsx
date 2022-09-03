@@ -20,9 +20,12 @@ class ProductShowPage extends React.Component {
       name, 
       description,  
       price,
-      seller_name 
+      sellerName, 
+      reviews
     } = this.props.product;
-
+    
+    console.log('this.props.product', this.props.product)
+    console.log('reviews inside product showpage', reviews)
     return (    
       <div className='product-showpage-container'>
         <section className='product-top-container'>
@@ -31,8 +34,7 @@ class ProductShowPage extends React.Component {
             {/* <a> image </a> */}
           </div>
           <div className='product-details'>
-            {/* seller name is hard coded */}
-            <h2 className='product-seller-name'>Clifford's Store</h2>
+            <h2 className='product-seller-name'>{`${sellerName}'s Store`}</h2>
             <h1 className='product-item-name'>{name}</h1>
             <h2 className='product-price'>${price}</h2>
             <div>
@@ -53,7 +55,7 @@ class ProductShowPage extends React.Component {
           </div>
         </section>
         <section className='review-container'>
-          <ReviewContainer/>
+          <ReviewContainer reviews={reviews}/>
         </section>
       </div>
     )

@@ -6,9 +6,22 @@ class Review extends React.Component {
   }
 
   render() {
+  
+  const {reviews} = this.props;
 
+  let reviewsList = reviews.map(({body, id, productId, rating, userId}) => (
+    <h2>
+      {/* {body} {rating} {userId} */}
+      {review}
+    </h2>
+  )) 
+
+
+  console.log('review props', this.props) 
     return(
-      <div>REVIEW WORKZzZZZ</div>
+      <div>
+        {reviewsList}
+      </div>
     )
   }
 }

@@ -909,7 +909,10 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
           name = _this$props$product.name,
           description = _this$props$product.description,
           price = _this$props$product.price,
-          seller_name = _this$props$product.seller_name;
+          sellerName = _this$props$product.sellerName,
+          reviews = _this$props$product.reviews;
+      console.log('this.props.product', this.props.product);
+      console.log('reviews inside product showpage', reviews);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-showpage-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
@@ -923,7 +926,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
         className: "product-details"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "product-seller-name"
-      }, "Clifford's Store"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+      }, "".concat(sellerName, "'s Store")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "product-item-name"
       }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "product-price"
@@ -949,7 +952,9 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
         className: "product-details"
       }, description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "review-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        reviews: reviews
+      })));
     }
   }]);
 
@@ -1048,7 +1053,17 @@ var Review = /*#__PURE__*/function (_React$Component) {
   _createClass(Review, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "REVIEW WORKZzZZZ");
+      var reviews = this.props.reviews;
+      var reviewsList = reviews.map(function (_ref) {
+        var body = _ref.body,
+            id = _ref.id,
+            productId = _ref.productId,
+            rating = _ref.rating,
+            userId = _ref.userId;
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, review);
+      });
+      console.log('review props', this.props);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList);
     }
   }]);
 
@@ -1078,11 +1093,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mSTP = function mSTP(state) {
+var mSTP = function mSTP(state, ownProps) {
   console.log('reviews state', state);
+  console.log('reviews ownProps', ownProps);
   return {
     // review: state.entities.reviews
-    reviews: Object.values(state.entities.reviews)
+    reviews: ownProps.reviews
   };
 };
 

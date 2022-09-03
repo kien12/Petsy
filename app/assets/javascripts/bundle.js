@@ -979,6 +979,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  console.log('this is ownProps for product', ownProps);
   return {
     product: state.entities.products[ownProps.match.params.id],
     products: Object.values(state.entities.products)
@@ -1722,7 +1723,7 @@ var ReviewsErrorsReducer = function ReviewsErrorsReducer() {
       return action.errors;
 
     case _actions_review_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_REVIEWS:
-      return Object.assign({}, action.reviews);
+      return [];
 
     default:
       return state;

@@ -3,6 +3,7 @@ import { fetchProduct } from '../../actions/product_actions'
 import ProductShowpage from './product_showpage';
 
 const mSTP = (state, ownProps) => {
+  console.log('this is ownProps for product', ownProps)
   return { 
     product: state.entities.products[ownProps.match.params.id],
     products: Object.values(state.entities.products)

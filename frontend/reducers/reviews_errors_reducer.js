@@ -6,7 +6,7 @@ const ReviewsErrorsReducer = (state = [], action) => {
     case RECEIVE_ERRORS:
       return action.errors;
     case RECEIVE_ALL_REVIEWS:
-      return Object.assign({}, action.reviews)
+      return [];
     default:
       return state;
   }

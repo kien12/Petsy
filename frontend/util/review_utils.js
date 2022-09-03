@@ -1,14 +1,13 @@
-export const fetchAllReviews= () => (
+export const getAllReviews= () => (
   $.ajax({
     method: 'GET',
     url: '/api/reviews'
   })
 );
 
-export const fetchReview= (reviewId) => (
+export const getReview= (reviewId) => (
   $.ajax({
     method: 'GET',
-    url: `/api/reviews/${id}`
+    url: `/api/reviews/${reviewId}`
   })
 );
-

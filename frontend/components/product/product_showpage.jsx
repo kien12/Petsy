@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReviewContainer from '../review/review_container'
 
 class ProductShowPage extends React.Component {
   constructor(props){
@@ -51,7 +52,9 @@ class ProductShowPage extends React.Component {
             <h2 className='product-details'>{description}</h2>
           </div>
         </section>
-        <section>REVIEW COMPONENT</section>
+        <section className='review-container'>
+          <ReviewContainer/>
+        </section>
       </div>
     )
       

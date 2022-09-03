@@ -1,16 +1,21 @@
 import { connect } from 'react-redux';;
-import { fetchReview } from '../../actions/review_action';
-import ReviewShowPage from './review_showpage'
+import { 
+  fetchReview,
+  fetchAllReviews
+} from '../../actions/review_action';
+import Review from './review'
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
+  console.log('reviews state', state)
   return {
-    review: state.entities.reviews[ownProps.match.params.id],
+    // review: state.entities.reviews
     reviews: Object.values(state.entities.reviews)
   }
 };
 
 const mDTP = dispatch => ({
-  fetchReview: (reviewId) => dispatch(fetchReview(reviewId))
+  fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
+  fetchReviews: () => dispatch(fetchAllReviews())
 });
 
-export default connect(mSTP, mDTP)(ReviewShowpage)
+export default connect(mSTP, mDTP)(Review)

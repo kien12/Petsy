@@ -144,6 +144,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RECEIVE_ALL_REVIEWS": () => (/* binding */ RECEIVE_ALL_REVIEWS),
 /* harmony export */   "RECEIVE_ERRORS": () => (/* binding */ RECEIVE_ERRORS),
 /* harmony export */   "RECEIVE_REVIEW": () => (/* binding */ RECEIVE_REVIEW),
+/* harmony export */   "addReview": () => (/* binding */ addReview),
+/* harmony export */   "deleteReview": () => (/* binding */ deleteReview),
 /* harmony export */   "fetchAllReviews": () => (/* binding */ fetchAllReviews),
 /* harmony export */   "fetchReview": () => (/* binding */ fetchReview)
 /* harmony export */ });
@@ -173,6 +175,29 @@ var receiveErrors = function receiveErrors(errors) {
     errors: errors
   };
 };
+
+var addReview = function addReview(data) {
+  return function (dispatch) {
+    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.createReview(data).then(function (review) {
+      return dispatch(receiveReview(review));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    });
+  };
+};
+var deleteReview = function deleteReview(reviewId) {
+  return function (dispatch) {
+    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.modifyReview(reviewId).then(function (review) {
+      return dispatch(removeReview(review));
+    });
+  };
+}; // needs to be updated
+// export const modifyReview = (reviewId, data) => dispatch => {
+//   return ReviewApiUtil.getAllReviews(data) (
+//     review => dispatch(modifyReview(reviewId)),
+//     errors => dispatch(receiveErrors(errors.responseJSON))
+//   )
+// }
 
 var fetchReview = function fetchReview(reviewId) {
   return function (dispatch) {
@@ -2053,6 +2078,7 @@ var fetchProduct = function fetchProduct(productId) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createReview": () => (/* binding */ createReview),
+/* harmony export */   "deleteReview": () => (/* binding */ deleteReview),
 /* harmony export */   "getAllReviews": () => (/* binding */ getAllReviews),
 /* harmony export */   "getReview": () => (/* binding */ getReview),
 /* harmony export */   "modifyReview": () => (/* binding */ modifyReview)
@@ -2085,6 +2111,12 @@ var modifyReview = function modifyReview(reviewId, review) {
     data: {
       review: review
     }
+  });
+};
+var deleteReview = function deleteReview(reviewId) {
+  return $.ajax({
+    method: 'DELTE',
+    url: "api/reviews/".concat(reviewId)
   });
 };
 

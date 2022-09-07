@@ -2089,10 +2089,10 @@ var getAllReviews = function getAllReviews() {
     url: '/api/reviews'
   });
 };
-var getReview = function getReview(reviewId) {
+var getReview = function getReview(review) {
   return $.ajax({
     method: 'GET',
-    url: "/api/reviews/".concat(reviewId)
+    url: "/api/reviews/".concat(review.id)
   });
 };
 var createReview = function createReview(review) {
@@ -2104,10 +2104,10 @@ var createReview = function createReview(review) {
     }
   });
 };
-var modifyReview = function modifyReview(reviewId, review) {
+var modifyReview = function modifyReview(review) {
   return $.ajax({
     method: 'PATCH',
-    url: "api/reviews/".concat(reviewId),
+    url: "api/reviews/".concat(review.id),
     data: {
       review: review
     }

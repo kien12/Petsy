@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';;
 import { 
   fetchReview,
-  fetchAllReviews
+  fetchAllReviews,
+  modifyReview
 } from '../../actions/review_action';
 import Review from './review'
 
@@ -16,7 +17,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
   fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
-  fetchReviews: () => dispatch(fetchAllReviews())
+  fetchReviews: () => dispatch(fetchAllReviews()),
+  modifyReview: (review) => dispatch(modifyReview(review))
 });
 
 export default connect(mSTP, mDTP)(Review)

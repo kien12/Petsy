@@ -10,10 +10,25 @@ class Review extends React.Component {
   const {reviews} = this.props;
 
   let reviewsList = reviews.map(({body, id, productId, rating, userId}) => (
-    <h2>
-      {/* {body} {rating} {userId} */}
-      {review}
-    </h2>
+    <div>
+      {/* <h2 key={`${id}`}> */}
+       {/* {body} {rating} {userId} */}
+      {/* </h2> */}
+      {/* <button >Edit</button> */}
+      <h4 className="upper-container">
+        <span className="rating">
+           <h4>rating</h4> 
+        </span>
+        <body>
+          body
+        </body>
+      </h4>
+      <div className="button-container">
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+    </div>
+    
   )) 
 
 

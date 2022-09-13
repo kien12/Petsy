@@ -38,13 +38,14 @@ export const deleteReview = reviewId => dispatch => {
     .then(review => dispatch(removeReview(review)))
 }
 
-// needs to be updated
-// export const modifyReview = (reviewId, data) => dispatch => {
-//   return ReviewApiUtil.getAllReviews(data) (
-//     review => dispatch(modifyReview(reviewId)),
-//     errors => dispatch(receiveErrors(errors.responseJSON))
-//   )
-// }
+
+export const modifyReview = (review) => dispatch => {
+  return ReviewApiUtil.modifyReview(review)
+    .then(
+      review => dispatch(receiveReview(review)),
+      errors => dispatch(receiveErrors(errors.responseJSON))
+    )
+}
 
 export const fetchReview = (reviewId) => dispatch => {
   return ReviewApiUtil.getReview(reviewId)

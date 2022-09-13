@@ -147,7 +147,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "addReview": () => (/* binding */ addReview),
 /* harmony export */   "deleteReview": () => (/* binding */ deleteReview),
 /* harmony export */   "fetchAllReviews": () => (/* binding */ fetchAllReviews),
-/* harmony export */   "fetchReview": () => (/* binding */ fetchReview)
+/* harmony export */   "fetchReview": () => (/* binding */ fetchReview),
+/* harmony export */   "modifyReview": () => (/* binding */ modifyReview)
 /* harmony export */ });
 /* harmony import */ var _util_review_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/review_utils */ "./frontend/util/review_utils.js");
 
@@ -191,14 +192,16 @@ var deleteReview = function deleteReview(reviewId) {
       return dispatch(removeReview(review));
     });
   };
-}; // needs to be updated
-// export const modifyReview = (reviewId, data) => dispatch => {
-//   return ReviewApiUtil.getAllReviews(data) (
-//     review => dispatch(modifyReview(reviewId)),
-//     errors => dispatch(receiveErrors(errors.responseJSON))
-//   )
-// }
-
+};
+var modifyReview = function modifyReview(review) {
+  return function (dispatch) {
+    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.modifyReview(review).then(function (review) {
+      return dispatch(receiveReview(review));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    });
+  };
+};
 var fetchReview = function fetchReview(reviewId) {
   return function (dispatch) {
     return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.getReview(reviewId).then(function (review) {
@@ -1085,7 +1088,13 @@ var Review = /*#__PURE__*/function (_React$Component) {
             productId = _ref.productId,
             rating = _ref.rating,
             userId = _ref.userId;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, review);
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+          className: "upper-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "rating"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "rating")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("body", null, "body")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "button-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Delete")));
       });
       console.log('review props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList);
@@ -1134,6 +1143,9 @@ var mDTP = function mDTP(dispatch) {
     },
     fetchReviews: function fetchReviews() {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.fetchAllReviews)());
+    },
+    modifyReview: function modifyReview(review) {
+      return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.modifyReview)(review));
     }
   };
 };
@@ -39541,8 +39553,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('root');
   var store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
   window.store = store;
-  window.fetchAllReviews = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.fetchAllReviews;
-  window.fetchReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.fetchReview;
+  window.modifyReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.modifyReview;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

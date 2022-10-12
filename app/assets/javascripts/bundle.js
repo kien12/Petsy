@@ -1079,23 +1079,49 @@ var Review = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Review, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchReviews();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var reviews = this.props.reviews;
+      var reviews = this.props.reviews; //{ body, id, productId, rating, userId } = reviews
+      //[review1, review2, etc..] = reviews
+
       var reviewsList = reviews.map(function (_ref) {
         var body = _ref.body,
             id = _ref.id,
             productId = _ref.productId,
             rating = _ref.rating,
-            userId = _ref.userId;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
-          className: "upper-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-          className: "rating"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "rating")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("body", null, "body")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "button-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Delete")));
-      });
+            userId = _ref.userId,
+            createdAt = _ref.createdAt;
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "left-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          src: window.testReviewImage,
+          alt: "test-review-image",
+          className: "test-review-image"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "right-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+          key: "".concat(id),
+          className: "review-content"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-body"
+        }, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-rating"
+        }, rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-user"
+        }, userId, " created at :", createdAt)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-btns"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Delete"))));
+      }); // const reviewList = reviews.filter(review => {
+      // this.review.match.params.id = this.props.params.id
+      // })
+
       console.log('review props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList);
     }

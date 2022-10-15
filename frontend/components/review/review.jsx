@@ -15,28 +15,29 @@ class Review extends React.Component {
 //{ body, id, productId, rating, userId } = reviews
 //[review1, review2, etc..] = reviews
   let reviewsList = reviews.map(({body, id, productId, rating, userId, createdAt}) => (
-    <div className='review-container'>
+    <div className="review-container">
       <div className='left-container'>
         <img src={window.testReviewImage} alt="test-review-image" className='test-review-image' />
       </div>
       <div className='right-container'>
+       <div className="review-btns">
+         <button className='review-edit-btn'>Edit</button>
+         <button className='review-delete-btn'>Delete</button>
+       </div>    
         <h2 key={`${id}`} className='review-content'>
+          <div className='review-user'>
+            user id{userId} created at :{createdAt}
+          </div>
+          <div className='review-rating'>
+            rating {rating}
+          </div>
           <div className='review-body'>
             {body} 
           </div>
-          <div className='review-rating'>
-            {rating}
-          </div>
-          <div className='review-user'>
-            {userId} created at :{createdAt}
-          </div>
-        </h2>        
-        <div className="review-btns">
-          <button>Edit</button>
-          <button>Delete</button>
-        </div>
-      </div>
-    </div>
+         </h2>  
+          
+       </div>
+   </div>
     
   )) 
   // const reviewList = reviews.filter(review => {

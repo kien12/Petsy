@@ -978,9 +978,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
         className: "product-description"
       }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "product-details"
-      }, description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
-        className: "review-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         reviews: reviews
       })));
     }
@@ -1106,18 +1104,22 @@ var Review = /*#__PURE__*/function (_React$Component) {
           className: "test-review-image"
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "right-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-btns"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          className: "review-edit-btn"
+        }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          className: "review-delete-btn"
+        }, "Delete")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
           key: "".concat(id),
           className: "review-content"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-body"
-        }, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-rating"
-        }, rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "review-user"
-        }, userId, " created at :", createdAt)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-btns"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Delete"))));
+        }, "user id", userId, " created at :", createdAt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-rating"
+        }, "rating ", rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-body"
+        }, body))));
       }); // const reviewList = reviews.filter(review => {
       // this.review.match.params.id = this.props.params.id
       // })

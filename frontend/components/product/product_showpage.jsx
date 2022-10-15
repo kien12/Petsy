@@ -54,7 +54,7 @@ class ProductShowPage extends React.Component {
             <h2 className='product-details'>{description}</h2>
           </div>
         </section>
-        <section className='review-container'>
+        <section>
           <ReviewContainer reviews={reviews}/>
         </section>
       </div>

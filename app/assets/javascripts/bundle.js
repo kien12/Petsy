@@ -1115,7 +1115,9 @@ var Review = /*#__PURE__*/function (_React$Component) {
           className: "review-content"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "review-user"
-        }, "user id", userId, " created at :", createdAt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "review-author"
+        }, "Author"), " Thu Feb 14 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "review-rating"
         }, "rating ", rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "review-body"
@@ -1125,7 +1127,9 @@ var Review = /*#__PURE__*/function (_React$Component) {
       // })
 
       console.log('review props', this.props);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+        className: "review-info"
+      }, "Reviews for this item"), reviewsList);
     }
   }]);
 

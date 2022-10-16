@@ -14,7 +14,7 @@ class Review extends React.Component {
   const {reviews} = this.props;
 //{ body, id, productId, rating, userId } = reviews
 //[review1, review2, etc..] = reviews
-  let reviewsList = reviews.map(({body, id, productId, rating, userId, createdAt}) => (
+  let reviewsList = reviews.map(({ body, id, productId, rating, userId, createdAt}) => (
     <div className="review-container">
       <div className='left-container'>
         <img src={window.testReviewImage} alt="test-review-image" className='test-review-image' />
@@ -26,7 +26,7 @@ class Review extends React.Component {
        </div>    
         <h2 key={`${id}`} className='review-content'>
           <div className='review-user'>
-            user id{userId} created at :{createdAt}
+            <span className='review-author'>Author</span> Thu Feb 14 2022
           </div>
           <div className='review-rating'>
             rating {rating}
@@ -48,6 +48,7 @@ class Review extends React.Component {
   console.log('review props', this.props) 
     return(
       <div>
+        <h4 className='review-info'>Reviews for this item</h4>
         {reviewsList}
       </div>
     )

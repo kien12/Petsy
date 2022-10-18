@@ -24,8 +24,6 @@ class ProductShowPage extends React.Component {
       reviews
     } = this.props.product;
     
-    console.log('this.props.product', this.props.product)
-    console.log('reviews inside product showpage', reviews)
     return (    
       <div className='product-showpage-container'>
         <section className='product-top-container'>
@@ -55,7 +53,7 @@ class ProductShowPage extends React.Component {
           </div>
         </section>
         <section>
-          <ReviewContainer reviews={reviews}/>
+          <ReviewContainer product={this.props.product}/>
         </section>
       </div>
     )

@@ -45,6 +45,7 @@ class LoginForm extends React.Component {
               name='Email Address'
               placeholder="enter email"
               className='form-field'
+              onChange={this.handleChange('email')}
             />
             </div>
             <div>
@@ -54,6 +55,7 @@ class LoginForm extends React.Component {
                 name='Password'
                 placeholder="enter password"
                 className='form-field'
+                onChange={this.handleChange('password')}
               />
             </div>
             <br />

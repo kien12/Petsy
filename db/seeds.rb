@@ -107,29 +107,29 @@ ActiveRecord::Base.transaction do
   )
 
   review_2 = Review.create!(
-    user_id: 1,
+    user_id: 2,
     product_id: 1,
     rating: 5,
     body: 'body 2 of review',
   )
 
   review_3 = Review.create!(
-    user_id: 1,
+    user_id: 3,
     product_id: 1,
     rating: 5,
     body: 'body 3 of review'
   )
 
   review_4 = Review.create!(
-    user_id: 1,
-    product_id: 1,
+    user_id: 2,
+    product_id: 2,
     rating: 5,
     body: 'body 4 of review'
   )
 
   review_5 = Review.create!(
-    user_id: 1,
-    product_id: 1,
+    user_id: 2,
+    product_id: 2,
     rating: 5,
     body: 'body 5 of review'
   )

@@ -11,11 +11,22 @@ class Review extends React.Component {
 
   render() {
   
-  const {reviews} = this.props;
+  console.log('review props',this.props);
+
+  const {reviews, product} = this.props;
 //{ body, id, productId, rating, userId } = reviews
 //[review1, review2, etc..] = reviews
-  let reviewsList = reviews.map(({ body, id, productId, rating, userId, createdAt}) => (
-    <div className="review-container">
+
+
+let reviewsArr = reviews.filter( review => product.id === review.productId)
+
+console.log('reviewsArr', reviewsArr);
+
+
+
+
+  let reviewsList = reviewsArr.map(({ body, id, productId, rating, userId, createdAt, author}) => (
+    <div className="review-container" key={id}>
       <div className='left-container'>
         <img src={window.testReviewImage} alt="test-review-image" className='test-review-image' />
       </div>
@@ -26,7 +37,7 @@ class Review extends React.Component {
        </div>    
         <h2 key={`${id}`} className='review-content'>
           <div className='review-user'>
-            <span className='review-author'>Author</span> Thu Feb 14 2022
+            <span className='review-author'>{author}</span> Thu Feb 14 2022
           </div>
           <div className='review-rating'>
             rating {rating}

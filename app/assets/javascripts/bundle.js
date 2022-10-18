@@ -720,7 +720,6 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           logout = _this$props.logout,
           currentUser = _this$props.currentUser;
-      console.log("this.props", this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -939,8 +938,6 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
           price = _this$props$product.price,
           sellerName = _this$props$product.sellerName,
           reviews = _this$props$product.reviews;
-      console.log('this.props.product', this.props.product);
-      console.log('reviews inside product showpage', reviews);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-showpage-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
@@ -979,7 +976,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
       }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "product-details"
       }, description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        reviews: reviews
+        product: this.props.product
       })));
     }
   }]);
@@ -1084,18 +1081,27 @@ var Review = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var reviews = this.props.reviews; //{ body, id, productId, rating, userId } = reviews
+      console.log('review props', this.props);
+      var _this$props = this.props,
+          reviews = _this$props.reviews,
+          product = _this$props.product; //{ body, id, productId, rating, userId } = reviews
       //[review1, review2, etc..] = reviews
 
-      var reviewsList = reviews.map(function (_ref) {
+      var reviewsArr = reviews.filter(function (review) {
+        return product.id === review.productId;
+      });
+      console.log('reviewsArr', reviewsArr);
+      var reviewsList = reviewsArr.map(function (_ref) {
         var body = _ref.body,
             id = _ref.id,
             productId = _ref.productId,
             rating = _ref.rating,
             userId = _ref.userId,
-            createdAt = _ref.createdAt;
+            createdAt = _ref.createdAt,
+            author = _ref.author;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-container"
+          className: "review-container",
+          key: id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "left-container"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
@@ -1117,7 +1123,7 @@ var Review = /*#__PURE__*/function (_React$Component) {
           className: "review-user"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
           className: "review-author"
-        }, "Author"), " Thu Feb 14 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, author), " Thu Feb 14 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "review-rating"
         }, "rating ", rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "review-body"
@@ -1160,11 +1166,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  console.log('reviews state', state);
-  console.log('reviews ownProps', ownProps);
+  // console.log('reviews state', state)
+  // console.log('reviews ownProps', ownProps)
   return {
-    // review: state.entities.reviews
-    reviews: ownProps.reviews
+    // reviews: state.entities.reviews
+    // reviews: ownProps.reviews
+    reviews: Object.values(state.entities.reviews)
   };
 };
 
@@ -1329,14 +1336,16 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         name: "Email Address",
         placeholder: "enter email",
-        className: "form-field"
+        className: "form-field",
+        onChange: this.handleChange('email')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "modal-sign-in-password"
       }, "Password"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "password",
         name: "Password",
         placeholder: "enter password",
-        className: "form-field"
+        className: "form-field",
+        onChange: this.handleChange('password')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "modal-sign-in-button"
       }, "Sign In")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {

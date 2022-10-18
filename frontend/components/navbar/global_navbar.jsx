@@ -11,7 +11,6 @@ class GlobalNavBar extends React.Component {
   render() {
     const { logout, currentUser } = this.props;
 
-    console.log("this.props", this.props);
     return (
       <div>
         <div className='top-nav-bar'>

@@ -1166,8 +1166,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  // console.log('reviews state', state)
-  // console.log('reviews ownProps', ownProps)
+  console.log('reviews state', state); // console.log('reviews ownProps', ownProps)
+
   return {
     // reviews: state.entities.reviews
     // reviews: ownProps.reviews

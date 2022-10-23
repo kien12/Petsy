@@ -952,7 +952,9 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
         alt: "default-picture"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-seller-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Kien"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Owner of store")))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Kien"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Owner of store"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "faqs-message-button"
+      }, "Message Kien")));
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-showpage-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
@@ -991,7 +993,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
       }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "product-details"
       }, description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
-        className: "review-faq"
+        className: "review-main-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         product: this.props.product
       }), rightContainer));

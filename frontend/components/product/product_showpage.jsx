@@ -36,6 +36,7 @@ class ProductShowPage extends React.Component {
               <div>Owner of store</div>
             </div>
           </div>
+          <button className='faqs-message-button'>Message Kien</button>
       </section>
     </div>
     
@@ -67,7 +68,7 @@ class ProductShowPage extends React.Component {
             <h2 className='product-details'>{description}</h2>
           </div>
         </section>
-        <section className='review-faq'>
+        <section className='review-main-container'>
           <ReviewContainer product={this.props.product}/>
           {rightContainer}
         </section>

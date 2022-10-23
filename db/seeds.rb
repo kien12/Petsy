@@ -110,14 +110,14 @@ ActiveRecord::Base.transaction do
     user_id: 2,
     product_id: 1,
     rating: 5,
-    body: 'body 2 of review',
+    body: 'This treat is perfect for my 5 month old golden retriever! She doesnt seem to get tired of the treat at all unlike other treats she has had',
   )
 
   review_3 = Review.create!(
     user_id: 3,
     product_id: 1,
-    rating: 5,
-    body: 'body 3 of review'
+    rating: 3,
+    body: 'VERY BAD PRODUCT DONT BUY!!!!!!!!!!!!!!'
   )
 
   review_4 = Review.create!(

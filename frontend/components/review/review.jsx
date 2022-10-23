@@ -24,7 +24,7 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
 
   let reviewsList = reviewsArr.map(({ body, id, productId, rating, userId, createdAt, author}) => (
     <div className="review-container" key={id}>
-      <div className='left-container'>
+      <div className='review-left-container'>
         <img src={window.testReviewImage} alt="test-review-image" className='test-review-image' />
       </div>
       <div className='right-container'>

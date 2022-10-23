@@ -4,6 +4,7 @@ import { signup, login, logout } from '../../actions/user_action';
 import { openModal, closeModal } from '../../actions/modal_actions'
 
 const mSTP = state => {
+  console.log('mSTP STATE', state)
   return {
     currentUser: state.sessions.currentUserId
   }

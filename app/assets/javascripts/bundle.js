@@ -720,6 +720,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           logout = _this$props.logout,
           currentUser = _this$props.currentUser;
+      console.log('GLOBAL NAV BAR PROPS', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -771,6 +772,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
+  console.log('mSTP STATE', state);
   return {
     currentUser: state.sessions.currentUserId
   };
@@ -1032,7 +1034,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  console.log('this is ownProps for product', ownProps);
+  // console.log('this is ownProps for product', ownProps)
   return {
     product: state.entities.products[ownProps.match.params.id],
     products: Object.values(state.entities.products)
@@ -1128,7 +1130,7 @@ var Review = /*#__PURE__*/function (_React$Component) {
           className: "review-container",
           key: id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "left-container"
+          className: "review-left-container"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           src: window.testReviewImage,
           alt: "test-review-image",

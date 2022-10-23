@@ -28,10 +28,6 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
         <img src={window.testReviewImage} alt="test-review-image" className='test-review-image' />
       </div>
       <div className='right-container'>
-       <div className="review-btns">
-         <button className='review-edit-btn'>Edit</button>
-         <button className='review-delete-btn'>Delete</button>
-       </div>    
         <h2 key={`${id}`} className='review-content'>
           <div className='review-user'>
             <span className='review-author'>{author}</span> Thu Feb 14 2022
@@ -41,6 +37,10 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
           </div>
           <div className='review-body'>
             {body} 
+       <div className="review-btns">
+         <button className='review-edit-btn'>Edit</button>
+         <button className='review-delete-btn'>Delete</button>
+       </div>    
           </div>
          </h2>  
           
@@ -54,7 +54,7 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
   console.log('review props', this.props) 
     return(
       <div>
-        <h4 className='review-info'>Reviews for this item</h4>
+        <h4 className='review-info'>Reviews for this item__________________________________________________________________________________________</h4>
           {reviewsList}
       </div>
     )

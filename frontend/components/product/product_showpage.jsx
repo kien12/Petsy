@@ -27,13 +27,13 @@ class ProductShowPage extends React.Component {
     let rightContainer = 
       <div className='review-faqs'>
         <button className='faqs-button'>FAQs</button>
-        <div>Meet your seller</div>
+        <div className='meet-your-seller'>Meet your seller</div>
         <section className='review-faqs'>
           <div className='product-seller-details'>
             <img className='default-picture' src={window.defaultpicture} alt="default-picture" />
             <div className='product-seller-info'>
-              <div>Kien</div>
-              <div>Owner of store</div>
+              <div className='test-store-owner'>Kien</div>
+              <div className='owner-of-store'>Owner of store</div>
             </div>
           </div>
           <button className='faqs-message-button'>Message Kien</button>

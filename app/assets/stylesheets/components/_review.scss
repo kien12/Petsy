@@ -95,11 +95,13 @@
   margin-bottom: 5px
 }
 
+
 .review-info {
   margin-left: 20px;
-  font-size: 15px;
+  font-size: 12px;
   max-width: 50%;
   min-width: 700px;
+  text-decoration: underline;
 }
 
 .review-faq {
@@ -108,6 +110,43 @@
 }
 
 .review-main-container {
-  width: 100%;
+  // max-width: 100%;
+  min-width: 400px;
   display: flex;
+}
+
+.meet-your-seller{
+  font-size: 9px;
+  color: grey;
+  margin-bottom: 10px;
+}
+
+.default-picture {
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.test-store-owner{
+  font-size: 12px;
+}
+
+.faqs-button {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 20px;
+  border-radius: 30px;
+  margin-top: 20px;
+  background-color: 0px transparent, transparent;
+}
+
+.owner-of-store {
+  font-size: 9px;
+  color: grey;
+}
+
+.faqs-message-button{
+  width: 100px;
+  height: 25px;
+  font-size: 9px;
 }

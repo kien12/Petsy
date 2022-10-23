@@ -20,10 +20,7 @@ class Review extends React.Component {
 
 let reviewsArr = reviews.filter( review => product.id === review.productId)
 
-console.log('reviewsArr', reviewsArr);
-
-
-
+// console.log('reviewsArr', reviewsArr);
 
   let reviewsList = reviewsArr.map(({ body, id, productId, rating, userId, createdAt, author}) => (
     <div className="review-container" key={id}>
@@ -51,16 +48,14 @@ console.log('reviewsArr', reviewsArr);
    </div>
     
   )) 
-  // const reviewList = reviews.filter(review => {
-    // this.review.match.params.id = this.props.params.id
-  // })
 
+    
 
   console.log('review props', this.props) 
     return(
       <div>
         <h4 className='review-info'>Reviews for this item</h4>
-        {reviewsList}
+          {reviewsList}
       </div>
     )
   }

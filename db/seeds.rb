@@ -32,7 +32,7 @@ ActiveRecord::Base.transaction do
 #PRODUCTS
   dog_product_1 = Product.create!(
     name: 'Big Bone',
-    description: "Really huge bone for your pup!", 
+    description: "Do you feel like you need a fancy touch in your living room? With this awesome Aristocrat Doge poster, you’ll have all the luxury you need. The doge meme is a trend that has branched out into many offshoots and styles, so why not hang a depiction that is dignified and adorable on your wall? The colors are highly saturated into a matte, acid-free paper in multiple sizes, ready to be prepared for your office or living room. The print is easily delivered right to you, with multiple dimension choices available for you right away, so it will always be able to fit on your wall. Whether you are a fan of dogs or a fan of jokes on the internet, this translation of meme into art is now available and an easy purchase for a little extra color in your life, or for a friend that enjoys art for themselves. Let your love of fun and art collide with a purchase of this print!", 
     seller_id: 1, 
     category_id: 1,
     quantity: 5,

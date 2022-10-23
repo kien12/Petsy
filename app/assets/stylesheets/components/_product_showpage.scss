@@ -1,7 +1,7 @@
 .product-top-container {
   display: flex;
   font-family: 'Roboto Serif', serif;
-  border: 4px solid greenyellow;
+  // border: 4px solid greenyellow;
   margin: 20px 20px;
 }
 
@@ -26,7 +26,7 @@
 
 .product-image {
   border: 2px solid red;
-  width: 60%;
+  width: 50%;
   font-family: inherit;
   overflow: hidden;
 }
@@ -76,5 +76,21 @@
   margin-left: 10px;
   margin-top: 10px;
   font-weight: 300;
+  height: auto;
+  width: 50%;
   font-family: 'Taviraj', serif;
+}
+
+.default-picture {
+  height: 30px;
+  width: 30px;
+}
+
+.product-seller-details {
+  display: flex;
+}
+
+.product-seller-info {
+  display: inherit;
+  flex-direction: column;
 }

@@ -23,6 +23,21 @@ class ProductShowPage extends React.Component {
       sellerName, 
       reviews
     } = this.props.product;
+
+    let rightContainer = 
+      <div className='review-faqs'>
+        <button className='faqs-button'>FAQs</button>
+        <div>Meet your seller</div>
+        <section className='review-faqs'>
+          <div className='product-seller-details'>
+            <img className='default-picture' src={window.defaultpicture} alt="default-picture" />
+            <div className='product-seller-info'>
+              <div>Kien</div>
+              <div>Owner of store</div>
+            </div>
+          </div>
+      </section>
+    </div>
     
     return (    
       <div className='product-showpage-container'>
@@ -52,8 +67,9 @@ class ProductShowPage extends React.Component {
             <h2 className='product-details'>{description}</h2>
           </div>
         </section>
-        <section>
+        <section className='review-faq'>
           <ReviewContainer product={this.props.product}/>
+          {rightContainer}
         </section>
       </div>
     )

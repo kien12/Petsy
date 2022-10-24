@@ -15,9 +15,9 @@ ActiveRecord::Base.transaction do
   Review.destroy_all
   
 #USERS
-  user_1 = User.create!(username: 'Tommy', email: 'TommyTurnip@gmail.com', password: 'vegetables')
-  user_2 = User.create!(username: 'Ken', email: 'BarbieNKen@gmail.com', password: 'barbieworld')
-  user_3 = User.create!(username: 'Barbie', email: 'KenNBarbie@gmail.com', password: 'barbieworld')
+  user_1 = User.create!(username: 'Kakarot', email: 'TommyTurnip@gmail.com', password: 'vegetables')
+  user_2 = User.create!(username: 'Vegeta', email: 'BarbieNKen@gmail.com', password: 'barbieworld')
+  user_3 = User.create!(username: 'Picollo', email: 'KenNBarbie@gmail.com', password: 'barbieworld')
   user_4 = User.create!(username: 'Admin', email: 'Admin@admin.com', password: '@Admin')
 #SELLERS
   seller_1 = Seller.create!(name: 'Clifford')

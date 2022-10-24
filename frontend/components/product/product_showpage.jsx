@@ -1,14 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReviewContainer from '../review/review_container'
+import BioPopup from '../modal/bio_popup';
 
 class ProductShowPage extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
+    this.state = {
+      showBioPopup: false
+    };
+
+    this.toggleBioPopup = this.toggleBioPopup.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchProduct(this.props.match.params.id)
+  }
+
+  toggleBioPopup() {
+  this.setState({
+    showBioPopup: !this.state.showBioPopup,
+    });
   }
 
   // /products/:id"
@@ -30,13 +42,18 @@ class ProductShowPage extends React.Component {
         <div className='meet-your-seller'>Meet your seller</div>
         <section className='review-faqs'>
           <div className='product-seller-details'>
-            <img className='default-picture' src={window.defaultpicture} alt="default-picture" />
+            <img className='default-picture' src={window.testReviewImage} alt="default-picture" />
             <div className='product-seller-info'>
               <div className='test-store-owner'>Kien</div>
               <div className='owner-of-store'>Owner of store</div>
             </div>
           </div>
-          <button className='faqs-message-button'>Message Kien</button>
+          <button className='faqs-message-button' onClick={this.toggleBioPopup}>Message Kien</button>
+          {this.state.showBioPopup ? (
+                  <div className="bio-container">
+                    <BioPopup togglePopup={this.toggleBioPopup}/>
+                  </div>
+                ) : null}
       </section>
     </div>
     

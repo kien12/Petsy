@@ -17,6 +17,24 @@ class Review extends React.Component {
 //{ body, id, productId, rating, userId } = reviews
 //[review1, review2, etc..] = reviews
 
+let reviewForm = 
+    <div>
+      <form className='review-form'>
+        <label htmlFor="rating">Rating</label>
+        <select>
+          <option value="1">1</option>
+          <option value="1">2</option>
+          <option value="1">3</option>
+          <option value="1">4</option>
+          <option value="1">5</option>
+        </select>
+      </form>
+      <textarea className='review-form-body' name="" id="" cols="30" rows="10" placeholder='Write review here!'></textarea>
+      <div>
+        <button className='review-submit-button'>Submit!</button>
+      </div>
+    </div>
+
 
 let reviewsArr = reviews.filter( review => product.id === review.productId)
 
@@ -25,7 +43,7 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
   let reviewsList = reviewsArr.map(({ body, id, productId, rating, userId, createdAt, author}) => (
     <div className="review-container" key={id}>
       <div className='review-left-container'>
-        <img src={window.testReviewImage} alt="test-review-image" className='test-review-image' />
+        <img src={window.defaultpicture} alt="test-review-image" className='test-review-image' />
       </div>
       <div className='right-container'>
         <h2 key={`${id}`} className='review-content'>
@@ -33,7 +51,7 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
             <span className='review-author'>{author}</span> Thu Feb 14 2022
           </div>
           <div className='review-rating'>
-            rating {rating}
+            rated: {rating}/5
           </div>
           <div className='review-body'>
             {body} 
@@ -56,6 +74,9 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
       <div>
         <h4 className='review-info'>Reviews for this item__________________________________________________________________________________________</h4>
           {reviewsList}
+        <div>
+          {reviewForm}
+        </div>
       </div>
     )
   }

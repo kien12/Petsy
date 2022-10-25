@@ -6,7 +6,6 @@ import React from 'react';
 
 const mSTP = state => {
   return {
-    formType: 'login',
     errors: state.errors.userErrors
   }
 }

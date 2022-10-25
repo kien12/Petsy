@@ -286,7 +286,7 @@ var login = function login(user) {
 var logout = function logout() {
   return function (dispatch) {
     return _util_user_util__WEBPACK_IMPORTED_MODULE_0__.logout().then(function () {
-      return dispatch(logout());
+      return dispatch(logoutCurrentUser());
     }, function (errors) {
       return dispatch(receiveErrors(errors.responseJSON));
     });
@@ -794,8 +794,9 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
 
       var _this$props = this.props,
           logout = _this$props.logout,
-          currentUser = _this$props.currentUser;
-      console.log('GLOBAL NAV BAR PROPS', this.props);
+          currentUser = _this$props.currentUser; // console.log('GLOBAL NAV BAR PROPS', this.props)
+
+      console.log('global nav current user', currentUser);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -849,7 +850,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   console.log('mSTP STATE', state);
   return {
-    currentUser: state.sessions.currentUserId
+    currentUser: state.sessions.id
   };
 };
 
@@ -1530,7 +1531,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    formType: 'login',
     errors: state.errors.userErrors
   };
 };
@@ -39729,6 +39729,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_review_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/review_action */ "./frontend/actions/review_action.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -39736,9 +39738,27 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('root');
-  var store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  window.store = store;
-  window.modifyReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.modifyReview;
+  var store;
+  console.log('window current user111111', window.currentUser);
+
+  if (window.currentUser) {
+    var preloadedState = {
+      entities: {
+        users: _defineProperty({}, window.currentUser.id, window.currentUser)
+      },
+      sessions: {
+        id: window.currentUser.id
+      }
+    };
+    store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  }
+
+  console.log('window current user222222', window.currentUser);
+  window.store = store; // window.modifyReview = modifyReview; 
+
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

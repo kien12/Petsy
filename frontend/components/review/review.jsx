@@ -13,7 +13,7 @@ class Review extends React.Component {
   
   console.log('review props',this.props);
 
-  const {reviews, product} = this.props;
+  const {reviews, product, modifyReview} = this.props;
 //{ body, id, productId, rating, userId } = reviews
 //[review1, review2, etc..] = reviews
 
@@ -36,6 +36,7 @@ let reviewForm =
     </div>
 
 
+
 let reviewsArr = reviews.filter( review => product.id === review.productId)
 
 // console.log('reviewsArr', reviewsArr);
@@ -56,7 +57,7 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
           <div className='review-body'>
             {body} 
        <div className="review-btns">
-         <button className='review-edit-btn'>Edit</button>
+         <button className='review-edit-btn' >Edit</button>
          <button className='review-delete-btn'>Delete</button>
        </div>    
           </div>
@@ -69,7 +70,7 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
 
     
 
-  console.log('review props', this.props) 
+  // console.log('review props', this.props) 
     return(
       <div>
         <h4 className='review-info'>Reviews for this item__________________________________________________________________________________________</h4>

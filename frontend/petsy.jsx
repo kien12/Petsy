@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  console.log('window current user222222', window.currentUser)
+  // console.log('window current user222222', window.currentUser)
   window.store = store;
   // window.modifyReview = modifyReview; 
 

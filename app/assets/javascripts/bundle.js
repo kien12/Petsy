@@ -1208,7 +1208,8 @@ var Review = /*#__PURE__*/function (_React$Component) {
       console.log('review props', this.props);
       var _this$props = this.props,
           reviews = _this$props.reviews,
-          product = _this$props.product; //{ body, id, productId, rating, userId } = reviews
+          product = _this$props.product,
+          modifyReview = _this$props.modifyReview; //{ body, id, productId, rating, userId } = reviews
       //[review1, review2, etc..] = reviews
 
       var reviewForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
@@ -1276,8 +1277,8 @@ var Review = /*#__PURE__*/function (_React$Component) {
         }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           className: "review-delete-btn"
         }, "Delete"))))));
-      });
-      console.log('review props', this.props);
+      }); // console.log('review props', this.props) 
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         className: "review-info"
       }, "Reviews for this item__________________________________________________________________________________________"), reviewsList, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewForm));
@@ -1330,7 +1331,20 @@ var mDTP = function mDTP(dispatch) {
     },
     modifyReview: function modifyReview(review) {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.modifyReview)(review));
-    }
+    },
+    deleteReview: function (_deleteReview) {
+      function deleteReview(_x) {
+        return _deleteReview.apply(this, arguments);
+      }
+
+      deleteReview.toString = function () {
+        return _deleteReview.toString();
+      };
+
+      return deleteReview;
+    }(function (reviewId) {
+      return dispatch(deleteReview(reviewId));
+    })
   };
 };
 
@@ -39754,9 +39768,9 @@ document.addEventListener("DOMContentLoaded", function () {
     delete window.currentUser;
   } else {
     store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  }
+  } // console.log('window current user222222', window.currentUser)
 
-  console.log('window current user222222', window.currentUser);
+
   window.store = store; // window.modifyReview = modifyReview; 
 
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {

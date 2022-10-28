@@ -1184,6 +1184,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 var Review = /*#__PURE__*/function (_React$Component) {
@@ -1192,26 +1194,80 @@ var Review = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Review);
 
   function Review(props) {
+    var _this;
+
     _classCallCheck(this, Review);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "onChange", function (type) {
+      return function (e) {
+        _this.setState(_defineProperty({}, type, e.target.value));
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "convertRating", function (rating) {
+      return function (e) {
+        _this.setState(_defineProperty({}, rating, parseInt(e.target.value)));
+      };
+    });
+
+    _this.state = {
+      body: '',
+      rating: '',
+      userId: '',
+      productId: '',
+      showEditForm: false
+    };
+    _this.toggleEditForm = _this.toggleEditForm.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Review, [{
+    key: "toggleEditForm",
+    value: function toggleEditForm() {
+      this.setState({
+        showEditForm: !this.state.showEditForm
+      });
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchReviews();
     }
   }, {
     key: "render",
-    value: function render() {
+    value: // handleSubmit(e) {
+    //   e.preventDefault();
+    //   this.props.modifyReview(this.state)
+    // }
+    function render() {
+      var _this2 = this;
+
       console.log('review props', this.props);
       var _this$props = this.props,
           reviews = _this$props.reviews,
           product = _this$props.product,
-          modifyReview = _this$props.modifyReview; //{ body, id, productId, rating, userId } = reviews
+          modifyReview = _this$props.modifyReview,
+          deleteReview = _this$props.deleteReview;
+      var updateForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "edit form"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "body: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "text",
+        name: "body",
+        className: "update-form",
+        value: this.state.body,
+        onChange: this.onChange('body')
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "rating: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "text",
+        name: "rating",
+        className: "update-form",
+        value: this.state.rating,
+        onChange: this.convertRating('rating')
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.toggleEditForm
+      }, "cancel"))); // { body, id, productId, rating, userId,  } = reviews
       //[review1, review2, etc..] = reviews
 
+      var showEditForm = this.state.showEditForm;
       var reviewForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "review-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
@@ -1273,7 +1329,8 @@ var Review = /*#__PURE__*/function (_React$Component) {
         }, body, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "review-btns"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          className: "review-edit-btn"
+          className: "review-edit-btn",
+          onClick: _this2.toggleEditForm
         }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
           className: "review-delete-btn"
         }, "Delete"))))));
@@ -1281,7 +1338,7 @@ var Review = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         className: "review-info"
-      }, "Reviews for this item__________________________________________________________________________________________"), reviewsList, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewForm));
+      }, "Reviews for this item__________________________________________________________________________________________"), reviewsList, !showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewForm), showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, updateForm));
     }
   }]);
 
@@ -1317,7 +1374,8 @@ var mSTP = function mSTP(state, ownProps) {
   return {
     // reviews: state.entities.reviews
     // reviews: ownProps.reviews
-    reviews: Object.values(state.entities.reviews)
+    reviews: Object.values(state.entities.reviews),
+    currentUser: state.sessions.id
   };
 };
 
@@ -1676,7 +1734,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         name: "Name",
         placeholder: "enter name",
         className: "form-field",
-        value: this.state.name,
+        value: this.state.username,
         onChange: this.onChange('username')
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "modal-sign-in-email"
@@ -39771,8 +39829,8 @@ document.addEventListener("DOMContentLoaded", function () {
   } // console.log('window current user222222', window.currentUser)
 
 
-  window.store = store; // window.modifyReview = modifyReview; 
-
+  window.store = store;
+  window.modifyReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.modifyReview;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // console.log('window current user222222', window.currentUser)
   window.store = store;
-  // window.modifyReview = modifyReview; 
+  window.modifyReview = modifyReview; 
 
 
   ReactDOM.render(< Root store={store}/>, root)

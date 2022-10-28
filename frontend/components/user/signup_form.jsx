@@ -40,7 +40,7 @@ class SignupForm extends React.Component {
               name='Name'
               placeholder="enter name"
               className='form-field'
-              value={this.state.name}
+              value={this.state.username}
               onChange={this.onChange('username')}
             />
             <label className='modal-sign-in-email'>Email Address</label> <br />

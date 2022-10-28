@@ -12,8 +12,8 @@ const mSTP = (state, ownProps) => {
   return {
     // reviews: state.entities.reviews
     // reviews: ownProps.reviews
-    reviews: Object.values(state.entities.reviews)
-    
+    reviews: Object.values(state.entities.reviews),
+    currentUser: state.sessions.id
   }
 };
 

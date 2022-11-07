@@ -1364,7 +1364,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_review_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/review_action */ "./frontend/actions/review_action.js");
 /* harmony import */ var _review__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review */ "./frontend/components/review/review.jsx");
 
-;
 
 
 
@@ -1386,23 +1385,7 @@ var mDTP = function mDTP(dispatch) {
     },
     fetchReviews: function fetchReviews() {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.fetchAllReviews)());
-    },
-    modifyReview: function modifyReview(review) {
-      return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.modifyReview)(review));
-    },
-    deleteReview: function (_deleteReview) {
-      function deleteReview(_x) {
-        return _deleteReview.apply(this, arguments);
-      }
-
-      deleteReview.toString = function () {
-        return _deleteReview.toString();
-      };
-
-      return deleteReview;
-    }(function (reviewId) {
-      return dispatch(deleteReview(reviewId));
-    })
+    }
   };
 };
 

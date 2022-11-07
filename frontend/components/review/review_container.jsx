@@ -20,8 +20,6 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => ({
   fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
   fetchReviews: () => dispatch(fetchAllReviews()),
-  modifyReview: (review) => dispatch(modifyReview(review)),
-  deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
 });
 
 export default connect(mSTP, mDTP)(Review)

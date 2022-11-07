@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
+import {
+  modifyReview,
+  deleteReview
+} from '../../actions/review_action';
+import ReviewForm from './review_form';
 
-class ReviewForm extends React.Component {
-  constructor(props){
-    super(props)
+const mSTP = (state, ownProps) => {
+  return {
+    reviews: Object.values(state.entities.reviews),
+    currentUser: state.sessions.id
   }
-
-
-
-
-
-
-
-  return (
-    
-  )
 }
+
+  const mDTP = dispatch => ({
+    modifyReview: (review) => dispatch(modifyReview(review)),
+    deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
+  });
+
+  export default connect(mSTP, mDTP)(ReviewForm)

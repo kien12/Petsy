@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
   
   let store;
-  console.log('window current user111111', window.currentUser)
+  // console.log('window current user111111', window.currentUser)
   if (window.currentUser) {
     const preloadedState = {
       entities: {

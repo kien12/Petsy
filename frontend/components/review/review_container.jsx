@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { 
   fetchReview,
   fetchAllReviews,
-  modifyReview
+  modifyReview,
+  addReview
 } from '../../actions/review_action';
 import Review from './review'
 
@@ -18,8 +19,11 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = dispatch => ({
+  // createReview: (review) => dispatch(createReview(review)),
   fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
   fetchReviews: () => dispatch(fetchAllReviews()),
+  modifyReview: (review) => dispatch(modifyReview(review)),
+  deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
 });
 
 export default connect(mSTP, mDTP)(Review)

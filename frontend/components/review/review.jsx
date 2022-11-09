@@ -36,10 +36,10 @@ class Review extends React.Component {
     }
   )
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.modifyReview(this.state)
-  // }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.modifyReview(this.state)
+  }
 
   render() {
   
@@ -77,23 +77,7 @@ class Review extends React.Component {
 //[review1, review2, etc..] = reviews
   const {showEditForm} = this.state;
 
-let reviewForm = 
-    <div>
-      <form className='review-form'>
-        <label htmlFor="rating">Rating</label>
-        <select>
-          <option value="1">1</option>
-          <option value="1">2</option>
-          <option value="1">3</option>
-          <option value="1">4</option>
-          <option value="1">5</option>
-        </select>
-      </form>
-      <textarea className='review-form-body' name="" id="" cols="30" rows="10" placeholder='Write review here!'></textarea>
-      <div>
-        <button className='review-submit-button'>Submit!</button>
-      </div>
-    </div>
+
 
 
 

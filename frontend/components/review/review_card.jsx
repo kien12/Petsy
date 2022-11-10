@@ -29,15 +29,7 @@ class ReviewCard extends React.Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('review card prevProps', prevProps)
-    console.log('review card review props', this.props)
-  if (
-    (prevProps.body !== this.props.body) || 
-    (prevProps.rating !== this.props.rating)) {
-      this.fetchReview(this.props.id);
-    }
-  }
+  
 
 
   render() {

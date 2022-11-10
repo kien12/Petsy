@@ -1232,16 +1232,6 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps, prevState) {
-      console.log('review card prevProps', prevProps);
-      console.log('review card review props', this.props);
-
-      if (prevProps.body !== this.props.body || prevProps.rating !== this.props.rating) {
-        this.fetchReview(this.props.id);
-      }
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$props$review = this.props.review,
@@ -1706,7 +1696,16 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "render",
-    value: function render() {
+    value: // componentDidUpdate(prevProps, prevState) {
+    //   console.log('review list prevProps', prevProps)
+    //   console.log('review list review props', this.props)
+    //   if (
+    //     (prevProps.body !== this.props.body) || 
+    //     (prevProps.rating !== this.props.rating)) {
+    //       this.fetchReview(this.props.id);
+    //     }
+    // }
+    function render() {
       // console.log('review props',this.props);
       var _this$props = this.props,
           reviews = _this$props.reviews,

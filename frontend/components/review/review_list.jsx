@@ -14,8 +14,6 @@ class ReviewList extends React.Component {
     }
   }
 
-
-
   componentDidMount() {
     this.props.fetchReviews();
   }
@@ -27,6 +25,15 @@ class ReviewList extends React.Component {
     }
   )
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('review list prevProps', prevProps)
+  //   console.log('review list review props', this.props)
+  //   if (
+  //     (prevProps.body !== this.props.body) || 
+  //     (prevProps.rating !== this.props.rating)) {
+  //       this.fetchReview(this.props.id);
+  //     }
+  // }
 
 
   render() {

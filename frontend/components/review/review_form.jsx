@@ -38,7 +38,7 @@ class ReviewForm extends React.Component {
       </form>
       <textarea className='review-form-body' name="" id="" cols="30" rows="10" placeholder='Write review here!'></textarea>
       <div>
-        <button className='review-submit-button'>Submit!</button>
+        <button className='review-submit-button'>Submit!!</button>
       </div>
     </div>
 

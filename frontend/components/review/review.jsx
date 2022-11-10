@@ -1,4 +1,6 @@
 import React from 'react';
+import ReviewFormContainer from './review_form_container';
+import EditFormContainer from './edit_form_container';
 
 class Review extends React.Component {
   constructor(props){
@@ -46,31 +48,31 @@ class Review extends React.Component {
   console.log('review props',this.props);
   const {reviews, product, modifyReview, deleteReview} = this.props;
   
-  let updateForm = 
-    <div>
-      <label>edit form</label>
-      <form>
-        <div>
-          <label>body: </label>
-          <input
-            type='text'
-            name='body'
-            className='update-form'
-            value={this.state.body}
-            onChange={this.onChange('body')}
-          />
-          <label>rating: </label>
-          <input
-            type='text'
-            name='rating'
-            className='update-form'
-            value={this.state.rating}
-            onChange={this.convertRating('rating')}
-          />
-        </div>
-        <button onClick={this.toggleEditForm}>cancel</button>
-      </form>
-    </div>
+  // let updateForm = 
+  //   <div>
+  //     <label>edit form</label>
+  //     <form>
+  //       <div>
+  //         <label>body: </label>
+  //         <input
+  //           type='text'
+  //           name='body'
+  //           className='update-form'
+  //           value={this.state.body}
+  //           onChange={this.onChange('body')}
+  //         />
+  //         <label>rating: </label>
+  //         <input
+  //           type='text'
+  //           name='rating'
+  //           className='update-form'
+  //           value={this.state.rating}
+  //           onChange={this.convertRating('rating')}
+  //         />
+  //       </div>
+  //       <button onClick={this.toggleEditForm}>cancel</button>
+  //     </form>
+  //   </div>
 
   
 // { body, id, productId, rating, userId,  } = reviews
@@ -108,12 +110,32 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
          <button className='review-delete-btn'>Delete</button>
        </div>    
           </div>
-         </h2>  
-          
+         </h2>
+          { showEditForm && ( <div>
+            <EditFormContainer />
+          </div> )}  
        </div>
    </div>
     
   )) 
+
+  // let reviewForm = 
+  //   <div>
+  //     <form className='review-form'>
+  //       <label htmlFor="rating">Rating</label>
+  //       <select>
+  //         <option value="1">1</option>
+  //         <option value="1">2</option>
+  //         <option value="1">3</option>
+  //         <option value="1">4</option>
+  //         <option value="1">5</option>
+  //       </select>
+  //     </form>
+  //     <textarea className='review-form-body' name="" id="" cols="30" rows="10" placeholder='Write review here!'></textarea>
+  //     <div>
+  //       <button className='review-submit-button'>Submit!!</button>
+  //     </div>
+  //   </div>
 
     
 
@@ -123,11 +145,9 @@ let reviewsArr = reviews.filter( review => product.id === review.productId)
         <h4 className='review-info'>Reviews for this item__________________________________________________________________________________________</h4>
           {reviewsList}
        { !showEditForm && ( <div>
-          {reviewForm}
+          <ReviewFormContainer/>
         </div> )}
-       { showEditForm && ( <div>
-          {updateForm}
-        </div> )}
+    
       </div>
     )
   }

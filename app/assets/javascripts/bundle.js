@@ -1364,21 +1364,12 @@ var Review = /*#__PURE__*/function (_React$Component) {
       body: '',
       rating: '',
       userId: '',
-      productId: '',
-      showEditForm: false
+      productId: ''
     };
-    _this.toggleEditForm = _this.toggleEditForm.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Review, [{
-    key: "toggleEditForm",
-    value: function toggleEditForm() {
-      this.setState({
-        showEditForm: !this.state.showEditForm
-      });
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchReviews();
@@ -1403,13 +1394,15 @@ var Review = /*#__PURE__*/function (_React$Component) {
         return product.id === review.productId;
       });
       var reviewsList = reviewsArr.map(function (review) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_card__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+          key: review.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_card__WEBPACK_IMPORTED_MODULE_3__["default"], {
           review: review
-        });
+        }));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         className: "review-info"
-      }, "Reviews for this item__________________________________________________________________________________________"), reviewsList, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      }, "Reviews for this item__________________________________________________________________________________________"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
     }
   }]);
 
@@ -1462,12 +1455,26 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ReviewCard);
 
   function ReviewCard(props) {
+    var _this;
+
     _classCallCheck(this, ReviewCard);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      showEditForm: false
+    };
+    _this.toggleEditForm = _this.toggleEditForm.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ReviewCard, [{
+    key: "toggleEditForm",
+    value: function toggleEditForm() {
+      this.setState({
+        showEditForm: !this.state.showEditForm
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props$review = this.props.review,
@@ -1478,40 +1485,37 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           userId = _this$props$review.userId,
           createdAt = _this$props$review.createdAt,
           author = _this$props$review.author;
-      return (
-        /*#__PURE__*/
-        // console.log('reviewsArr', reviewsArr);
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-container",
-          key: id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-left-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          src: window.defaultpicture,
-          alt: "test-review-image",
-          className: "test-review-image"
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "right-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-          key: "".concat(id),
-          className: "review-content"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-user"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-          className: "review-author"
-        }, author), " Thu Feb 14 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-rating"
-        }, "rated: ", rating, "/5"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-body"
-        }, body, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "review-btns"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          className: "review-edit-btn" // onClick={this.toggleEditForm}
-
-        }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          className: "review-delete-btn"
-        }, "Delete"))))))
-      );
+      var showEditForm = this.state.showEditForm;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, !showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-container",
+        key: id
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.defaultpicture,
+        alt: "test-review-image",
+        className: "test-review-image"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-left-container"
+      }, "image placeholder"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "right-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+        key: "".concat(id),
+        className: "review-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-user"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        className: "review-author"
+      }, author), " Thu Feb 14 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-rating"
+      }, "rated: ", rating, "/5"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-body"
+      }, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-btns"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "review-edit-btn",
+        onClick: this.toggleEditForm
+      }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "review-delete-btn"
+      }, "Delete")))))), showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(EditFormContainer, null)));
     }
   }]);
 

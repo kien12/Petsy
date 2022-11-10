@@ -10,17 +10,11 @@ class Review extends React.Component {
       body: '',
       rating: '',
       userId: '',
-      productId: '',
-      showEditForm: false
+      productId: ''
     }
-    this.toggleEditForm = this.toggleEditForm.bind(this);
   }
 
-  toggleEditForm() {
-    this.setState({
-      showEditForm: !this.state.showEditForm
-    });
-  }
+
 
   componentDidMount() {
     this.props.fetchReviews();
@@ -53,7 +47,11 @@ class Review extends React.Component {
   let reviewsArr = reviews.filter( review => product.id === review.productId)
 
   let reviewsList = reviewsArr.map((review) => {
-    return <ReviewCard review ={review}/>
+    return( 
+      <li key={review.id}>
+        <ReviewCard review ={review}/>
+      </li>
+    )
   });
    
   return (
@@ -61,7 +59,9 @@ class Review extends React.Component {
       <h4 className='review-info'>
         Reviews for this item__________________________________________________________________________________________
       </h4>
-        {reviewsList}
+        <div>
+          {reviewsList}
+        </div>
       <div>
         <ReviewFormContainer/>
       </div> 

@@ -5,7 +5,7 @@ import {
   modifyReview,
   addReview
 } from '../../actions/review_action';
-import Review from './review'
+import ReviewList from './review_list'
 
 const mSTP = (state, ownProps) => {
   console.log('reviews state', state)
@@ -26,4 +26,4 @@ const mDTP = dispatch => ({
   deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
 });
 
-export default connect(mSTP, mDTP)(Review)
+export default connect(mSTP, mDTP)(ReviewList)

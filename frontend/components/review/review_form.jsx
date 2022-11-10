@@ -1,4 +1,4 @@
-import Review from './review';
+import Review from './review_list';
 import React from 'react';
 
 class ReviewForm extends React.Component {

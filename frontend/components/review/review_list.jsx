@@ -1,9 +1,9 @@
 import React from 'react';
 import ReviewFormContainer from './review_form_container';
-import EditFormContainer from './edit_form_container';
-import ReviewCard from './review_card';
+import EditFormContainer from './review_edit_form_container';
+import ReviewCardContainer from './review_card_container';
 
-class Review extends React.Component {
+class ReviewList extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -27,20 +27,11 @@ class Review extends React.Component {
     }
   )
 
-  convertRating = (rating) => (
-    (e) => {
-      this.setState( {[rating]: parseInt(e.target.value)} )
-    }
-  )
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.modifyReview(this.state)
-  }
 
   render() {
   
-  console.log('review props',this.props);
+  // console.log('review props',this.props);
   const {reviews, product, modifyReview, deleteReview} = this.props;
   
   const {showEditForm} = this.state;
@@ -49,7 +40,7 @@ class Review extends React.Component {
   let reviewsList = reviewsArr.map((review) => {
     return( 
       <li key={review.id}>
-        <ReviewCard review ={review}/>
+        <ReviewCardContainer review ={review}/>
       </li>
     )
   });
@@ -70,4 +61,4 @@ class Review extends React.Component {
   }    
 }
 
-export default Review;
+export default ReviewList;

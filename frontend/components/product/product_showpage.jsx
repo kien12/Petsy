@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ReviewContainer from '../review/review_container'
+import ReviewListContainer from '../review/review_list_container'
 import ReviewFormContainer from '../review/review_form_container'
 import BioPopup from '../modal/bio_popup';
 
@@ -87,7 +87,7 @@ class ProductShowPage extends React.Component {
           </div>
         </section>
         <section className='review-main-container'>
-          <ReviewContainer product={this.props.product}/>
+          <ReviewListContainer product={this.props.product}/>
           {rightContainer}
         </section>
           {/* <ReviewFormContainer product={this.props.product}/> */}

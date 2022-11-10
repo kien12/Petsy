@@ -1,4 +1,6 @@
 import React from 'react';
+import ReviewEditFormContainer from './review_edit_form_container';
+
 
 class ReviewCard extends React.Component {
   constructor(props){
@@ -7,13 +9,34 @@ class ReviewCard extends React.Component {
       showEditForm: false
     }
     this.toggleEditForm = this.toggleEditForm.bind(this);
+    this.convertRating = this.convertRating.bind(this);
   }
 
-  
+  convertRating = (rating) => (
+    (e) => {
+      this.setState( {[rating]: parseInt(e.target.value)} )
+    }
+  )
+
+  handleUpdate() {
+    e.preventDefault();
+    this.props.editReview(this.state)
+  }
+
   toggleEditForm() {
    this.setState({
     showEditForm: !this.state.showEditForm
     });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('review card prevProps', prevProps)
+    console.log('review card review props', this.props)
+  if (
+    (prevProps.body !== this.props.body) || 
+    (prevProps.rating !== this.props.rating)) {
+      this.fetchReview(this.props.id);
+    }
   }
 
 
@@ -23,12 +46,11 @@ class ReviewCard extends React.Component {
 
     return(
       <div>
-        {!showEditForm && (
+        {!showEditForm  && (
           <div>
             <div className='review-container' key={id}>
               <img src={window.defaultpicture} alt="test-review-image" className='test-review-image' />
               <div className='review-left-container'>
-                image placeholder
               </div>
               <div className='right-container'>
                 <h2 key={`${id}`} className='review-content'>
@@ -57,7 +79,7 @@ class ReviewCard extends React.Component {
         )}
         {showEditForm && ( 
           <div>
-             <EditFormContainer />
+             <ReviewEditFormContainer toggleEditForm={this.toggleEditForm} body={body} rating={rating} userId={userId} productId={productId} id={id} />
           </div>
         )} 
       </div>

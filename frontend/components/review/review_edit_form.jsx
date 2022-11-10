@@ -1,13 +1,12 @@
 import React from 'react';
 
-class EditForm extends React.Component {
+class ReviewEditForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      body: '',
-      rating: '',
-      userId: '',
-      productId: '',
+      body: props.body,
+      rating: props.rating
+  
     }
     this.onChange = this.onChange.bind(this);
     this.convertRating = this.convertRating.bind(this);
@@ -28,11 +27,22 @@ class EditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.modifyReview(this.state)
+    this.props.editReview({
+      body: this.state.body,
+      rating: this.state.rating,
+      userId: this.props.userId,
+      productId: this.props.productId,
+      id: this.props.id
+    });
+    this.props.toggleEditForm();
   }
+
+
 
   render(){
 
+    console.log('review edit form props', this.props);
+    console.log('edit form state', this.state);
     return(
       <div>
         <label>edit form</label>
@@ -55,11 +65,14 @@ class EditForm extends React.Component {
               onChange={this.convertRating('rating')}
             />
           </div>
-          <button onClick={this.toggleEditForm}>cancel</button>
+          <button onClick={this.props.toggleEditForm}>cancel</button>
+          <button onClick={this.handleSubmit}>
+            update
+          </button>
         </form>
       </div>
     )
   }
 }
 
-export default EditForm;
+export default ReviewEditForm;

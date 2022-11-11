@@ -199,7 +199,9 @@ var deleteReview = function deleteReview(reviewId) {
   return function (dispatch) {
     return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.deleteReview(reviewId).then(function (review) {
       return dispatch(removeReview(review));
-    });
+    }), function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    };
   };
 };
 var modifyReview = function modifyReview(review) {
@@ -2486,8 +2488,13 @@ var ReviewsReducer = function ReviewsReducer() {
     case _actions_review_action__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_REVIEWS:
       return Object.assign({}, action.reviews);
 
+    case _actions_review_action__WEBPACK_IMPORTED_MODULE_0__.REMOVE_REVIEW:
+      var newState = Object.assign({}, state, _defineProperty({}, action.review.id, action.review));
+      delete newState[action.reviewId];
+      return newState;
+
     default:
-      return Object.assign({}, state);
+      return state;
   }
 };
 

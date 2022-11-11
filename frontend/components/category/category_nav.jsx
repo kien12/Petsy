@@ -15,7 +15,6 @@ componentDidMount() {
         to={`/categories/${category.id}`}
         > 
         {category.name}
-        
       </Link>
       ))
     return (

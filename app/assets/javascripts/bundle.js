@@ -40250,7 +40250,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   window.store = store;
-  window.modifyReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.modifyReview;
+  window.removeReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.removeReview;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

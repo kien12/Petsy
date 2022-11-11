@@ -197,8 +197,8 @@ var addReview = function addReview(data) {
 };
 var deleteReview = function deleteReview(reviewId) {
   return function (dispatch) {
-    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.deleteReview(reviewId).then(function (review) {
-      return dispatch(removeReview(review));
+    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.deleteReview(reviewId).then(function () {
+      return dispatch(removeReview(reviewId));
     }), function (errors) {
       return dispatch(receiveErrors(errors.responseJSON));
     };
@@ -1226,6 +1226,7 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
     };
     _this.toggleEditForm = _this.toggleEditForm.bind(_assertThisInitialized(_this));
     _this.convertRating = _this.convertRating.bind(_assertThisInitialized(_this));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1243,6 +1244,11 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleDelete",
+    value: function handleDelete() {
+      this.props.deleteReview(this.props.review.id);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props$review = this.props.review,
@@ -1254,6 +1260,7 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           createdAt = _this$props$review.createdAt,
           author = _this$props$review.author;
       var showEditForm = this.state.showEditForm;
+      console.log('review card props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, !showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-container",
         key: id
@@ -1282,7 +1289,8 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
         className: "review-edit-btn",
         onClick: this.toggleEditForm
       }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "review-delete-btn"
+        className: "review-delete-btn",
+        onClick: this.handleDelete
       }, "Delete")))))), showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_edit_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         toggleEditForm: this.toggleEditForm,
         body: body,
@@ -1566,7 +1574,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('REVIEW FORM PROPS', this.props);
+      // console.log('REVIEW FORM PROPS', this.props)
       var reviewForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", {
         className: "review-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", {
@@ -1623,8 +1631,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  console.log('review form container props', ownProps);
-  console.log('review form container props', state);
+  // console.log('review form container props', ownProps)
+  // console.log('review form container props', state)
   return {
     // reviews: Object.values(state.entities.reviews),
     currentUser: state.sessions.id // product: ownProps.product
@@ -1784,8 +1792,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  console.log('reviews state', state); // console.log('reviews ownProps', ownProps)
-
+  // console.log('reviews state', state)
+  // console.log('reviews ownProps', ownProps)
   return {
     // reviews: state.entities.reviews
     // reviews: ownProps.reviews
@@ -2489,7 +2497,7 @@ var ReviewsReducer = function ReviewsReducer() {
       return Object.assign({}, action.reviews);
 
     case _actions_review_action__WEBPACK_IMPORTED_MODULE_0__.REMOVE_REVIEW:
-      var newState = Object.assign({}, state, _defineProperty({}, action.review.id, action.review));
+      var newState = Object.assign({}, state);
       delete newState[action.reviewId];
       return newState;
 
@@ -40250,7 +40258,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   window.store = store;
-  window.removeReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.removeReview;
+  window.deleteReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.deleteReview;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

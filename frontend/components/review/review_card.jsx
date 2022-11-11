@@ -10,6 +10,7 @@ class ReviewCard extends React.Component {
     }
     this.toggleEditForm = this.toggleEditForm.bind(this);
     this.convertRating = this.convertRating.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   convertRating = (rating) => (
@@ -29,13 +30,20 @@ class ReviewCard extends React.Component {
     });
   }
 
+
+  handleDelete() {
+    this.props.deleteReview(this.props.review.id);
+  }
+
+
+
   
 
 
   render() {
     const { body, id, productId, rating, userId, createdAt, author} = this.props.review
     const { showEditForm } = this.state;
-
+    console.log('review card props', this.props)
     return(
       <div>
         {!showEditForm  && (
@@ -62,7 +70,10 @@ class ReviewCard extends React.Component {
                     >
                       Edit
                     </button>
-                    <button className='review-delete-btn'>Delete</button>
+                    <button 
+                      className='review-delete-btn'
+                      onClick={this.handleDelete}
+                    >Delete</button>
                   </div>
                 </h2>
               </div>

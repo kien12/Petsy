@@ -23,7 +23,7 @@ class ReviewForm extends React.Component {
   
 
   render() {
-    console.log('REVIEW FORM PROPS', this.props)
+    // console.log('REVIEW FORM PROPS', this.props)
     let reviewForm = 
     <div>
       <form className='review-form'>

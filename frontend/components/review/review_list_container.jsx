@@ -8,7 +8,7 @@ import {
 import ReviewList from './review_list'
 
 const mSTP = (state, ownProps) => {
-  console.log('reviews state', state)
+  // console.log('reviews state', state)
   // console.log('reviews ownProps', ownProps)
   return {
     // reviews: state.entities.reviews

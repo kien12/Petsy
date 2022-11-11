@@ -12,6 +12,9 @@ class ReviewForm extends React.Component {
       showEditForm: false
     }
     this.toggleEditForm = this.toggleEditForm.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.convertRating = this.convertRating.bind(this);
   }
 
   toggleEditForm() {
@@ -19,8 +22,24 @@ class ReviewForm extends React.Component {
       showEditForm: !this.state.showEditForm
     });
   }
-
   
+  convertRating = (rating) => (
+    (e) => {
+      this.setState( {[rating]: parseInt(e.target.value)} )
+    }
+  )
+    
+  onChange(type) {
+    (e) => {
+      this.setState({[type]: e.target.value})
+    }    
+  }
+  
+  handleSubmit(){
+    e.preventDefault();
+    this.props.handleSubmit(this.state);
+  }
+
 
   render() {
     let reviewForm = 
@@ -37,9 +56,11 @@ class ReviewForm extends React.Component {
       </form>
       <textarea className='review-form-body' name="" id="" cols="30" rows="10" placeholder='Write review here!'></textarea>
       <div>
-        <button className='review-submit-button'>Submit!!</button>
+        <button className='review-submit-button' onChange={this.handleSubmit}>Submit!!</button>
       </div>
     </div>
+    
+    console.log('review form state', this.props)
 
     return(
       <div className='review-form-container'>

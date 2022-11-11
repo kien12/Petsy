@@ -803,8 +803,8 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
 
       var _this$props = this.props,
           logout = _this$props.logout,
-          currentUserId = _this$props.currentUserId;
-      console.log('global nav props', this.props);
+          currentUserId = _this$props.currentUserId; // console.log('global nav props', this.props);
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1110,7 +1110,9 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
         className: "review-main-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_list_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         product: this.props.product
-      }), rightContainer));
+      }), rightContainer), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        product: this.props.product
+      }));
     }
   }]);
 
@@ -1273,7 +1275,7 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
         className: "review-user"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "review-author"
-      }, author), " Thu Feb 14 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, author), " Thu Dec 1 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-rating"
       }, "rated: ", rating, "/5"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-body"
@@ -1526,6 +1528,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1540,6 +1544,13 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ReviewForm);
 
     _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "convertRating", function (rating) {
+      return function (e) {
+        _this.setState(_defineProperty({}, rating, parseInt(e.target.value)));
+      };
+    });
+
     _this.state = {
       body: '',
       rating: '',
@@ -1548,6 +1559,9 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       showEditForm: false
     };
     _this.toggleEditForm = _this.toggleEditForm.bind(_assertThisInitialized(_this));
+    _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.convertRating = _this.convertRating.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1557,6 +1571,21 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       this.setState({
         showEditForm: !this.state.showEditForm
       });
+    }
+  }, {
+    key: "onChange",
+    value: function onChange(type) {
+      var _this2 = this;
+
+      (function (e) {
+        _this2.setState(_defineProperty({}, type, e.target.value));
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit() {
+      e.preventDefault();
+      this.props.handleSubmit(this.state);
     }
   }, {
     key: "render",
@@ -1583,8 +1612,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         rows: "10",
         placeholder: "Write review here!"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
-        className: "review-submit-button"
+        className: "review-submit-button",
+        onChange: this.handleSubmit
       }, "Submit!!")));
+      console.log('review form state', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
         className: "review-form-container"
       }, reviewForm);
@@ -1734,7 +1765,7 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         className: "review-info"
-      }, "Reviews for this item__________________________________________________________________________________________"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      }, "Reviews for this item__________________________________________________________________________________________"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList));
     }
   }]);
 

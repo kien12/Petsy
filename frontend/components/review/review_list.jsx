@@ -44,9 +44,6 @@ class ReviewList extends React.Component {
         <div>
           {reviewsList}
         </div>
-      <div>
-        <ReviewFormContainer/>
-      </div> 
     </div>
   )
   }    

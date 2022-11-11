@@ -90,7 +90,7 @@ class ProductShowPage extends React.Component {
           <ReviewListContainer product={this.props.product}/>
           {rightContainer}
         </section>
-          {/* <ReviewFormContainer product={this.props.product}/> */}
+          <ReviewFormContainer product={this.props.product}/>
       </div>
     )
       

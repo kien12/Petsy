@@ -48,7 +48,7 @@ class ReviewCard extends React.Component {
               <div className='right-container'>
                 <h2 key={`${id}`} className='review-content'>
                   <div className='review-user'>
-                    <span className='review-author'>{author}</span> Thu Feb 14 2022
+                    <span className='review-author'>{author}</span> Thu Dec 1 2022
                   </div>
                   <div className='review-rating'>
                     rated: {rating}/5

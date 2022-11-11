@@ -8,7 +8,7 @@ import ReviewForm from './review_form';
 
 const mSTP = (state, ownProps) => {
   return {
-    currentUser: state.sessions.id,
+    currentUser: state.sessions.CurrentUserId
   }
 }
 

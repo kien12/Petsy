@@ -7,8 +7,6 @@ class ReviewForm extends React.Component {
     this.state = {
       body: '',
       rating: '',
-      userId: '',
-      productId: '',
       showEditForm: false
     }
     this.toggleEditForm = this.toggleEditForm.bind(this);
@@ -37,7 +35,13 @@ class ReviewForm extends React.Component {
   
   handleSubmit(){
     e.preventDefault();
-    this.props.handleSubmit(this.state);
+    this.props.handleSubmit({
+      body: this.state.body,
+      rating: this.state.rating,
+      productId: this.props.entities.products.id,
+      userId: this.props.entities.sessions.users.id
+
+    });
   }
 
 
@@ -46,7 +50,7 @@ class ReviewForm extends React.Component {
     <div>
       <form className='review-form'>
         <label htmlFor="rating">Rating</label>
-        <select>
+        <select onChange={this.convertRating}>
           <option value="1">1</option>
           <option value="1">2</option>
           <option value="1">3</option>

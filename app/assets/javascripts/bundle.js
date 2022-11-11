@@ -1554,8 +1554,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       body: '',
       rating: '',
-      userId: '',
-      productId: '',
       showEditForm: false
     };
     _this.toggleEditForm = _this.toggleEditForm.bind(_assertThisInitialized(_this));
@@ -1585,7 +1583,12 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit() {
       e.preventDefault();
-      this.props.handleSubmit(this.state);
+      this.props.handleSubmit({
+        body: this.state.body,
+        rating: this.state.rating,
+        productId: this.props.entities.products.id,
+        userId: this.props.entities.sessions.users.id
+      });
     }
   }, {
     key: "render",
@@ -1594,7 +1597,9 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         className: "review-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", {
         htmlFor: "rating"
-      }, "Rating"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("option", {
+      }, "Rating"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("select", {
+        onChange: this.convertRating
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("option", {
         value: "1"
       }, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("option", {
         value: "1"
@@ -1649,7 +1654,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    currentUser: state.sessions.id
+    currentUser: state.sessions.CurrentUserId
   };
 };
 

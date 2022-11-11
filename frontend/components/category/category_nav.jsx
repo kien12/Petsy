@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 class CategoryNav extends React.Component {
   constructor(props){
     super(props)
-    // console.log('Render Constructor')
   }
 componentDidMount() {
   this.props.fetchAllCategories();
-  // console.log('componentDidMount');
 }
   render() {
     const categoriesList = this.props.categories.map(category => (
@@ -20,8 +18,6 @@ componentDidMount() {
         
       </Link>
       ))
-    // console.log('render')
-    // console.log(this.props);
     return (
       <div className='categories-nav'>
         {categoriesList}

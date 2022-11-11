@@ -37,7 +37,6 @@ class ReviewCard extends React.Component {
   render() {
     const { body, id, productId, rating, userId, createdAt, author} = this.props.review
     const { showEditForm } = this.state;
-    console.log('review card props', this.props)
     return(
       <div>
         {!showEditForm  && (

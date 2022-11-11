@@ -39,8 +39,6 @@ class ReviewEditForm extends React.Component {
 
   render(){
 
-    console.log('review edit form props', this.props);
-    console.log('edit form state', this.state);
     return(
       <div>
         <label>edit form</label>

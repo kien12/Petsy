@@ -18,32 +18,16 @@ class ReviewList extends React.Component {
     this.props.fetchReviews();
   }
 
-  
   onChange = (type) => (
     (e) => {
       this.setState({ [type]: e.target.value});
     }
   )
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log('review list prevProps', prevProps)
-  //   console.log('review list review props', this.props)
-  //   if (
-  //     (prevProps.body !== this.props.body) || 
-  //     (prevProps.rating !== this.props.rating)) {
-  //       this.fetchReview(this.props.id);
-  //     }
-  // }
-
-
   render() {
-  
-  // console.log('review props',this.props);
   const {reviews, product, modifyReview, deleteReview} = this.props;
-  
   const {showEditForm} = this.state;
   let reviewsArr = reviews.filter( review => product.id === review.productId)
-
   let reviewsList = reviewsArr.map((review) => {
     return( 
       <li key={review.id}>
@@ -51,7 +35,7 @@ class ReviewList extends React.Component {
       </li>
     )
   });
-   console.log('review list props',this.props)
+  
   return (
     <div>
       <h4 className='review-info'>

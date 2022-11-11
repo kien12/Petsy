@@ -394,13 +394,13 @@ var CategoryNav = /*#__PURE__*/function (_React$Component) {
   function CategoryNav(props) {
     _classCallCheck(this, CategoryNav);
 
-    return _super.call(this, props); // console.log('Render Constructor')
+    return _super.call(this, props);
   }
 
   _createClass(CategoryNav, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchAllCategories(); // console.log('componentDidMount');
+      this.props.fetchAllCategories();
     }
   }, {
     key: "render",
@@ -410,9 +410,7 @@ var CategoryNav = /*#__PURE__*/function (_React$Component) {
           key: "".concat(category.name, "-").concat(category.id),
           to: "/categories/".concat(category.id)
         }, category.name);
-      }); // console.log('render')
-      // console.log(this.props);
-
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "categories-nav"
       }, categoriesList);
@@ -805,9 +803,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
 
       var _this$props = this.props,
           logout = _this$props.logout,
-          currentUser = _this$props.currentUser; // console.log('GLOBAL NAV BAR PROPS', this.props)
-
-      console.log('global nav current user', currentUser);
+          currentUser = _this$props.currentUser;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -859,7 +855,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  console.log('mSTP STATE', state);
   return {
     currentUser: state.sessions.id
   };
@@ -1144,7 +1139,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  // console.log('this is ownProps for product', ownProps)
   return {
     product: state.entities.products[ownProps.match.params.id],
     products: Object.values(state.entities.products)
@@ -1260,7 +1254,6 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           createdAt = _this$props$review.createdAt,
           author = _this$props$review.author;
       var showEditForm = this.state.showEditForm;
-      console.log('review card props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, !showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-container",
         key: id
@@ -1440,8 +1433,6 @@ var ReviewEditForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('review edit form props', this.props);
-      console.log('edit form state', this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "edit form"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "body: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         name: "body",
@@ -1569,7 +1560,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log('REVIEW FORM PROPS', this.props)
       var reviewForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", {
         className: "review-form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", {
@@ -1626,12 +1616,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  // console.log('review form container props', ownProps)
-  // console.log('review form container props', state)
   return {
-    // reviews: Object.values(state.entities.reviews),
-    currentUser: state.sessions.id // product: ownProps.product
-
+    currentUser: state.sessions.id
   };
 };
 
@@ -1728,17 +1714,7 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "render",
-    value: // componentDidUpdate(prevProps, prevState) {
-    //   console.log('review list prevProps', prevProps)
-    //   console.log('review list review props', this.props)
-    //   if (
-    //     (prevProps.body !== this.props.body) || 
-    //     (prevProps.rating !== this.props.rating)) {
-    //       this.fetchReview(this.props.id);
-    //     }
-    // }
-    function render() {
-      // console.log('review props',this.props);
+    value: function render() {
       var _this$props = this.props,
           reviews = _this$props.reviews,
           product = _this$props.product,
@@ -1755,7 +1731,6 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
           review: review
         }));
       });
-      console.log('review list props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         className: "review-info"
       }, "Reviews for this item__________________________________________________________________________________________"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
@@ -1788,11 +1763,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  // console.log('reviews state', state)
-  console.log('reviews ownProps', ownProps);
   return {
-    // reviews: state.entities.reviews
-    // reviews: ownProps.reviews
     reviews: Object.values(state.entities.reviews),
     currentUser: state.sessions.id
   };
@@ -1800,7 +1771,6 @@ var mSTP = function mSTP(state) {
 
 var mDTP = function mDTP(dispatch) {
   return {
-    // createReview: (review) => dispatch(createReview(review)),
     fetchReview: function fetchReview(reviewId) {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.fetchReview)(reviewId));
     },
@@ -40235,7 +40205,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('root');
-  var store; // console.log('window current user111111', window.currentUser)
+  var store;
 
   if (window.currentUser) {
     var preloadedState = {
@@ -40250,8 +40220,7 @@ document.addEventListener("DOMContentLoaded", function () {
     delete window.currentUser;
   } else {
     store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  } // console.log('window current user222222', window.currentUser)
-
+  }
 
   window.store = store;
   window.deleteReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.deleteReview;

@@ -51,7 +51,7 @@ class ReviewList extends React.Component {
       </li>
     )
   });
-   
+   console.log('review list props',this.props)
   return (
     <div>
       <h4 className='review-info'>

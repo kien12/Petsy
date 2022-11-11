@@ -1755,6 +1755,7 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
           review: review
         }));
       });
+      console.log('review list props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         className: "review-info"
       }, "Reviews for this item__________________________________________________________________________________________"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
@@ -1786,9 +1787,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mSTP = function mSTP(state, ownProps) {
+var mSTP = function mSTP(state) {
   // console.log('reviews state', state)
-  // console.log('reviews ownProps', ownProps)
+  console.log('reviews ownProps', ownProps);
   return {
     // reviews: state.entities.reviews
     // reviews: ownProps.reviews

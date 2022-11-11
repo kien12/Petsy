@@ -797,11 +797,6 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(GlobalNavBar, [{
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps, prevState) {
-      if (prevProps.currentUserId !== this.props.currentUserId) {}
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this = this;

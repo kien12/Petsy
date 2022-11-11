@@ -7,13 +7,6 @@ class GlobalNavBar extends React.Component {
     super(props)
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.currentUserId !== this.props.currentUserId) {
-      
-    }
-  }
-
-
   render() {
     const { logout, currentUserId } = this.props;
     console.log('global nav props', this.props);

@@ -18,11 +18,10 @@ class CategoryProductShowPage extends React.Component {
   
   render(){
     const categoryProducts = this.props.categoryProducts.map(product => (
-    <div className='product-info-container'>
-      <Link
-        key={`${product.name}-${product.id}`}
-        to={`/products/${product.id}`}
-      >
+    <div 
+      className='product-info-container'
+      key={`${product.name}-${product.id}`}>
+      <Link to={`/products/${product.id}`}>
         <h2>{product.name}</h2>
         <p>{product.description}</p>
         <p>{product.price}</p>

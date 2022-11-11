@@ -5,7 +5,7 @@ import { openModal, closeModal } from '../../actions/modal_actions'
 
 const mSTP = state => {
   return {
-    currentUser: state.sessions.id
+    currentUserId: state.sessions.currentUserId
   }
 }
 

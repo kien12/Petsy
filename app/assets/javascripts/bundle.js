@@ -527,9 +527,9 @@ var CategoryProductShowPage = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var categoryProducts = this.props.categoryProducts.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          className: "product-info-container"
+          className: "product-info-container",
+          key: "".concat(product.name, "-").concat(product.id)
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-          key: "".concat(product.name, "-").concat(product.id),
           to: "/products/".concat(product.id)
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, product.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, product.price)));
       });
@@ -803,7 +803,8 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
 
       var _this$props = this.props,
           logout = _this$props.logout,
-          currentUser = _this$props.currentUser;
+          currentUserId = _this$props.currentUserId;
+      console.log('global nav props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -813,7 +814,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
         alt: "petsy-logo"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar-search-bar"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_result__WEBPACK_IMPORTED_MODULE_2__["default"], null)), currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_result__WEBPACK_IMPORTED_MODULE_2__["default"], null)), currentUserId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "top-nav-bar-login",
         onClick: logout
       }, "Log Out") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -856,7 +857,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    currentUser: state.sessions.id
+    currentUserId: state.sessions.currentUserId
   };
 };
 
@@ -40213,7 +40214,7 @@ document.addEventListener("DOMContentLoaded", function () {
         users: _defineProperty({}, window.currentUser.id, window.currentUser)
       },
       sessions: {
-        id: window.currentUser.id
+        currentUserId: window.currentUser.id
       }
     };
     store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(preloadedState);

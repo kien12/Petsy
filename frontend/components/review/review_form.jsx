@@ -1,4 +1,4 @@
-import Review from './review';
+import Review from './review_list';
 import React from 'react';
 
 class ReviewForm extends React.Component {
@@ -23,7 +23,6 @@ class ReviewForm extends React.Component {
   
 
   render() {
-    console.log('REVIEW FORM PROPS', this.props)
     let reviewForm = 
     <div>
       <form className='review-form'>

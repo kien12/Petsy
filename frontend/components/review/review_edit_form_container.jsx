@@ -1,10 +1,8 @@
 import { connect } from 'react-redux';
 import { modifyReview } from '../../actions/review_action';
-import EditForm from './edit_form';
+import ReviewEditForm from './review_edit_form';
 
-const mSTP = (state, ownProps) => {
-  
-}
+
 
 const mDTP = (dispatch) => {
   return {
@@ -12,4 +10,4 @@ const mDTP = (dispatch) => {
   }
 }
 
-export default connect(null, mDTP)(EditForm);
+export default connect(null, mDTP)(ReviewEditForm);

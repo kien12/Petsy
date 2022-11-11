@@ -37,11 +37,6 @@ class ReviewEditForm extends React.Component {
     this.props.toggleEditForm();
   }
 
-  handleDelete() {
-    this.p
-  }
-
-
   render(){
 
     console.log('review edit form props', this.props);

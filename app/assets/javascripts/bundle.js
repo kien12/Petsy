@@ -1438,11 +1438,6 @@ var ReviewEditForm = /*#__PURE__*/function (_React$Component) {
       this.props.toggleEditForm();
     }
   }, {
-    key: "handleDelete",
-    value: function handleDelete() {
-      this.p;
-    }
-  }, {
     key: "render",
     value: function render() {
       console.log('review edit form props', this.props);

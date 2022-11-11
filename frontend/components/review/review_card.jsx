@@ -30,15 +30,9 @@ class ReviewCard extends React.Component {
     });
   }
 
-
   handleDelete() {
     this.props.deleteReview(this.props.review.id);
   }
-
-
-
-  
-
 
   render() {
     const { body, id, productId, rating, userId, createdAt, author} = this.props.review

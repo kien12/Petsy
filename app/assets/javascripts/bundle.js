@@ -144,6 +144,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RECEIVE_ALL_REVIEWS": () => (/* binding */ RECEIVE_ALL_REVIEWS),
 /* harmony export */   "RECEIVE_ERRORS": () => (/* binding */ RECEIVE_ERRORS),
 /* harmony export */   "RECEIVE_REVIEW": () => (/* binding */ RECEIVE_REVIEW),
+/* harmony export */   "REMOVE_REVIEW": () => (/* binding */ REMOVE_REVIEW),
 /* harmony export */   "addReview": () => (/* binding */ addReview),
 /* harmony export */   "deleteReview": () => (/* binding */ deleteReview),
 /* harmony export */   "fetchAllReviews": () => (/* binding */ fetchAllReviews),
@@ -155,6 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 var RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS';
 var RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+var REMOVE_REVIEW = "REMOVE_REVIEW";
 
 var receiveReview = function receiveReview(review) {
   return {
@@ -177,6 +179,13 @@ var receiveErrors = function receiveErrors(errors) {
   };
 };
 
+var removeReview = function removeReview(reviewId) {
+  return {
+    type: REMOVE_REVIEW,
+    reviewId: reviewId
+  };
+};
+
 var addReview = function addReview(data) {
   return function (dispatch) {
     return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.createReview(data).then(function (review) {
@@ -188,7 +197,7 @@ var addReview = function addReview(data) {
 };
 var deleteReview = function deleteReview(reviewId) {
   return function (dispatch) {
-    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.modifyReview(reviewId).then(function (review) {
+    return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.deleteReview(reviewId).then(function (review) {
       return dispatch(removeReview(review));
     });
   };
@@ -1312,7 +1321,20 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchReview: function fetchReview(reviewId) {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_2__.fetchReview)(reviewId));
-    }
+    },
+    deleteReview: function (_deleteReview) {
+      function deleteReview(_x) {
+        return _deleteReview.apply(this, arguments);
+      }
+
+      deleteReview.toString = function () {
+        return _deleteReview.toString();
+      };
+
+      return deleteReview;
+    }(function (reviewId) {
+      return dispatch(deleteReview(reviewId));
+    })
   };
 };
 
@@ -1404,6 +1426,11 @@ var ReviewEditForm = /*#__PURE__*/function (_React$Component) {
         id: this.props.id
       });
       this.props.toggleEditForm();
+    }
+  }, {
+    key: "handleDelete",
+    value: function handleDelete() {
+      this.p;
     }
   }, {
     key: "render",
@@ -1595,6 +1622,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   console.log('review form container props', ownProps);
+  console.log('review form container props', state);
   return {
     // reviews: Object.values(state.entities.reviews),
     currentUser: state.sessions.id // product: ownProps.product
@@ -1607,7 +1635,6 @@ var mDTP = function mDTP(dispatch) {
     modifyReview: function modifyReview(review) {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.modifyReview)(review));
     },
-    // deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
     createReview: function createReview(review) {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.addReview)(review));
     }
@@ -2771,7 +2798,7 @@ var modifyReview = function modifyReview(review) {
 };
 var deleteReview = function deleteReview(reviewId) {
   return $.ajax({
-    method: 'DELTE',
+    method: 'DELETE',
     url: "/api/reviews/".concat(reviewId)
   });
 };

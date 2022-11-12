@@ -1504,8 +1504,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _review_list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./review_list */ "./frontend/components/review/review_list.jsx");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1532,7 +1531,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 var ReviewForm = /*#__PURE__*/function (_React$Component) {
   _inherits(ReviewForm, _React$Component);
 
@@ -1545,19 +1543,27 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "convertRating", function (rating) {
+    _defineProperty(_assertThisInitialized(_this), "convertRating", function () {
       return function (e) {
-        _this.setState(_defineProperty({}, rating, parseInt(e.target.value)));
+        console.log(e);
+
+        _this.setState({
+          rating: parseInt(e.target.value)
+        });
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (type) {
+      return function (e) {
+        _this.setState(_defineProperty({}, type, e.target.value));
       };
     });
 
     _this.state = {
       body: '',
-      rating: '',
-      showEditForm: false
+      rating: ''
     };
-    _this.toggleEditForm = _this.toggleEditForm.bind(_assertThisInitialized(_this));
-    _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.convertRating = _this.convertRating.bind(_assertThisInitialized(_this));
     return _this;
@@ -1571,15 +1577,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
-    key: "onChange",
-    value: function onChange(type) {
-      var _this2 = this;
-
-      (function (e) {
-        _this2.setState(_defineProperty({}, type, e.target.value));
-      });
-    }
-  }, {
     key: "handleSubmit",
     value: function handleSubmit() {
       e.preventDefault();
@@ -1587,48 +1584,51 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         body: this.state.body,
         rating: this.state.rating,
         productId: this.props.entities.products.id,
-        userId: this.props.entities.sessions.users.id
+        userId: this.props.sessions.currentUserId
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var reviewForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", {
-        className: "review-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("label", {
+      var _this2 = this;
+
+      console.log('review form state', this.state);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        className: "review-form",
+        onSubmit: this.handleSubmit
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "rating"
-      }, "Rating"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("select", {
-        onChange: this.convertRating
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("option", {
+      }, "Rating"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+        onChange: function onChange() {
+          return _this2.convertRating();
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
-      }, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("option", {
+      }, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
-      }, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("option", {
+      }, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
-      }, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("option", {
+      }, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
-      }, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("option", {
+      }, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
-      }, "5"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("textarea", {
+      }, "5")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         className: "review-form-body",
-        name: "",
-        id: "",
         cols: "30",
         rows: "10",
-        placeholder: "Write review here!"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", {
-        className: "review-submit-button",
-        onChange: this.handleSubmit
-      }, "Submit!!")));
-      console.log('review form state', this.props);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
-        className: "review-form-container"
-      }, reviewForm);
+        placeholder: "Write review here!",
+        onChange: this.handleChange('body'),
+        value: this.state.body
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "review-submit-button"
+      }, "Submit!"))));
     }
   }]);
 
   return ReviewForm;
-}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewForm);
 
@@ -1653,6 +1653,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  console.log('review form container state', state);
   return {
     currentUser: state.sessions.CurrentUserId
   };

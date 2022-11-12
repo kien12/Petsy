@@ -1,16 +1,13 @@
-import Review from './review_list';
 import React from 'react';
 
 class ReviewForm extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       body: '',
-      rating: '',
-      showEditForm: false
+      rating: ''
     }
-    this.toggleEditForm = this.toggleEditForm.bind(this);
-    this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.convertRating = this.convertRating.bind(this);
   }
@@ -21,14 +18,15 @@ class ReviewForm extends React.Component {
     });
   }
   
-  convertRating = (rating) => (
+  convertRating = () => (
     (e) => {
-      this.setState( {[rating]: parseInt(e.target.value)} )
+      console.log(e)
+      this.setState( {rating: parseInt(e.target.value)} )
     }
   )
     
-  onChange(type) {
-    (e) => {
+  handleChange= (type) => {
+    return (e) => {
       this.setState({[type]: e.target.value})
     }    
   }
@@ -39,36 +37,41 @@ class ReviewForm extends React.Component {
       body: this.state.body,
       rating: this.state.rating,
       productId: this.props.entities.products.id,
-      userId: this.props.entities.sessions.users.id
+      userId: this.props.sessions.currentUserId
 
     });
   }
 
 
   render() {
-    let reviewForm = 
-    <div>
-      <form className='review-form'>
-        <label htmlFor="rating">Rating</label>
-        <select onChange={this.convertRating}>
-          <option value="1">1</option>
-          <option value="1">2</option>
-          <option value="1">3</option>
-          <option value="1">4</option>
-          <option value="1">5</option>
-        </select>
-      </form>
-      <textarea className='review-form-body' name="" id="" cols="30" rows="10" placeholder='Write review here!'></textarea>
-      <div>
-        <button className='review-submit-button' onChange={this.handleSubmit}>Submit!!</button>
-      </div>
-    </div>
     
-    console.log('review form state', this.props)
+    console.log('review form state', this.state)
 
     return(
       <div className='review-form-container'>
-        {reviewForm}
+        <div>
+          <form className='review-form' onSubmit={this.handleSubmit}>
+            <label htmlFor="rating">Rating</label>
+            <select onChange={ () => this.convertRating()}>
+              <option value="1">1</option>
+              <option value="1">2</option>
+              <option value="1">3</option>
+              <option value="1">4</option>
+              <option value="1">5</option>
+            </select>
+            <div>
+              <textarea 
+                className='review-form-body'
+                cols="30" 
+                rows="10" 
+                placeholder='Write review here!'
+                onChange={this.handleChange('body')}
+                value={this.state.body}
+              />
+            </div>
+            <button className='review-submit-button'>Submit!</button>
+          </form>
+        </div>
       </div>
     )
   }

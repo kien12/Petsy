@@ -1578,7 +1578,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "handleSubmit",
-    value: function handleSubmit() {
+    value: function handleSubmit(e) {
       e.preventDefault();
       this.props.handleSubmit({
         body: this.state.body,
@@ -1590,8 +1590,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       console.log('review form state', this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-container"
@@ -1600,13 +1598,9 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         htmlFor: "rating"
-      }, "Rating"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-        onChange: function onChange() {
-          return _this2.convertRating();
-        }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+      }, "Rating"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
-      }, 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+      }, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
       }, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
@@ -1655,7 +1649,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   console.log('review form container state', state);
   return {
-    currentUser: state.sessions.CurrentUserId
+    currentUser: state.sessions.CurrentUserId,
+    productId: state.entities.products.id
   };
 };
 

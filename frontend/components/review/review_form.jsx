@@ -31,7 +31,7 @@ class ReviewForm extends React.Component {
     }    
   }
   
-  handleSubmit(){
+  handleSubmit(e){
     e.preventDefault();
     this.props.handleSubmit({
       body: this.state.body,
@@ -52,8 +52,8 @@ class ReviewForm extends React.Component {
         <div>
           <form className='review-form' onSubmit={this.handleSubmit}>
             <label htmlFor="rating">Rating</label>
-            <select onChange={ () => this.convertRating()}>
-              <option value="1">{1}</option>
+            <select>
+              <option value="1">1</option>
               <option value="1">2</option>
               <option value="1">3</option>
               <option value="1">4</option>

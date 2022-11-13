@@ -9,7 +9,8 @@ import ReviewForm from './review_form';
 const mSTP = (state, ownProps) => {
   console.log('review form container state', state)
   return {
-    currentUser: state.sessions.CurrentUserId
+    currentUser: state.sessions.CurrentUserId,
+    productId: state.entities.products.id
   }
 }
 

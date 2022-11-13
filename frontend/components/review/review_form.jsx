@@ -5,7 +5,7 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = {
       body: '',
-      rating: ''
+      rating: 1
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -53,7 +53,7 @@ class ReviewForm extends React.Component {
           <form className='review-form' onSubmit={this.handleSubmit}>
             <label htmlFor="rating">Rating</label>
             <select onChange={ () => this.convertRating()}>
-              <option value="1">1</option>
+              <option value="1">{1}</option>
               <option value="1">2</option>
               <option value="1">3</option>
               <option value="1">4</option>

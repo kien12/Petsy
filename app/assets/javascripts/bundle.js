@@ -1583,14 +1583,14 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       this.props.handleSubmit({
         body: this.state.body,
         rating: this.state.rating,
-        productId: this.props.entities.product.id,
-        userId: this.props.sessions.currentUserId
+        productId: this.props.productId,
+        userId: this.props.currentUserId
       });
     }
   }, {
     key: "render",
     value: function render() {
-      console.log('review form state', this.state);
+      // console.log('review form state', this.state)
       console.log('review form props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-container"
@@ -1638,8 +1638,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   console.log('review form container state', state);
   return {
-    currentUser: state.sessions.CurrentUserId,
-    productId: state.entities.products.id
+    currentUser: state.sessions.currentUserId,
+    productId: Object.values(state.entities.products)[0].id
   };
 };
 

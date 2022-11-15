@@ -36,16 +36,16 @@ class ReviewForm extends React.Component {
     this.props.handleSubmit({
       body: this.state.body,
       rating: this.state.rating,
-      productId: this.props.entities.product.id,
-      userId: this.props.sessions.currentUserId
+      productId: this.props.productId,
+      userId: this.props.currentUserId
 
     });
   }
 
 
   render() {
-    
-    console.log('review form state', this.state)
+
+    // console.log('review form state', this.state)
     console.log('review form props', this.props)
     
     return(

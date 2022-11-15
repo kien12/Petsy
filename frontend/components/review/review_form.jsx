@@ -36,7 +36,7 @@ class ReviewForm extends React.Component {
     this.props.handleSubmit({
       body: this.state.body,
       rating: this.state.rating,
-      productId: this.props.entities.products.id,
+      productId: this.props.entities.product.id,
       userId: this.props.sessions.currentUserId
 
     });
@@ -46,19 +46,20 @@ class ReviewForm extends React.Component {
   render() {
     
     console.log('review form state', this.state)
-
+    console.log('review form props', this.props)
+    
     return(
       <div className='review-form-container'>
         <div>
           <form className='review-form' onSubmit={this.handleSubmit}>
-            <label htmlFor="rating">Rating</label>
+            {/* <label htmlFor="rating">Rating</label>
             <select>
               <option value="1">1</option>
               <option value="1">2</option>
               <option value="1">3</option>
               <option value="1">4</option>
               <option value="1">5</option>
-            </select>
+            </select> */}
             <div>
               <textarea 
                 className='review-form-body'

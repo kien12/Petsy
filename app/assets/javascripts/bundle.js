@@ -1580,18 +1580,24 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      console.log('handle submit product id', this.props.productId);
-      console.log('handle submit user id', this.props.currentUserId);
-      console.log('handle submit body', this.state.body);
-      console.log('handle submit rating', this.state.rating);
+      var _this2 = this;
+
       e.preventDefault();
       this.props.createReview({
         body: this.state.body,
         rating: this.state.rating,
-        productId: this.props.productId,
-        userId: this.props.currentUserId
-      }).then(function (res) {
-        return console.log('response', res);
+        product_id: this.props.productId,
+        user_id: this.props.currentUserId
+      }).then(function (_) {
+        return _this2.clearState();
+      });
+    }
+  }, {
+    key: "clearState",
+    value: function clearState() {
+      this.setState({
+        body: '',
+        rating: 1
       });
     }
   }, {

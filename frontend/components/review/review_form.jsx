@@ -32,13 +32,16 @@ class ReviewForm extends React.Component {
   }
   
   handleSubmit(e){
+    console.log('handle submit product id', this.props.productId)
+    console.log('handle submit user id', this.props.currentUserId)
+    console.log('handle submit body', this.state.body)
+    console.log('handle submit rating', this.state.rating)
     e.preventDefault();
-    this.props.handleSubmit({
+    this.props.createReview({
       body: this.state.body,
       rating: this.state.rating,
       productId: this.props.productId,
       userId: this.props.currentUserId
-
     });
   }
 

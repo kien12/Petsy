@@ -33,7 +33,7 @@ const removeReview = reviewId => {
   }
 }
 
-export const addReview = (data) => dispatch => {
+export const createReview = (data) => dispatch => {
   return ReviewApiUtil.createReview(data)
     .then(
       review => dispatch(receiveReview(review)),

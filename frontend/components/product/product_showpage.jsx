@@ -28,6 +28,8 @@ class ProductShowPage extends React.Component {
   render() {
     if(!this.props.product) return null;
 
+    console.log('product showpage props', this.props)
+
     const product = this.props.match.params.id;
     const { 
       name, 

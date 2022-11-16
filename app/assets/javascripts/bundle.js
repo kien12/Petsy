@@ -145,7 +145,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "RECEIVE_ERRORS": () => (/* binding */ RECEIVE_ERRORS),
 /* harmony export */   "RECEIVE_REVIEW": () => (/* binding */ RECEIVE_REVIEW),
 /* harmony export */   "REMOVE_REVIEW": () => (/* binding */ REMOVE_REVIEW),
-/* harmony export */   "addReview": () => (/* binding */ addReview),
+/* harmony export */   "createReview": () => (/* binding */ createReview),
 /* harmony export */   "deleteReview": () => (/* binding */ deleteReview),
 /* harmony export */   "fetchAllReviews": () => (/* binding */ fetchAllReviews),
 /* harmony export */   "fetchReview": () => (/* binding */ fetchReview),
@@ -186,7 +186,7 @@ var removeReview = function removeReview(reviewId) {
   };
 };
 
-var addReview = function addReview(data) {
+var createReview = function createReview(data) {
   return function (dispatch) {
     return _util_review_utils__WEBPACK_IMPORTED_MODULE_0__.createReview(data).then(function (review) {
       return dispatch(receiveReview(review));
@@ -1034,6 +1034,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.product) return null;
+      console.log('product showpage props', this.props);
       var product = this.props.match.params.id;
       var _this$props$product = this.props.product,
           name = _this$props$product.name,
@@ -1579,8 +1580,12 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      console.log('handle submit product id', this.props.productId);
+      console.log('handle submit user id', this.props.currentUserId);
+      console.log('handle submit body', this.state.body);
+      console.log('handle submit rating', this.state.rating);
       e.preventDefault();
-      this.props.handleSubmit({
+      this.props.createReview({
         body: this.state.body,
         rating: this.state.rating,
         productId: this.props.productId,
@@ -1638,7 +1643,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   console.log('review form container state', state);
   return {
-    currentUser: state.sessions.currentUserId,
+    currentUserId: state.sessions.currentUserId,
     productId: Object.values(state.entities.products)[0].id
   };
 };
@@ -1649,7 +1654,7 @@ var mDTP = function mDTP(dispatch) {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.modifyReview)(review));
     },
     createReview: function createReview(review) {
-      return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.addReview)(review));
+      return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.createReview)(review));
     }
   };
 };
@@ -2684,7 +2689,6 @@ __webpack_require__.r(__webpack_exports__);
 var middlewares = [redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]];
 
 if (true) {
-  // must use 'require' (import only allowed at top of file)
   var _require = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js"),
       _logger = _require.logger;
 
@@ -40245,7 +40249,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.store = store;
-  window.deleteReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.deleteReview;
+  window.createReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.createReview;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

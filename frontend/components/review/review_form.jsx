@@ -42,7 +42,7 @@ class ReviewForm extends React.Component {
       rating: this.state.rating,
       productId: this.props.productId,
       userId: this.props.currentUserId
-    });
+    }).then( res => console.log('response',res));
   }
 
 

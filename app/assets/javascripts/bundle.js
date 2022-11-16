@@ -1590,6 +1590,8 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         rating: this.state.rating,
         productId: this.props.productId,
         userId: this.props.currentUserId
+      }).then(function (res) {
+        return console.log('response', res);
       });
     }
   }, {
@@ -40228,6 +40230,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+ // import { createReview,getReview, modifyReview } from './util/review_utils'
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('root');
@@ -40249,7 +40252,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.store = store;
-  window.createReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.createReview;
+  window.createReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.createReview; // window.modifyReview = modifyReview;
+
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

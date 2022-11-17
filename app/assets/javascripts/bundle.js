@@ -1563,26 +1563,31 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       };
     });
 
-    _defineProperty(_assertThisInitialized(_this), "starSeq", function () {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "star-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "star-test"
-      }, "block"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: _this.state.filledStar ? 'star-test' : 'star-yellow',
-        onClick: _this.handleStarClick
-      }, "block2"));
-    });
+    _defineProperty(_assertThisInitialized(_this), "handleClickStar", function (index) {
+      //get the star in starList array based on its index
+      var getStar = _this.state.starList[index]; // update the star's value
 
-    _defineProperty(_assertThisInitialized(_this), "handleStarClick", function () {
+      var newStarState = !getStar; // make a copy of the starList array so you don't override the previous state
+
+      var newStarList = _this.state.starList.slice(); // update the star in the starList to the new value
+
+
+      for (var i = 0; i < index; i++) {
+        newStarList[i] = newStarState;
+      }
+
+      newStarList[index] = newStarState; //set the new state of starList to the new array with the updated star
+
       _this.setState({
-        fillStar: !_this.state.fillStar
+        starList: newStarList,
+        rating: _this.state.rating = index + 1
       });
     });
 
     _this.state = {
       body: '',
       rating: 1,
+      starList: [false, false, false, false, false],
       fillStar: false
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
@@ -1630,12 +1635,30 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       if (this.state.starFilled != prevState.starFilled) {
         this.forceUpdate();
       }
-    }
+    } // updates a specific star's state in starList based on its index
+
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       console.log('review form state', this.state);
       console.log('review form props', this.props);
+      var _this$state = this.state,
+          fillStar = _this$state.fillStar,
+          starList = _this$state.starList;
+      var renderStars = starList.map(function (star, index) {
+        //index starts at 0. Star count should start with 1. This is only used to name the star, otherwise its not needed
+        var starNum = index + 1;
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: index // if the star is true, render yellow, otherwise render grey;
+          ,
+          className: star ? 'yellow-star' : 'grey-star',
+          onClick: function onClick() {
+            return _this3.handleClickStar(index);
+          }
+        }, "star-".concat(starNum));
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
@@ -1643,7 +1666,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-stars"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+      }, renderStars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         className: "review-form-body",
         cols: "30",
         rows: "10",

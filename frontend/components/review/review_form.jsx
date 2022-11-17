@@ -8,6 +8,7 @@ class ReviewForm extends React.Component {
     this.state = {
       body: '',
       rating: 1,
+      starList: [false, false, false, false, false],
       fillStar: false
     }
     this.handleChange = this.handleChange.bind(this);
@@ -54,25 +55,7 @@ class ReviewForm extends React.Component {
     })
   }
 
-  starSeq = () => {
-    return (
-      <div className='star-container'>
-        <div className='star-test'>
-          block
-        </div>
-        <div className={ this.state.filledStar? 'star-test' : 'star-yellow'} onClick={this.handleStarClick}>
-          block2
-        </div>
-      </div>
-    )
-  }
 
-  handleStarClick = () => {
-      this.setState({
-        fillStar: !this.state.fillStar
-      }
-    )
-  }
 
   componentDidUpdate(prevState) {
     if (this.state.starFilled != prevState.starFilled) {
@@ -80,18 +63,52 @@ class ReviewForm extends React.Component {
     }
   }
 
+      // updates a specific star's state in starList based on its index
+  handleClickStar = (index) => {
+    //get the star in starList array based on its index
+    const getStar = this.state.starList[index];
+    // update the star's value
+    const newStarState = !getStar;
+    // make a copy of the starList array so you don't override the previous state
+    const newStarList = this.state.starList.slice();
+    // update the star in the starList to the new value
+    for (var i = 0; i < index; i++) {
+      newStarList[i] = newStarState
+    }
+    newStarList[index] = newStarState;
+    //set the new state of starList to the new array with the updated star
+    this.setState({ 
+      starList: newStarList,
+      rating: this.state.rating = index + 1
+    });
+  }
+
   render() {
 
     console.log('review form state', this.state)
     console.log('review form props', this.props)
-    
+    const { fillStar, starList } = this.state;
+
+    const renderStars = starList.map((star, index) => {
+      //index starts at 0. Star count should start with 1. This is only used to name the star, otherwise its not needed
+      const starNum = index + 1;
+      return (
+        <div 
+          key={index}
+          // if the star is true, render yellow, otherwise render grey;
+          className={ star ? 'yellow-star' : 'grey-star'}
+          onClick={() => this.handleClickStar(index)}>
+          {`star-${starNum}`} 
+        </div>
+      )
+    });
+
     return(
       <div className='review-form-container'>
         <div>
           <form className='review-form' onSubmit={this.handleSubmit}>
             <div className='review-form-stars'>
-              {/* {this.starSeq()} */}
-              {/* <StarRating rating={this.props.rating} /> */}
+              {renderStars}
             </div>
             <div>
               <textarea 

@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 
 export const StarRating = () => {
   const [rating, setRating] = useState(0);
@@ -15,7 +15,7 @@ export const StarRating = () => {
             onClick={() => setRating(index)}
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
-          >
+            >
             <span className="star">&#9733;</span>
           </button>
         );

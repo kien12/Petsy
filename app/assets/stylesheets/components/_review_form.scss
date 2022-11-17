@@ -1,4 +1,4 @@
-button {
+.star-rating button {
   background-color: transparent;
   border: none;
   outline: none;
@@ -11,4 +11,16 @@ button {
 
 .off {
   color: #ccc;
+}
+
+.star-container {
+  display: flex;
+}
+
+.star-test {
+  background-color: #000;
+}
+
+.star-yellow {
+  background-color: yellow;
 }

@@ -1563,9 +1563,27 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       };
     });
 
+    _defineProperty(_assertThisInitialized(_this), "starSeq", function () {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "star-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "star-test"
+      }, "block"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: _this.state.filledStar ? 'star-test' : 'star-yellow',
+        onClick: _this.handleStarClick
+      }, "block2"));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleStarClick", function () {
+      _this.setState({
+        fillStar: !_this.state.fillStar
+      });
+    });
+
     _this.state = {
       body: '',
-      rating: 1
+      rating: 1,
+      fillStar: false
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1607,9 +1625,16 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevState) {
+      if (this.state.starFilled != prevState.starFilled) {
+        this.forceUpdate();
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      // console.log('review form state', this.state)
+      console.log('review form state', this.state);
       console.log('review form props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-container"
@@ -1618,7 +1643,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-stars"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_star_rating__WEBPACK_IMPORTED_MODULE_1__.StarRating, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         className: "review-form-body",
         cols: "30",
         rows: "10",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //  import { starIcon, emptyStarIcon} from '../../../app/assets/images'
 import { StarRating } from './star_rating';
 
@@ -8,6 +8,7 @@ class ReviewForm extends React.Component {
     this.state = {
       body: '',
       rating: 1,
+      fillStar: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -53,9 +54,35 @@ class ReviewForm extends React.Component {
     })
   }
 
+  starSeq = () => {
+    return (
+      <div className='star-container'>
+        <div className='star-test'>
+          block
+        </div>
+        <div className={ this.state.filledStar? 'star-test' : 'star-yellow'} onClick={this.handleStarClick}>
+          block2
+        </div>
+      </div>
+    )
+  }
+
+  handleStarClick = () => {
+      this.setState({
+        fillStar: !this.state.fillStar
+      }
+    )
+  }
+
+  componentDidUpdate(prevState) {
+    if (this.state.starFilled != prevState.starFilled) {
+      this.forceUpdate();
+    }
+  }
+
   render() {
 
-    // console.log('review form state', this.state)
+    console.log('review form state', this.state)
     console.log('review form props', this.props)
     
     return(
@@ -63,13 +90,8 @@ class ReviewForm extends React.Component {
         <div>
           <form className='review-form' onSubmit={this.handleSubmit}>
             <div className='review-form-stars'>
-              <StarRating />
-              {/* <span className='star'>&#9733;</span> */}
-              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
-              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
-              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
-              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
-              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
+              {/* {this.starSeq()} */}
+              {/* <StarRating rating={this.props.rating} /> */}
             </div>
             <div>
               <textarea 

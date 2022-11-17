@@ -1567,6 +1567,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.convertRating = _this.convertRating.bind(_assertThisInitialized(_this));
+    _this.clearState = _this.clearState.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1588,7 +1589,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         rating: this.state.rating,
         product_id: this.props.productId,
         user_id: this.props.currentUserId
-      }).then(function (_) {
+      }).then(function () {
         return _this2.clearState();
       });
     }
@@ -1597,7 +1598,9 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     value: function clearState() {
       this.setState({
         body: '',
-        rating: 1
+        rating: 5,
+        product_id: this.props.productId,
+        user_id: this.props.currentUserId
       });
     }
   }, {

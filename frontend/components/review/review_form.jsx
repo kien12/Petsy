@@ -10,6 +10,7 @@ class ReviewForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.convertRating = this.convertRating.bind(this);
+    this.clearState = this.clearState.bind(this);
   }
 
   toggleEditForm() {
@@ -25,7 +26,7 @@ class ReviewForm extends React.Component {
     }
   )
     
-  handleChange= (type) => {
+  handleChange = (type) => {
     return (e) => {
       this.setState({[type]: e.target.value})
     }    
@@ -38,13 +39,15 @@ class ReviewForm extends React.Component {
       rating: this.state.rating,
       product_id: this.props.productId,
       user_id: this.props.currentUserId
-    }).then( _ => this.clearState());
+    }).then( () => this.clearState());
   }
 
   clearState() {
     this.setState({
       body: '',
-      rating: 1,
+      rating: 5,
+      product_id: this.props.productId,
+      user_id: this.props.currentUserId
     })
   }
 

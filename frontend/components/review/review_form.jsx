@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 //  import { starIcon, emptyStarIcon} from '../../../app/assets/images'
-import { StarRating } from './star_rating';
+// import { StarRating } from './star_rating';
 
 class ReviewForm extends React.Component {
   constructor(props){
@@ -75,12 +75,18 @@ class ReviewForm extends React.Component {
     for (var i = 0; i < index; i++) {
       newStarList[i] = newStarState
     }
+
+    // for (var j = 5; j > index; j--) {
+    //   newStarList[i] = !newStarState
+    // }
+
     newStarList[index] = newStarState;
     //set the new state of starList to the new array with the updated star
     this.setState({ 
       starList: newStarList,
       rating: this.state.rating = index + 1
     });
+    
   }
 
   render() {

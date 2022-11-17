@@ -1,11 +1,13 @@
 import React from 'react';
+//  import { starIcon, emptyStarIcon} from '../../../app/assets/images'
+import { StarRating } from './star_rating';
 
 class ReviewForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       body: '',
-      rating: 1
+      rating: 1,
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,7 +53,6 @@ class ReviewForm extends React.Component {
     })
   }
 
-
   render() {
 
     // console.log('review form state', this.state)
@@ -61,14 +62,15 @@ class ReviewForm extends React.Component {
       <div className='review-form-container'>
         <div>
           <form className='review-form' onSubmit={this.handleSubmit}>
-            {/* <label htmlFor="rating">Rating</label>
-            <select>
-              <option value="1">1</option>
-              <option value="1">2</option>
-              <option value="1">3</option>
-              <option value="1">4</option>
-              <option value="1">5</option>
-            </select> */}
+            <div className='review-form-stars'>
+              <StarRating />
+              {/* <span className='star'>&#9733;</span> */}
+              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
+              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
+              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
+              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
+              {/* <input type="image" src={window.starIcon} alt="star-icon" className='star-icon' /> */}
+            </div>
             <div>
               <textarea 
                 className='review-form-body'

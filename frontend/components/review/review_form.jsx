@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class ReviewForm extends React.Component {
   constructor(props){
     super(props);
@@ -85,7 +86,6 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-
     console.log('review form state', this.state)
     console.log('review form props', this.props)
     const { fillStar, starList } = this.state;
@@ -102,15 +102,14 @@ class ReviewForm extends React.Component {
     }
 
     const renderStars = starList.map((star, index) => {
-      //index starts at 0. Star count should start with 1. This is only used to name the star, otherwise its not needed
       const starNum = index + 1;
       return (
         <div 
           key={index}
-          // if the star is true, render yellow, otherwise render grey;
-          className={ star ? 'yellow-star' : 'grey-star'}
           onClick={() => this.handleClickStar(index)}>
-          {`star-${starNum}`} 
+          <img 
+            className='review-star-icon'
+            src={ star ? window.starIcon : window.emptyStarIcon} />
         </div>
       )
     });

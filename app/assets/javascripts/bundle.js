@@ -1258,6 +1258,16 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           createdAt = _this$props$review.createdAt,
           author = _this$props$review.author;
       var showEditForm = this.state.showEditForm;
+      var currentUserId = this.props.currentUserId;
+      var starsArr = new Array(rating, 0);
+      var renderStars = starsArr.map(function (star, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          key: idx,
+          className: "review-card-star-icon",
+          src: window.starIcon
+        });
+      });
+      console.log('review-card props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, !showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-container",
         key: id
@@ -1278,9 +1288,9 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
         className: "review-author"
       }, author), " Thu Dec 1 2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-rating"
-      }, "rated: ", rating, "/5"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, renderStars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-body"
-      }, body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, body), currentUserId === userId && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-btns"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "review-edit-btn",
@@ -1345,7 +1355,13 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(null, mDTP)(_review_card__WEBPACK_IMPORTED_MODULE_1__["default"]));
+var mSTP = function mSTP(state) {
+  return {
+    currentUserId: state.sessions.currentUserId
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_review_card__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -1658,16 +1674,16 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       }
 
       var renderStars = starList.map(function (star, index) {
-        //index starts at 0. Star count should start with 1. This is only used to name the star, otherwise its not needed
         var starNum = index + 1;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: index // if the star is true, render yellow, otherwise render grey;
-          ,
-          className: star ? 'yellow-star' : 'grey-star',
+          key: index,
           onClick: function onClick() {
             return _this3.handleClickStar(index);
           }
-        }, "star-".concat(starNum));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "review-star-icon",
+          src: star ? window.starIcon : window.emptyStarIcon
+        }));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-container"
@@ -1763,6 +1779,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _review_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./review_form_container */ "./frontend/components/review/review_form_container.jsx");
 /* harmony import */ var _review_edit_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_edit_form_container */ "./frontend/components/review/review_edit_form_container.jsx");
 /* harmony import */ var _review_card_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./review_card_container */ "./frontend/components/review/review_card_container.jsx");
+/* harmony import */ var _actions_review_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/review_action */ "./frontend/actions/review_action.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1792,6 +1809,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var ReviewList = /*#__PURE__*/function (_React$Component) {
   _inherits(ReviewList, _React$Component);
 
@@ -1810,12 +1828,6 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
       };
     });
 
-    _this.state = {
-      body: '',
-      rating: '',
-      userId: '',
-      productId: ''
-    };
     return _this;
   }
 
@@ -1825,6 +1837,13 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
       this.props.fetchReviews();
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.reviews.length !== prevProps.reviews.length) {
+        this.props.fetchReviews();
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -1832,7 +1851,6 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
           product = _this$props.product,
           modifyReview = _this$props.modifyReview,
           deleteReview = _this$props.deleteReview;
-      var showEditForm = this.state.showEditForm;
       var reviewsArr = reviews.filter(function (review) {
         return product.id === review.productId;
       });
@@ -2025,8 +2043,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     key: "demoUser",
     value: function demoUser() {
       var user = {
-        email: 'Admin@admin.com',
-        password: '@Admin'
+        email: 'demo@demo.com',
+        password: '@SpiderMan'
       };
       this.props.login(user).then(this.props.closeModal);
     }

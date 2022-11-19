@@ -79,9 +79,8 @@
 }
 
 .review-rating {
-  font-size: inherit;
-  font-family: inherit;
   margin-bottom: 5px;
+  height: 25px;
 }
 
 .review-author {
@@ -164,16 +163,11 @@
   border: 1.5px solid #212121;
 }
 
-.review-form {
-  margin-left: 20px;
-  width: 50%;
+.review-stars-card-render {
+  height: 25px;
 }
 
-.review-submit-button {
-  margin-left: 20px;
+.review-card-star-icon {
+  height: 10px;
+  width: 10px;
 }
-
-.review-form-body {
-  margin-left: 20px;
-}
-

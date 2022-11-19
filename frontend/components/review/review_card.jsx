@@ -37,6 +37,16 @@ class ReviewCard extends React.Component {
   render() {
     const { body, id, productId, rating, userId, createdAt, author} = this.props.review
     const { showEditForm } = this.state;
+    const {currentUserId } = this.props;
+
+    let starsArr = new Array(rating, 0);
+    const renderStars = starsArr.map(( star, idx ) => {
+      return (
+          <img key={idx} className='review-card-star-icon' src={window.starIcon}/>
+      )
+    });
+    console.log('review-card props', this.props);
+
     return(
       <div>
         {!showEditForm  && (
@@ -51,23 +61,24 @@ class ReviewCard extends React.Component {
                     <span className='review-author'>{author}</span> Thu Dec 1 2022
                   </div>
                   <div className='review-rating'>
-                    rated: {rating}/5
+                    {renderStars}
                   </div>
                   <div className='review-body'>
                     {body}
                   </div>
-                  <div className="review-btns">
-                    <button 
-                    className='review-edit-btn' 
-                    onClick={this.toggleEditForm}
-                    >
-                      Edit
-                    </button>
-                    <button 
-                      className='review-delete-btn'
-                      onClick={this.handleDelete}
-                    >Delete</button>
-                  </div>
+                    { (currentUserId === userId) && (
+                      <div className="review-btns">
+                        <button 
+                        className='review-edit-btn' 
+                        onClick={this.toggleEditForm}
+                        >
+                          Edit
+                        </button>
+                        <button 
+                          className='review-delete-btn'
+                          onClick={this.handleDelete}
+                        >Delete</button>
+                      </div>)}
                 </h2>
               </div>
             </div>

@@ -9,5 +9,11 @@ const mDTP = dispatch => {
   }
 }
 
-export default connect(null, mDTP)(ReviewCard);
+const mSTP = state => {
+  return {
+    currentUserId: state.sessions.currentUserId
+  }
+}
+
+export default connect(mSTP, mDTP)(ReviewCard);
 

@@ -1508,6 +1508,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1570,12 +1572,17 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       var newStarList = _this.state.starList.slice(); // update the star in the starList to the new value
 
 
-      for (var i = 0; i < index; i++) {
-        newStarList[i] = newStarState;
-      } // for (var j = 5; j > index; j--) {
-      //   newStarList[i] = !newStarState
-      // }
+      if (index > _this.state.rating) {
+        for (var i = 0; i < index; i++) {
+          newStarList[i] = newStarState;
+        }
+      } else {
+        [false, false, false, false, false], _readOnlyError("newStarState");
 
+        for (var j = 5; j > index; j--) {
+          newStarList[j] = newStarState;
+        }
+      }
 
       newStarList[index] = newStarState; //set the new state of starList to the new array with the updated star
 
@@ -1648,6 +1655,14 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       var _this$state = this.state,
           fillStar = _this$state.fillStar,
           starList = _this$state.starList;
+      var errors;
+
+      if (this.props.errors.length !== 0) {
+        errors = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "review-errors"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.errors[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, this.props.errors[1]));
+      }
+
       var renderStars = starList.map(function (star, index) {
         //index starts at 0. Star count should start with 1. This is only used to name the star, otherwise its not needed
         var starNum = index + 1;

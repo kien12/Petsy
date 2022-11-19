@@ -1596,7 +1596,8 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       body: '',
       rating: 1,
       starList: [false, false, false, false, false],
-      fillStar: false
+      fillStar: false,
+      toggleSignIn: false
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1677,7 +1678,11 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Add a Review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Add a Review"), this.props.currentUser ? null : this.state.showSigninPopup ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Popup, {
+        closePopup: this.toggleSigninPopup,
+        message: "Please sign in to leave a review",
+        clearErrors: this.props.clearErrors
+      }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-errors"
       }, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "review-form",
@@ -1718,6 +1723,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_review_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/review_action */ "./frontend/actions/review_action.js");
 /* harmony import */ var _review_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_form */ "./frontend/components/review/review_form.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
 
 
 
@@ -1738,6 +1745,12 @@ var mDTP = function mDTP(dispatch) {
     },
     createReview: function createReview(review) {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_1__.createReview)(review));
+    },
+    openModal: function openModal(modal) {
+      return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__.openModal)(modal));
+    },
+    closeModal: function closeModal() {
+      return dispatch((0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__.closeModal)());
     }
   };
 };

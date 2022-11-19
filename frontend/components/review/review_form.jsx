@@ -9,7 +9,8 @@ class ReviewForm extends React.Component {
       body: '',
       rating: 1,
       starList: [false, false, false, false, false],
-      fillStar: false
+      fillStar: false,
+      toggleSignIn: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -127,6 +128,13 @@ class ReviewForm extends React.Component {
       
       <div className='review-form-container'>
         <h3>Add a Review</h3>
+        {this.props.currentUser ? null : this.state.showSigninPopup ? (
+                    <Popup
+                        closePopup={this.toggleSigninPopup}
+                        message={"Please sign in to leave a review"}
+                        clearErrors={this.props.clearErrors}
+                    />
+                ) : null}
         <div className='review-form-errors'>{errors}</div>
         <div>
           <form className='review-form' onSubmit={this.handleSubmit}>

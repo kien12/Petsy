@@ -37,13 +37,18 @@ class ReviewForm extends React.Component {
   
   handleSubmit(e){
     e.preventDefault();
-    this.props.createReview({
-      body: this.state.body,
-      rating: this.state.rating,
-      product_id: this.props.productId,
-      user_id: this.props.currentUserId
-    }).then( () => this.clearState());
-  }
+    if (this.props.currentUserId) {
+      this.props.createReview({
+        body: this.state.body,
+        rating: this.state.rating,
+        product_id: this.props.productId,
+        user_id: this.props.currentUserId
+      }).then( () => this.clearState());
+    } else {
+      window.alert('You must be signed in to write a review!');
+      this.props.openModal('login');
+    }
+  } 
 
   clearState() {
     this.setState({
@@ -77,7 +82,7 @@ class ReviewForm extends React.Component {
       }
     } else {
       newStarState = [false, false, false, false, false];
-      for (var j = 5; j > index; j--) {
+      for (var j = 0; j < index; j++) {
         newStarList[j] = newStarState
       }
     }
@@ -96,7 +101,7 @@ class ReviewForm extends React.Component {
     console.log('review form state', this.state)
     console.log('review form props', this.props)
     const { fillStar, starList } = this.state;
-
+    const { openModal, currentUserId} = this.props;
     let errors;
 
     if (this.props.errors.length !== 0){

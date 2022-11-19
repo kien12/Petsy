@@ -1578,7 +1578,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       } else {
         [false, false, false, false, false], _readOnlyError("newStarState");
 
-        for (var j = 5; j > index; j--) {
+        for (var j = 0; j < index; j++) {
           newStarList[j] = newStarState;
         }
       }
@@ -1617,14 +1617,20 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      this.props.createReview({
-        body: this.state.body,
-        rating: this.state.rating,
-        product_id: this.props.productId,
-        user_id: this.props.currentUserId
-      }).then(function () {
-        return _this2.clearState();
-      });
+
+      if (this.props.currentUserId) {
+        this.props.createReview({
+          body: this.state.body,
+          rating: this.state.rating,
+          product_id: this.props.productId,
+          user_id: this.props.currentUserId
+        }).then(function () {
+          return _this2.clearState();
+        });
+      } else {
+        window.alert('You must be signed in to write a review!');
+        this.props.openModal('login');
+      }
     }
   }, {
     key: "clearState",
@@ -1654,6 +1660,9 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       var _this$state = this.state,
           fillStar = _this$state.fillStar,
           starList = _this$state.starList;
+      var _this$props = this.props,
+          openModal = _this$props.openModal,
+          currentUserId = _this$props.currentUserId;
       var errors;
 
       if (this.props.errors.length !== 0) {

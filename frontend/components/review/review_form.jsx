@@ -124,7 +124,10 @@ class ReviewForm extends React.Component {
     });
 
     return(
+      
       <div className='review-form-container'>
+        <h3>Add a Review</h3>
+        <div className='review-form-errors'>{errors}</div>
         <div>
           <form className='review-form' onSubmit={this.handleSubmit}>
             <div className='review-form-stars'>

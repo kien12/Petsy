@@ -52,33 +52,36 @@ class ReviewCard extends React.Component {
         {!showEditForm  && (
           <div>
             <div className='review-container' key={id}>
-              <img src={window.defaultpicture} alt="test-review-image" className='test-review-image' />
               <div className='review-left-container'>
+                <img src={window.defaultpicture} alt="test-review-image" className='test-review-image' />
               </div>
               <div className='right-container'>
                 <h2 key={`${id}`} className='review-content'>
                   <div className='review-user'>
-                    <span className='review-author'>{author}</span> Thu Dec 1 2022
+                    <div className='review-user-info'>
+                      <div className='review-author'>{author}</div> 
+                      <div>Thu Dec 1 2022</div>
+                    </div>
+                      { (currentUserId === userId) && (
+                        <div className="review-btns">
+                          <button 
+                          className='review-edit-btn' 
+                          onClick={this.toggleEditForm}
+                          >
+                            Edit
+                          </button>
+                          <button 
+                            className='review-delete-btn'
+                            onClick={this.handleDelete}
+                          >Delete</button>
+                        </div>)}
                   </div>
                   <div className='review-rating'>
                     {renderStars}
                   </div>
                   <div className='review-body'>
-                    {body}
+                    <p>{body}</p>
                   </div>
-                    { (currentUserId === userId) && (
-                      <div className="review-btns">
-                        <button 
-                        className='review-edit-btn' 
-                        onClick={this.toggleEditForm}
-                        >
-                          Edit
-                        </button>
-                        <button 
-                          className='review-delete-btn'
-                          onClick={this.handleDelete}
-                        >Delete</button>
-                      </div>)}
                 </h2>
               </div>
             </div>

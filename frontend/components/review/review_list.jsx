@@ -39,7 +39,7 @@ class ReviewList extends React.Component {
   return (
     <div>
       <h4 className='review-info'>
-        Reviews for this item__________________________________________________________________________________________
+        Reviews for this item
       </h4>
         <div>
           {reviewsList}

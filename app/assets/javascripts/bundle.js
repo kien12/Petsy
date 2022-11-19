@@ -1532,8 +1532,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
- //  import { starIcon, emptyStarIcon} from '../../../app/assets/images'
-// import { StarRating } from './star_rating';
+
 
 var ReviewForm = /*#__PURE__*/function (_React$Component) {
   _inherits(ReviewForm, _React$Component);
@@ -1596,13 +1595,13 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       body: '',
       rating: 1,
       starList: [false, false, false, false, false],
-      fillStar: false,
-      toggleSignIn: false
+      fillStar: false
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.convertRating = _this.convertRating.bind(_assertThisInitialized(_this));
     _this.clearState = _this.clearState.bind(_assertThisInitialized(_this));
+    _this.toggleSigninPopup = _this.toggleSigninPopup.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1678,11 +1677,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Add a Review"), this.props.currentUser ? null : this.state.showSigninPopup ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Popup, {
-        closePopup: this.toggleSigninPopup,
-        message: "Please sign in to leave a review",
-        clearErrors: this.props.clearErrors
-      }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Add a Review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-form-errors"
       }, errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "review-form",

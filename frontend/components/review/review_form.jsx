@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-//  import { starIcon, emptyStarIcon} from '../../../app/assets/images'
-// import { StarRating } from './star_rating';
+import React from 'react';
 
 class ReviewForm extends React.Component {
   constructor(props){
@@ -9,14 +7,15 @@ class ReviewForm extends React.Component {
       body: '',
       rating: 1,
       starList: [false, false, false, false, false],
-      fillStar: false,
-      toggleSignIn: false
+      fillStar: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.convertRating = this.convertRating.bind(this);
     this.clearState = this.clearState.bind(this);
+    this.toggleSigninPopup = this.toggleSigninPopup.bind(this);
   }
+
 
   toggleEditForm() {
     this.setState({
@@ -128,15 +127,8 @@ class ReviewForm extends React.Component {
       
       <div className='review-form-container'>
         <h3>Add a Review</h3>
-        {this.props.currentUser ? null : this.state.showSigninPopup ? (
-                    <Popup
-                        closePopup={this.toggleSigninPopup}
-                        message={"Please sign in to leave a review"}
-                        clearErrors={this.props.clearErrors}
-                    />
-                ) : null}
         <div className='review-form-errors'>{errors}</div>
-        <div>
+        <div>     
           <form className='review-form' onSubmit={this.handleSubmit}>
             <div className='review-form-stars'>
               {renderStars}

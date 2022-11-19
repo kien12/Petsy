@@ -13,7 +13,6 @@ class ReviewForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.convertRating = this.convertRating.bind(this);
     this.clearState = this.clearState.bind(this);
-    this.toggleSigninPopup = this.toggleSigninPopup.bind(this);
   }
 
 

@@ -1601,7 +1601,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.convertRating = _this.convertRating.bind(_assertThisInitialized(_this));
     _this.clearState = _this.clearState.bind(_assertThisInitialized(_this));
-    _this.toggleSigninPopup = _this.toggleSigninPopup.bind(_assertThisInitialized(_this));
     return _this;
   }
 

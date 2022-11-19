@@ -45,7 +45,6 @@ class ReviewCard extends React.Component {
           <img key={idx} className='review-card-star-icon' src={window.starIcon}/>
       )
     });
-    console.log('review-card props', this.props);
 
     return(
       <div>

@@ -25,7 +25,6 @@ class ReviewForm extends React.Component {
   
   convertRating = () => (
     (e) => {
-      console.log(e)
       this.setState( {rating: parseInt(e.target.value)} )
     }
   )
@@ -68,7 +67,6 @@ class ReviewForm extends React.Component {
     }
   }
 
-      // updates a specific star's state in starList based on its index
   handleClickStar = (index) => {
     const newStarList = this.state.starList.slice();
 
@@ -86,8 +84,6 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    console.log('review form state', this.state)
-    console.log('review form props', this.props)
     const { fillStar, starList } = this.state;
     const { openModal, currentUserId } = this.props;
     let errors;

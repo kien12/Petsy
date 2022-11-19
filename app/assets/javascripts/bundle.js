@@ -18,7 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_category_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/category_utils */ "./frontend/util/category_utils.js");
 
 var RECEIVE_ALL_CATEGORIES = 'RECEIVE_ALL_CATEGORIES';
-var RECEIVE_CATEGORY_PRODUCTS = 'RECEIVE_CATEGORY_PRODUCTS'; //ACTIONS
+var RECEIVE_CATEGORY_PRODUCTS = 'RECEIVE_CATEGORY_PRODUCTS';
 
 var receiveAllCategories = function receiveAllCategories(categories) {
   return {
@@ -32,8 +32,7 @@ var receiveCategoryProducts = function receiveCategoryProducts(categoryProducts)
     type: RECEIVE_CATEGORY_PRODUCTS,
     categoryProducts: categoryProducts
   };
-}; //THUNK ACTIONS
-
+};
 
 var fetchAllCategories = function fetchAllCategories() {
   return function (dispatch) {
@@ -633,7 +632,6 @@ var BioPopup = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        // className="bio-popup-overlay"
         className: "bio-popup-overlay",
         onClick: this.props.togglePopup
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -673,8 +671,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_signup_form_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user/signup_form_container */ "./frontend/components/user/signup_form_container.jsx");
 
 
- //props = { modal, closeModal}
-//destructure ==> {modal, closeModal} <- this from container = props;
+
 
 var Modal = function Modal(_ref) {
   var modal = _ref.modal,
@@ -803,8 +800,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
 
       var _this$props = this.props,
           logout = _this$props.logout,
-          currentUserId = _this$props.currentUserId; // console.log('global nav props', this.props);
-
+          currentUserId = _this$props.currentUserId;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1028,13 +1024,11 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
       this.setState({
         showBioPopup: !this.state.showBioPopup
       });
-    } // /products/:id"
-
+    }
   }, {
     key: "render",
     value: function render() {
       if (!this.props.product) return null;
-      console.log('product showpage props', this.props);
       var product = this.props.match.params.id;
       var _this$props$product = this.props.product,
           name = _this$props$product.name,
@@ -1267,7 +1261,6 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           src: window.starIcon
         });
       });
-      console.log('review-card props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, !showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-container",
         key: id
@@ -1564,8 +1557,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "convertRating", function () {
       return function (e) {
-        console.log(e);
-
         _this.setState({
           rating: parseInt(e.target.value)
         });
@@ -1652,15 +1643,12 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       if (this.state.starFilled != prevState.starFilled) {
         this.forceUpdate();
       }
-    } // updates a specific star's state in starList based on its index
-
+    }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      console.log('review form state', this.state);
-      console.log('review form props', this.props);
       var _this$state = this.state,
           fillStar = _this$state.fillStar,
           starList = _this$state.starList;
@@ -1737,7 +1725,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  console.log('review form container state', state);
   return {
     currentUserId: state.sessions.currentUserId,
     productId: Object.values(state.entities.products)[0].id,

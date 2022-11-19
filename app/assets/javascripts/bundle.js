@@ -1724,7 +1724,8 @@ var mSTP = function mSTP(state, ownProps) {
   console.log('review form container state', state);
   return {
     currentUserId: state.sessions.currentUserId,
-    productId: Object.values(state.entities.products)[0].id
+    productId: Object.values(state.entities.products)[0].id,
+    errors: Object.values(state.errors.reviewErrors)
   };
 };
 

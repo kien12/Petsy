@@ -1508,8 +1508,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1563,31 +1561,19 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleClickStar", function (index) {
-      //get the star in starList array based on its index
-      var getStar = _this.state.starList[index]; // update the star's value
+      var newStarList = _this.state.starList.slice();
 
-      var newStarState = !getStar; // make a copy of the starList array so you don't override the previous state
-
-      var newStarList = _this.state.starList.slice(); // update the star in the starList to the new value
-
-
-      if (index > _this.state.rating) {
-        for (var i = 0; i < index; i++) {
-          newStarList[i] = newStarState;
-        }
-      } else {
-        [false, false, false, false, false], _readOnlyError("newStarState");
-
-        for (var j = 0; j < index; j++) {
-          newStarList[j] = newStarState;
+      for (var i = 0; i < newStarList.length; i++) {
+        if (i <= index) {
+          newStarList[i] = true;
+        } else {
+          newStarList[i] = false;
         }
       }
 
-      newStarList[index] = newStarState; //set the new state of starList to the new array with the updated star
-
       _this.setState({
         starList: newStarList,
-        rating: _this.state.rating = index + 1
+        rating: index + 1
       });
     });
 

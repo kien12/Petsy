@@ -69,31 +69,19 @@ class ReviewForm extends React.Component {
 
       // updates a specific star's state in starList based on its index
   handleClickStar = (index) => {
-    //get the star in starList array based on its index
-    const getStar = this.state.starList[index];
-    // update the star's value
-    const newStarState = !getStar;
-    // make a copy of the starList array so you don't override the previous state
     const newStarList = this.state.starList.slice();
-    // update the star in the starList to the new value
-    if ((index) > this.state.rating ){
-      for (var i = 0; i < index; i++) {
-        newStarList[i] = newStarState
-      }
-    } else {
-      newStarState = [false, false, false, false, false];
-      for (var j = 0; j < index; j++) {
-        newStarList[j] = newStarState
+
+    for (var i = 0; i < newStarList.length; i++) {
+      if (i <= index) {
+        newStarList[i] = true;
+      } else {
+        newStarList[i] = false;
       }
     }
-
-    newStarList[index] = newStarState;
-    //set the new state of starList to the new array with the updated star
-    this.setState({ 
+    this.setState({
       starList: newStarList,
-      rating: this.state.rating = index + 1
+      rating: index + 1
     });
-    
   }
 
   render() {
@@ -101,7 +89,7 @@ class ReviewForm extends React.Component {
     console.log('review form state', this.state)
     console.log('review form props', this.props)
     const { fillStar, starList } = this.state;
-    const { openModal, currentUserId} = this.props;
+    const { openModal, currentUserId } = this.props;
     let errors;
 
     if (this.props.errors.length !== 0){

@@ -1252,18 +1252,20 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           createdAt = _this$props$review.createdAt,
           author = _this$props$review.author;
       var showEditForm = this.state.showEditForm;
-      var currentUserId = this.props.currentUserId; // const testStars = (rating, idx) => {
-      //   let testArr = [];
-      //   for (var i = 0; i < rating; i++) {
-      //     testArr.push(true);
-      //   }
-      //   testArr.map(star, idx) => {
-      //     <img key={idx} className='review-card-star-icon' src={window.starIcon}/>
-      //   }
-      // }
+      var currentUserId = this.props.currentUserId;
 
-      var starsArr = new Array(rating, 1);
-      console.log('this is starsArr', starsArr);
+      var testStars = function testStars(rating, idx) {
+        var testArr = [];
+
+        for (var i = 0; i < rating; i++) {
+          testArr.push(true);
+        }
+
+        return testArr;
+      };
+
+      var starsArr = new Array(rating, 1); // console.log('this is starsArr', testArr);
+
       var renderStars = starsArr.map(function (star, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: idx,
@@ -1301,7 +1303,7 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleDelete
       }, "Delete"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-rating"
-      }, testStars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, renderStars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, body)))))), showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_edit_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         toggleEditForm: this.toggleEditForm,

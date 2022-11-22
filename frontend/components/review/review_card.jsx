@@ -40,26 +40,25 @@ class ReviewCard extends React.Component {
     const { currentUserId } = this.props;
 
     
-    // const testStars = (rating, idx) => {
-    //   let testArr = [];
+    const testStars = (rating, idx) => {
+      let testArr = [];
 
-    //   for (var i = 0; i < rating; i++) {
-    //     testArr.push(true);
-    //   }
-    //   testArr.map(star, idx) => {
-    //     <img key={idx} className='review-card-star-icon' src={window.starIcon}/>
-    //   }
-    // }
+      for (var i = 0; i < rating; i++) {
+        testArr.push(true);
+      }
+      return testArr;
+    }
       
 
     let starsArr = new Array(rating, 1);
-    console.log('this is starsArr', starsArr);
+    // console.log('this is starsArr', testArr);
 
     const renderStars = starsArr.map(( star, idx ) => {
       return (
           <img key={idx} className='review-card-star-icon' src={window.starIcon}/>
       )
     });
+
 
     return(
       <div>
@@ -91,8 +90,8 @@ class ReviewCard extends React.Component {
                         </div>)}
                   </div>
                   <div className='review-rating'>
-                    {/* {renderStars} */}
-                    {testStars}
+                    {renderStars}
+                    {/* {testStars} */}
                   </div>
                   <div className='review-body'>
                     <p>{body}</p>

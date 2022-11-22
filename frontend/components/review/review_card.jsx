@@ -39,16 +39,19 @@ class ReviewCard extends React.Component {
     const { showEditForm } = this.state;
     const { currentUserId } = this.props;
 
-    let testArr = [];
-
+    
     const testStars = (rating, idx) => {
+      let testArr = new Array(rating, 0);
+
       for (var i = 0; i < rating; i++) {
-        <img key={idx} className='review-card-star-icon' src={window.starIcon}/>
+        <img key={idx} className='review-card-star-icon' src={window.starIcon}test/>
+
       }
     }
       
 
-    let starsArr = new Array(5, 0);
+    let starsArr = new Array(rating, 1);
+    console.log('this is starsArr', starsArr);
 
     const renderStars = starsArr.map(( star, idx ) => {
       return (
@@ -86,8 +89,8 @@ class ReviewCard extends React.Component {
                         </div>)}
                   </div>
                   <div className='review-rating'>
-                    {/* {renderStars} */}
-                    {testStars}
+                    {renderStars}
+                    {/* {testStars} */}
                   </div>
                   <div className='review-body'>
                     <p>{body}</p>

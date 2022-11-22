@@ -1253,7 +1253,20 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           author = _this$props$review.author;
       var showEditForm = this.state.showEditForm;
       var currentUserId = this.props.currentUserId;
-      var starsArr = new Array(rating, 0);
+      var testArr = [];
+
+      var testStars = function testStars(rating, idx) {
+        for (var i = 0; i < rating; i++) {
+          /*#__PURE__*/
+          react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+            key: idx,
+            className: "review-card-star-icon",
+            src: window.starIcon
+          });
+        }
+      };
+
+      var starsArr = new Array(5, 0);
       var renderStars = starsArr.map(function (star, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: idx,
@@ -1291,7 +1304,7 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleDelete
       }, "Delete"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-rating"
-      }, renderStars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, testStars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, body)))))), showEditForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_edit_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         toggleEditForm: this.toggleEditForm,

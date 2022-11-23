@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ReviewCard from './review_card';
-import { fetchReview } from '../../actions/review_action';
+import { fetchReview, deleteReview } from '../../actions/review_action';
 
 const mDTP = dispatch => {
   return {
@@ -9,5 +9,12 @@ const mDTP = dispatch => {
   }
 }
 
-export default connect(null, mDTP)(ReviewCard);
+const mSTP = (state, ownProps) => {
+  return {
+    currentUserId: state.sessions.currentUserId,
+    toggleCreateForm: ownProps.toggleCreateForm
+  }
+}
+
+export default connect(mSTP, mDTP)(ReviewCard);
 

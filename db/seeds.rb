@@ -15,10 +15,12 @@ ActiveRecord::Base.transaction do
   Review.destroy_all
   
 #USERS
-  user_1 = User.create!(username: 'Kakarot', email: 'TommyTurnip@gmail.com', password: 'vegetables')
-  user_2 = User.create!(username: 'Vegeta', email: 'BarbieNKen@gmail.com', password: 'barbieworld')
-  user_3 = User.create!(username: 'Picollo', email: 'KenNBarbie@gmail.com', password: 'barbieworld')
+  user_1 = User.create!(username: 'Kakarot', email: 'kakarot@gmail.com', password: 'vegetables')
+  user_2 = User.create!(username: 'Vegeta', email: 'vegeta@gmail.com', password: 'vegeta')
+  user_3 = User.create!(username: 'Piccolo', email: 'piccolo@gmail.com', password: 'piccolo')
   user_4 = User.create!(username: 'Admin', email: 'Admin@admin.com', password: '@Admin')
+  user_5 = User.create!(username: 'Spider-Man', email: 'demo@demo.com', password: '@SpiderMan')
+
 #SELLERS
   seller_1 = Seller.create!(name: 'Clifford')
   seller_2 = Seller.create!(name: 'Tony')
@@ -132,6 +134,13 @@ ActiveRecord::Base.transaction do
     product_id: 2,
     rating: 5,
     body: 'body 5 of review'
+  )
+
+  review_6 = Review.create!(
+    user_id: 5,
+    product_id: 1,
+    rating: 5,
+    body: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.'
   )
   
 end

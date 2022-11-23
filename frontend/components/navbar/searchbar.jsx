@@ -7,7 +7,6 @@ class SearchBar extends React.Component {
       searchInput: ''
     }
 
-    // this.handleSubmit(e) = this.handleSubmit.bind(this);
   }
 
   handleSubmit() {

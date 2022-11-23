@@ -8,10 +8,12 @@ class ProductShowPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      showBioPopup: false
+      showBioPopup: false,
+      showCreateForm: true
     };
-
     this.toggleBioPopup = this.toggleBioPopup.bind(this);
+    this.toggleCreateForm = this.toggleCreateForm.bind(this);
+
   }
 
   componentDidMount(){
@@ -24,9 +26,15 @@ class ProductShowPage extends React.Component {
     });
   }
 
-  // /products/:id"
+  toggleCreateForm() {
+  this.setState({
+    showCreateForm: !this.state.showCreateForm
+    });
+  }
+
   render() {
     if(!this.props.product) return null;
+
 
     const product = this.props.match.params.id;
     const { 
@@ -57,13 +65,12 @@ class ProductShowPage extends React.Component {
                 ) : null}
       </section>
     </div>
-    
+
     return (    
       <div className='product-showpage-container'>
         <section className='product-top-container'>
           <div className='product-image'>
             <img src={window.testProductPicture} alt="image" />
-            {/* <a> image </a> */}
           </div>
           <div className='product-details'>
             <h2 className='product-seller-name'>{`${sellerName}'s Store`}</h2>
@@ -87,10 +94,12 @@ class ProductShowPage extends React.Component {
           </div>
         </section>
         <section className='review-main-container'>
-          <ReviewListContainer product={this.props.product}/>
+          <ReviewListContainer product={this.props.product} toggleCreateForm={this.toggleCreateForm}/>
           {rightContainer}
         </section>
-          {/* <ReviewFormContainer product={this.props.product}/> */}
+          { this.state.showCreateForm && (
+            <ReviewFormContainer product={this.props.product}/>
+          )}
       </div>
     )
       

@@ -9,15 +9,10 @@ class ReviewCard extends React.Component {
       showEditForm: false
     }
     this.toggleEditForm = this.toggleEditForm.bind(this);
-    this.convertRating = this.convertRating.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  convertRating = (rating) => (
-    (e) => {
-      this.setState( {[rating]: parseInt(e.target.value)} )
-    }
-  )
+
 
   handleUpdate() {
     e.preventDefault();
@@ -28,6 +23,7 @@ class ReviewCard extends React.Component {
    this.setState({
     showEditForm: !this.state.showEditForm
     });
+    this.props.toggleCreateForm();
   }
 
   handleDelete() {
@@ -37,36 +33,55 @@ class ReviewCard extends React.Component {
   render() {
     const { body, id, productId, rating, userId, createdAt, author} = this.props.review
     const { showEditForm } = this.state;
+    const { currentUserId } = this.props;
+
+    const options1 = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date1 = new Date(createdAt);
+    const dateTime = new Intl.DateTimeFormat('en-US', options1);
+    const reviewDate = dateTime.format(date1)
+
+    let starsArr = new Array(rating).fill(true);
+
+    const renderStars = starsArr.map(( star, idx ) => {
+      return (
+          <img key={idx} className='review-card-star-icon' src={window.starIcon}/>
+      )
+    });
+
     return(
       <div>
         {!showEditForm  && (
           <div>
             <div className='review-container' key={id}>
-              <img src={window.defaultpicture} alt="test-review-image" className='test-review-image' />
               <div className='review-left-container'>
+                <img src={window.defaultpicture} alt="test-review-image" className='test-review-image' />
               </div>
               <div className='right-container'>
                 <h2 key={`${id}`} className='review-content'>
                   <div className='review-user'>
-                    <span className='review-author'>{author}</span> Thu Feb 14 2022
+                    <div className='review-user-info'>
+                      <div className='review-author'>{author}</div> 
+                      <div>{reviewDate}</div>
+                    </div>
+                      { (currentUserId === userId) && (
+                        <div className="review-btns">
+                          <button 
+                          className='review-edit-btn' 
+                          onClick={this.toggleEditForm}
+                          >
+                            Edit
+                          </button>
+                          <button 
+                            className='review-delete-btn'
+                            onClick={this.handleDelete}
+                          >Delete</button>
+                        </div>)}
                   </div>
                   <div className='review-rating'>
-                    rated: {rating}/5
+                    {renderStars}
                   </div>
                   <div className='review-body'>
-                    {body}
-                  </div>
-                  <div className="review-btns">
-                    <button 
-                    className='review-edit-btn' 
-                    onClick={this.toggleEditForm}
-                    >
-                      Edit
-                    </button>
-                    <button 
-                      className='review-delete-btn'
-                      onClick={this.handleDelete}
-                    >Delete</button>
+                    <p>{body}</p>
                   </div>
                 </h2>
               </div>
@@ -82,6 +97,5 @@ class ReviewCard extends React.Component {
     )
   }
 }
-
 
 export default ReviewCard;

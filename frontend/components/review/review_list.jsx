@@ -2,16 +2,11 @@ import React from 'react';
 import ReviewFormContainer from './review_form_container';
 import EditFormContainer from './review_edit_form_container';
 import ReviewCardContainer from './review_card_container';
+import { fetchReview } from '../../actions/review_action';
 
 class ReviewList extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-      body: '',
-      rating: '',
-      userId: '',
-      productId: ''
-    }
   }
 
   componentDidMount() {
@@ -24,29 +19,31 @@ class ReviewList extends React.Component {
     }
   )
 
+  componentDidUpdate(prevProps) {
+    if (this.props.reviews.length !== prevProps.reviews.length) {
+      this.props.fetchReviews();
+    }
+  }
+
   render() {
-  const {reviews, product, modifyReview, deleteReview} = this.props;
-  const {showEditForm} = this.state;
+  const {reviews, product, modifyReview, deleteReview, toggleCreateForm} = this.props;
   let reviewsArr = reviews.filter( review => product.id === review.productId)
   let reviewsList = reviewsArr.map((review) => {
     return( 
       <li key={review.id}>
-        <ReviewCardContainer review ={review}/>
+        <ReviewCardContainer review ={review} toggleCreateForm={toggleCreateForm}/>
       </li>
     )
   });
-  
+
   return (
     <div>
       <h4 className='review-info'>
-        Reviews for this item__________________________________________________________________________________________
+        Reviews for {product.name} 
       </h4>
         <div>
           {reviewsList}
         </div>
-      <div>
-        <ReviewFormContainer/>
-      </div> 
     </div>
   )
   }    

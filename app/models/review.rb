@@ -11,7 +11,7 @@
 #  body       :text
 #
 class Review < ApplicationRecord
-  validates :user_id, :product_id, :rating, presence: true
+  validates :user_id, :product_id, :rating, :body, presence: true
   
 
   belongs_to :users,

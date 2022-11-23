@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store'
 import Root from './components/root'
-import {fetchReview, fetchAllReviews, modifyReview, deleteReview} from './actions/review_action'
+import {createReview} from './actions/review_action'
+// import { createReview,getReview, modifyReview } from './util/review_utils'
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
@@ -21,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   window.store = store;
-  window.deleteReview = deleteReview; 
+  window.createReview = createReview; 
+  // window.modifyReview = modifyReview;
 
 
   ReactDOM.render(< Root store={store}/>, root)

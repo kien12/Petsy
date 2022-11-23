@@ -1,0 +1,22 @@
+.review-form-errors {
+  color: red;
+}
+
+.review-form-stars{
+  display: flex;
+}
+
+.review-star-icon {
+  height: 25px;
+  width: 25px;
+}
+
+.review-star-icon:hover {
+  cursor: pointer;
+}
+
+.review-form-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}

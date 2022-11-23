@@ -7,7 +7,6 @@ class BioPopup extends React.Component {
         return (
           <div>
             <div
-              // className="bio-popup-overlay"
               className='bio-popup-overlay'
               onClick={this.props.togglePopup}
             >

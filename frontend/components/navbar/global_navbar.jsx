@@ -13,9 +13,11 @@ class GlobalNavBar extends React.Component {
     return (
       <div>
         <div className='top-nav-bar'>
+            <Link to="/"> 
           <div className='logo'>
-            <img src={window.testPetsyLogo} alt="petsy-logo" />
+              <img src={window.testPetsyLogo} alt="petsy-logo" />
           </div>
+            </Link>
           <div className='top-nav-bar-search-bar'>
             <SearchBarContainer/>
           </div>

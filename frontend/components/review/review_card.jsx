@@ -45,7 +45,6 @@ class ReviewCard extends React.Component {
     const reviewDate = dateTime.format(date1)
 
     let starsArr = new Array(rating).fill(true);
-    console.log('this is starsArr', starsArr);
 
     const renderStars = starsArr.map(( star, idx ) => {
       return (

@@ -1262,7 +1262,6 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
       var dateTime = new Intl.DateTimeFormat('en-US', options1);
       var reviewDate = dateTime.format(date1);
       var starsArr = new Array(rating).fill(true);
-      console.log('this is starsArr', starsArr);
       var renderStars = starsArr.map(function (star, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: idx,
@@ -1859,7 +1858,6 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
           review: review
         }));
       });
-      console.log('product ', this.props.product);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         className: "review-info"
       }, "Reviews for ", product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList));

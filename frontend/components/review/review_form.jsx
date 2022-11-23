@@ -6,9 +6,8 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = {
       body: '',
-      rating: 1,
-      starList: [false, false, false, false, false],
-      fillStar: false
+      rating: '',
+      starList: [false, false, false, false, false]
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -53,7 +52,7 @@ class ReviewForm extends React.Component {
   clearState() {
     this.setState({
       body: '',
-      rating: 5,
+      rating: '',
       product_id: this.props.productId,
       user_id: this.props.currentUserId
     })
@@ -84,7 +83,7 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    const { fillStar, starList } = this.state;
+    const { starList } = this.state;
     const { openModal, currentUserId } = this.props;
     let errors;
 

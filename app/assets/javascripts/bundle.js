@@ -1007,9 +1007,11 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      showBioPopup: false
+      showBioPopup: false,
+      showCreateForm: true
     };
     _this.toggleBioPopup = _this.toggleBioPopup.bind(_assertThisInitialized(_this));
+    _this.toggleCreateForm = _this.toggleCreateForm.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1023,6 +1025,13 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
     value: function toggleBioPopup() {
       this.setState({
         showBioPopup: !this.state.showBioPopup
+      });
+    }
+  }, {
+    key: "toggleCreateForm",
+    value: function toggleCreateForm() {
+      this.setState({
+        showCreateForm: !this.state.showCreateForm
       });
     }
   }, {
@@ -1104,8 +1113,9 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
       }, description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
         className: "review-main-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_list_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        product: this.props.product
-      }), rightContainer), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        product: this.props.product,
+        toggleCreateForm: this.toggleCreateForm
+      }), rightContainer), this.state.showCreateForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_form_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
         product: this.props.product
       }));
     }
@@ -1190,8 +1200,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -1206,18 +1214,10 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ReviewCard);
 
     _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "convertRating", function (rating) {
-      return function (e) {
-        _this.setState(_defineProperty({}, rating, parseInt(e.target.value)));
-      };
-    });
-
     _this.state = {
       showEditForm: false
     };
     _this.toggleEditForm = _this.toggleEditForm.bind(_assertThisInitialized(_this));
-    _this.convertRating = _this.convertRating.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -1234,6 +1234,7 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
       this.setState({
         showEditForm: !this.state.showEditForm
       });
+      this.props.toggleCreateForm();
     }
   }, {
     key: "handleDelete",
@@ -1342,25 +1343,16 @@ var mDTP = function mDTP(dispatch) {
     fetchReview: function fetchReview(reviewId) {
       return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_2__.fetchReview)(reviewId));
     },
-    deleteReview: function (_deleteReview) {
-      function deleteReview(_x) {
-        return _deleteReview.apply(this, arguments);
-      }
-
-      deleteReview.toString = function () {
-        return _deleteReview.toString();
-      };
-
-      return deleteReview;
-    }(function (reviewId) {
-      return dispatch(deleteReview(reviewId));
-    })
+    deleteReview: function deleteReview(reviewId) {
+      return dispatch((0,_actions_review_action__WEBPACK_IMPORTED_MODULE_2__.deleteReview)(reviewId));
+    }
   };
 };
 
-var mSTP = function mSTP(state) {
+var mSTP = function mSTP(state, ownProps) {
   return {
-    currentUserId: state.sessions.currentUserId
+    currentUserId: state.sessions.currentUserId,
+    toggleCreateForm: ownProps.toggleCreateForm
   };
 };
 
@@ -1418,6 +1410,23 @@ var ReviewEditForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
+    _defineProperty(_assertThisInitialized(_this), "handleClickStar", function (index) {
+      var newStarList = _this.state.starList.slice();
+
+      for (var i = 0; i < newStarList.length; i++) {
+        if (i <= index) {
+          newStarList[i] = true;
+        } else {
+          newStarList[i] = false;
+        }
+      }
+
+      _this.setState({
+        starList: newStarList,
+        rating: index + 1
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "onChange", function (type) {
       return function (e) {
         _this.setState(_defineProperty({}, type, e.target.value));
@@ -1432,15 +1441,22 @@ var ReviewEditForm = /*#__PURE__*/function (_React$Component) {
 
     _this.state = {
       body: props.body,
-      rating: props.rating
+      rating: props.rating,
+      starList: [false, false, false, false, false]
     };
     _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
     _this.convertRating = _this.convertRating.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleClickStar = _this.handleClickStar.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ReviewEditForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.handleClickStar(this.state.rating - 1);
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -1456,18 +1472,31 @@ var ReviewEditForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "edit form"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "body: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      var _this2 = this;
+
+      var starList = this.state.starList;
+      var renderStars = starList.map(function (star, index) {
+        var starNum = index + 1;
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: index,
+          onClick: function onClick() {
+            return _this2.handleClickStar(index);
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "review-star-icon",
+          src: star ? window.starIcon : window.emptyStarIcon
+        }));
+      });
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-form-stars"
+      }, renderStars), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         type: "text",
         name: "body",
-        className: "update-form",
+        className: "review-form-body",
         value: this.state.body,
         onChange: this.onChange('body')
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "rating: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        type: "text",
-        name: "rating",
-        className: "update-form",
-        value: this.state.rating,
-        onChange: this.convertRating('rating')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: this.props.toggleEditForm
       }, "cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1596,9 +1625,8 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
 
     _this.state = {
       body: '',
-      rating: 1,
-      starList: [false, false, false, false, false],
-      fillStar: false
+      rating: '',
+      starList: [false, false, false, false, false]
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1640,7 +1668,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     value: function clearState() {
       this.setState({
         body: '',
-        rating: 5,
+        rating: '',
         product_id: this.props.productId,
         user_id: this.props.currentUserId
       });
@@ -1657,9 +1685,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var _this$state = this.state,
-          fillStar = _this$state.fillStar,
-          starList = _this$state.starList;
+      var starList = this.state.starList;
       var _this$props = this.props,
           openModal = _this$props.openModal,
           currentUserId = _this$props.currentUserId;
@@ -1847,7 +1873,8 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
           reviews = _this$props.reviews,
           product = _this$props.product,
           modifyReview = _this$props.modifyReview,
-          deleteReview = _this$props.deleteReview;
+          deleteReview = _this$props.deleteReview,
+          toggleCreateForm = _this$props.toggleCreateForm;
       var reviewsArr = reviews.filter(function (review) {
         return product.id === review.productId;
       });
@@ -1855,7 +1882,8 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
           key: review.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_card_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          review: review
+          review: review,
+          toggleCreateForm: toggleCreateForm
         }));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
@@ -1889,10 +1917,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mSTP = function mSTP(state) {
+var mSTP = function mSTP(state, ownProps) {
   return {
     reviews: Object.values(state.entities.reviews),
-    currentUser: state.sessions.id
+    currentUser: state.sessions.id,
+    toggleCreateForm: ownProps.toggleCreateForm
   };
 };
 

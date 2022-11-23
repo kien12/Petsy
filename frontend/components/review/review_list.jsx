@@ -26,16 +26,16 @@ class ReviewList extends React.Component {
   }
 
   render() {
-  const {reviews, product, modifyReview, deleteReview} = this.props;
+  const {reviews, product, modifyReview, deleteReview, toggleCreateForm} = this.props;
   let reviewsArr = reviews.filter( review => product.id === review.productId)
   let reviewsList = reviewsArr.map((review) => {
     return( 
       <li key={review.id}>
-        <ReviewCardContainer review ={review}/>
+        <ReviewCardContainer review ={review} toggleCreateForm={toggleCreateForm}/>
       </li>
     )
   });
-  
+
   return (
     <div>
       <h4 className='review-info'>

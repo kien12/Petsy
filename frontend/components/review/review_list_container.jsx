@@ -7,10 +7,11 @@ import {
 } from '../../actions/review_action';
 import ReviewList from './review_list'
 
- const mSTP = (state) => {
+ const mSTP = (state, ownProps) => {
   return {
     reviews: Object.values(state.entities.reviews),
-    currentUser: state.sessions.id
+    currentUser: state.sessions.id,
+    toggleCreateForm: ownProps.toggleCreateForm
   }
 };
 

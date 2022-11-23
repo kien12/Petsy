@@ -9,15 +9,10 @@ class ReviewCard extends React.Component {
       showEditForm: false
     }
     this.toggleEditForm = this.toggleEditForm.bind(this);
-    this.convertRating = this.convertRating.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  convertRating = (rating) => (
-    (e) => {
-      this.setState( {[rating]: parseInt(e.target.value)} )
-    }
-  )
+
 
   handleUpdate() {
     e.preventDefault();
@@ -28,6 +23,7 @@ class ReviewCard extends React.Component {
    this.setState({
     showEditForm: !this.state.showEditForm
     });
+    this.props.toggleCreateForm();
   }
 
   handleDelete() {

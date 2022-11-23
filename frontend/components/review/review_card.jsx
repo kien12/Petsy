@@ -39,26 +39,19 @@ class ReviewCard extends React.Component {
     const { showEditForm } = this.state;
     const { currentUserId } = this.props;
 
-    
-    const testStars = (rating, idx) => {
-      let testArr = [];
+    const options1 = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date1 = new Date(createdAt);
+    const dateTime = new Intl.DateTimeFormat('en-US', options1);
+    const reviewDate = dateTime.format(date1)
 
-      for (var i = 0; i < rating; i++) {
-        testArr.push(true);
-      }
-      return testArr;
-    }
-      
-
-    let starsArr = new Array(rating, 1);
-    // console.log('this is starsArr', testArr);
+    let starsArr = new Array(rating).fill(true);
+    console.log('this is starsArr', starsArr);
 
     const renderStars = starsArr.map(( star, idx ) => {
       return (
           <img key={idx} className='review-card-star-icon' src={window.starIcon}/>
       )
     });
-
 
     return(
       <div>
@@ -73,7 +66,7 @@ class ReviewCard extends React.Component {
                   <div className='review-user'>
                     <div className='review-user-info'>
                       <div className='review-author'>{author}</div> 
-                      <div>Thu Dec 1 2022</div>
+                      <div>{reviewDate}</div>
                     </div>
                       { (currentUserId === userId) && (
                         <div className="review-btns">
@@ -91,7 +84,6 @@ class ReviewCard extends React.Component {
                   </div>
                   <div className='review-rating'>
                     {renderStars}
-                    {/* {testStars} */}
                   </div>
                   <div className='review-body'>
                     <p>{body}</p>
@@ -110,6 +102,5 @@ class ReviewCard extends React.Component {
     )
   }
 }
-
 
 export default ReviewCard;

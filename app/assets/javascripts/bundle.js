@@ -1253,19 +1253,16 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           author = _this$props$review.author;
       var showEditForm = this.state.showEditForm;
       var currentUserId = this.props.currentUserId;
-
-      var testStars = function testStars(rating, idx) {
-        var testArr = [];
-
-        for (var i = 0; i < rating; i++) {
-          testArr.push(true);
-        }
-
-        return testArr;
+      var options1 = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
       };
-
-      var starsArr = new Array(rating, 1); // console.log('this is starsArr', testArr);
-
+      var date1 = new Date(createdAt);
+      var dateTime = new Intl.DateTimeFormat('en-US', options1);
+      var reviewDate = dateTime.format(date1);
+      var starsArr = new Array(rating).fill(true);
+      console.log('this is starsArr', starsArr);
       var renderStars = starsArr.map(function (star, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: idx,
@@ -1293,7 +1290,7 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
         className: "review-user-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-author"
-      }, author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Thu Dec 1 2022")), currentUserId === userId && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewDate)), currentUserId === userId && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-btns"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "review-edit-btn",
@@ -1862,9 +1859,10 @@ var ReviewList = /*#__PURE__*/function (_React$Component) {
           review: review
         }));
       });
+      console.log('product ', this.props.product);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
         className: "review-info"
-      }, "Reviews for this item"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList));
+      }, "Reviews for ", product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, reviewsList));
     }
   }]);
 

@@ -35,11 +35,11 @@ class ReviewList extends React.Component {
       </li>
     )
   });
-  
+  console.log('product ', this.props.product);
   return (
     <div>
       <h4 className='review-info'>
-        Reviews for this item
+        Reviews for {product.name} 
       </h4>
         <div>
           {reviewsList}

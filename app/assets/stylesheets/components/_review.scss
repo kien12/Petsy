@@ -89,13 +89,13 @@
 }
 
 .review-body p {
-  overflow: auto;
-  max-height: 65px;
+  overflow-y: auto; 
+  height: 65px;
 }
 
 .review-rating {
   margin-bottom: 5px;
-  height: 50px;
+  height: 20px;
   width: 300px;
 }
 

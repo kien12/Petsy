@@ -8,8 +8,13 @@ class HeroBanner extends React.Component {
   render() {
     
     return(
-      <div>
-        hero banner
+      <div className='hero-block-upper-container'>
+        <div className='hero-block-large'>
+          <h2>
+            Standing out just got so easy.
+          </h2>
+          <h2>image</h2>
+        </div>
       </div>
     )
   }

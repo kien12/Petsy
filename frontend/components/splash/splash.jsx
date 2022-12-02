@@ -8,7 +8,9 @@ class Splash extends React.Component {
   render() {
 
     return(
-      <div>splash</div>
+      <div>
+        What's trending on Ketsy!
+      </div>
     )
   }
  

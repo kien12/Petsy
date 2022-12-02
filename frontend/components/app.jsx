@@ -8,7 +8,7 @@ import Splash from './splash/splash';
 
 const App = () => {
   return (
-    <div>
+    <div className='app-container'>
       <ModalContainer/>
         <GlobalNavBarContainer/>
       <Switch>

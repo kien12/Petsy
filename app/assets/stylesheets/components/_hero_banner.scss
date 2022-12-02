@@ -1,0 +1,78 @@
+.hero-block-upper-container {
+  display: flex;
+  border: 2px solid red;
+  height: 300px;
+}
+
+.hero-block-large {
+  display: flex;
+  border: 2px solid black;
+  width: 80%;
+  font-family: 'Roboto Serif', serif;
+}
+
+.hero-moto {
+  border: 2px solid blue;
+  width: 50%;
+  font-family: inherit;
+  background-color: #ddf5fd;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 20px;
+  text-align: center;
+}
+
+.hero-shipping {
+  border: 2px solid pink;
+  background-color: #ddf5fd;
+  width: 100%;
+  height: 30%;
+  margin-top: 10px;
+  // text-align: center;
+  font-family: 'Taviraj', serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hero-main-image {
+  width: 50%;
+  max-height: 100%;
+}
+
+.sell-on-ketsy {
+  font-size: 10px;
+  font-family: 'Roboto Serif', serif;
+  margin-top: 18px;
+
+}
+
+.hero-image-medium {
+  width: 100%;
+  max-height: 80%;
+  border: 2px solid green;
+}
+
+.hero-right-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  object-fit: scale;
+  font-family: 'Roboto Serif', serif;
+  // color: white;
+}
+
+.hero-right-main-text {
+  border: 2px solid brown;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.hero-right-tiny-text {
+  border: 2px solid purple;
+}

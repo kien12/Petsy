@@ -9,7 +9,7 @@ class HeroBanner extends React.Component {
     
     return(
       <div>
-        herobanner
+        hero banner
       </div>
     )
   }

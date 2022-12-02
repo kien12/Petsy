@@ -11,7 +11,7 @@ class Splash extends React.Component {
       <div>splash</div>
     )
   }
-
+ 
 }
 
 

@@ -2047,36 +2047,38 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
   _createClass(HeroBanner, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "hero-block-upper-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "hero-block-large"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-        className: "hero-moto"
-      }, "Standing out just got so easy.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-        className: "sell-on-ketsy"
-      }, "sell on Ketsy!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: window.splashImage3,
-        className: "hero-main-image"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "hero-right-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: window.splashImage4,
-        className: "hero-image-medium"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "hero-right-main-text"
-      }, "#1 product", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-        className: "hero-right-tiny-text"
-      }, "idk to put here")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-        className: "hero-shipping"
-      }, "Free Shipping on everything!")));
+      console.log('herobanner state', this.state);
+      console.log('herobanner props', this.props);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "test");
     }
   }]);
 
   return HeroBanner;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeroBanner);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeroBanner); // <div className='hero-block-upper-container'>
+//   <div className='hero-block-large'>
+//     <h2 className='hero-moto'>
+//       Standing out just got so easy.
+//       <p className='sell-on-ketsy'>
+//         sell on Ketsy!
+//       </p>
+//     </h2>
+//     <img src={window.splashImage3} className='hero-main-image' />
+//   </div>
+//   <div className='hero-right-container'>
+//     <img src={window.splashImage4} className="hero-image-medium"/>
+//     <div className='hero-right-main-text'>
+//       #1 product
+//       <p className='hero-right-tiny-text'>
+//         idk to put here
+//       </p>
+//     </div>
+//     <p className='hero-shipping'>
+//       Free Shipping on everything!
+//     </p>
+//   </div>
+// </div>
 
 /***/ }),
 

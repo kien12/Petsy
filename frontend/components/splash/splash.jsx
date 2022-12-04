@@ -13,7 +13,11 @@ class Splash extends React.Component {
         <div className='ketsy-welcome'>
           Welcome to Ketsy!
         </div>
-            <HeroBanner/>
+        <HeroBanner/>
+        <p className='ketsy-welcome'> Our top picks for you</p>
+        <div className='top-picks-container'>
+            aaaaaa
+        </div>
       </div>
     )
   }

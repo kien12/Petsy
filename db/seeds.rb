@@ -26,11 +26,12 @@ ActiveRecord::Base.transaction do
   seller_2 = Seller.create!(name: 'Tony')
 
 #CATEGORIES
-  dog = Category.create!(name: 'Street') #id: 1
-  cat = Category.create!(name: 'Landscape') #id: 2
-  bird = Category.create!(name: 'Black & White') #id 3
-  fish = Category.create!(name: 'Modern') #id 4
-  mammal = Category.create!(name: "Paint") #id 5
+  street = Category.create!(name: 'Street') #id: 1
+  landscape = Category.create!(name: 'Landscape') #id: 2
+  blackWhite = Category.create!(name: 'Black & White') #id 3
+  modern = Category.create!(name: 'Modern') #id 4
+  paint = Category.create!(name: "Paint") #id 5
+  canvas = Category.create!(name: "Canvases")
 #PRODUCTS
   dog_product_1 = Product.create!(
     name: 'Big Bone',

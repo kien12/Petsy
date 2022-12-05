@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroBanner from './hero_banner'
+import HeroBannerContainer from './hero_banner_container'
 
 class Splash extends React.Component {
   constructor(props){
@@ -7,13 +7,13 @@ class Splash extends React.Component {
   }
 
   render() {
-
+    console.log('splash props', this.props);
     return(
       <div>
         <div className='ketsy-welcome'>
           Welcome to Ketsy!
         </div>
-        <HeroBanner/>
+        <HeroBannerContainer/>
         <p className='ketsy-welcome'> Our top picks for you</p>
         <div className='top-picks-container'>
             aaaaaa

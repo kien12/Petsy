@@ -322,7 +322,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _product_product_showpage_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product/product_showpage_container */ "./frontend/components/product/product_showpage_container.jsx");
 /* harmony import */ var _navbar_global_navbar_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navbar/global_navbar_container */ "./frontend/components/navbar/global_navbar_container.jsx");
 /* harmony import */ var _modal_modal_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal/modal_container */ "./frontend/components/modal/modal_container.jsx");
-/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
+/* harmony import */ var _splash_splash_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./splash/splash_container */ "./frontend/components/splash/splash_container.jsx");
 
 
 
@@ -337,7 +337,7 @@ var App = function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_modal_modal_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_navbar_global_navbar_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     exact: true,
     path: "/",
-    component: _splash_splash__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     exact: true,
     path: "/categories/:id",
@@ -2033,6 +2033,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var HeroBanner = /*#__PURE__*/function (_React$Component) {
   _inherits(HeroBanner, _React$Component);
 
@@ -2045,11 +2046,24 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(HeroBanner, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchAllCategories();
+    }
+  }, {
     key: "render",
     value: function render() {
-      console.log('herobanner state', this.state);
-      console.log('herobanner props', this.props);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "test");
+      // console.log('herobanner state', this.state)
+      console.log('herobanner props', this.props); // const categoriesList = this.props.categories.map(category => (
+      //   <Link
+      //     key={`${category.name}-${category.id}`}
+      //     to={`/categories/${category.id}`}
+      //     > 
+      //     {category.name}
+      //   </Link>
+      //   ))
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "s");
     }
   }]);
 
@@ -2082,6 +2096,42 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/splash/hero_banner_container.jsx":
+/*!**************************************************************!*\
+  !*** ./frontend/components/splash/hero_banner_container.jsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_category_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/category_actions */ "./frontend/actions/category_actions.js");
+/* harmony import */ var _hero_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hero_banner */ "./frontend/components/splash/hero_banner.jsx");
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    categories: Object.values(state.entities.categories)
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchAllCategories: function fetchAllCategories() {
+      return dispatch((0,_actions_category_actions__WEBPACK_IMPORTED_MODULE_1__.fetchAllCategories)());
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_hero_banner__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/splash/splash.jsx":
 /*!***********************************************!*\
   !*** ./frontend/components/splash/splash.jsx ***!
@@ -2094,7 +2144,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _hero_banner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero_banner */ "./frontend/components/splash/hero_banner.jsx");
+/* harmony import */ var _hero_banner_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hero_banner_container */ "./frontend/components/splash/hero_banner_container.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2134,9 +2184,10 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   _createClass(Splash, [{
     key: "render",
     value: function render() {
+      console.log('splash props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "ketsy-welcome"
-      }, "Welcome to Ketsy!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_hero_banner__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, "Welcome to Ketsy!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_hero_banner_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "ketsy-welcome"
       }, " Our top picks for you"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-picks-container"
@@ -2148,6 +2199,42 @@ var Splash = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Splash);
+
+/***/ }),
+
+/***/ "./frontend/components/splash/splash_container.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/splash/splash_container.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _splash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./splash */ "./frontend/components/splash/splash.jsx");
+/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
+
+
+
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchAllProducts: function fetchAllProducts() {
+      return dispatch((0,_actions_product_actions__WEBPACK_IMPORTED_MODULE_2__.fetchAllProducts)());
+    }
+  };
+};
+
+var mSTP = function mSTP(state, ownProps) {
+  return {
+    categories: Object.values(state.entities.products)
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_splash__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 

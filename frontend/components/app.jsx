@@ -4,7 +4,7 @@ import CategoryProductShowPageContainer from './category/category_products_showp
 import ProductShowPageContainer from './product/product_showpage_container';
 import GlobalNavBarContainer from './navbar/global_navbar_container';
 import ModalContainer from './modal/modal_container';
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
       <ModalContainer/>
         <GlobalNavBarContainer/>
       <Switch>
-        <Route exact path="/" component={Splash}/>
+        <Route exact path="/" component={SplashContainer}/>
         <Route exact path="/categories/:id" component={CategoryProductShowPageContainer} />
         <Route exact path="/products/:id" component={ProductShowPageContainer} />
       </Switch>

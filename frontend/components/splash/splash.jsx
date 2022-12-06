@@ -6,6 +6,8 @@ class Splash extends React.Component {
     super(props)
   }
 
+  
+
   render() {
     console.log('splash props', this.props);
     return(

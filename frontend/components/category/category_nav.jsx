@@ -11,8 +11,8 @@ componentDidMount() {
   render() {
     const categoriesList = this.props.categories.map(category => (
       <Link
-        key={`${category.name}-${category.id}`}
-        to={`/categories/${category.id}`}
+      key={`${category.name}-${category.id}`}
+      to={`/categories/${category.id}`}
         > 
         {category.name}
       </Link>

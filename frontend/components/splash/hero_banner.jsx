@@ -14,20 +14,24 @@ class HeroBanner extends React.Component {
   render() {
     // console.log('herobanner state', this.state)
     console.log('herobanner props', this.props)
-    // const categoriesList = this.props.categories.map(category => (
-    //   <Link
-    //     key={`${category.name}-${category.id}`}
-    //     to={`/categories/${category.id}`}
-    //     > 
-    //     {category.name}
-    //   </Link>
-    //   ))
+    const bannerImages = [window.street, window.landscape, window.blackWhite, window.modern, window.paint, window.canvas];
+    const categoriesList = this.props.categories.map( category, idx =>(
+      <Link
+      key={`${category.name}-${category.id}`}
+      to={`/categories/${category.id}`}
+      className='category-list-link'
+      >
+      <img src={window.street}  className='hero-circle-image'/>
+      {category.name}
+      </Link>
+    ))
+    
 
     return(
       
       
-      <div>
-        {/* {categoriesList} */}s
+      <div className='category-list-container'>
+        {categoriesList}
       </div>
       
      

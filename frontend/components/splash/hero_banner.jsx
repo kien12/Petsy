@@ -15,13 +15,14 @@ class HeroBanner extends React.Component {
     // console.log('herobanner state', this.state)
     console.log('herobanner props', this.props)
     const bannerImages = [window.street, window.landscape, window.blackWhite, window.modern, window.paint, window.canvas];
-    const categoriesList = this.props.categories.map( category, idx =>(
+
+    const categoriesList = this.props.categories.map( (category, idx) =>(
       <Link
       key={`${category.name}-${category.id}`}
       to={`/categories/${category.id}`}
       className='category-list-link'
       >
-      <img src={window.street}  className='hero-circle-image'/>
+      <img src={bannerImages[idx]}  className='hero-circle-image'/>
       {category.name}
       </Link>
     ))

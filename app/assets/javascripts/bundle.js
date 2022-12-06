@@ -2057,13 +2057,13 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
       // console.log('herobanner state', this.state)
       console.log('herobanner props', this.props);
       var bannerImages = [window.street, window.landscape, window.blackWhite, window.modern, window.paint, window.canvas];
-      var categoriesList = this.props.categories.map(category, function (idx) {
+      var categoriesList = this.props.categories.map(function (category, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           key: "".concat(category.name, "-").concat(category.id),
           to: "/categories/".concat(category.id),
           className: "category-list-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-          src: window.street,
+          src: bannerImages[idx],
           className: "hero-circle-image"
         }), category.name);
       });

@@ -11,14 +11,15 @@ class Splash extends React.Component {
   render() {
     console.log('splash props', this.props);
     return(
-      <div>
-        <div className='ketsy-welcome'>
-          Welcome to Ketsy!
+      <div >
+        <div>
+          <div className='ketsy-welcome'>
+            Capture your moment on the wall!
+          </div>
+          <HeroBannerContainer/>
         </div>
-        <HeroBannerContainer/>
-        <p className='ketsy-welcome'> Our top picks for you</p>
         <div className='top-picks-container'>
-            aaaaaa
+          <p className='ketsy-welcome'> Our top picks for you</p>
         </div>
       </div>
     )

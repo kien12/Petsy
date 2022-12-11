@@ -15,8 +15,8 @@ class Splash extends React.Component {
         <div>
           <div className='ketsy-welcome'>
             Capture your moment on the wall!
+            <HeroBannerContainer/>
           </div>
-          <HeroBannerContainer/>
         </div>
         <div className='top-picks-container'>
           <p className='ketsy-welcome'> Our top picks for you</p>

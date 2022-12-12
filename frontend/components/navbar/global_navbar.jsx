@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import CategoryNavContainer from '../category/category_nav_container';
+// import CategoryNavContainer from '../category/category_nav_container';
 import SearchBarContainer from './search_result'
+import HeroBannerContainer from '../splash/hero_banner_container'
 
 class GlobalNavBar extends React.Component {
   constructor(props) {
@@ -29,7 +30,8 @@ class GlobalNavBar extends React.Component {
       
           <button className='top-nav-bar-cart'>cart</button>
         </div>
-        <CategoryNavContainer/>
+        {/* <CategoryNavContainer/> */}
+        <HeroBannerContainer/>
       </div>
     )
   }

@@ -20,6 +20,7 @@ ActiveRecord::Base.transaction do
   user_3 = User.create!(username: 'Piccolo', email: 'piccolo@gmail.com', password: 'piccolo')
   user_4 = User.create!(username: 'Admin', email: 'Admin@admin.com', password: '@Admin')
   user_5 = User.create!(username: 'Spider-Man', email: 'demo@demo.com', password: '@SpiderMan')
+  user_5 = User.create!(username: 'Naruto', email: 'Naruto@naruto.com', password: 'naruto22')
 
 #SELLERS
   seller_1 = Seller.create!(name: 'Clifford')

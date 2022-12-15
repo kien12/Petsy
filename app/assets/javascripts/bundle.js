@@ -719,7 +719,9 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
         }
       }, "Sigh in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "top-nav-bar-cart"
-      }, "cart")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_hero_banner_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, "cart")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "ketsy-welcome"
+      }, "Capture your moment on the wall!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_hero_banner_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
     }
   }]);
 
@@ -2082,7 +2084,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       console.log('splash props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "ketsy-welcome"
-      }, "Capture your moment on the wall!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_hero_banner_container__WEBPACK_IMPORTED_MODULE_1__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-picks-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "ketsy-welcome"

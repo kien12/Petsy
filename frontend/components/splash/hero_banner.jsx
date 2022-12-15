@@ -16,7 +16,7 @@ class HeroBanner extends React.Component {
     console.log('herobanner props', this.props)
     const bannerImages = [window.street, window.landscape, window.blackWhite, window.modern, window.paint, window.canvas];
 
-    const categoriesList = this.props.categories.map( (category, idx) =>(
+    const categoriesList = this.props.categories.map( (category, idx) => (
       <Link
       key={`${category.name}-${category.id}`}
       to={`/categories/${category.id}`}
@@ -28,9 +28,7 @@ class HeroBanner extends React.Component {
     ))
     
 
-    return(
-      
-      
+    return (
       <div className='category-list-container'>
         {categoriesList}
       </div>

@@ -30,8 +30,12 @@ class GlobalNavBar extends React.Component {
       
           <button className='top-nav-bar-cart'>cart</button>
         </div>
+        <div className='ketsy-welcome'>
+            Capture your moment on the wall!
+            <HeroBannerContainer/>
+          </div>
         {/* <CategoryNavContainer/> */}
-        <HeroBannerContainer/>
+        {/* <HeroBannerContainer/> */}
       </div>
     )
   }

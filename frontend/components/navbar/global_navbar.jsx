@@ -35,7 +35,7 @@ class GlobalNavBar extends React.Component {
             <HeroBannerContainer/>
           </div>
         {/* <CategoryNavContainer/> */}
-        {/* <HeroBannerContainer/> */}
+        <HeroBannerContainer/>
       </div>
     )
   }

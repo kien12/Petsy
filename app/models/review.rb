@@ -22,8 +22,5 @@ class Review < ApplicationRecord
     foreign_key: :product_id,
     class_name: 'Product'
 
-  has_one_attached :profile_photo
-
-  
 
 end

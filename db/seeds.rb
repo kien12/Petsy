@@ -16,11 +16,28 @@ ActiveRecord::Base.transaction do
   
 #USERS
   user_1 = User.create!(username: 'Kakarot', email: 'kakarot@gmail.com', password: 'vegetables')
+  goku = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/goku.jpg')
+  user_1.photos.attach(io: goku, filename: 'goku.jpg')
+
   user_2 = User.create!(username: 'Vegeta', email: 'vegeta@gmail.com', password: 'vegeta')
+  vegeta = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/vegeta.jpg')
+  user_2.photos.attach(io: vegeta, filename: 'vegeta.jpg')
+
   user_3 = User.create!(username: 'Piccolo', email: 'piccolo@gmail.com', password: 'piccolo')
+  piccolo = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/piccolo.jpg')
+  user_3.photos.attach(io: piccolo, filename: 'piccolo.jpg')
+
   user_4 = User.create!(username: 'Admin', email: 'Admin@admin.com', password: '@Admin')
+  admin = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/defaultpicture.jpg')
+  user_4.photos.attach(io: admin, filename: 'defaultpicture.jpg')
+
   user_5 = User.create!(username: 'Spider-Man', email: 'demo@demo.com', password: '@SpiderMan')
-  user_5 = User.create!(username: 'Naruto', email: 'Naruto@naruto.com', password: 'naruto22')
+  spiderman = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/spiderman.jpg')
+  user_5.photos.attach(io: spiderman, filename: 'spiderman.jpg')
+
+  user_6 = User.create!(username: 'Naruto', email: 'Naruto@naruto.com', password: 'naruto22')
+  naruto = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/naruto.jpg')
+  user_6.photos.attach(io: naruto, filename: 'goku.jpg')
 
 #SELLERS
   seller_1 = Seller.create!(name: 'Clifford')

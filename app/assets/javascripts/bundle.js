@@ -721,7 +721,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
         className: "top-nav-bar-cart"
       }, "cart")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "ketsy-welcome"
-      }, "Capture your moment on the wall!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_hero_banner_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_hero_banner_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, "Capture your moment on the wall!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_hero_banner_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
     }
   }]);
 
@@ -1152,7 +1152,9 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           rating = _this$props$review.rating,
           userId = _this$props$review.userId,
           createdAt = _this$props$review.createdAt,
-          author = _this$props$review.author;
+          author = _this$props$review.author,
+          photos = _this$props$review.photos;
+      console.log('review card props', this.props.review);
       var showEditForm = this.state.showEditForm;
       var currentUserId = this.props.currentUserId;
       var options1 = {
@@ -1177,7 +1179,7 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-left-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: window.defaultpicture,
+        src: photos,
         alt: "test-review-image",
         className: "test-review-image"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

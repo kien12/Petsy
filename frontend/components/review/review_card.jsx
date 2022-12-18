@@ -31,7 +31,8 @@ class ReviewCard extends React.Component {
   }
 
   render() {
-    const { body, id, productId, rating, userId, createdAt, author} = this.props.review
+    const { body, id, productId, rating, userId, createdAt, author, photos} = this.props.review
+    console.log('review card props', this.props.review)
     const { showEditForm } = this.state;
     const { currentUserId } = this.props;
 
@@ -54,7 +55,7 @@ class ReviewCard extends React.Component {
           <div>
             <div className='review-container' key={id}>
               <div className='review-left-container'>
-                <img src={window.defaultpicture} alt="test-review-image" className='test-review-image' />
+                <img src={photos} alt="test-review-image" className='test-review-image' />
               </div>
               <div className='right-container'>
                 <h2 key={`${id}`} className='review-content'>

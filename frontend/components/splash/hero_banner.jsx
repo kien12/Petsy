@@ -34,7 +34,7 @@ class HeroBanner extends React.Component {
       </div>
        
           
-    )
+    ) 
   }
 }
 

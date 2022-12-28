@@ -4,6 +4,7 @@ import configureStore from './store/store'
 import Root from './components/root'
 import {createReview} from './actions/review_action'
 // import { createReview,getReview, modifyReview } from './util/review_utils'
+import { fetchAllProducts } from './actions/product_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
@@ -22,8 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   window.store = store;
-  window.createReview = createReview; 
-  // window.modifyReview = modifyReview;
+  window.fetchAllProducts = fetchAllProducts;
 
 
   ReactDOM.render(< Root store={store}/>, root)

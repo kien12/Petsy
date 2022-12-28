@@ -938,7 +938,8 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.product) return null;
+      if (!this.props.product) return null; // console.log('product showpage props', this.props)
+
       var product = this.props.match.params.id;
       var _this$props$product = this.props.product,
           name = _this$props$product.name,
@@ -1153,8 +1154,8 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           userId = _this$props$review.userId,
           createdAt = _this$props$review.createdAt,
           author = _this$props$review.author,
-          photos = _this$props$review.photos;
-      console.log('review card props', this.props.review);
+          photos = _this$props$review.photos; // console.log('review card props', this.props.review)
+
       var showEditForm = this.state.showEditForm;
       var currentUserId = this.props.currentUserId;
       var options1 = {
@@ -2008,14 +2009,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_category_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/category_actions */ "./frontend/actions/category_actions.js");
-/* harmony import */ var _hero_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hero_banner */ "./frontend/components/splash/hero_banner.jsx");
+/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
+/* harmony import */ var _hero_banner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./hero_banner */ "./frontend/components/splash/hero_banner.jsx");
+
 
 
 
 
 var mSTP = function mSTP(state) {
   return {
-    categories: Object.values(state.entities.categories)
+    categories: Object.values(state.entities.categories),
+    products: Object.values(state.entities.products)
   };
 };
 
@@ -2023,11 +2027,14 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchAllCategories: function fetchAllCategories() {
       return dispatch((0,_actions_category_actions__WEBPACK_IMPORTED_MODULE_1__.fetchAllCategories)());
+    },
+    fetchAllProducts: function fetchAllProducts() {
+      return dispatch((0,_actions_product_actions__WEBPACK_IMPORTED_MODULE_2__.fetchAllProducts)());
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_hero_banner__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_hero_banner__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -2066,6 +2073,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+ // import { fetchAllProducts } from '../../actions/product_actions';
 
 
 
@@ -2078,12 +2086,16 @@ var Splash = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Splash);
 
     return _super.call(this, props);
-  }
+  } // componentDidMount() {
+  // this.props.fetchAllProducts();
+  // }
+
 
   _createClass(Splash, [{
     key: "render",
     value: function render() {
       console.log('splash props', this.props);
+      console.log('splash state', this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "ketsy-welcome"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2129,7 +2141,8 @@ var mDTP = function mDTP(dispatch) {
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    categories: Object.values(state.entities.products)
+    // categories: Object.values(state.entities.products),
+    products: Object.values(state.entities.products)
   };
 };
 
@@ -40501,6 +40514,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_review_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/review_action */ "./frontend/actions/review_action.js");
+/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/product_actions */ "./frontend/actions/product_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -40508,6 +40522,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  // import { createReview,getReview, modifyReview } from './util/review_utils'
+
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('root');
@@ -40529,8 +40544,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.store = store;
-  window.createReview = _actions_review_action__WEBPACK_IMPORTED_MODULE_4__.createReview; // window.modifyReview = modifyReview;
-
+  window.fetchAllProducts = _actions_product_actions__WEBPACK_IMPORTED_MODULE_5__.fetchAllProducts;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

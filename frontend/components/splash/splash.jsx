@@ -1,15 +1,20 @@
 import React from 'react';
+// import { fetchAllProducts } from '../../actions/product_actions';
 import HeroBannerContainer from './hero_banner_container'
 
 class Splash extends React.Component {
   constructor(props){
     super(props)
   }
-
+  
+  // componentDidMount() {
+    // this.props.fetchAllProducts();
+  // }
   
 
   render() {
     console.log('splash props', this.props);
+    console.log('splash state', this.state)
     return(
       <div >
         <div>

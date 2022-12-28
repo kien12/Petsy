@@ -37,7 +37,7 @@ ActiveRecord::Base.transaction do
 
   user_6 = User.create!(username: 'Naruto', email: 'Naruto@naruto.com', password: 'naruto22')
   naruto = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/naruto.jpg')
-  user_6.photos.attach(io: naruto, filename: 'goku.jpg')
+  user_6.photos.attach(io: naruto, filename: 'naruto.jpg')
 
 #SELLERS
   seller_1 = Seller.create!(name: 'Clifford')
@@ -58,65 +58,90 @@ ActiveRecord::Base.transaction do
     category_id: 1,
     quantity: 5,
     price: 21.95
-  )
+  ) 
+  naruto = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/naruto.jpg')
+  dog_product_1.photos.attach(io: naruto, filename: 'naruto.jpg')
+
   dog_product_2 = Product.create!(
-    name: 'Tiny Bone', 
-    description: "One really tiny", 
+    name: 'Big Bone2',
+    description: "Do you feel like you need a fancy touch in your living room? With this awesome Aristocrat Doge poster, you’ll have all the luxury you need. The doge meme is a trend that has branched out into many offshoots and styles, so why not hang a depiction that is dignified and adorable on your wall? The colors are highly saturated into a matte, acid-free paper in multiple sizes, ready to be prepared for your office or living room. The print is easily delivered right to you, with multiple dimension choices available for you right away, so it will always be able to fit on your wall. Whether you are a fan of dogs or a fan of jokes on the internet, this translation of meme into art is now available and an easy purchase for a little extra color in your life, or for a friend that enjoys art for themselves. Let your love of fun and art collide with a purchase of this print!", 
     seller_id: 1, 
-    category_id: 1, 
-    quantity: 2,
-    price: 10.99
-  )
-  dog_product_2 = Product.create!(
-    name: 'Tiny Bone', 
-    description: "One really tiny", 
+    category_id: 1,
+    quantity: 5,
+    price: 21.95
+  ) 
+  naruto = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/naruto.jpg')
+  dog_product_2.photos.attach(io: naruto, filename: 'naruto.jpg')
+
+  dog_product_3 = Product.create!(
+    name: 'Big Bone3',
+    description: "Do you feel like you need a fancy touch in your living room? With this awesome Aristocrat Doge poster, you’ll have all the luxury you need. The doge meme is a trend that has branched out into many offshoots and styles, so why not hang a depiction that is dignified and adorable on your wall? The colors are highly saturated into a matte, acid-free paper in multiple sizes, ready to be prepared for your office or living room. The print is easily delivered right to you, with multiple dimension choices available for you right away, so it will always be able to fit on your wall. Whether you are a fan of dogs or a fan of jokes on the internet, this translation of meme into art is now available and an easy purchase for a little extra color in your life, or for a friend that enjoys art for themselves. Let your love of fun and art collide with a purchase of this print!", 
     seller_id: 1, 
-    category_id: 1, 
-    quantity: 2,
-    price: 10.99
-  )
-  dog_product_2 = Product.create!(
-    name: 'Tiny Bone', 
-    description: "One really tiny", 
-    seller_id: 1, 
-    category_id: 1, 
-    quantity: 2,
-    price: 10.99
-  )
-  dog_product_2 = Product.create!(
-    name: 'Tiny Bone', 
-    description: "One really tiny", 
-    seller_id: 1, 
-    category_id: 1, 
-    quantity: 2,
-    price: 10.99
-  )
-  dog_product_2 = Product.create!(
-    name: 'Tiny Bone', 
-    description: "One really tiny", 
-    seller_id: 1, 
-    category_id: 1, 
-    quantity: 2,
-    price: 10.99
-  )
-  dog_product_2 = Product.create!(
-    name: 'Tiny Bone', 
-    description: "One really tiny", 
-    seller_id: 1, 
-    category_id: 1, 
-    quantity: 2,
-    price: 10.99
-  )
+    category_id: 1,
+    quantity: 5,
+    price: 21.95
+  ) 
+  naruto = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/naruto.jpg')
+  dog_product_3.photos.attach(io: naruto, filename: 'naruto.jpg')
+
+  # dog_product_2 = Product.create!(
+  #   name: 'Tiny Bone', 
+  #   description: "One really tiny", 
+  #   seller_id: 1, 
+  #   category_id: 1, 
+  #   quantity: 2,
+  #   price: 10.99
+  # )
+  # dog_product_2 = Product.create!(
+  #   name: 'Tiny Bone', 
+  #   description: "One really tiny", 
+  #   seller_id: 1, 
+  #   category_id: 1, 
+  #   quantity: 2,
+  #   price: 10.99
+  # )
+  # dog_product_2 = Product.create!(
+  #   name: 'Tiny Bone', 
+  #   description: "One really tiny", 
+  #   seller_id: 1, 
+  #   category_id: 1, 
+  #   quantity: 2,
+  #   price: 10.99
+  # )
+  # dog_product_2 = Product.create!(
+  #   name: 'Tiny Bone', 
+  #   description: "One really tiny", 
+  #   seller_id: 1, 
+  #   category_id: 1, 
+  #   quantity: 2,
+  #   price: 10.99
+  # )
+  # dog_product_2 = Product.create!(
+  #   name: 'Tiny Bone', 
+  #   description: "One really tiny", 
+  #   seller_id: 1, 
+  #   category_id: 1, 
+  #   quantity: 2,
+  #   price: 10.99
+  # )
+  # dog_product_2 = Product.create!(
+  #   name: 'Tiny Bone', 
+  #   description: "One really tiny", 
+  #   seller_id: 1, 
+  #   category_id: 1, 
+  #   quantity: 2,
+  #   price: 10.99
+  # )
    
   
-  cat_product_2 = Product.create!(
-    name: 'Flea Collar', 
-    description: "Collar that will prevent fleas", 
-    seller_id: 2, 
-    category_id: 2, 
-    quantity: 4,
-    price: 30.00
-  )
+  # cat_product_2 = Product.create!(
+  #   name: 'Flea Collar', 
+  #   description: "Collar that will prevent fleas", 
+  #   seller_id: 2, 
+  #   category_id: 2, 
+  #   quantity: 4,
+  #   price: 30.00
+  # )
 
 
  ### REVIEWS 

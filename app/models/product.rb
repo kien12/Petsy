@@ -28,5 +28,4 @@ class Product < ApplicationRecord
     class_name: 'Review'
 
   has_many_attached :photos
-  
 end

@@ -44,7 +44,7 @@ ActiveRecord::Base.transaction do
   seller_2 = Seller.create!(name: 'Tony')
 
 #CATEGORIES
-  street = Category.create!(name: 'Street') #id: 1
+  nature = Category.create!(name: 'Nature') #id: 1
   landscape = Category.create!(name: 'Landscape') #id: 2
   blackWhite = Category.create!(name: 'Black & White') #id 3
   modern = Category.create!(name: 'Modern') #id 4

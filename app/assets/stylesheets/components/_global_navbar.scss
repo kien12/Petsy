@@ -28,13 +28,23 @@
 .top-nav-bar-login {
   // border: 2px solid orange;
   min-width: 10%;
-  background-color: #D3D3D3;
+  background-color: white;
+  border: none;
 }
 
 .top-nav-bar-cart {
   // border: 2px solid black;
   min-width: 10%;
-  background-color: #D3D3D3;
+  background-color: white;
+  border: none;
+  margin-top: 5px;
+  height: 100%;
+}
+
+.cart-icon{
+  height: 25px;
+  width: 25px;
+  margin-top: 5px;
 }
 
 .logo img {

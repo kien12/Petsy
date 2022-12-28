@@ -22,12 +22,13 @@ class Splash extends React.Component {
   
   
   render() {
-    const products = this.props.products
-
+    const products = this.props.products;
 
     const productItems = products.map((product) => {
       return <ProductIndexItem key={product.id} product={product} />;
     });
+
+    console.log('splash props', this.props);
 
 
 

@@ -13,8 +13,7 @@ const mSTP = state => {
 const mDTP = dispatch => {
   return {
     fetchAllCategories: () => dispatch(fetchAllCategories()),
-    fetchAllProducts: () => dispatch(fetchAllProducts())
-    
+    fetchAllProducts: () => dispatch(fetchAllProducts()),
   }
 };
 

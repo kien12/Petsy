@@ -11,6 +11,16 @@ class GlobalNavBar extends React.Component {
 
   render() {
     const { logout, currentUserId } = this.props;
+    const currentUser = this.props.currentUser;
+
+
+    let welcomeBanner = currentUser ? (
+      <p className="welcome-banner">Capture your moment, {currentUser[0].username}!</p>
+    ) : (
+      <p className="welcome-banner">Capture the moment on the wall!</p>
+    );
+    console.log('splash currentuser', this.props.currentUser[0].username)    
+
     return (
       <div>
         <div className='top-nav-bar'>
@@ -28,10 +38,12 @@ class GlobalNavBar extends React.Component {
             <button className='top-nav-bar-login' onClick={() => this.props.openModal('login')}>Sigh in</button>
            )}
       
-          <button className='top-nav-bar-cart'>cart</button>
+          <button className='top-nav-bar-cart'>
+            <img src={window.shoppingCart} className ="cart-icon"/>
+          </button>
         </div>
         <div className='ketsy-welcome'>
-            Capture your moment on the wall!
+            {welcomeBanner}
             <HeroBannerContainer/>
           </div>
         {/* <CategoryNavContainer/> */}

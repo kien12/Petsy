@@ -5,7 +5,8 @@ import { openModal, closeModal } from '../../actions/modal_actions'
 
 const mSTP = state => {
   return {
-    currentUserId: state.sessions.currentUserId
+    currentUserId: state.sessions.currentUserId,
+    currentUser: Object.values(state.entities.users)
   }
 }
 

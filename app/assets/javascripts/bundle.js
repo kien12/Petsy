@@ -698,6 +698,13 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           logout = _this$props.logout,
           currentUserId = _this$props.currentUserId;
+      var currentUser = this.props.currentUser;
+      var welcomeBanner = currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "welcome-banner"
+      }, "Capture your moment, ", currentUser[0].username, "!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "welcome-banner"
+      }, "Capture the moment on the wall!");
+      console.log('splash currentuser', this.props.currentUser[0].username);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
@@ -719,9 +726,12 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
         }
       }, "Sigh in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "top-nav-bar-cart"
-      }, "cart")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.shoppingCart,
+        className: "cart-icon"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "ketsy-welcome"
-      }, "Capture your moment on the wall!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_hero_banner_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+      }, welcomeBanner, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_hero_banner_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
     }
   }]);
 
@@ -754,7 +764,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    currentUserId: state.sessions.currentUserId
+    currentUserId: state.sessions.currentUserId,
+    currentUser: Object.values(state.entities.users)
   };
 };
 
@@ -2026,7 +2037,7 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       // console.log('herobanner state', this.state)
       // console.log('herobanner props', this.props)
-      var bannerImages = [window.street, window.landscape, window.blackWhite, window.modern, window.paint, window.freestyle];
+      var bannerImages = [window.nature, window.landscape, window.blackWhite, window.modern, window.paint, window.freestyle];
       var categoriesList = this.props.categories.map(function (category, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           key: "".concat(category.name, "-").concat(category.id),
@@ -2187,6 +2198,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
           product: product
         });
       });
+      console.log('splash props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-index-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

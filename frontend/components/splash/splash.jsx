@@ -37,7 +37,7 @@ class Splash extends React.Component {
       <div className="product-index-container">
         <div className="top-picks">
           <div className="top-picks-title">
-            <p>Our picks for you</p>
+            <p>Our top picks for you!</p>
           </div>
           <div className="top-picks-products">
             <div className="individual-pick">{productItems[0]}</div>

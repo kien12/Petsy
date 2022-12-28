@@ -1024,15 +1024,16 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.product) return null; // console.log('product showpage props', this.props)
-
+      if (!this.props.product) return null;
+      console.log('product showpage props', this.props);
       var product = this.props.match.params.id;
       var _this$props$product = this.props.product,
           name = _this$props$product.name,
           description = _this$props$product.description,
           price = _this$props$product.price,
           sellerName = _this$props$product.sellerName,
-          reviews = _this$props$product.reviews;
+          reviews = _this$props$product.reviews,
+          photoUrls = _this$props$product.photoUrls;
       var rightContainer = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-faqs"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1068,7 +1069,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: window.testProductPicture,
+        src: photoUrls,
         alt: "image"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-details"
@@ -2325,7 +2326,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "top-picks"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-picks-title"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Our picks for you")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Our top picks for you!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-picks-products"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "individual-pick"

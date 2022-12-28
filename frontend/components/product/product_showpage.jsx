@@ -34,7 +34,7 @@ class ProductShowPage extends React.Component {
 
   render() {
     if(!this.props.product) return null;
-  // console.log('product showpage props', this.props)
+  console.log('product showpage props', this.props)
 
     const product = this.props.match.params.id;
     const { 
@@ -42,7 +42,8 @@ class ProductShowPage extends React.Component {
       description,  
       price,
       sellerName, 
-      reviews
+      reviews,
+      photoUrls
     } = this.props.product;
 
     let rightContainer = 
@@ -70,7 +71,7 @@ class ProductShowPage extends React.Component {
       <div className='product-showpage-container'>
         <section className='product-top-container'>
           <div className='product-image'>
-            <img src={window.testProductPicture} alt="image" />
+            <img src={photoUrls} alt="image" />
           </div>
           <div className='product-details'>
             <h2 className='product-seller-name'>{`${sellerName}'s Store`}</h2>

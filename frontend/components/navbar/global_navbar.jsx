@@ -14,12 +14,11 @@ class GlobalNavBar extends React.Component {
     const currentUser = this.props.currentUser;
 
 
-    let welcomeBanner = currentUser ? (
-      <p className="welcome-banner">Capture your moment, {currentUser[0].username}!</p>
-    ) : (
-      <p className="welcome-banner">Capture the moment on the wall!</p>
+    let welcomeBanner = currentUserId ? (
+        <p className="welcome-banner">Capture your moment, {currentUser[0].username}!</p>
+        ) : (
+          <p className="welcome-banner">Capture the moment on the wall!</p>
     );
-    console.log('splash currentuser', this.props.currentUser[0].username)    
 
     return (
       <div>

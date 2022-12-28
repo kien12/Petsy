@@ -699,12 +699,11 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
           logout = _this$props.logout,
           currentUserId = _this$props.currentUserId;
       var currentUser = this.props.currentUser;
-      var welcomeBanner = currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      var welcomeBanner = currentUserId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
       }, "Capture your moment, ", currentUser[0].username, "!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
       }, "Capture the moment on the wall!");
-      console.log('splash currentuser', this.props.currentUser[0].username);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {

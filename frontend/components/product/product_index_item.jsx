@@ -16,7 +16,7 @@ class ProductIndexItem extends React.Component {
           <img src={product.photoUrls[0]} className="top-picks-image" />
         </Link>
         <div className="product-price-pill">
-          <p className="product-price">$ {product.price}</p>
+          <p className="product-price">${product.price}</p>
         </div>
       </div>
     );

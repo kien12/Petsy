@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Besley&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@200;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+
+@media (min-width: 48rem) {
+  .top-picks-image {
+    border-radius: 0.5rem;
+  }
+
+  .top-picks-products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+  }
+
+  .individual-pick {
+    .top-picks-image {
+      height: 23vh;
+      width: 18vw;
+    }
+  }
+
+  .product-price-pill {
+    p {
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  }
+
+  .nature-category {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    position: relative;
+
+    .nature-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .nature-landscape {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+
+      span {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .zen {
+    text-align: left;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 350;
+  }
+
+  .nature-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+
+    .top-picks-image {
+      height: 22vh;
+      width: 23vw;
+    }
+  }
+
+  .editor {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+
+    font-family: "Roboto", sans-serif;
+    text-align: left;
+  }
+
+  .editor-pick {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+
+    .top-picks-image {
+      width: 21vw;
+      height: 28vh;
+    }
+  }
+
+  .span-row-2 {
+    display: inline-block;
+    grid-column: 1;
+    grid-row: 1 / 3;
+
+    .top-picks-image {
+      width: 30vw;
+      height: 58vh;
+    }
+  }
+}

@@ -918,7 +918,7 @@ var ProductIndexItem = /*#__PURE__*/function (_React$Component) {
         className: "product-price-pill"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "product-price"
-      }, "$ ", product.price)));
+      }, "$", product.price)));
     }
   }]);
 
@@ -1067,7 +1067,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
       }, "".concat(sellerName, "'s Store")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "product-item-name"
       }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-        className: "product-price"
+        className: "product-showpage-price"
       }, "$", price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "product-quantity"
       }, "Quantity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {

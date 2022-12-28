@@ -13,7 +13,7 @@ class HeroBanner extends React.Component {
 
   render() {
     // console.log('herobanner state', this.state)
-    console.log('herobanner props', this.props)
+    // console.log('herobanner props', this.props)
     const bannerImages = [window.street, window.landscape, window.blackWhite, window.modern, window.paint, window.freestyle];
 
     const categoriesList = this.props.categories.map( (category, idx) => (

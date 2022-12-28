@@ -32,7 +32,7 @@ class ReviewCard extends React.Component {
 
   render() {
     const { body, id, productId, rating, userId, createdAt, author, photos} = this.props.review
-    // console.log('review card props', this.props.review)
+    console.log('review card props', this.props.review)
     const { showEditForm } = this.state;
     const { currentUserId } = this.props;
 

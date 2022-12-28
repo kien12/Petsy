@@ -7,7 +7,6 @@ const mDTP = dispatch => ({
 })
 
 const mSTP = (state, ownProps) => ({
-  // categories: Object.values(state.entities.products),
   products: Object.values(state.entities.products)
 })
 

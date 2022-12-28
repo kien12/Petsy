@@ -1154,8 +1154,8 @@ var ReviewCard = /*#__PURE__*/function (_React$Component) {
           userId = _this$props$review.userId,
           createdAt = _this$props$review.createdAt,
           author = _this$props$review.author,
-          photos = _this$props$review.photos; // console.log('review card props', this.props.review)
-
+          photos = _this$props$review.photos;
+      console.log('review card props', this.props.review);
       var showEditForm = this.state.showEditForm;
       var currentUserId = this.props.currentUserId;
       var options1 = {
@@ -1949,7 +1949,7 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       // console.log('herobanner state', this.state)
-      console.log('herobanner props', this.props);
+      // console.log('herobanner props', this.props)
       var bannerImages = [window.street, window.landscape, window.blackWhite, window.modern, window.paint, window.freestyle];
       var categoriesList = this.props.categories.map(function (category, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
@@ -2086,19 +2086,59 @@ var Splash = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Splash);
 
     return _super.call(this, props);
-  } // componentDidMount() {
-  // this.props.fetchAllProducts();
-  // }
-
+  }
 
   _createClass(Splash, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchAllProducts();
+      window.scrollTo(0, 0);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.products.length !== prevProps.products.length) {
+        this.forceUpdate();
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      console.log('splash props', this.props);
-      console.log('splash state', this.state);
+      var products = this.props.products; // console.log('splash props', this.props);
+      // console.log('splash state', this.state)
+      // console.log('splash products', products[0])
+      // const test = products.map((product) => (
+      //  <img src={product.photoUrls[0]} alt="" />
+      // ))
+      //  const test = products.map((product) => (
+      //  <img src={product.photoUrls[0]} alt="" />
+      // ))
+      //   if (!this.props.products.length !== 1) {
+      //     return null;
+      //   } else {
+      //   const testIds = [1, 1, 2];
+      //   const test = testIds.map(id => (
+      //     <div>
+      //       <img src={this.props.products[id].photoUrls[0]}/>
+      //     </div>
+      //   ));
+      // }
+      // const testIds = [1, 1, 2];
+      // const test = testIds.map(id => (
+      //   <div>
+      //     <img src={this.props.products[id].photoUrls[0]}/>
+      //   </div>
+      // ));
+
+      var productItems = products.map(function (product) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductIndexItem, {
+          key: product.id,
+          product: product
+        });
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "ketsy-welcome"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, test)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-picks-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "ketsy-welcome"
@@ -2141,7 +2181,6 @@ var mDTP = function mDTP(dispatch) {
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    // categories: Object.values(state.entities.products),
     products: Object.values(state.entities.products)
   };
 };

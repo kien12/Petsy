@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductIndexItem from '../product/product_index_item';
+import Footer from './footer';
 // import { fetchAllProducts } from '../../actions/product_actions';
 // import HeroBannerContainer from './hero_banner_container'
 
@@ -84,7 +85,11 @@ class Splash extends React.Component {
             <div>{productItems[1]}</div>
           </div>
         </div>
+        <div>
+          <Footer/>
+        </div>
       </div>
+
     );
   }
 }

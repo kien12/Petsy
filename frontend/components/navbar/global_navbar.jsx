@@ -10,8 +10,7 @@ class GlobalNavBar extends React.Component {
   }
 
   render() {
-    const { logout, currentUserId } = this.props;
-    const currentUser = this.props.currentUser;
+    const { logout, currentUserId, currentUser } = this.props;
 
 
     let welcomeBanner = currentUserId ? (
@@ -24,8 +23,8 @@ class GlobalNavBar extends React.Component {
       <div>
         <div className='top-nav-bar'>
             <Link to="/"> 
-          <div className='logo'>
-              <img src={window.testPetsyLogo} alt="petsy-logo" />
+          <div className='ketsy-logo'>
+              <img src={window.ketsylogo} alt="ketsy-logo" />
           </div>
             </Link>
           <div className='top-nav-bar-search-bar'>

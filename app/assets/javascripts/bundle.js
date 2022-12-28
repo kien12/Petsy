@@ -2203,6 +2203,18 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "individual-pick"
       }, productItems[2]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
       }, productItems[1]))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "nature-photography"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2228,49 +2240,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return Splash;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component); // console.log('splash props', this.props);
-// console.log('splash state', this.state)
-// console.log('splash products', products[0])
-// const test = products.map((product) => (
-//  <img src={product.photoUrls[0]} alt="" />
-// ))
-//  const test = products.map((product) => (
-//  <img src={product.photoUrls[0]} alt="" />
-// ))
-//   if (!this.props.products.length !== 1) {
-//     return null;
-//   } else {
-//   const testIds = [1, 1, 2];
-//   const test = testIds.map(id => (
-//     <div>
-//       <img src={this.props.products[id].photoUrls[0]}/>
-//     </div>
-//   ));
-// }
-// const testIds = [1, 1, 2];
-// const test = testIds.map(id => (
-//   <div>
-//     <img src={this.props.products[id].photoUrls[0]}/>
-//   </div>
-// ));
-//     const productItems = products.map((product) => {
-//       return <ProductIndexItem key={product.id} product={product} />;
-//     });
-//     return (
-//       <div>
-//         <div>
-//           <div className='ketsy-welcome'>
-//             {/* Capture your moment on the wall! */}
-//           {test}
-//           </div>
-//         </div>
-//         <div className='top-picks-container'>
-//           <p className='ketsy-welcome'> Our top picks for you</p>
-//         </div>
-//       </div>
-//     )
-//   }
-
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Splash);
 

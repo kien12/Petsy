@@ -8,8 +8,6 @@ class Splash extends React.Component {
     super(props)
   }
   
-
-  
   render() {
     const products = this.props.products;
 
@@ -23,7 +21,7 @@ class Splash extends React.Component {
 
     return (
       <div className="product-index-container">
-        {/* <div className="top-picks">
+        <div className="top-picks">
           <div className="top-picks-title">
             <p>Our top picks for you!</p>
           </div>
@@ -72,11 +70,11 @@ class Splash extends React.Component {
             <div>{productItems[1]}</div>
             <div>{productItems[1]}</div>
           </div>
-        </div> */}
-        <div>
+        </div>
+        {/* <div>
           <About/>
           <Footer/>
-        </div>
+        </div> */}
       </div>
 
     );

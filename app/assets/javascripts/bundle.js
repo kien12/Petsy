@@ -2393,7 +2393,53 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       console.log('splash props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-index-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_about__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "top-picks"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "top-picks-title"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Our top picks for you!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "top-picks-products"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[2]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "individual-pick"
+      }, productItems[1]))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "nature-photography"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "nature-category"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "nature-text"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "nature-landscape"
+      }, "Nature ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "&"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Landscape")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "zen"
+      }, "Pick your ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "zen moment"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "nature-products"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1])))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "editors-pick-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "editor"
+      }, "Shop Editor's Pick"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "editor-pick"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "span-row-2"
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]))));
     }
   }]);
 
@@ -2703,7 +2749,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       this.props.signup(this.state).then(function () {
         return _this3.props.closeModal();
-      });
+      }).then(this.props.history.push('/'));
     }
   }, {
     key: "render",

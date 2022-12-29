@@ -916,8 +916,6 @@ var ProductIndexItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var product = this.props.product;
-      console.log('product index', product[1]);
-      console.log('product index2', product[2]);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         key: product.id,
         className: "top-picks-image-container"

@@ -3,7 +3,7 @@ import Splash from './splash'
 import { fetchAllProducts } from '../../actions/product_actions'
 
 const mDTP = dispatch => ({
-  fetchAllProducts: () => dispatch(fetchAllProducts()),
+  fetchAllProducts: () => dispatch(fetchAllProducts())
 })
 
 const mSTP = (state, ownProps) => ({

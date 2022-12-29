@@ -8,8 +8,6 @@ class ProductIndexItem extends React.Component {
 
   render() {
     const { product } = this.props;
-    console.log('product index', product[1])
-    console.log('product index2', product[2])
 
     return (
       <div key={product.id} className="top-picks-image-container">

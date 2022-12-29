@@ -916,6 +916,8 @@ var ProductIndexItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var product = this.props.product;
+      console.log('product index', product[1]);
+      console.log('product index2', product[2]);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         key: product.id,
         className: "top-picks-image-container"
@@ -2381,6 +2383,11 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Splash, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchAllProducts();
+    }
+  }, {
     key: "render",
     value: function render() {
       var products = this.props.products;
@@ -2439,7 +2446,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "editor-pick"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "span-row-2"
-      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]))));
+      }, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, productItems[1]))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_about__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
     }
   }]);
 

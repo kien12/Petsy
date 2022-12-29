@@ -3,11 +3,16 @@ import ProductIndexItem from '../product/product_index_item';
 import Footer from './footer';
 import About from './about';
 
+
 class Splash extends React.Component {
   constructor(props){
     super(props)
   }
   
+  componentDidMount() {
+    this.props.fetchAllProducts();
+  }
+
   render() {
     const products = this.props.products;
 
@@ -71,10 +76,10 @@ class Splash extends React.Component {
             <div>{productItems[1]}</div>
           </div>
         </div>
-        {/* <div>
+        <div>
           <About/>
           <Footer/>
-        </div> */}
+        </div>
       </div>
 
     );

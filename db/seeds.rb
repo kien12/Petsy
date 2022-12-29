@@ -27,7 +27,7 @@ ActiveRecord::Base.transaction do
   piccolo = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/piccolo.jpg')
   user_3.photos.attach(io: piccolo, filename: 'piccolo.jpg')
 
-  user_4 = User.create!(username: 'Admin', email: 'Admin@admin.com', password: '@Admin')
+  user_4 = User.create!(username: 'Admin', email: 'Admin@Admin.com', password: '@Admin')
   admin = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/defaultpicture.jpg')
   user_4.photos.attach(io: admin, filename: 'defaultpicture.jpg')
 

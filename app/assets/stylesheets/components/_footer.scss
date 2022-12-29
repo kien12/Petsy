@@ -59,24 +59,6 @@
   z-index: 5;
 }
 
-.riptear-1>svg {
-  display: flex;
-  position: absolute;
-  top: -15%;
-  left: 0;
-  z-index: 5;
-  fill: #D7E6F5;
-  width: 100%;
-}
-
-.riptear-2>svg {
-  display: flex;
-  position: absolute;
-  top: -10%;
-  z-index: 5;
-  fill: #2F466C;
-  width: 100%;
-}
 
 .footer-end-container {
   height: 80px;
@@ -252,7 +234,9 @@ textarea {
 }
 
 
-.footer-logo-container > a > img {
+
+.footer-logo-container>a>img {
+  transform: scale(1.02);
   height: 25px;
   width: 25px;
   padding: 0px 5px 0px 3px;

@@ -72,7 +72,7 @@ class Footer extends React.Component {
                 <div className='footer-end-container'>
                     
                     <div className='lang-currency'> 
-                    <img src="https://etsy-clone-dev.s3-us-west-1.amazonaws.com/splash-images/usaIcon.png"/>
+                    <img src={window.usaIcon}/>
                     United States   |   English (US)   |   $ (USD)
                     </div>
                     <div className='terms-policies'>

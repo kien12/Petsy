@@ -2,18 +2,9 @@
   display: flex;
   justify-content: space-between;
   margin: 10px 75px 10px 75px;
-  // background-color: #D3D3D3;
-  // border: 2px solid black;
-  
 }
 
-// .top-nav-bar-logo {
-//   border: 2px solid red;
-//   min-width: 10%;
-// }
-
 .top-nav-bar-search-bar {
-  // border: 2px solid blue;
   min-width: 70%;
   padding-top: 7px;
 }
@@ -26,14 +17,17 @@
 }
 
 .top-nav-bar-login {
-  // border: 2px solid orange;
+  cursor: pointer;
   min-width: 10%;
   background-color: white;
   border: none;
 }
 
+.top-nav-bar-login:hover {
+  cursor: pointer;
+}
+
 .top-nav-bar-cart {
-  // border: 2px solid black;
   min-width: 10%;
   background-color: white;
   border: none;

@@ -1,26 +1,14 @@
 import React from 'react';
 import ProductIndexItem from '../product/product_index_item';
 import Footer from './footer';
-// import { fetchAllProducts } from '../../actions/product_actions';
-// import HeroBannerContainer from './hero_banner_container'
-
+import About from './about';
 
 class Splash extends React.Component {
   constructor(props){
     super(props)
   }
   
-  componentDidMount() {
-    this.props.fetchAllProducts();
-    window.scrollTo(0, 0);
-  }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.products.length !== prevProps.products.length) {
-      this.forceUpdate();
-    }
-  }
-  
   
   render() {
     const products = this.props.products;
@@ -35,7 +23,7 @@ class Splash extends React.Component {
 
     return (
       <div className="product-index-container">
-        <div className="top-picks">
+        {/* <div className="top-picks">
           <div className="top-picks-title">
             <p>Our top picks for you!</p>
           </div>
@@ -84,8 +72,9 @@ class Splash extends React.Component {
             <div>{productItems[1]}</div>
             <div>{productItems[1]}</div>
           </div>
-        </div>
+        </div> */}
         <div>
+          <About/>
           <Footer/>
         </div>
       </div>

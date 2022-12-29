@@ -13,6 +13,11 @@
 }
 
 .about-container h1 {
-  font-size: 3rm;
+  font-size: 3rem;
+}
+
+.about-block-container {
+  display: flex;
+  justify-content: space-evenly;
 }
 

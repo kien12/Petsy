@@ -2239,7 +2239,7 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       // console.log('herobanner state', this.state)
       // console.log('herobanner props', this.props)
-      var bannerImages = [window.nature, window.landscape, window.blackWhite, window.modern, window.paint, window.freestyle];
+      var bannerImages = [window.nature, window.landscape, window.blackwhite11, window.modern, window.paint, window.freestyle];
       var categoriesList = this.props.categories.map(function (category, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           key: "".concat(category.name, "-").concat(category.id),
@@ -2442,7 +2442,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "individual-pick"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: window.nature10,
+        src: window.paint1,
         className: "top-picks-image"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "individual-pick"
@@ -2517,7 +2517,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "top-picks-image",
         alt: ""
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: window.street10,
+        src: window.misq1,
         className: "top-picks-image",
         alt: ""
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_about__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null)));

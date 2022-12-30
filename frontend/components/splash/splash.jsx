@@ -31,7 +31,6 @@ class Splash extends React.Component {
             <p>Our top picks for you!</p>
           </div>
           <div className="top-picks-products">
-            {/* <div className="individual-pick"><img src={window.misq1} className='top-picks-image' /></div> */}
             <div className="individual-pick"><img src={window.nature11} className='top-picks-image' /></div>
             <div className="individual-pick"><img src={window.blackwhite1} className='top-picks-image' /></div>
             <div className="individual-pick"><img src={window.street1} className='top-picks-image' /></div>
@@ -40,10 +39,12 @@ class Splash extends React.Component {
             <div className="individual-pick"><img src={window.blackwhite2} className='top-picks-image' /></div>
             <div className="individual-pick"><img src={window.street2} className='top-picks-image' /></div>
               <div className="individual-pick"><img src={window.nature8} className='top-picks-image' /></div>
+              <div className="individual-pick"><img src={window.paint1} className='top-picks-image' /></div>
             {/* remove bottom one  */}
-            <div className="individual-pick"><img src={window.nature10} className='top-picks-image' /></div> 
+            {/* <div className="individual-pick"><img src={window.nature10} className='top-picks-image' /></div>  */}
               <div className="individual-pick"><img src={window.misq2} className='top-picks-image' /></div>
               <div className="individual-pick"><img src={window.nature7} className='top-picks-image' /></div>
+            {/* <div className="individual-pick"><img src={window.misq1} className='top-picks-image' /></div> */}
           </div>
         </div>
         <div className="nature-photography">
@@ -81,7 +82,8 @@ class Splash extends React.Component {
             <div><img src={window.street11} className='top-picks-image' alt="" /></div>
             {/* <div><img src={window.street8} className='top-picks-image' alt="" /></div> */}
             <div><img src={window.street9} className='top-picks-image' alt="" /></div>
-            <div><img src={window.street10} className='top-picks-image' alt="" /></div>
+            {/* <div><img src={window.street10} className='top-picks-image' alt="" /></div> */}
+            <div><img src={window.misq1} className='top-picks-image' alt="" /></div>
             {/* <div>{productItems[1]}</div>
             <div>{productItems[1]}</div>
             <div>{productItems[1]}</div>

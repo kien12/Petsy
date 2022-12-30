@@ -22,6 +22,5 @@ class Review < ApplicationRecord
     foreign_key: :product_id,
     class_name: 'Product'
 
-  
 
 end

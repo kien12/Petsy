@@ -34,7 +34,7 @@ class ProductShowPage extends React.Component {
 
   render() {
     if(!this.props.product) return null;
-
+  console.log('product showpage props', this.props)
 
     const product = this.props.match.params.id;
     const { 
@@ -42,7 +42,8 @@ class ProductShowPage extends React.Component {
       description,  
       price,
       sellerName, 
-      reviews
+      reviews,
+      photoUrls
     } = this.props.product;
 
     let rightContainer = 
@@ -51,7 +52,7 @@ class ProductShowPage extends React.Component {
         <div className='meet-your-seller'>Meet your seller</div>
         <section className='review-faqs'>
           <div className='product-seller-details'>
-            <img className='default-picture' src={window.testReviewImage} alt="default-picture" />
+            <img className='default-picture' src={window.defaultpicture} alt="default-picture" />
             <div className='product-seller-info'>
               <div className='test-store-owner'>Kien</div>
               <div className='owner-of-store'>Owner of store</div>
@@ -70,12 +71,12 @@ class ProductShowPage extends React.Component {
       <div className='product-showpage-container'>
         <section className='product-top-container'>
           <div className='product-image'>
-            <img src={window.testProductPicture} alt="image" />
+            <img src={photoUrls} alt="image" />
           </div>
           <div className='product-details'>
             <h2 className='product-seller-name'>{`${sellerName}'s Store`}</h2>
             <h1 className='product-item-name'>{name}</h1>
-            <h2 className='product-price'>${price}</h2>
+            <h2 className='product-showpage-price'>${price}</h2>
             <div>
               <label className="product-quantity">Quantity</label><br/>
                 <select className="product-quantity-bar">

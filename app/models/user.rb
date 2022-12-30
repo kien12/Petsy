@@ -19,6 +19,8 @@ class User < ApplicationRecord
   attr_reader :password;
   after_initialize :ensure_session_token
 
+  has_many_attached :photos
+
   has_many :products,
     foreign_key: :user_id,
     class_name: 'Products'

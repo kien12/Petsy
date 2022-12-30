@@ -23,6 +23,7 @@ class SignupForm extends React.Component {
     e.preventDefault();
     this.props.signup(this.state)
       .then(() => this.props.closeModal())
+      .then(this.props.history.push('/'))
   }
 
   render() {

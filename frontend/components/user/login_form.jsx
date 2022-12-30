@@ -26,42 +26,43 @@ class LoginForm extends React.Component {
   }
 
   demoUser() {
-    const user = { email: 'demo@demo.com', password: '@SpiderMan'}
+    const user = { email: 'vegeta@gmail.com', password: 'vegeta'}
     this.props.login(user).then(this.props.closeModal)
   }
 
   render() {
+    console.log('this.state', this.state)
     return (
       <div className='modal-display' onClick={ e => e.stopPropagation()}>
         <div className='modal-signup-register'>
           <div className='modal-sign-in-text'>Sign In</div>
           <button className='modal-register-button' onClick={() =>this.props.otherForm('signup')}>Register</button>
         </div>
-        <form>
-          <div>
-            <label className='modal-sign-in-email'>Email Address</label> <br />
-            <input 
-              type="text" 
-              name='Email Address'
-              placeholder="enter email"
-              className='form-field'
-              onChange={this.handleChange('email')}
-            />
-            </div>
-            <div>
-              <label className='modal-sign-in-password'>Password</label> <br />
+
+        <form onSubmit={this.handleSubmit}>
+            <label className='modal-sign-in-email'>Email Address
+              <input 
+                type="text" 
+                name='Email Address'
+                placeholder="enter email"
+                className='form-field'
+                value={this.state.email}
+                onChange={this.handleChange('email')}
+              />
+            </label> <br />
+            <label className='modal-sign-in-password'>Password
               <input 
                 type="password" 
                 name='Password'
                 placeholder="enter password"
                 className='form-field'
+                value={this.state.password}
                 onChange={this.handleChange('password')}
               />
-            </div>
-            <br />
+            </label> <br />
             <button className='modal-sign-in-button'>Sign In</button>
-        
           </form>   
+          
           <button className='modal-demo-button' onClick={this.demoUser}>Demo</button>
           
       </div>

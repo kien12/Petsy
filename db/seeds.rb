@@ -49,7 +49,7 @@ ActiveRecord::Base.transaction do
   blackWhite = Category.create!(name: 'Black & White') #id 3
   modern = Category.create!(name: 'Modern') #id 4
   paint = Category.create!(name: "Paint") #id 5
-  freestyle = Category.create!(name: "Freestyle")
+  miscellaneous = Category.create!(name: "Miscellaneous") #id 6
 #PRODUCTS
   dog_product_1 = Product.create!(
     name: 'Big Bone',

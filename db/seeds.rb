@@ -163,7 +163,7 @@ ActiveRecord::Base.transaction do
     user_id: 3,
     product_id: 1,
     rating: 3,
-    body: 'VERY BAD PRODUCT DONT BUY!!!!!!!!!!!!!!'
+    body: 'Gohan would approve better than senzu beans'
   )
 
   review_4 = Review.create!(

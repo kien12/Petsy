@@ -575,6 +575,737 @@ ActiveRecord::Base.transaction do
   ) 
   street_12 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street12.jpg')
   street12.photos.attach(io: street_12, filename: 'street12.jpg')
+
+  street13 = Product.create!(
+    name: "City Lights",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 12.95
+  ) 
+  street13 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street13.jpg')
+  street13.photos.attach(io: street13, filename: 'street13.jpg')
+
+  street14 = Product.create!(
+    name: "Brown City",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 28.95
+  ) 
+  street_14 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street14.jpg')
+  street14.photos.attach(io: street_14, filename: 'street14.jpg')
+
+  street15 = Product.create!(
+    name: "Berlin",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 51.95
+  ) 
+  street_15 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street15.jpg')
+  street15.photos.attach(io: street_15, filename: 'street15.jpg')
+
+  street16 = Product.create!(
+    name: "New York City",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_16 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street16.jpg')
+  street16.photos.attach(io: street_16, filename: 'street16.jpg')
+
+  street17 = Product.create!(
+    name: "Eiffel Tower",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 99.95
+  ) 
+  street_17 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street17.jpg')
+  street17.photos.attach(io: street_17, filename: 'street17.jpg')
+
+  street18 = Product.create!(
+    name: "Tokyo",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_18 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street18.jpg')
+  street18.photos.attach(io: street_18, filename: 'street18.jpg')
+
+  street19 = Product.create!(
+    name: "Tokyo",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 22.95
+  ) 
+  street_19 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street19.jpg')
+  street19.photos.attach(io: street_19, filename: 'street19.jpg')
+
+  street20 = Product.create!(
+    name: "New York City",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_20 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street20.jpg')
+  street20.photos.attach(io: street_20, filename: 'street20.jpg')
+
+  street21 = Product.create!(
+    name: "Inception",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 81.95
+  ) 
+  street_21 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street21.jpg')
+  street21.photos.attach(io: street_21, filename: 'street21.jpg')
+
+  street22 = Product.create!(
+    name: "The Light",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 52.95
+  ) 
+  street22 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street22.jpg')
+  street22.photos.attach(io: street22, filename: 'street22.jpg')
+
+  street23 = Product.create!(
+    name: "Night Life",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 99.95
+  ) 
+  street23 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street23.jpg')
+  street23.photos.attach(io: street23, filename: 'street23.jpg')
+
+  street24 = Product.create!(
+    name: "Night Crawler",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 52.95
+  ) 
+  street_24 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street24.jpg')
+  street24.photos.attach(io: street_24, filename: 'street24.jpg')
+
+  street25 = Product.create!(
+    name: "Old Town",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 71.95
+  ) 
+  street_25 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street25.jpg')
+  street25.photos.attach(io: street_25, filename: 'street25.jpg')
+
+  street26 = Product.create!(
+    name: "Night Life",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street26 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street26.jpg')
+  street26.photos.attach(io: street26, filename: 'street26.jpg')
+
+  street27 = Product.create!(
+    name: "View from Below",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_27 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street27.jpg')
+  street27.photos.attach(io: street_27, filename: 'street27.jpg')
+
+  street28 = Product.create!(
+    name: "City Hall",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_28 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street28.jpg')
+  street28.photos.attach(io: street_28, filename: 'street28.jpg')
+
+  street29 = Product.create!(
+    name: "Ferris Wheel",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 51.95
+  ) 
+  street_29 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street29.jpg')
+  street29.photos.attach(io: street_29, filename: 'street29.jpg')
+
+  street30 = Product.create!(
+    name: "Australia",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 21.95
+  ) 
+  street_30 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street30.jpg')
+  street30.photos.attach(io: street_30, filename: 'street30.jpg')
+
+  street31 = Product.create!(
+    name: "Risk it for the Bisquick",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_31 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street31.jpg')
+  street31.photos.attach(io: street_31, filename: 'street31.jpg')
+
+  street32 = Product.create!(
+    name: "Old Town",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_32 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street32.jpg')
+  street32.photos.attach(io: street_32, filename: 'street32.jpg')
+
+  #### MODERN PRODUCTS
+
+  modern1 = Product.create!(
+    name: "Dragon",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 39.95
+  ) 
+  modern_1 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern1.jpg')
+  modern1.photos.attach(io: modern_1, filename: 'modern1.jpg')
+
+  modern2 = Product.create!(
+    name: "Tea Time",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 19.95
+  ) 
+  modern_2 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern2.jpg')
+  modern2.photos.attach(io: modern_2, filename: 'modern2.jpg')
+
+  modern3 = Product.create!(
+    name: "Love",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 99.95
+  ) 
+  modern_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern3.jpg')
+  modern3.photos.attach(io: modern_3, filename: 'modern3.jpg')
+
+  modern4 = Product.create!(
+    name: "The Bike",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 88.95
+  ) 
+  modern_4 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern4.jpg')
+  modern4.photos.attach(io: modern_4, filename: 'modern4.jpg')
+
+  modern5 = Product.create!(
+    name: "Abstract",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 39.95
+  ) 
+  modern_5 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern5.jpg')
+  modern5.photos.attach(io: modern_5, filename: 'modern5.jpg')
+
+  modern6 = Product.create!(
+    name: "Tall Buildings",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 39.95
+  ) 
+  modern_6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern6.jpg')
+  modern6.photos.attach(io: modern_6, filename: 'modern6.jpg')
+
+  modern7 = Product.create!(
+    name: "Empty Bench",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 10.95
+  ) 
+  modern_7 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern7.jpg')
+  modern7.photos.attach(io: modern_7, filename: 'modern7.jpg')
+
+  modern8 = Product.create!(
+    name: "Abstract Sky",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 22.95
+  ) 
+  modern_8 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern8.jpg')
+  modern8.photos.attach(io: modern_8, filename: 'modern8.jpg')
+
+  modern9 = Product.create!(
+    name: "Black Sky",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 39.95
+  ) 
+  modern_9 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern9.jpg')
+  modern9.photos.attach(io: modern_9, filename: 'modern9.jpg')
+
+  modern10 = Product.create!(
+    name: "Abstract White",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 39.95
+  ) 
+  modern_10 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern10.jpg')
+  modern10.photos.attach(io: modern_10, filename: 'modern10.jpg')
+
+  modern11 = Product.create!(
+    name: "Abstract White",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 41.95
+  ) 
+  modern_11 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern11.jpg')
+  modern11.photos.attach(io: modern_11, filename: 'modern11.jpg')
+
+  modern12 = Product.create!(
+    name: "Abstract Colors",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 55.95
+  ) 
+  modern_12 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern12.jpg')
+  modern12.photos.attach(io: modern_12, filename: 'modern12.jpg')
+
+  modern13 = Product.create!(
+    name: "Abstract Colors",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 39.95
+  ) 
+  modern_13 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern13.jpg')
+  modern13.photos.attach(io: modern_13, filename: 'modern13.jpg')
+
+  modern14 = Product.create!(
+    name: "Abstract Black and White",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 500.95
+  ) 
+  modern_14 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern14.jpg')
+  modern14.photos.attach(io: modern_14, filename: 'modern14.jpg')
+
+  modern15 = Product.create!(
+    name: "Abstract Paint",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 999.95
+  ) 
+  modern_15 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern15.jpg')
+  modern15.photos.attach(io: modern_15, filename: 'modern15.jpg')
+
+  modern16 = Product.create!(
+    name: "Inception",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 4, 
+    category_id: 3,
+    quantity: 99,
+    price: 399.95
+  ) 
+  modern_16 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/modern/modern16.jpg')
+  modern16.photos.attach(io: modern_16, filename: 'modern16.jpg')
+
+  paint2 = Product.create!(
+    name: "The Forest",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_2 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint2.jpg')
+  paint2.photos.attach(io: paint_2, filename: 'paint2.jpg')
+
+  paint3 = Product.create!(
+    name: "The Story",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 10.95
+  ) 
+  paint_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint3.jpg')
+  paint3.photos.attach(io: paint_3, filename: 'paint3.jpg')
+
+  paint4 = Product.create!(
+    name: "The Woodpecker",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 21.95
+  ) 
+  paint_4 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint4.jpg')
+  paint4.photos.attach(io: paint_4, filename: 'paint4.jpg')
+
+  paint5 = Product.create!(
+    name: "Two Lovers",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 99.95
+  ) 
+  paint_5 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint5.jpg')
+  paint5.photos.attach(io: paint_5, filename: 'paint5.jpg')
+
+  paint6 = Product.create!(
+    name: "Rolling Loud",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint6.jpg')
+  paint6.photos.attach(io: paint_6, filename: 'paint6.jpg')
+
+  paint7 = Product.create!(
+    name: "Pirates",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_7 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint7.jpg')
+  paint7.photos.attach(io: paint_7, filename: 'paint7.jpg')
+
+  paint8 = Product.create!(
+    name: "Pirates",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 99.95
+  ) 
+  paint_8 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint8.jpg')
+  paint8.photos.attach(io: paint_8, filename: 'paint8.jpg')
+
+  paint9 = Product.create!(
+    name: "The Fox",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_9 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint9.jpg')
+  paint9.photos.attach(io: paint_9, filename: 'paint9.jpg')
+
+  paint10 = Product.create!(
+    name: "Abstract Flowers",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_10 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint10.jpg')
+  paint10.photos.attach(io: paint_10, filename: 'paint10.jpg')
+
+  paint11 = Product.create!(
+    name: "Whale Canvas",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 35.95
+  ) 
+  paint_11 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint11.jpg')
+  paint11.photos.attach(io: paint_11, filename: 'paint11.jpg')
+
+  paint12 = Product.create!(
+    name: "Flowers",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 71.95
+  ) 
+  paint_12 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint12.jpg')
+  paint12.photos.attach(io: paint_12, filename: 'paint12.jpg')
+
+  paint13 = Product.create!(
+    name: "Sheeps in the Forest",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_13 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint13.jpg')
+  paint13.photos.attach(io: paint_13, filename: 'paint13.jpg')
+
+  paint14 = Product.create!(
+    name: "The Indians",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 66.95
+  ) 
+  paint_14 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint14.jpg')
+  paint14.photos.attach(io: paint_14, filename: 'paint14.jpg')
+
+  paint15 = Product.create!(
+    name: "Pirates",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_15 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint15.jpg')
+  paint15.photos.attach(io: paint_15, filename: 'paint15.jpg')
+
+  paint16 = Product.create!(
+    name: "The Path of Exile",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_16 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint16.jpg')
+  paint16.photos.attach(io: paint_16, filename: 'paint16.jpg')
+
+  paint16 = Product.create!(
+    name: "Peaceful Farm Life",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 4,
+    quantity: 99,
+    price: 39.95
+  ) 
+  paint_16 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/paint16.jpg')
+  paint16.photos.attach(io: paint_16, filename: 'paint16.jpg')
+
+  blackwhite3 = Product.create!(
+    name: "Sail",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 39.95
+  ) 
+  blackwhite_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite3.jpg')
+  blackwhite3.photos.attach(io: blackwhite_3, filename: 'blackwhite3.jpg')
+
+  blackwhite4 = Product.create!(
+    name: "The City",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 45.95
+  ) 
+  blackwhite_4 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite4.jpg')
+  blackwhite4.photos.attach(io: blackwhite_4, filename: 'blackwhite4.jpg')
+
+  blackwhite5 = Product.create!(
+    name: "SmarTone Shop",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 39.95
+  ) 
+  blackwhite_5 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite5.jpg')
+  blackwhite5.photos.attach(io: blackwhite_5, filename: 'blackwhite5.jpg')
+
+  blackwhite6 = Product.create!(
+    name: "What's Outside?",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 99.95
+  ) 
+  blackwhite_6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite6.jpg')
+  blackwhite6.photos.attach(io: blackwhite_6, filename: 'blackwhite6.jpg')
+
+  blackwhite7 = Product.create!(
+    name: "The Perfect Shadow",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 300.95
+  ) 
+  blackwhite_7 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite7.jpg')
+  blackwhite7.photos.attach(io: blackwhite_7, filename: 'blackwhite7.jpg')
+
+  blackwhite8 = Product.create!(
+    name: "Light",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 39.95
+  ) 
+  blackwhite_8 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite8.jpg')
+  blackwhite8.photos.attach(io: blackwhite_8, filename: 'blackwhite8.jpg')
+
+  blackwhite9 = Product.create!(
+    name: "Bikers",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 39.95
+  ) 
+  blackwhite_9 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite9.jpg')
+  blackwhite9.photos.attach(io: blackwhite_9, filename: 'blackwhite9.jpg')
+
+  blackwhite10 = Product.create!(
+    name: "Old Fashion",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 55.95
+  ) 
+  blackwhite_10 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite10.jpg')
+  blackwhite10.photos.attach(io: blackwhite_10, filename: 'blackwhite10.jpg')
+
+  blackwhite_11 = Product.create!(
+    name: "Rose",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 5,
+    quantity: 99,
+    price: 522.95
+  ) 
+  blackwhite_11 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite_11.jpg')
+  blackwhite_11.photos.attach(io: blackwhite_11, filename: 'blackwhite_11.jpg')
+
+  misq3 = Product.create!(
+    name: "Jolteon",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 6,
+    quantity: 99,
+    price: 99.95
+  ) 
+  misq_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/misq/misq3.jpg')
+  misq3.photos.attach(io: misq_3, filename: 'misq3.jpg')
+
+  misq4 = Product.create!(
+    name: "Pikachu and Squirtle",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 6,
+    quantity: 99,
+    price: 299.95
+  ) 
+  misq_4 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/misq/misq4.jpg')
+  misq4.photos.attach(io: misq_4, filename: 'misq4.jpg')
+
+  misq5 = Product.create!(
+    name: "Totodile",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 6,
+    quantity: 99,
+    price: 68.95
+  ) 
+  misq_5 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/misq/misq5.jpg')
+  misq5.photos.attach(io: misq_5, filename: 'misq5.jpg')
+
+  misq6 = Product.create!(
+    name: "The Sign",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 6,
+    quantity: 99,
+    price: 33.95
+  ) 
+  misq6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/misq/misq6.jpg')
+  misq6.photos.attach(io: misq6, filename: 'misq6.jpg')
+
+  narutoo = Product.create!(
+    name: "Kyubii Naruto",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 3, 
+    category_id: 6,
+    quantity: 99,
+    price: 52.95
+  ) 
+  narutoo.photos.attach(io: naruto, filename: 'naruto.jpg')
+
+  ###### MISQ PRODUCTS
+
+
 #PRODUCTS
   # dog_product_1 = Product.create!(
   #   name: 'Big Bone',

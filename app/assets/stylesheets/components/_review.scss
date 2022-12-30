@@ -111,7 +111,9 @@
   display: flex;
   justify-content: space-between;
 }
-
+.review-info-container {
+  width: 100vw;
+}
 
 .review-info {
   margin-left: 20px;
@@ -171,7 +173,7 @@
 
 .faqs-message-button{
   box-sizing: border-box;
-  width: 100%;
+  width: 20vw;
   height: 50px;
   border-style: none;
   background: none;

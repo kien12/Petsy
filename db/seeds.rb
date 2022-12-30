@@ -52,10 +52,11 @@ ActiveRecord::Base.transaction do
   paint = Category.create!(name: "Paint") #id 4
   blackWhite = Category.create!(name: 'Black & White') #id 5
   miscellaneous = Category.create!(name: "Miscellaneous") #id 6
-  # SPLASH PRODUCTS
+  ######### SPLASH PRODUCTS
+
     nature11 = Product.create!(
     name: 'River flows through Switzerland',
-    description: "Picture taken by Clifford of the beautiful mountains in Switzerland during the summer time", 
+    description: "Picture taken by Clifford of the beautiful mountains in Switzerland during the summer time.", 
     seller_id: 1, 
     category_id: 1,
     quantity: 5,
@@ -66,7 +67,7 @@ ActiveRecord::Base.transaction do
 
     blackwhite1 = Product.create!(
     name: 'The Walk',
-    description: "a man walking into a modern museum", 
+    description: "a man walking into a modern museum.", 
     seller_id: 1, 
     category_id: 5,
     quantity: 8,
@@ -77,7 +78,7 @@ ActiveRecord::Base.transaction do
 
   street1 = Product.create!(
     name: 'Lunar New Year',
-    description: "Picture taken by Clifford of a night in New York City's China Town", 
+    description: "Picture taken by Clifford of a night in New York City's China Town.", 
     seller_id: 2, 
     category_id: 2,
     quantity: 3,
@@ -88,7 +89,7 @@ ActiveRecord::Base.transaction do
 
   nature9 = Product.create!(
     name: 'Winter is coming',
-    description: "Majestic mountains of Tibet", 
+    description: "Majestic mountains of Tibet.", 
     seller_id: 2, 
     category_id: 1,
     quantity: 25,
@@ -177,15 +178,403 @@ ActiveRecord::Base.transaction do
 
   nature12 = Product.create!(
     name: "Land's end",
-    description: "Tavan Bogd the mountains Mongolia, displaying the quiet nature of it's land", 
+    description: "Tavan Bogd the mountains Mongolia, displaying the quiet nature of it's land.", 
     seller_id: 4, 
     category_id: 1,
     quantity: 25,
     price: 60.95
   ) 
-  nature12 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature12.jpg')
+  nature_12 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature12.jpg')
   nature12.photos.attach(io: nature12, filename: 'nature12.jpg')
+
+  nature3 = Product.create!(
+    name: "Majestic Horizon",
+    description: "Birds flying across the horizon during the sunset in Africa. Ever flew too close to the sun?", 
+    seller_id: 4, 
+    category_id: 1,
+    quantity: 99,
+    price: 99.95
+  ) 
+  nature_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature3.jpg')
+  nature3.photos.attach(io: nature_3, filename: 'nature3.jpg')
+
+  nature3 = Product.create!(
+    name: "Feel the Sun",
+    description: "Birds flying across the horizon during the sunset in Africa. Ever flew too close to the sun?", 
+    seller_id: 4, 
+    category_id: 1,
+    quantity: 99,
+    price: 99.95
+  ) 
+  nature_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature3.jpg')
+  nature3.photos.attach(io: nature_3, filename: 'nature3.jpg')
+
+  nature4 = Product.create!(
+    name: "First Spring",
+    description: "Reflection of the first day of spring in Switzerland.", 
+    seller_id: 4, 
+    category_id: 1,
+    quantity: 99,
+    price: 57.95
+  ) 
+  nature_4 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature4.jpg')
+  nature4.photos.attach(io: nature_4, filename: 'nature4.jpg')
+
+  nature5 = Product.create!(
+    name: "Lone Buffalo",
+    description: "Stunning photogenic buffalo wandering the mountains of Nepal.", 
+    seller_id: 4, 
+    category_id: 1,
+    quantity: 99,
+    price: 88.95
+  ) 
+  nature_5 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature5.jpg')
+  nature5.photos.attach(io: nature_5, filename: 'nature5.jpg')
+
+  nature6 = Product.create!(
+    name: "Spring is here!",
+    description: "In the plains of sunny California orange tulips blossom every year!", 
+    seller_id: 4, 
+    category_id: 1,
+    quantity: 99,
+    price: 12.95
+  ) 
+  nature_6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature6.jpg')
+  nature6.photos.attach(io: nature_6, filename: 'nature6.jpg')
+
+  nature13 = Product.create!(
+    name: "Amazons",
+    description: "The green calm waters of the amazon with a river flowing in the middle", 
+    seller_id: 4, 
+    category_id: 1,
+    quantity: 99,
+    price: 75.95
+  ) 
+  nature_13 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature13.jpg')
+  nature13.photos.attach(io: nature_13, filename: 'nature13.jpg')
+
+  street4 = Product.create!(
+    name: "Tokyo",
+    description: "Extraordinary bright colors of the nightlife in Tokyo", 
+    seller_id: 4, 
+    category_id: 2,
+    quantity: 99,
+    price: 29.95
+  ) 
+  street_4 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street4.jpg')
+  street4.photos.attach(io: street_4, filename: 'street4.jpg')
+
+  street5 = Product.create!(
+    name: "Lunar New Year",
+    description: "Chinese Lanterns that are lit up during the Mid Autumn Festival", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 9.95
+  ) 
+  street_5 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street5.jpg')
+  street5.photos.attach(io: street_5, filename: 'street5.jpg')
+
+  street7 = Product.create!(
+    name: "Mid Autumn",
+    description: "Chinese Lanterns that are lit up during the Mid Autumn Festival. Enjoy the beauty of an old town", 
+    seller_id: 2, 
+    category_id: 2,
+    quantity: 99,
+    price: 29.95
+  ) 
+  street_7 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street7.jpg')
+  street7.photos.attach(io: street_7, filename: 'street7.jpg')
+
+  street11 = Product.create!(
+    name: "Colors",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell.", 
+    seller_id: 3, 
+    category_id: 2,
+    quantity: 99,
+    price: 132.95
+  ) 
+  street_11 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street11.jpg')
+  street11.photos.attach(io: street_11, filename: 'street11.jpg')
+
+  street9 = Product.create!(
+    name: "Ferris Wheel",
+    description: "A bright red and blue Ferris Wheel that will bring back fun memories of the carnival.", 
+    seller_id: 2, 
+    category_id: 2,
+    quantity: 99,
+    price: 81.95
+  ) 
+  street_9 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street9.jpg')
+  street9.photos.attach(io: street_9, filename: 'street9.jpg')
+
+  misq1 = Product.create!(
+    name: "Pikachu",
+    description: "a simple Pikachu posing with a hoodie", 
+    seller_id: 4, 
+    category_id: 6,
+    quantity: 99,
+    price: 25.95
+  ) 
+  misq_1 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/misq/misq1.jpg')
+  misq1.photos.attach(io: misq_1, filename: 'misq1.jpg')
+
+
+  ################## MORE PRODUCTS
+
+  nature1 = Product.create!(
+    name: "Colors",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 29.95
+  ) 
+  nature_1 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature1.jpg')
+  nature1.photos.attach(io: nature_1, filename: 'nature1.jpg')
+
+  nature10 = Product.create!(
+    name: "Blue Bird",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 29.95
+  ) 
+  nature_10 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature10.jpg')
+  nature10.photos.attach(io: nature_10, filename: 'nature10.jpg')
+
+  nature14 = Product.create!(
+    name: "Aurora Lights",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 51.95
+  ) 
+  nature_14 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature14.jpg')
+  nature14.photos.attach(io: nature_14, filename: 'nature14.jpg')
+
+  nature15 = Product.create!(
+    name: "Daisy",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 29.95
+  ) 
+  nature_15 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature15.jpg')
+  nature15.photos.attach(io: nature_15, filename: 'nature15.jpg')
+
+  nature16 = Product.create!(
+    name: "Bird's eye view",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 21.95
+  ) 
+  nature16 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature16.jpg')
+  nature16.photos.attach(io: nature16, filename: 'nature16.jpg')
+
+  nature17 = Product.create!(
+    name: "Rocky Road",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 29.95
+  ) 
+  nature17 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature17.jpg')
+  nature17.photos.attach(io: nature17, filename: 'nature17.jpg')
+
+  nature18 = Product.create!(
+    name: "Sunset",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 31.95
+  ) 
+  nature_18 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature18.jpg')
+  nature18.photos.attach(io: nature_18, filename: 'nature18.jpg')
+
+
+  nature19 = Product.create!(
+    name: "The Grand Canyon",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 11.95
+  ) 
+  nature_19 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature19.jpg')
+  nature19.photos.attach(io: nature_19, filename: 'nature19.jpg')
+
+  nature20 = Product.create!(
+    name: "The Grand Canyon",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 31.95
+  ) 
+  nature_20 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature20.jpg')
+  nature20.photos.attach(io: nature_20, filename: 'nature20.jpg')
   
+  nature21 = Product.create!(
+    name: "The First Snow",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 22.95
+  ) 
+  nature_21 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature21.jpg')
+  nature21.photos.attach(io: nature_21, filename: 'nature21.jpg')
+
+  nature_22 = Product.create!(
+    name: "Burning Dandilion",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 31.95
+  ) 
+  nature_22 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature_22.jpg')
+  nature_22.photos.attach(io: nature_22, filename: 'nature_22.jpg')
+
+  nature23 = Product.create!(
+    name: "Creek",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 99.95
+  ) 
+  nature_23 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature23.jpg')
+  nature23.photos.attach(io: nature_23, filename: 'nature23.jpg')
+
+  nature24 = Product.create!(
+    name: "On the Hunt",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 31.95
+  ) 
+  nature_24 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature24.jpg')
+  nature24.photos.attach(io: nature_24, filename: 'nature24.jpg')
+
+  nature25 = Product.create!(
+    name: "Twin Peaks",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 19.95
+  ) 
+  nature_25 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature25.jpg')
+  nature25.photos.attach(io: nature_25, filename: 'nature25.jpg')
+
+  nature_26 = Product.create!(
+    name: "Blood Moon",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 99.95
+  ) 
+  nature_26 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature_26.jpg')
+  nature_26.photos.attach(io: nature_26, filename: 'nature_26.jpg')
+
+  nature27 = Product.create!(
+    name: "Rock Village",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 10.95
+  ) 
+  nature_27 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature27.jpg')
+  nature27.photos.attach(io: nature_27, filename: 'nature27.jpg')
+
+  nature28 = Product.create!(
+    name: "Winter Plateau",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 21.95
+  ) 
+  nature_28 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature28.jpg')
+  nature28.photos.attach(io: nature_28, filename: 'nature28.jpg')
+
+  nature29 = Product.create!(
+    name: "The Rain Forest",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 1,
+    quantity: 99,
+    price: 55.95
+  ) 
+  nature_29 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature29.jpg')
+  nature29.photos.attach(io: nature_29, filename: 'nature29.jpg')
+
+  street3 = Product.create!(
+    name: "The Walk",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 19.95
+  ) 
+  street_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street3.jpg')
+  street3.photos.attach(io: street_3, filename: 'street3.jpg')
+
+  street6 = Product.create!(
+    name: "All of the Lights",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street6.jpg')
+  street6.photos.attach(io: street_6, filename: 'street6.jpg')
+
+  street8 = Product.create!(
+    name: "The Spot",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 29.95
+  ) 
+  street_8 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street8.jpg')
+  street8.photos.attach(io: street_8, filename: 'street8.jpg')
+
+  street10 = Product.create!(
+    name: "Kafe",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 69.95
+  ) 
+  street_10 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street10.jpg')
+  street10.photos.attach(io: street_10, filename: 'street10.jpg')
+
+  street12 = Product.create!(
+    name: "Lanterns",
+    description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
+    seller_id: 1, 
+    category_id: 2,
+    quantity: 99,
+    price: 39.95
+  ) 
+  street_12 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street12.jpg')
+  street12.photos.attach(io: street_12, filename: 'street12.jpg')
 #PRODUCTS
   # dog_product_1 = Product.create!(
   #   name: 'Big Bone',

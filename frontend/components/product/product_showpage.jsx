@@ -52,7 +52,7 @@ class ProductShowPage extends React.Component {
         <div className='meet-your-seller'>Meet your seller</div>
         <section className='review-faqs'>
           <div className='product-seller-details'>
-            <img className='default-picture' src={window.testReviewImage} alt="default-picture" />
+            <img className='default-picture' src={window.defaultpicture} alt="default-picture" />
             <div className='product-seller-info'>
               <div className='test-store-owner'>Kien</div>
               <div className='owner-of-store'>Owner of store</div>

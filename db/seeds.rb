@@ -62,7 +62,7 @@ ActiveRecord::Base.transaction do
     quantity: 5,
     price: 21.95
   ) 
-  nature_11 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature1.jpg')
+  nature_11 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature11.jpg')
   nature11.photos.attach(io: nature_11, filename: 'nature11.jpg')
 
     blackwhite1 = Product.create!(
@@ -185,7 +185,7 @@ ActiveRecord::Base.transaction do
     price: 60.95
   ) 
   nature_12 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature12.jpg')
-  nature12.photos.attach(io: nature12, filename: 'nature12.jpg')
+  nature12.photos.attach(io: nature_12, filename: 'nature12.jpg')
 
   nature3 = Product.create!(
     name: "Majestic Horizon",
@@ -198,16 +198,6 @@ ActiveRecord::Base.transaction do
   nature_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature3.jpg')
   nature3.photos.attach(io: nature_3, filename: 'nature3.jpg')
 
-  nature3 = Product.create!(
-    name: "Feel the Sun",
-    description: "Birds flying across the horizon during the sunset in Africa. Ever flew too close to the sun?", 
-    seller_id: 4, 
-    category_id: 1,
-    quantity: 99,
-    price: 99.95
-  ) 
-  nature_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature3.jpg')
-  nature3.photos.attach(io: nature_3, filename: 'nature3.jpg')
 
   nature4 = Product.create!(
     name: "First Spring",
@@ -374,8 +364,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 21.95
   ) 
-  nature16 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature16.jpg')
-  nature16.photos.attach(io: nature16, filename: 'nature16.jpg')
+  nature_16 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature16.jpg')
+  nature16.photos.attach(io: nature_16, filename: 'nature16.jpg')
 
   nature17 = Product.create!(
     name: "Rocky Road",
@@ -385,8 +375,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 29.95
   ) 
-  nature17 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature17.jpg')
-  nature17.photos.attach(io: nature17, filename: 'nature17.jpg')
+  nature_17 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature17.jpg')
+  nature17.photos.attach(io: nature_17, filename: 'nature17.jpg')
 
   nature18 = Product.create!(
     name: "Sunset",
@@ -433,7 +423,7 @@ ActiveRecord::Base.transaction do
   nature_21 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature21.jpg')
   nature21.photos.attach(io: nature_21, filename: 'nature21.jpg')
 
-  nature_22 = Product.create!(
+  nature22 = Product.create!(
     name: "Burning Dandilion",
     description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
     seller_id: 1, 
@@ -441,8 +431,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 31.95
   ) 
-  nature_22 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature_22.jpg')
-  nature_22.photos.attach(io: nature_22, filename: 'nature_22.jpg')
+  nature_22 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature22.jpg')
+  nature22.photos.attach(io: nature_22, filename: 'nature22.jpg')
 
   nature23 = Product.create!(
     name: "Creek",
@@ -477,7 +467,7 @@ ActiveRecord::Base.transaction do
   nature_25 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature25.jpg')
   nature25.photos.attach(io: nature_25, filename: 'nature25.jpg')
 
-  nature_26 = Product.create!(
+  nature26 = Product.create!(
     name: "Blood Moon",
     description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
     seller_id: 1, 
@@ -485,8 +475,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 99.95
   ) 
-  nature_26 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature_26.jpg')
-  nature_26.photos.attach(io: nature_26, filename: 'nature_26.jpg')
+  nature_26 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/nature/nature26.jpg')
+  nature26.photos.attach(io: nature_26, filename: 'nature_26.jpg')
 
   nature27 = Product.create!(
     name: "Rock Village",
@@ -584,8 +574,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 12.95
   ) 
-  street13 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street13.jpg')
-  street13.photos.attach(io: street13, filename: 'street13.jpg')
+  street_13 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street13.jpg')
+  street13.photos.attach(io: street_13, filename: 'street13.jpg')
 
   street14 = Product.create!(
     name: "Brown City",
@@ -683,8 +673,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 52.95
   ) 
-  street22 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street22.jpg')
-  street22.photos.attach(io: street22, filename: 'street22.jpg')
+  street_22 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street22.jpg')
+  street22.photos.attach(io: street_22, filename: 'street22.jpg')
 
   street23 = Product.create!(
     name: "Night Life",
@@ -694,8 +684,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 99.95
   ) 
-  street23 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street23.jpg')
-  street23.photos.attach(io: street23, filename: 'street23.jpg')
+  street_23 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street23.jpg')
+  street23.photos.attach(io: street_23, filename: 'street23.jpg')
 
   street24 = Product.create!(
     name: "Night Crawler",
@@ -727,8 +717,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 39.95
   ) 
-  street26 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street26.jpg')
-  street26.photos.attach(io: street26, filename: 'street26.jpg')
+  street_26 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/landscape/street26.jpg')
+  street26.photos.attach(io: street_26, filename: 'street26.jpg')
 
   street27 = Product.create!(
     name: "View from Below",
@@ -1158,7 +1148,7 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 39.95
   ) 
-  blackwhite_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite3.jpg')
+  blackwhite_3 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite3.jpg')
   blackwhite3.photos.attach(io: blackwhite_3, filename: 'blackwhite3.jpg')
 
   blackwhite4 = Product.create!(
@@ -1169,7 +1159,7 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 45.95
   ) 
-  blackwhite_4 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite4.jpg')
+  blackwhite_4 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite4.jpg')
   blackwhite4.photos.attach(io: blackwhite_4, filename: 'blackwhite4.jpg')
 
   blackwhite5 = Product.create!(
@@ -1180,7 +1170,7 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 39.95
   ) 
-  blackwhite_5 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite5.jpg')
+  blackwhite_5 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite5.jpg')
   blackwhite5.photos.attach(io: blackwhite_5, filename: 'blackwhite5.jpg')
 
   blackwhite6 = Product.create!(
@@ -1191,7 +1181,7 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 99.95
   ) 
-  blackwhite_6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite6.jpg')
+  blackwhite_6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite6.jpg')
   blackwhite6.photos.attach(io: blackwhite_6, filename: 'blackwhite6.jpg')
 
   blackwhite7 = Product.create!(
@@ -1202,7 +1192,7 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 300.95
   ) 
-  blackwhite_7 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite7.jpg')
+  blackwhite_7 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite7.jpg')
   blackwhite7.photos.attach(io: blackwhite_7, filename: 'blackwhite7.jpg')
 
   blackwhite8 = Product.create!(
@@ -1213,7 +1203,7 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 39.95
   ) 
-  blackwhite_8 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite8.jpg')
+  blackwhite_8 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite8.jpg')
   blackwhite8.photos.attach(io: blackwhite_8, filename: 'blackwhite8.jpg')
 
   blackwhite9 = Product.create!(
@@ -1224,7 +1214,7 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 39.95
   ) 
-  blackwhite_9 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite9.jpg')
+  blackwhite_9 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite9.jpg')
   blackwhite9.photos.attach(io: blackwhite_9, filename: 'blackwhite9.jpg')
 
   blackwhite10 = Product.create!(
@@ -1235,10 +1225,10 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 55.95
   ) 
-  blackwhite_10 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite10.jpg')
+  blackwhite_10 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite10.jpg')
   blackwhite10.photos.attach(io: blackwhite_10, filename: 'blackwhite10.jpg')
 
-  blackwhite_11 = Product.create!(
+  blackwhite11 = Product.create!(
     name: "Rose",
     description: "Simplicity at it's finest, vibrant colors with a story only you can tell. Like the say, a picture of worth a thousand words.", 
     seller_id: 3, 
@@ -1246,8 +1236,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 522.95
   ) 
-  blackwhite_11 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/paint/blackwhite_11.jpg')
-  blackwhite_11.photos.attach(io: blackwhite_11, filename: 'blackwhite_11.jpg')
+  blackwhite_11 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/blackwhite/blackwhite11.jpg')
+  blackwhite11.photos.attach(io: blackwhite_11, filename: 'blackwhite11.jpg')
 
   misq3 = Product.create!(
     name: "Jolteon",
@@ -1290,8 +1280,8 @@ ActiveRecord::Base.transaction do
     quantity: 99,
     price: 33.95
   ) 
-  misq6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/misq/misq6.jpg')
-  misq6.photos.attach(io: misq6, filename: 'misq6.jpg')
+  misq_6 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/misq/misq6.jpg')
+  misq6.photos.attach(io: misq_6, filename: 'misq6.jpg')
 
   narutoo = Product.create!(
     name: "Kyubii Naruto",
@@ -1300,8 +1290,9 @@ ActiveRecord::Base.transaction do
     category_id: 6,
     quantity: 99,
     price: 52.95
-  ) 
-  narutoo.photos.attach(io: naruto, filename: 'naruto.jpg')
+  )
+  narutoo_1 = open('https://petsy-dev.s3.us-west-1.amazonaws.com/profile_pictures/naruto.jpg') 
+  narutoo.photos.attach(io: narutoo_1, filename: 'naruto.jpg')
 
   ###### MISQ PRODUCTS
 

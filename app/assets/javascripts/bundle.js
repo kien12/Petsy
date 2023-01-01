@@ -418,6 +418,7 @@ var CategoryProductShowPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log("category products props", this.props);
       var categoryProducts = this.props.categoryProducts.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "product-info-container",
@@ -458,6 +459,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
+  console.log('category products state', state);
   return {
     categoryProducts: Object.values(state.entities.categoryProducts)
   };
@@ -2241,7 +2243,7 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       // console.log('herobanner state', this.state)
       // console.log('herobanner props', this.props)
-      var bannerImages = [window.nature, window.landscape, window.blackwhite11, window.modern, window.paint, window.freestyle];
+      var bannerImages = [window.nature, window.landscape, window.modern, window.paint, window.blackwhite11, window.freestyle];
       var categoriesList = this.props.categories.map(function (category, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           key: "".concat(category.name, "-").concat(category.id),

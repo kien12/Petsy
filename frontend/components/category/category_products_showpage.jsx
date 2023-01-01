@@ -17,6 +17,8 @@ class CategoryProductShowPage extends React.Component {
   }
   
   render(){
+    console.log("category products props", this.props)
+
     const categoryProducts = this.props.categoryProducts.map(product => (
     <div 
       className='product-info-container'

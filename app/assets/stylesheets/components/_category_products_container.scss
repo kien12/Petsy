@@ -1,6 +1,5 @@
 .category-products-container {
     display: flex;
-    justify-content: space-around;
     border: 0.75rem;
     background-color: red;
     border: 4.5px solid green;
@@ -12,12 +11,21 @@
 
   .product-info-container {
     display: flex;
-    justify-content: space-evenly;
     border: 0.75rem;
     background-color: white;
+    border: 4.5px solid black;
     width: 200px;
     height: 200px;
-    
+  }
+
+  .category-product-image {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  .category-product-name {
+    font-weight: 700;
+    margin-bottom: 4px;
   }
   
  

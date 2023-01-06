@@ -18,15 +18,18 @@ class CategoryProductShowPage extends React.Component {
   
   render(){
     console.log("category products props", this.props)
+    // console.log('photourl', this.props.categoryProducts[0]);
+
 
     const categoryProducts = this.props.categoryProducts.map(product => (
     <div 
       className='product-info-container'
       key={`${product.name}-${product.id}`}>
       <Link to={`/products/${product.id}`}>
-        <h2>{product.name}</h2>
-        <p>{product.description}</p>
-        <p>{product.price}</p>
+        <h2 className ='category-product-name'>{product.name}</h2>
+        {/* <p className='category-product-description'>{product.description}</p> */}
+        <p className ='category-product-price'>{product.price}</p>
+        <img src={product.photoUrls[0]} className='category-product-image'/>
       </Link>
     </div>
     ));

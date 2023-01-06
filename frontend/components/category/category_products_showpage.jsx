@@ -26,10 +26,10 @@ class CategoryProductShowPage extends React.Component {
       className='product-info-container'
       key={`${product.name}-${product.id}`}>
       <Link to={`/products/${product.id}`}>
+        <img src={product.photoUrls[0]} className='category-product-image'/>
         <h2 className ='category-product-name'>{product.name}</h2>
         {/* <p className='category-product-description'>{product.description}</p> */}
         <p className ='category-product-price'>{product.price}</p>
-        <img src={product.photoUrls[0]} className='category-product-image'/>
       </Link>
     </div>
     ));

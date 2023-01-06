@@ -1,7 +1,7 @@
 .category-products-container {
     display: flex;
     border: 0.75rem;
-    background-color: red;
+    // background-color: red;
     border: 4.5px solid green;
     font-family: 'Roboto Serif', serif;
     flex-wrap: wrap;
@@ -19,13 +19,11 @@
   }
 
   .category-product-image {
-    height: 8rem;
-    width: 8rem;
+    height: 9rem;
+    width: 9rem;
   }
 
-  .category-product-name {
-    font-weight: 700;
-    margin-bottom: 4px;
+  .category-info-container:nth-child(4n-7) {
+    margin-left: 10px;
   }
   
- 

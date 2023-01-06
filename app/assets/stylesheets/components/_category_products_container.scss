@@ -2,7 +2,7 @@
     display: flex;
     border: 0.75rem;
     // background-color: red;
-    border: 4.5px solid green;
+    // border: 4.5px solid green;
     font-family: 'Roboto Serif', serif;
     flex-wrap: wrap;
     
@@ -13,17 +13,31 @@
     display: flex;
     border: 0.75rem;
     background-color: white;
-    border: 4.5px solid black;
-    width: 200px;
-    height: 200px;
+    // border: 4.5px solid black;
+    width: 15.5rem;
+    height: 15.5rem;
+    margin-right: 44px;
+    margin-bottom: 15px;
   }
 
   .category-product-image {
-    height: 9rem;
-    width: 9rem;
+    height: 12rem;
+    width: 17.5rem;
+    margin-bottom: 5px;  
   }
 
   .category-info-container:nth-child(4n-7) {
-    margin-left: 10px;
+    margin-left: 25px;
   }
   
+ .category-prodyuct-image:nth-child(4n-7) {
+    margin-left: 7px;
+  }
+
+  .category-product-name {
+    margin-bottom: 5px;
+  }
+
+  .category-product-price {
+    margin-bottom: 5px;
+  }

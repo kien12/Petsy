@@ -2773,7 +2773,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       this.props.signup(this.state).then(function () {
         return _this3.props.closeModal();
-      }).then(this.props.history.push('/'));
+      }).then(this.window.reload);
     }
   }, {
     key: "render",

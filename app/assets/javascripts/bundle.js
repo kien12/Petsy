@@ -389,7 +389,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-
+ // import Footer from '../splash/footer';
 
 var CategoryProductShowPage = /*#__PURE__*/function (_React$Component) {
   _inherits(CategoryProductShowPage, _React$Component);
@@ -433,9 +433,9 @@ var CategoryProductShowPage = /*#__PURE__*/function (_React$Component) {
           className: "category-product-name"
         }, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "category-product-price"
-        }, product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        }, "$", product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "category-product-sellername"
-        }, product.sellerName)));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "sold by: "), product.sellerName)));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "category-products-container"

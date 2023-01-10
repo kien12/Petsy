@@ -1,20 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@200;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700&display=swap");
+
 .category-products-container {
     display: flex;
-    justify-content: space-around;
     border: 0.75rem;
-    background-color: black;
+    // background-color: red;
+    // border: 4.5px solid green;
     font-family: 'Roboto Serif', serif;
     flex-wrap: wrap;
+    
+    
   }
 
   .product-info-container {
     display: flex;
-    justify-content: space-evenly;
     border: 0.75rem;
+    font-family: 'Roboto Serif', serif;
     background-color: white;
-    width: 200px;
-    height: 200px;
-    
+    // border: 4.5px solid black;
+    width: 15.5rem;
+    height: 15.5rem;
+    margin-right: 44px;
+    margin-bottom: 15px;
+  }
+
+  .category-product-image {
+    height: 12rem;
+    width: 17.5rem;
+    font-weight: 500;
+    margin-bottom: 3px;  
+  }
+
+  .category-product-sellername span {
+    color: grey;
+    font-size: 12px;
   }
   
- 
+  .category-product-sellername{
+    margin-bottom: 15px;
+    font-size: 14px;
+    padding-bottom: 20px;
+    color: black;
+  }
+
+  .category-info-container:nth-child(4n-7) {
+    margin-left: 25px;
+  }
+  
+ .category-prodyuct-image:nth-child(4n-7) {
+    margin-left: 7px;
+  }
+
+  .category-product-name {
+    margin-bottom: 5px;
+    color: black;
+    font-size: 14px;
+  }
+
+  .category-product-price {
+    margin-bottom: 5px;
+    color: black;
+    font-size: 14px;
+  }

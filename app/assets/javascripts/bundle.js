@@ -389,7 +389,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-
+ // import Footer from '../splash/footer';
 
 var CategoryProductShowPage = /*#__PURE__*/function (_React$Component) {
   _inherits(CategoryProductShowPage, _React$Component);
@@ -418,13 +418,24 @@ var CategoryProductShowPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log("category products props", this.props); // console.log('photourl', this.props.categoryProducts[0]);
+
       var categoryProducts = this.props.categoryProducts.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           className: "product-info-container",
           key: "".concat(product.name, "-").concat(product.id)
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           to: "/products/".concat(product.id)
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, product.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, product.price)));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          src: product.photoUrls[0],
+          className: "category-product-image"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+          className: "category-product-name"
+        }, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "category-product-price"
+        }, "$", product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "category-product-sellername"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "sold by: "), product.sellerName)));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "category-products-container"
@@ -458,6 +469,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
+  // console.log('category products state', state)
   return {
     categoryProducts: Object.values(state.entities.categoryProducts)
   };
@@ -701,7 +713,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
           currentUser = _this$props.currentUser;
       var welcomeBanner = currentUserId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
-      }, "Capture your moment, ", currentUser[0].username, "!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, "Capture your moment on the wall!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
       }, "Capture the moment on the wall!");
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2241,7 +2253,7 @@ var HeroBanner = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       // console.log('herobanner state', this.state)
       // console.log('herobanner props', this.props)
-      var bannerImages = [window.nature, window.landscape, window.blackwhite11, window.modern, window.paint, window.freestyle];
+      var bannerImages = [window.nature, window.landscape, window.modern, window.paint, window.blackwhite11, window.freestyle];
       var categoriesList = this.props.categories.map(function (category, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
           key: "".concat(category.name, "-").concat(category.id),

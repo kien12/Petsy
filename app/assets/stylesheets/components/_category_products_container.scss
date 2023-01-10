@@ -16,6 +16,7 @@
   .product-info-container {
     display: flex;
     border: 0.75rem;
+    font-family: 'Roboto Serif', serif;
     background-color: white;
     // border: 4.5px solid black;
     width: 15.5rem;
@@ -40,6 +41,7 @@
     margin-bottom: 15px;
     font-size: 14px;
     padding-bottom: 20px;
+    color: black;
   }
 
   .category-info-container:nth-child(4n-7) {
@@ -52,8 +54,12 @@
 
   .category-product-name {
     margin-bottom: 5px;
+    color: black;
+    font-size: 14px;
   }
 
   .category-product-price {
     margin-bottom: 5px;
+    color: black;
+    font-size: 14px;
   }

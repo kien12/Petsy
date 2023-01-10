@@ -23,7 +23,11 @@
   .category-product-image {
     height: 12rem;
     width: 17.5rem;
-    margin-bottom: 5px;  
+    margin-bottom: 10px;  
+  }
+  
+  .category-product-sellername{
+    margin-bottom: 10px;
   }
 
   .category-info-container:nth-child(4n-7) {
@@ -35,9 +39,9 @@
   }
 
   .category-product-name {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   .category-product-price {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }

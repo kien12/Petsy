@@ -30,6 +30,7 @@ class CategoryProductShowPage extends React.Component {
         <h2 className ='category-product-name'>{product.name}</h2>
         {/* <p className='category-product-description'>{product.description}</p> */}
         <p className ='category-product-price'>{product.price}</p>
+        <p className ='category-product-sellername'>{product.sellerName}</p>
       </Link>
     </div>
     ));

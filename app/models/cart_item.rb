@@ -1,5 +1,5 @@
 class CartItem < ApplicationRecord
-  validates :user_id, :product_id, :quantity
+  validates :user_id, :product_id, :quantity, presence: true
   
   belongs_to :users,
     foreign_key: :user_id,

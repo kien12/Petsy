@@ -15,6 +15,10 @@
 class Product < ApplicationRecord
   validates :name, :description, :seller_id, :category_id, presence: true
   
+  has_many :cart_items,
+    foreign_key: :product_id,
+    class_name: "Products"
+
   belongs_to :category,
     foreign_key: :category_id,
     class_name: "Category"

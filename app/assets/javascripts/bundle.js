@@ -715,7 +715,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
         className: "welcome-banner"
       }, "Capture your moment on the wall!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
-      }, "Capture the moment on the wall!");
+      }, "Capture the moment on the wall ");
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {

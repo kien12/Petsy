@@ -7,6 +7,7 @@
     border: 0.75rem;
     // background-color: red;
     // border: 4.5px solid green;
+    margin-left: 55px;
     font-family: 'Roboto Serif', serif;
     flex-wrap: wrap;
     
@@ -23,6 +24,7 @@
     height: 15.5rem;
     margin-right: 44px;
     margin-bottom: 15px;
+    // border: 4px solid red;
   }
 
   .category-product-image {
@@ -30,7 +32,6 @@
     width: 17.5rem;
     font-weight: 500;
     margin-bottom: 3px;  
-    border: 2px solid red;
   }
 
   .category-product-sellername span {

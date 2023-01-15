@@ -16,7 +16,7 @@ class GlobalNavBar extends React.Component {
     let welcomeBanner = currentUserId ? (
         <p className="welcome-banner">Capture your moment on the wall!</p>
         ) : (
-          <p className="welcome-banner">Capture the moment on the wall!</p>
+          <p className="welcome-banner">Capture the moment on the wall </p>
     );
 
     return (

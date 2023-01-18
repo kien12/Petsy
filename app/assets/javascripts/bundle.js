@@ -711,9 +711,10 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
           logout = _this$props.logout,
           currentUserId = _this$props.currentUserId,
           currentUser = _this$props.currentUser;
+      console.log('global nav props', this.props);
       var welcomeBanner = currentUserId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
-      }, "Capture your moment on the wall!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, "Capture your moment, ", currentUser[0].username, "!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
       }, "Capture the moment on the wall ");
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

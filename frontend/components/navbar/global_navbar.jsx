@@ -11,10 +11,10 @@ class GlobalNavBar extends React.Component {
 
   render() {
     const { logout, currentUserId, currentUser } = this.props;
-
+    console.log('global nav props', this.props)
 
     let welcomeBanner = currentUserId ? (
-        <p className="welcome-banner">Capture your moment on the wall!</p>
+        <p className="welcome-banner">Capture your moment, {currentUser[0].username}!</p>
         ) : (
           <p className="welcome-banner">Capture the moment on the wall </p>
     );

@@ -14,22 +14,28 @@ class Api::CartItemsController < ApplicationController
   # error
 
   def create
-    @cart_item = CartItem.new(cart_item_params)
+    @new_cart_item = CartItem.new(cart_item_params)
     if current_user
-      @existing_cart_item = CartItem.all.select { |cart_item| (cart_item.user_id == current_user.id) && cart_item.product_id == @cart_item.product_id } 
+      @existing_cart_item = CartItem.all.select { |cart_item| (cart_item.user_id == current_user.id) && cart_item.product_id == @new_cart_item.product_id } 
       if @existing_cart_item.length > 0
-        new_quantity = @existing_cart_item[0].quantity + @cart_item.quantity
-        @existing_cart_item.update(
-        user_id: @existing_item.user_id, 
-        product_id: @existing_item.product_id,
+        current_item = @existing_cart_item[0]
+        new_quantity = current_item.quantity + @new_cart_item.quantity
+        current_item.update(
+        user_id: current_item.user_id, 
+        product_id: current_item.product_id,
         quantity: new_quantity
         )
         @cart_items = CartItem.all.select { |cart_item| (cart_item.user_id == current_user.id) }
-      else 
-        @cart_item.save
+        render 'api/cart_items/index'
+      elsif @new_cart_item.save
+        @cart_items = CartItem.all.select { |cart_item| (cart_item.user_id == current_user.id) }
+        render 'api/cart_items/index'
+      else
+        render json: @new_cart_item.errors.full_messages, status: 422
       end
    else
     render json: ['You must be logged in to add to cart'], status: 401
+   end
   end
 
   private

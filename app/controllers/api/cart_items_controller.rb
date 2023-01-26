@@ -38,6 +38,30 @@ class Api::CartItemsController < ApplicationController
    end
   end
 
+
+  ##find the item in the cartitems by id
+  def update
+    @existing_cart_item = CartItem.find_by(id: params[:id]);
+    if @existing_cart_item
+      @existing_cart_item.update(cart_item_params)
+      @cart_items = CartItem.all.select{ |cart_item| cart_item.user_id == current_user.id }
+      render 'api/cart_items/index'
+    else
+      render json: ['Error: your item was not found'], status: 404
+    end
+  end
+
+  def destroy
+    @existing_cart_item = CartItem.find_by(id: params[:id]);
+    if @existing_cart_item
+      @existing_cart_item.delete
+      @cart_items = CartItem.all.select{ |cart_item| cart_item.user_id == current_user.id }
+      render 'api/cart_items/index'
+    else
+      render json ['Error: we could not delete your item'], status: 422
+    end
+  end
+
   private
   def cart_item_params
     params.require(:cart_item).permit(:user_id, :product_id, :quantity)

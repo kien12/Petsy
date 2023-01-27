@@ -1,8 +1,4 @@
-import { 
-  getAllCartItems, 
-  createCartItem, 
-  updateCartItem, 
-  deleteCartItem } from "../util/cart_items_utils";
+import * as CartItemApiUtil from "../util/cart_items_utils";
 
   export const RECEIVE_ALL_CART_ITEMS = 'RECEIVE_ALL_CART_ITEMS';
   export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
@@ -19,6 +15,13 @@ import {
       type: REMOVE_CART_ITEM,
       id
     }
+  }
+
+  export const createCartItem = (data) => dispatch => {
+    return CartItemApiUtil.createCartItem(data)
+    .then(
+      cartItem => dispatch(receiveAllCartItems(cartItem))
+    )
   }
 
   

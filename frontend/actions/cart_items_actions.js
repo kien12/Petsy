@@ -22,7 +22,7 @@ import { RECEIVE_ERRORS } from "./review_action";
   const receiveErrors = errors => {
     return {
       type: RECEIVE_ERRORS,
-      errorss
+      errors
     }
   }
 

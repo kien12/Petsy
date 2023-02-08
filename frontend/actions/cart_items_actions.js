@@ -1,5 +1,5 @@
 import * as CartItemApiUtil from "../util/cart_items_utils";
-// import { RECEIVE_ERRORS } from "./review_action";
+import { RECEIVE_ERRORS } from "./review_action";
 
   export const RECEIVE_ALL_CART_ITEMS = 'RECEIVE_ALL_CART_ITEMS';
   export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';

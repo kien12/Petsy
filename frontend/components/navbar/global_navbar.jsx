@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 // import CategoryNavContainer from '../category/category_nav_container';
 import SearchBarContainer from './search_result'
 import HeroBannerContainer from '../splash/hero_banner_container'
+import CartItemsContainer from '../cart_items/cart_items_container'
 
 class GlobalNavBar extends React.Component {
   constructor(props) {
@@ -35,10 +36,9 @@ class GlobalNavBar extends React.Component {
            ) : (
             <button className='top-nav-bar-login' onClick={() => this.props.openModal('login')}>Sigh in</button>
            )}
-      
-          <button className='top-nav-bar-cart'>
-            <img src={window.shoppingCart} className ="cart-icon"/>
-          </button>
+          <Link to="/cart" className='top-nav-bar-cart'>
+              <img src={window.shoppingCart} className ="cart-icon"/>
+          </Link>
         </div>
         <div className='ketsy-welcome'>
             {welcomeBanner}

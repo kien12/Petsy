@@ -21,9 +21,13 @@ class User < ApplicationRecord
 
   has_many_attached :photos
 
+  has_many :cart_items,
+    foreign_key: :user_id,
+    class_name: "CartItem"
+
   has_many :products,
     foreign_key: :user_id,
-    class_name: 'Products'
+    class_name: 'Product'
 
   has_many :reviews,
     foreign_key: :user_id,

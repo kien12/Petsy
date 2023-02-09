@@ -711,11 +711,12 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
           logout = _this$props.logout,
           currentUserId = _this$props.currentUserId,
           currentUser = _this$props.currentUser;
+      console.log('global nav props', this.props);
       var welcomeBanner = currentUserId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
-      }, "Capture your moment on the wall!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      }, "Capture your moment, ", currentUser[0].username, "!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
-      }, "Capture the moment on the wall!");
+      }, "Capture the moment on the wall ");
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "top-nav-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
@@ -2780,6 +2781,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
+      console.log('signup form props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "modal-display",
         onClick: function onClick(e) {

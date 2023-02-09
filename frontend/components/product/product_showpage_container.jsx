@@ -11,7 +11,8 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = dispatch => ({
-  fetchProduct: (productId) => dispatch(fetchProduct(productId))
+  fetchProduct: (productId) => dispatch(fetchProduct(productId)),
+  addCartItem: (cartItem) => dispatch(createCartItem(cartItem))
 });
 
 export default connect(mSTP, mDTP)(ProductShowpage)

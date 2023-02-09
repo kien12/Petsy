@@ -1323,6 +1323,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchProduct: function fetchProduct(productId) {
       return dispatch((0,_actions_product_actions__WEBPACK_IMPORTED_MODULE_1__.fetchProduct)(productId));
+    },
+    addCartItem: function addCartItem(cartItem) {
+      return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.createCartItem)(cartItem));
     }
   };
 };

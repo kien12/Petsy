@@ -1170,10 +1170,14 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
     };
     _this.toggleBioPopup = _this.toggleBioPopup.bind(_assertThisInitialized(_this));
     _this.toggleCreateForm = _this.toggleCreateForm.bind(_assertThisInitialized(_this));
+    _this.addToCart = _this.addToCart.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ProductShowPage, [{
+    key: "addToCart",
+    value: function addToCart() {}
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchProduct(this.props.match.params.id);
@@ -1301,7 +1305,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
-/* harmony import */ var _product_showpage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./product_showpage */ "./frontend/components/product/product_showpage.jsx");
+/* harmony import */ var _actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/cart_items_actions */ "./frontend/actions/cart_items_actions.js");
+/* harmony import */ var _product_showpage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./product_showpage */ "./frontend/components/product/product_showpage.jsx");
+
 
 
 
@@ -1321,7 +1327,7 @@ var mDTP = function mDTP(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_product_showpage__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_product_showpage__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 

@@ -13,6 +13,10 @@ class ProductShowPage extends React.Component {
     };
     this.toggleBioPopup = this.toggleBioPopup.bind(this);
     this.toggleCreateForm = this.toggleCreateForm.bind(this);
+    this.addToCart = this.addToCart.bind(this);
+  }
+
+  addToCart(){
 
   }
 

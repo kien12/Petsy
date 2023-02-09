@@ -9,7 +9,12 @@ class ProductShowPage extends React.Component {
     super(props);
     this.state = {
       showBioPopup: false,
-      showCreateForm: true
+      showCreateForm: true,
+      quantity: "1",
+      product_id: this.props.match.params.id,
+      user_id: this.props.currentUserId
+      
+      
     };
     this.toggleBioPopup = this.toggleBioPopup.bind(this);
     this.toggleCreateForm = this.toggleCreateForm.bind(this);
@@ -17,7 +22,7 @@ class ProductShowPage extends React.Component {
   }
 
   addToCart(){
-
+    
   }
 
   componentDidMount(){
@@ -38,7 +43,8 @@ class ProductShowPage extends React.Component {
 
   render() {
     if(!this.props.product) return null;
-  console.log('product showpage props', this.props)
+  console.log('product showpage props', this.props);
+  console.log('product showpage state', this.state);
 
     const product = this.props.match.params.id;
     const { 

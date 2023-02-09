@@ -1166,7 +1166,10 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       showBioPopup: false,
-      showCreateForm: true
+      showCreateForm: true,
+      quantity: "1",
+      product_id: _this.props.match.params.id,
+      user_id: _this.props.currentUserId
     };
     _this.toggleBioPopup = _this.toggleBioPopup.bind(_assertThisInitialized(_this));
     _this.toggleCreateForm = _this.toggleCreateForm.bind(_assertThisInitialized(_this));
@@ -1201,6 +1204,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (!this.props.product) return null;
       console.log('product showpage props', this.props);
+      console.log('product showpage state', this.state);
       var product = this.props.match.params.id;
       var _this$props$product = this.props.product,
           name = _this$props$product.name,
@@ -1315,7 +1319,8 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   return {
     product: state.entities.products[ownProps.match.params.id],
-    products: Object.values(state.entities.products)
+    products: Object.values(state.entities.products),
+    currentUserId: state.sessions.currentUserId
   };
 };
 

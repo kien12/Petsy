@@ -1167,7 +1167,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       showBioPopup: false,
       showCreateForm: true,
-      quantity: "1",
+      quantity: 1,
       product_id: _this.props.match.params.id,
       user_id: _this.props.currentUserId
     };
@@ -1179,7 +1179,16 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
 
   _createClass(ProductShowPage, [{
     key: "addToCart",
-    value: function addToCart() {}
+    value: function addToCart(e) {
+      e.preventDefault();
+      var quantity;
+
+      if (this.state.quantity < 0) {
+        quantity = 1;
+      } else {
+        quantity = this.state.quantity, user_id = this.state.user_id, product_id = this.state.product_id;
+      }
+    }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
@@ -1212,7 +1221,14 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
           price = _this$props$product.price,
           sellerName = _this$props$product.sellerName,
           reviews = _this$props$product.reviews,
-          photoUrls = _this$props$product.photoUrls;
+          photoUrls = _this$props$product.photoUrls; // let selectNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+      var selectNumber = Array.from(Array(21).keys());
+      var selectQuantity = selectNumber.map(function (el) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+          value: el + 1
+        }, el + 1);
+      });
       var rightContainer = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-faqs"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -1262,17 +1278,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
         className: "product-quantity"
       }, "Quantity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
         className: "product-quantity-bar"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: "1"
-      }, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: "2"
-      }, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: "3"
-      }, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: "4"
-      }, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-        value: "5"
-      }, "5")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, selectQuantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "product-add-to-cart-button"
       }, "Add to Cart")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         className: "product-description"

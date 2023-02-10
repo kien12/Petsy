@@ -10,7 +10,7 @@ class ProductShowPage extends React.Component {
     this.state = {
       showBioPopup: false,
       showCreateForm: true,
-      quantity: "1",
+      quantity: 1,
       product_id: this.props.match.params.id,
       user_id: this.props.currentUserId
       
@@ -21,7 +21,16 @@ class ProductShowPage extends React.Component {
     this.addToCart = this.addToCart.bind(this);
   }
 
-  addToCart(){
+  addToCart(e){
+    e.preventDefault();
+    let quantity;
+    if (this.state.quantity < 0) {
+      quantity = 1
+    } else {
+      quantity = this.state.quantity,
+      user_id = this.state.user_id,
+      product_id = this.state.product_id
+    }
     
   }
 
@@ -43,8 +52,8 @@ class ProductShowPage extends React.Component {
 
   render() {
     if(!this.props.product) return null;
-  console.log('product showpage props', this.props);
-  console.log('product showpage state', this.state);
+    console.log('product showpage props', this.props);
+    console.log('product showpage state', this.state);
 
     const product = this.props.match.params.id;
     const { 
@@ -55,6 +64,14 @@ class ProductShowPage extends React.Component {
       reviews,
       photoUrls
     } = this.props.product;
+
+    // let selectNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    const selectNumber = Array.from(Array(21).keys());
+    let selectQuantity = selectNumber.map( el => {
+      return (
+        <option value={el + 1}>{el + 1}</option>
+      )
+    }) 
 
     let rightContainer = 
       <div className='review-faqs'>
@@ -90,12 +107,8 @@ class ProductShowPage extends React.Component {
             <div>
               <label className="product-quantity">Quantity</label><br/>
                 <select className="product-quantity-bar">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-              </select>
+                  {selectQuantity}
+                </select>
             <button className="product-add-to-cart-button">Add to Cart</button>
             </div>
             <br>

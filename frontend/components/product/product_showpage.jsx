@@ -64,11 +64,13 @@ class ProductShowPage extends React.Component {
       reviews,
       photoUrls
     } = this.props.product;
+    
+    console.log(selectNumber);
 
-    // let selectNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     const selectNumber = Array.from(Array(21).keys());
     let selectQuantity = selectNumber.map( el => {
       return (
+        
         <option value={el + 1}>{el + 1}</option>
       )
     }) 

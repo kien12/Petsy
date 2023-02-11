@@ -1221,8 +1221,8 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
           price = _this$props$product.price,
           sellerName = _this$props$product.sellerName,
           reviews = _this$props$product.reviews,
-          photoUrls = _this$props$product.photoUrls; // let selectNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-
+          photoUrls = _this$props$product.photoUrls;
+      console.log(selectNumber);
       var selectNumber = Array.from(Array(21).keys());
       var selectQuantity = selectNumber.map(function (el) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {

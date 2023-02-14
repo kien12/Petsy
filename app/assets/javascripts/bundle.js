@@ -1223,6 +1223,7 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
           reviews = _this$props$product.reviews,
           photoUrls = _this$props$product.photoUrls;
       console.log(selectNumber);
+      console.log(selectNumber);
       var selectNumber = Array.from(Array(21).keys());
       var selectQuantity = selectNumber.map(function (el) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {

@@ -66,6 +66,7 @@ class ProductShowPage extends React.Component {
     } = this.props.product;
     
     console.log(selectNumber);
+    console.log(selectNumber);
 
     const selectNumber = Array.from(Array(21).keys());
     let selectQuantity = selectNumber.map( el => {

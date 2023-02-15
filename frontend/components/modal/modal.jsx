@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginFormContainer from '../user/login_form_container';
 import SignupFormContainer from '../user/signup_form_container';
+import CartModalContainer from '../modal/cart_modal_container';
 
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
@@ -13,6 +14,9 @@ const Modal = ({modal, closeModal}) => {
       break;
     case 'signup':
       component = <SignupFormContainer/>;
+      break;
+    case 'cart':
+      component = <CartModalContainer/>;
       break;
     default:
       return null;

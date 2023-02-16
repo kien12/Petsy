@@ -25,8 +25,8 @@ import * as CartItemApiUtil from "../util/cart_items_utils";
     }
   }
 
-  export const createCartItem = (data) => dispatch => {
-    return CartItemApiUtil.createCartItem(data)
+  export const createCartItem = (cartItem) => dispatch => {
+    return CartItemApiUtil.createCartItem(cartItem)
     .then(
       cartItem => dispatch(receiveAllCartItems(cartItem))
       // errors => dispatch(receiveErrors(errors.responseJSON))

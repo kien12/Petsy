@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchProduct } from '../../actions/product_actions';
 import { createCartItem } from '../../actions/cart_items_actions';
 import ProductShowpage from './product_showpage';
+import { openModal } from '../../actions/modal_actions'
 
 const mSTP = (state, ownProps) => {
   return { 
@@ -13,7 +14,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
   fetchProduct: (productId) => dispatch(fetchProduct(productId)),
-  addCartItem: (cartItem) => dispatch(createCartItem(cartItem))
+  addCartItem: (cartItem) => dispatch(createCartItem(cartItem)),
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(mSTP, mDTP)(ProductShowpage)

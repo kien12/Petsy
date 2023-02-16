@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ReviewListContainer from '../review/review_list_container'
 import ReviewFormContainer from '../review/review_form_container'
 import BioPopup from '../modal/bio_popup';
+import { openModal } from '../../actions/modal_actions';
 
 class ProductShowPage extends React.Component {
   constructor(props){
@@ -12,26 +13,26 @@ class ProductShowPage extends React.Component {
       showCreateForm: true,
       quantity: 1,
       product_id: this.props.match.params.id,
-      user_id: this.props.currentUserId
-      
+      user_id: this.props.currentUserId,
+
       
     };
     this.toggleBioPopup = this.toggleBioPopup.bind(this);
     this.toggleCreateForm = this.toggleCreateForm.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    // this.updateQuantity = updateQuantity.bind(this);
   }
 
   addToCart(e){
     e.preventDefault();
-    let quantity;
-    if (this.state.quantity < 0) {
-      quantity = 1
-    } else {
-      quantity = this.state.quantity,
-      user_id = this.state.user_id,
-      product_id = this.state.product_id
+
+    const product = {
+      quantity: parseInt(this.state.quantity),
+      user_id: this.state.user_id,
+      product_id: parseInt(this.state.product_id)
     }
-    
+    console.log('ADD TO CART PRODUCTS', product)
+    this.props.addCartItem(product).then( _ => openModal('cart'));
   }
 
   componentDidMount(){
@@ -50,10 +51,19 @@ class ProductShowPage extends React.Component {
     });
   }
 
+  updateQuantity = (e) => {
+    this.setState({
+      quantity: e.target.value
+    })
+  }
+
+  
+
   render() {
     if(!this.props.product) return null;
     console.log('product showpage props', this.props);
     console.log('product showpage state', this.state);
+    
 
     const product = this.props.match.params.id;
     const { 
@@ -72,7 +82,7 @@ class ProductShowPage extends React.Component {
     let selectQuantity = selectNumber.map( el => {
       return (
         
-        <option value={el + 1}>{el + 1}</option>
+        <option key={el} value={el + 1}>{el + 1}</option>
       )
     }) 
 
@@ -109,10 +119,10 @@ class ProductShowPage extends React.Component {
             <h2 className='product-showpage-price'>${price}</h2>
             <div>
               <label className="product-quantity">Quantity</label><br/>
-                <select className="product-quantity-bar">
+                <select className="product-quantity-bar" onChange={this.updateQuantity}>
                   {selectQuantity}
                 </select>
-            <button className="product-add-to-cart-button">Add to Cart</button>
+            <button className="product-add-to-cart-button" onClick={this.addToCart}>Add to Cart</button>
             </div>
             <br>
             </br>

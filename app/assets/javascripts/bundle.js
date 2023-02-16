@@ -766,7 +766,9 @@ var CartModal = /*#__PURE__*/function (_React$Component) {
   _createClass(CartModal, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "test cart modal");
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "modal-cart"
+      }, "test cart modal");
     }
   }]);
 
@@ -1281,8 +1283,8 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
       showBioPopup: false,
       showCreateForm: true,
       quantity: 1,
-      product_id: _this.props.match.params.id,
-      user_id: _this.props.currentUserId
+      productId: _this.props.match.params.id,
+      userId: _this.props.currentUserId
     };
     _this.toggleBioPopup = _this.toggleBioPopup.bind(_assertThisInitialized(_this));
     _this.toggleCreateForm = _this.toggleCreateForm.bind(_assertThisInitialized(_this));
@@ -1294,16 +1296,24 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
   _createClass(ProductShowPage, [{
     key: "addToCart",
     value: function addToCart(e) {
+      var _this2 = this;
+
       e.preventDefault();
-      var product = {
-        quantity: parseInt(this.state.quantity),
-        user_id: this.state.user_id,
-        product_id: parseInt(this.state.product_id)
-      };
-      console.log('ADD TO CART PRODUCTS', product);
-      this.props.addCartItem(product).then(function (_) {
-        return (0,_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__.openModal)('cart');
-      });
+
+      if (this.props.currentUserId) {
+        var product = {
+          quantity: parseInt(this.state.quantity),
+          user_id: this.state.userId,
+          product_id: parseInt(this.state.productId)
+        };
+        console.log('ADD TO CART PRODUCTS', product);
+        this.props.addCartItem(product).then(function () {
+          return _this2.props.openModal('cart');
+        });
+      } else {
+        alert('You must be signed in before you add to cart!');
+        this.props.openModal('login');
+      }
     }
   }, {
     key: "componentDidMount",

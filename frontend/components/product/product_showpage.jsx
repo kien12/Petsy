@@ -12,8 +12,8 @@ class ProductShowPage extends React.Component {
       showBioPopup: false,
       showCreateForm: true,
       quantity: 1,
-      product_id: this.props.match.params.id,
-      user_id: this.props.currentUserId,
+      productId: this.props.match.params.id,
+      userId: this.props.currentUserId,
 
       
     };
@@ -25,14 +25,18 @@ class ProductShowPage extends React.Component {
 
   addToCart(e){
     e.preventDefault();
-
-    const product = {
-      quantity: parseInt(this.state.quantity),
-      user_id: this.state.user_id,
-      product_id: parseInt(this.state.product_id)
-    }
-    console.log('ADD TO CART PRODUCTS', product)
-    this.props.addCartItem(product).then( _ => openModal('cart'));
+    if (this.props.currentUserId) {
+      const product = {
+        quantity: parseInt(this.state.quantity),
+        user_id: this.state.userId,
+        product_id: parseInt(this.state.productId)
+      }
+      console.log('ADD TO CART PRODUCTS', product)
+      this.props.addCartItem(product).then(() => this.props.openModal('cart'));
+    } else {
+      alert('You must be signed in before you add to cart!');
+      this.props.openModal('login');
+    } 
   }
 
   componentDidMount(){

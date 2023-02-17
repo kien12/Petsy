@@ -767,7 +767,10 @@ var CartModal = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "modal-cart"
+        className: "modal-cart-container",
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        }
       }, "test cart modal");
     }
   }]);

@@ -8,7 +8,7 @@ class CartModal extends React.Component {
   render() {
 
     return(
-      <div className='modal-cart'>test cart modal</div>
+      <div className='modal-cart-container' onClick={ e => e.stopPropagation()}>test cart modal</div>
     )
   }
 

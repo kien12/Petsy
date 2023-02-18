@@ -4,45 +4,56 @@ import React from 'react';
 class CartModal extends React.Component {
   constructor(props){
     super(props)
-    this.state = {}
-  }
-
-  componentDidMount(){
-    this.props.fetchAllCartItems();
+    this.state = {
+      product: null
+    }
   }
 
   componentDidUpdate(prevProps){
-    let prevProducts = {}
-    console.log('CONSOLE LOG NOT WORKINGGGGGGG')
+    let prevProducts = {};
     console.log('prevProps', prevProps)
-    // prevProps.cartItems.forEach( product => {
-    //   prevProducts[product.productId] = product.quantity 
-    // } )
+    console.log('UPDATE THIS.PROPS', this.props)
 
-    // let prevProductIds = Object.keys(prevProducts);
 
-    // this.props.cartItems.forEach( cartItem => {
-    //   if (!prevProductIds.includes(cartItem.productId)){
-    //       this.setState({
-    //         product: cartItem
-    //       })
-    //     } if (prevProductsIds.includes(cartItem.productId) && (cartItem.quantity !== prevProducts[cartItem.productId])) {
-    //       this.setState({
-    //         product: cartItem
-    //       })
-    //     }
-    // })
+
+
+
+    prevProps.cartItems.forEach( product => {
+      prevProducts[product.productId] = product.quantity 
+    } )
+    let prevProductIds = Object.keys(prevProducts).map( productId => parseInt(productId));
+    console.log('prevProductIds', prevProductIds)
+
+    this.props.cartItems.forEach( cartItem => {
+      // console.log('CART ITEM', cartItem)
+      // console.log('TESTING', (!prevProductIds.includes(cartItem.productId ) ))
+      if (!prevProductIds.includes(cartItem.productId )){
+          this.setState({
+            product: cartItem
+          })
+        } else if (prevProductIds.includes(cartItem.productId) && (cartItem.quantity !== prevProducts[cartItem.productId])) {
+          this.setState({
+            product: cartItem
+          })
+        }
+    })
   }
 
 
   render() {
-    // const { quantity, photoUrl} = this.state.product;
     
-    console.log('CART MODAL PROPS', this.props)
+    console.log('CART STATE', this.state)
+    console.log('STATE TEST', this.state.product)
+    
+    if (!this.state.product) return null;
+    const { quantity, photoUrls} = this.state.product;
+    
     return(
       <div className='modal-cart-container' onClick={ e => e.stopPropagation()}>
         <div className='cart-top-container'>
-          {/* <img src={this.props.cartItems[-1].photoUrl} /> */}
+          <div className='cart-modal-img'>
+            <img className='cart-modal-img' src={photoUrls[0]} />
+          </div>
           <h4>length of shopping cart here</h4>
         </div>
         <div className='cart-button-container'>

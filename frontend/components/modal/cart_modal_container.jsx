@@ -6,7 +6,7 @@ import { fetchAllCartItems } from '../../actions/cart_items_actions'
 
 
 const mSTP = (state, ownProps) => {
-  console.log('cart modal container state', state)
+  // console.log('cart modal container state', state)
   return {
     cartItems: Object.values(state.entities.cartItems)
   }

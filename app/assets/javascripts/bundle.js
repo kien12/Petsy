@@ -771,43 +771,52 @@ var CartModal = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CartModal);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      product: null
+    };
     return _this;
   }
 
   _createClass(CartModal, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchAllCartItems();
-    }
-  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
+      var _this2 = this;
+
       var prevProducts = {};
-      console.log('CONSOLE LOG NOT WORKINGGGGGGG');
-      console.log('prevProps', prevProps); // prevProps.cartItems.forEach( product => {
-      //   prevProducts[product.productId] = product.quantity 
-      // } )
-      // let prevProductIds = Object.keys(prevProducts);
-      // this.props.cartItems.forEach( cartItem => {
-      //   if (!prevProductIds.includes(cartItem.productId)){
-      //       this.setState({
-      //         product: cartItem
-      //       })
-      //     } if (prevProductsIds.includes(cartItem.productId) && (cartItem.quantity !== prevProducts[cartItem.productId])) {
-      //       this.setState({
-      //         product: cartItem
-      //       })
-      //     }
-      // })
+      console.log('prevProps', prevProps);
+      console.log('UPDATE THIS.PROPS', this.props);
+      prevProps.cartItems.forEach(function (product) {
+        prevProducts[product.productId] = product.quantity;
+      });
+      var prevProductIds = Object.keys(prevProducts).map(function (productId) {
+        return parseInt(productId);
+      });
+      console.log('prevProductIds', prevProductIds);
+      this.props.cartItems.forEach(function (cartItem) {
+        // console.log('CART ITEM', cartItem)
+        // console.log('TESTING', (!prevProductIds.includes(cartItem.productId ) ))
+        if (!prevProductIds.includes(cartItem.productId)) {
+          _this2.setState({
+            product: cartItem
+          });
+        } else if (prevProductIds.includes(cartItem.productId) && cartItem.quantity !== prevProducts[cartItem.productId]) {
+          _this2.setState({
+            product: cartItem
+          });
+        }
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
-      // const { quantity, photoUrl} = this.state.product;
-      console.log('CART MODAL PROPS', this.props);
+      console.log('CART STATE', this.state);
+      console.log('STATE TEST', this.state.product);
+      if (!this.state.product) return null;
+      var _this$state$product = this.state.product,
+          quantity = _this$state$product.quantity,
+          photoUrls = _this$state$product.photoUrls;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "modal-cart-container",
         onClick: function onClick(e) {
@@ -815,11 +824,16 @@ var CartModal = /*#__PURE__*/function (_React$Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-top-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "length of shopping cart here")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-modal-img"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "cart-modal-img",
+        src: photoUrls[0]
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "length of shopping cart here")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "View Cart"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
-          return _this2.props.closeModal();
+          return _this3.props.closeModal();
         }
       }, "Keep Shopping")));
     }
@@ -855,7 +869,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  console.log('cart modal container state', state);
+  // console.log('cart modal container state', state)
   return {
     cartItems: Object.values(state.entities.cartItems)
   };
@@ -1026,6 +1040,11 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(GlobalNavBar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchAllCartItems();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -1033,8 +1052,8 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           logout = _this$props.logout,
           currentUserId = _this$props.currentUserId,
-          currentUser = _this$props.currentUser;
-      console.log('global nav props', this.props);
+          currentUser = _this$props.currentUser; // console.log('global nav props', this.props)
+
       var welcomeBanner = currentUserId ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "welcome-banner"
       }, "Capture your moment, ", currentUser[0].username, "!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -1093,6 +1112,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_action */ "./frontend/actions/user_action.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/cart_items_actions */ "./frontend/actions/cart_items_actions.js");
+
 
 
 
@@ -1118,6 +1139,9 @@ var mDTP = function mDTP(dispatch) {
     },
     logout: function logout() {
       return dispatch((0,_actions_user_action__WEBPACK_IMPORTED_MODULE_2__.logout)());
+    },
+    fetchAllCartItems: function fetchAllCartItems() {
+      return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_4__.fetchAllCartItems)());
     }
   };
 };
@@ -1358,8 +1382,6 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
   _createClass(ProductShowPage, [{
     key: "addToCart",
     value: function addToCart(e) {
-      var _this2 = this;
-
       e.preventDefault();
 
       if (this.props.currentUserId) {
@@ -1367,11 +1389,10 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
           quantity: parseInt(this.state.quantity),
           user_id: this.state.userId,
           product_id: parseInt(this.state.productId)
-        };
-        console.log('ADD TO CART PRODUCTS', product);
-        this.props.addCartItem(product).then(function () {
-          return _this2.props.openModal('cart');
-        });
+        }; // console.log('ADD TO CART PRODUCTS', product)
+
+        this.props.addCartItem(product);
+        this.props.openModal('cart');
       } else {
         alert('You must be signed in before you add to cart!');
         this.props.openModal('login');
@@ -1399,9 +1420,9 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (!this.props.product) return null;
-      console.log('product showpage props', this.props);
-      console.log('product showpage state', this.state);
+      if (!this.props.product) return null; // console.log('product showpage props', this.props);
+      // console.log('product showpage state', this.state);
+
       var product = this.props.match.params.id;
       var _this$props$product = this.props.product,
           name = _this$props$product.name,
@@ -1409,9 +1430,9 @@ var ProductShowPage = /*#__PURE__*/function (_React$Component) {
           price = _this$props$product.price,
           sellerName = _this$props$product.sellerName,
           reviews = _this$props$product.reviews,
-          photoUrls = _this$props$product.photoUrls;
-      console.log(selectNumber);
-      console.log(selectNumber);
+          photoUrls = _this$props$product.photoUrls; // console.log(selectNumber);
+      // console.log(selectNumber);
+
       var selectNumber = Array.from(Array(21).keys());
       var selectQuantity = selectNumber.map(function (el) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
@@ -2784,8 +2805,8 @@ var Splash = /*#__PURE__*/function (_React$Component) {
           key: product.id,
           product: product
         });
-      });
-      console.log('splash props', this.props);
+      }); // console.log('splash props', this.props);
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "product-index-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -2973,7 +2994,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      console.log('this.state', this.state);
+      // console.log('this.state', this.state)
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "modal-display",
         onClick: function onClick(e) {
@@ -3156,7 +3177,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      console.log('signup form props', this.props);
+      // console.log('signup form props', this.props)
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "modal-display",
         onClick: function onClick(e) {
@@ -41395,9 +41416,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_review_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/review_action */ "./frontend/actions/review_action.js");
-/* harmony import */ var _util_cart_items_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/cart_items_utils */ "./frontend/util/cart_items_utils.js");
-/* harmony import */ var _util_product_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./util/product_utils */ "./frontend/util/product_utils.js");
-/* harmony import */ var _util_user_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./util/user_util */ "./frontend/util/user_util.js");
+/* harmony import */ var _util_product_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/product_utils */ "./frontend/util/product_utils.js");
+/* harmony import */ var _util_user_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./util/user_util */ "./frontend/util/user_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -41405,7 +41425,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  // import { fetchAllProducts } from './actions/product_actions'
-
+// import { createCartItem } from './util/cart_items_utils';
 
 
 
@@ -41428,10 +41448,10 @@ document.addEventListener("DOMContentLoaded", function () {
     store = (0,_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
   }
 
-  window.store = store;
-  window.createCartItem = _util_cart_items_utils__WEBPACK_IMPORTED_MODULE_5__.createCartItem;
-  window.fetchProduct = _util_product_utils__WEBPACK_IMPORTED_MODULE_6__.fetchProduct;
-  window.login = _util_user_util__WEBPACK_IMPORTED_MODULE_7__.login;
+  window.store = store; // window.createCartItem = createCartItem;
+  // window.fetchProduct = fetchProduct;
+  // window.login = login;
+
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);

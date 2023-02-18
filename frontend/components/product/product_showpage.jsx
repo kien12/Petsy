@@ -31,8 +31,9 @@ class ProductShowPage extends React.Component {
         user_id: this.state.userId,
         product_id: parseInt(this.state.productId)
       }
-      console.log('ADD TO CART PRODUCTS', product)
-      this.props.addCartItem(product).then(() => this.props.openModal('cart'));
+      // console.log('ADD TO CART PRODUCTS', product)
+      this.props.addCartItem(product)
+      this.props.openModal('cart');
     } else {
       alert('You must be signed in before you add to cart!');
       this.props.openModal('login');
@@ -65,8 +66,8 @@ class ProductShowPage extends React.Component {
 
   render() {
     if(!this.props.product) return null;
-    console.log('product showpage props', this.props);
-    console.log('product showpage state', this.state);
+    // console.log('product showpage props', this.props);
+    // console.log('product showpage state', this.state);
     
 
     const product = this.props.match.params.id;
@@ -79,8 +80,8 @@ class ProductShowPage extends React.Component {
       photoUrls
     } = this.props.product;
     
-    console.log(selectNumber);
-    console.log(selectNumber);
+    // console.log(selectNumber);
+    // console.log(selectNumber);
 
     const selectNumber = Array.from(Array(21).keys());
     let selectQuantity = selectNumber.map( el => {

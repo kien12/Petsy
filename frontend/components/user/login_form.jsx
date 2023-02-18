@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    console.log('this.state', this.state)
+    // console.log('this.state', this.state)
     return (
       <div className='modal-display' onClick={ e => e.stopPropagation()}>
         <div className='modal-signup-register'>

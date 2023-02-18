@@ -10,9 +10,13 @@ class GlobalNavBar extends React.Component {
     super(props)
   }
 
+  componentDidMount(){
+    this.props.fetchAllCartItems();
+  }
+
   render() {
     const { logout, currentUserId, currentUser } = this.props;
-    console.log('global nav props', this.props)
+    // console.log('global nav props', this.props)
 
     let welcomeBanner = currentUserId ? (
         <p className="welcome-banner">Capture your moment, {currentUser[0].username}!</p>

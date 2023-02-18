@@ -33,6 +33,13 @@ export const createCartItem = (cartItem) => dispatch => {
   )
 }
 
+export const fetchAllCartItems = () => dispatch => {
+  return CartItemApiUtil.getAllCartItems()
+  .then(
+    cartItems => dispatch(receiveAllCartItems(cartItems))
+  )
+}
+
 
 
 

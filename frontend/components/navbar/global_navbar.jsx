@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 // import CategoryNavContainer from '../category/category_nav_container';
 import SearchBarContainer from './search_result'
 import HeroBannerContainer from '../splash/hero_banner_container'
-import CartItemsContainer from '../cart_items/cart_items_container'
 
 class GlobalNavBar extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      numberOfCartItems: 0
+    }
   }
+
 
   componentDidMount(){
     this.props.fetchAllCartItems();
@@ -23,6 +26,7 @@ class GlobalNavBar extends React.Component {
         ) : (
           <p className="welcome-banner">Capture the moment on the wall </p>
     );
+
 
     return (
       <div>
@@ -42,6 +46,7 @@ class GlobalNavBar extends React.Component {
            )}
           <Link to="/cart" className='top-nav-bar-cart'>
               <img src={window.shoppingCart} className ="cart-icon"/>
+              <div>{this.props.cartItems}</div>
           </Link>
         </div>
         <div className='ketsy-welcome'>

@@ -7,23 +7,21 @@ class CartModal extends React.Component {
     this.state = {
       product: null
     }
+    this.viewCart = this.viewCart.bind(this);
+  }
+
+  viewCart(){
+    this.props.history.push('/cart');
+    this.props.closeModal();
   }
 
   componentDidUpdate(prevProps){
     let prevProducts = {};
-    console.log('prevProps', prevProps)
-    console.log('UPDATE THIS.PROPS', this.props)
-
-
-
-
 
     prevProps.cartItems.forEach( product => {
       prevProducts[product.productId] = product.quantity 
     } )
     let prevProductIds = Object.keys(prevProducts).map( productId => parseInt(productId));
-    console.log('prevProductIds', prevProductIds)
-
     this.props.cartItems.forEach( cartItem => {
       // console.log('CART ITEM', cartItem)
       // console.log('TESTING', (!prevProductIds.includes(cartItem.productId ) ))
@@ -41,13 +39,9 @@ class CartModal extends React.Component {
 
 
   render() {
-    
-    console.log('CART STATE', this.state)
-    console.log('STATE TEST', this.state.product)
-    
     if (!this.state.product) return null;
     const { quantity, photoUrls} = this.state.product;
-    
+    // console.log('cart props',this.props)
     return(
       <div className='modal-cart-container' onClick={ e => e.stopPropagation()}>
         <div className='cart-top-container'>
@@ -57,7 +51,7 @@ class CartModal extends React.Component {
           <h4>length of shopping cart here</h4>
         </div>
         <div className='cart-button-container'>
-          <button>View Cart</button><br/>
+          <button onClick={this.viewCart}>View Cart</button><br/>
           <button onClick={ () => this.props.closeModal()}>Keep Shopping</button>
         </div>
       </div>

@@ -1164,7 +1164,7 @@ var GlobalNavBar = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      numberOfCartItems: 0
+      numberOfCartItems: 1
     };
     return _this;
   }

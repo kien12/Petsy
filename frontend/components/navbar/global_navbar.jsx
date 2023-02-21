@@ -8,7 +8,7 @@ class GlobalNavBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      numberOfCartItems: 0
+      numberOfCartItems: 1
     }
   }
 

@@ -484,7 +484,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
         src: photoUrls[0]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, name, " - ", description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
-      }, "1")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Removee"));
+      }, "1")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Removeeee"));
     }
   }]);
 

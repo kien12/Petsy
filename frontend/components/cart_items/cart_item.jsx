@@ -20,7 +20,7 @@ class CartItem extends React.Component {
           <select><option value="1">1</option></select>
           <div>{price}</div>
         </div>
-        <button>Removee</button>
+        <button>Removeeee</button>
       </div>
     )
   }

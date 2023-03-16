@@ -8,8 +8,8 @@ class CartItem extends React.Component {
     };
 
     this.handleDelete = this.handleDelete.bind(this);
-    this.updateQuantity = this.updateQuantity.bind(this);
-    this.handleUpdate = this.handleUpdate.bind(this);
+    // this.updateQuantity = this.updateQuantity.bind(this);
+    // this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   handleDelete() {
@@ -22,21 +22,43 @@ class CartItem extends React.Component {
     });
   }
 
+
   // handleUpdate() {
-  //   e.preventDefault();
-  //   this.props.modifyReview(this.state)
+  //   this.props.updateCartItem({
+  //     id: this.props.id,
+  //     quantity: parseInt(this.state.quantity),
+  //     user_id: this.props.cartItem.userId,
+  //     product_id: this.props.cartItem.productId
+  //   }).then( res => console.log('res', res))
   // }
+
+  componentDidUpdate( _ , prevState) {
+    console.log('handleupdate')
+    if (prevState.quantity !== this.state.quantity) {
+      console.log('working')
+      this.props.updateCartItem({
+      id: this.props.cartItem.id,
+      quantity: parseInt(this.state.quantity),
+      user_id: this.props.cartItem.userId,
+      product_id: this.props.cartItem.productId
+    }).then( res => console.log('res', res))
+    }
+  }
 
   render() {
     console.log('cart items props', this.props)
     console.log('cart item states', this.state)
     const { name, photoUrls, price, description, quantity, sellerName} = this.props.cartItem;
-
-   const selectNumber = Array.from(Array(21).keys());
+  
+    const startingNum = this.state.quantity;
+   const selectNumber = Array.from(Array(20).keys());
     let selectQuantity = selectNumber.map( el => {
       return (
         
-        <option key={el} value={el + 1}>{el + 1}</option>
+        <option 
+          key={el} 
+          value={ el + 1} 
+        >{el + 1}</option>
       )
     }) 
 
@@ -49,7 +71,7 @@ class CartItem extends React.Component {
             <div>
               {name} - {description}
             </div>
-            <select className="product-quantity-bar" onChange={this.updateQuantity}>
+            <select value={this.state.quantity} className="product-quantity-bar" onChange={this.updateQuantity}>
                 {selectQuantity}
               </select>
             <div>{price}</div>

@@ -69,8 +69,8 @@ var deleteCartItem = function deleteCartItem(id) {
 };
 var updateCartItem = function updateCartItem(cartItem) {
   return function (dispatch) {
-    return _util_cart_items_utils__WEBPACK_IMPORTED_MODULE_0__.updateCartItem(cartItem).then(function () {
-      return dispatch(updateCartItem(cartItem));
+    return _util_cart_items_utils__WEBPACK_IMPORTED_MODULE_0__.updateCartItem(cartItem).then(function (cartItems) {
+      return dispatch(receiveAllCartItems(cartItems));
     });
   };
 };
@@ -494,9 +494,9 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       quantity: props.cartItem.quantity
     };
-    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
-    _this.updateQuantity = _this.updateQuantity.bind(_assertThisInitialized(_this));
-    _this.handleUpdate = _this.handleUpdate.bind(_assertThisInitialized(_this));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this)); // this.updateQuantity = this.updateQuantity.bind(this);
+    // this.handleUpdate = this.handleUpdate.bind(this);
+
     return _this;
   }
 
@@ -506,12 +506,33 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
       this.props.deleteCartItem(this.props.cartItem.id);
     }
   }, {
-    key: "render",
+    key: "componentDidUpdate",
     value: // handleUpdate() {
-    //   e.preventDefault();
-    //   this.props.modifyReview(this.state)
+    //   this.props.updateCartItem({
+    //     id: this.props.id,
+    //     quantity: parseInt(this.state.quantity),
+    //     user_id: this.props.cartItem.userId,
+    //     product_id: this.props.cartItem.productId
+    //   }).then( res => console.log('res', res))
     // }
-    function render() {
+    function componentDidUpdate(_, prevState) {
+      console.log('handleupdate');
+
+      if (prevState.quantity !== this.state.quantity) {
+        console.log('working');
+        this.props.updateCartItem({
+          id: this.props.cartItem.id,
+          quantity: parseInt(this.state.quantity),
+          user_id: this.props.cartItem.userId,
+          product_id: this.props.cartItem.productId
+        }).then(function (res) {
+          return console.log('res', res);
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
       console.log('cart items props', this.props);
       console.log('cart item states', this.state);
       var _this$props$cartItem = this.props.cartItem,
@@ -521,7 +542,8 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
           description = _this$props$cartItem.description,
           quantity = _this$props$cartItem.quantity,
           sellerName = _this$props$cartItem.sellerName;
-      var selectNumber = Array.from(Array(21).keys());
+      var startingNum = this.state.quantity;
+      var selectNumber = Array.from(Array(20).keys());
       var selectQuantity = selectNumber.map(function (el) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
           key: el,
@@ -534,6 +556,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
         className: "cart-product-img",
         src: photoUrls[0]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, name, " - ", description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+        value: this.state.quantity,
         className: "product-quantity-bar",
         onChange: this.updateQuantity
       }, selectQuantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
@@ -580,7 +603,7 @@ var mDTP = function mDTP(dispatch) {
       return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.deleteCartItem)(cartItemId));
     },
     updateCartItem: function updateCartItem(cartItem) {
-      return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.deleteCartItem)(cartItem));
+      return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.updateCartItem)(cartItem));
     }
   };
 };

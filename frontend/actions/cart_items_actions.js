@@ -50,7 +50,7 @@ export const deleteCartItem = id => dispatch => {
 export const updateCartItem = cartItem => dispatch => {
   return CartItemApiUtil.updateCartItem(cartItem)
   .then(
-    () => dispatch(updateCartItem(cartItem))
+    cartItems => dispatch(receiveAllCartItems(cartItems))
   )
 }
 

@@ -8,7 +8,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
   deleteCartItem: cartItemId => dispatch(deleteCartItem(cartItemId)),
-  updateCartItem: cartItem => dispatch(deleteCartItem(cartItem))
+  updateCartItem: cartItem => dispatch(updateCartItem(cartItem))
 })
 
 export default connect(mSTP, mDTP)(CartItem);

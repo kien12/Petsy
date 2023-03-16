@@ -9,6 +9,7 @@ class CartItem extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.updateQuantity = this.updateQuantity.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   handleDelete() {
@@ -20,6 +21,11 @@ class CartItem extends React.Component {
       quantity: e.target.value
     });
   }
+
+  // handleUpdate() {
+  //   e.preventDefault();
+  //   this.props.modifyReview(this.state)
+  // }
 
   render() {
     console.log('cart items props', this.props)
@@ -43,11 +49,12 @@ class CartItem extends React.Component {
             <div>
               {name} - {description}
             </div>
-            <select className="product-quantity-bar" >
+            <select className="product-quantity-bar" onChange={this.updateQuantity}>
                 {selectQuantity}
               </select>
             <div>{price}</div>
-          <button className='cart-item-remove-btn' onClick={this.handleDelete}>Remove</button>
+            <button className='cart-item-remove-btn' onClick={this.handleDelete}>Remove</button>
+            {/* <button onClick={this.handleUpdate}>save</button> */}
           </div>
         </div>
       </div>

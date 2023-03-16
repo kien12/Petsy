@@ -496,6 +496,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     _this.updateQuantity = _this.updateQuantity.bind(_assertThisInitialized(_this));
+    _this.handleUpdate = _this.handleUpdate.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -506,7 +507,11 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "render",
-    value: function render() {
+    value: // handleUpdate() {
+    //   e.preventDefault();
+    //   this.props.modifyReview(this.state)
+    // }
+    function render() {
       console.log('cart items props', this.props);
       console.log('cart item states', this.state);
       var _this$props$cartItem = this.props.cartItem,
@@ -529,7 +534,8 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
         className: "cart-product-img",
         src: photoUrls[0]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, name, " - ", description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-        className: "product-quantity-bar"
+        className: "product-quantity-bar",
+        onChange: this.updateQuantity
       }, selectQuantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "cart-item-remove-btn",
         onClick: this.handleDelete

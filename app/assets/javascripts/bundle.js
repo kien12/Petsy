@@ -474,6 +474,9 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CartItem);
 
     _this = _super.call(this, props);
+    _this.state = {
+      quantity: props.cartItem.quantity
+    };
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -487,6 +490,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       console.log('cart items props', this.props);
+      console.log('cart item states', this.state);
       var _this$props$cartItem = this.props.cartItem,
           name = _this$props$cartItem.name,
           photoUrls = _this$props$cartItem.photoUrls,

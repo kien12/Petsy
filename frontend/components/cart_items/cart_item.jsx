@@ -2,7 +2,11 @@ import React from 'react';
 
 class CartItem extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      quantity: props.cartItem.quantity
+    };
+
     this.handleDelete = this.handleDelete.bind(this)
   }
 
@@ -12,6 +16,7 @@ class CartItem extends React.Component {
 
   render() {
     console.log('cart items props', this.props)
+    console.log('cart item states', this.state)
     const { name, photoUrls, price, description, quantity, sellerName} = this.props.cartItem;
 
     return(

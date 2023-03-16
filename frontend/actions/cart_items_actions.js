@@ -40,11 +40,11 @@ export const fetchAllCartItems = () => dispatch => {
   )
 }
 
-export const deleteCartItem = cartId => {
-  return CartItemApiUtil.deleteCartItem(cartId)
+export const deleteCartItem = id => dispatch => {
+  return CartItemApiUtil.deleteCartItem(id)
   .then(
-    () => dispatch(removeCartItem(cartId))
-  )
+    () => dispatch(removeCartItem(id))
+  );
 }
 
 

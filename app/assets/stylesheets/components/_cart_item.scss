@@ -9,4 +9,10 @@
 
 .cart-item-container {
   display: flex;
+  border: 2px solid red;
+}
+
+.cart-item-remove-btn {
+  width: 100px;
+  height: 50px;
 }

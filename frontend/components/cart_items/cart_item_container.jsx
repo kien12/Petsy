@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import CartItem from './cart_item';
-import { createCartItem } from '../../actions/cart_items_actions'
+import { deleteCartItem } from '../../actions/cart_items_actions'
 
-// const mSTP = state => ({
-//   // cartItems: Object.values(state.entities.cartItems)
-// })
+const mSTP = state => ({
+  cartItems: Object.values(state.entities.cartItems)
+})
 
-// const mDTP = dispatch => ({
-//   // createCartItem: cartItem => dispatch(createCartItem(cartItem))
-// })
+const mDTP = dispatch => ({
+  deleteCartItem: cartItemId => dispatch(deleteCartItem(cartItemId))
+})
 
-export default connect(null, null)(CartItem);
+export default connect(mSTP, mDTP)(CartItem);

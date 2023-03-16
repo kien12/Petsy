@@ -4,6 +4,7 @@ import CartItemContainer from './cart_item_container';
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props)
+    
   }
 
   componentDidMount(){

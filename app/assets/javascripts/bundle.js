@@ -59,10 +59,12 @@ var fetchAllCartItems = function fetchAllCartItems() {
     });
   };
 };
-var deleteCartItem = function deleteCartItem(cartId) {
-  return _util_cart_items_utils__WEBPACK_IMPORTED_MODULE_0__.deleteCartItem(cartId).then(function () {
-    return dispatch(removeCartItem(cartId));
-  });
+var deleteCartItem = function deleteCartItem(id) {
+  return function (dispatch) {
+    return _util_cart_items_utils__WEBPACK_IMPORTED_MODULE_0__.deleteCartItem(id).then(function () {
+      return dispatch(removeCartItem(id));
+    });
+  };
 };
 
 /***/ }),
@@ -467,12 +469,21 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(CartItem);
 
   function CartItem(props) {
+    var _this;
+
     _classCallCheck(this, CartItem);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(CartItem, [{
+    key: "handleDelete",
+    value: function handleDelete() {
+      this.props.deleteCartItem(this.props.cartItem.id);
+    }
+  }, {
     key: "render",
     value: function render() {
       console.log('cart items props', this.props);
@@ -483,14 +494,17 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
           description = _this$props$cartItem.description,
           quantity = _this$props$cartItem.quantity,
           sellerName = _this$props$cartItem.sellerName;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sold by: ", sellerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sold by: ", sellerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "cart-product-img",
         src: photoUrls[0]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, name, " - ", description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: "1"
-      }, "1")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Removeeeeeeeeeee"));
+      }, "1")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "cart-item-remove-btn",
+        onClick: this.handleDelete
+      }, "Remove"))));
     }
   }]);
 
@@ -517,14 +531,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/cart_items_actions */ "./frontend/actions/cart_items_actions.js");
 
 
- // const mSTP = state => ({
-//   // cartItems: Object.values(state.entities.cartItems)
-// })
-// const mDTP = dispatch => ({
-//   // createCartItem: cartItem => dispatch(createCartItem(cartItem))
-// })
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(null, null)(_cart_item__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+var mSTP = function mSTP(state) {
+  return {
+    cartItems: Object.values(state.entities.cartItems)
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    deleteCartItem: function deleteCartItem(cartItemId) {
+      return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.deleteCartItem)(cartItemId));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_cart_item__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -3441,9 +3464,9 @@ var CartItemsReducer = function CartItemsReducer() {
     case _actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_ALL_CART_ITEMS:
       return Object.assign({}, action.cartItems);
 
-    case REMOVE_CART_ITEM:
+    case _actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_CART_ITEM:
       var newState = Object.assign({}, state);
-      delete newState[action.reviewId];
+      delete newState[action.id];
       return newState;
 
     default:

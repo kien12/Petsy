@@ -67,16 +67,29 @@ class CartItem extends React.Component {
         <div>
           <h2>Sold by: {sellerName}</h2>
           <div className='cart-item-container'>
-            <img className='cart-product-img' src={photoUrls[0]}/>
-            <div>
-              {name} - {description}
+              <div className='cart-item-inner-container'>
+              <img className='cart-product-img' src={photoUrls[0]}/>
+              <div>
+                <div className='cart-name-description-container'>
+                  <div className='cart-item-product'>
+                    {name}
+                  </div>
+                  <div className='cart-item-description'>
+                  {description}
+                  </div>
+                </div>
+              </div>
             </div>
-            <select value={this.state.quantity} className="product-quantity-bar" onChange={this.updateQuantity}>
-                {selectQuantity}
-              </select>
-            <div>{price}</div>
-            <button className='cart-item-remove-btn' onClick={this.handleDelete}>Remove</button>
-            {/* <button onClick={this.handleUpdate}>save</button> */}
+            <div className='cart-item-outer-container'>
+              <div className='cart-item-price'>${price}</div>
+              <div className='cart-product-quantity-bar'>
+                <div className='cart-item-quantity-name'>Quantity</div>
+                <select value={this.state.quantity} className='my-select' onChange={this.updateQuantity}>
+                  {selectQuantity}
+                </select>
+              </div>
+              <button className='cart-item-remove-btn' onClick={this.handleDelete}>Remove</button>
+            </div>
           </div>
         </div>
       </div>

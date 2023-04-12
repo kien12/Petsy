@@ -671,12 +671,31 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ShoppingCart);
 
   function ShoppingCart(props) {
+    var _this;
+
     _classCallCheck(this, ShoppingCart);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      totalPrice: 0
+    };
+    return _this;
   }
 
   _createClass(ShoppingCart, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.cartItems.length !== prevProps.cartItems.length) {
+        var total = 0;
+        this.props.cartItems.forEach(function (cartItem) {
+          total += cartItem.quantity * cartItem.price;
+        });
+        this.setState({
+          totalPrice: total
+        });
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllCartItems();
@@ -693,9 +712,9 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
           cartItem: cartItem
         }));
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.totalPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "shopping-cart-container"
-      }, cartItems);
+      }, cartItems));
     }
   }]);
 

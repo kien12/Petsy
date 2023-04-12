@@ -7,17 +7,26 @@ import HeroBannerContainer from '../splash/hero_banner_container'
 class GlobalNavBar extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      numberOfCartItems: 1
+    }
+  }
+
+
+  componentDidMount(){
+    this.props.fetchAllCartItems();
   }
 
   render() {
     const { logout, currentUserId, currentUser } = this.props;
-    console.log('global nav props', this.props)
+    // console.log('global nav props', this.props)
 
     let welcomeBanner = currentUserId ? (
         <p className="welcome-banner">Capture your moment, {currentUser[0].username}!</p>
         ) : (
           <p className="welcome-banner">Capture the moment on the wall </p>
     );
+
 
     return (
       <div>
@@ -35,10 +44,10 @@ class GlobalNavBar extends React.Component {
            ) : (
             <button className='top-nav-bar-login' onClick={() => this.props.openModal('login')}>Sigh in</button>
            )}
-      
-          <button className='top-nav-bar-cart'>
-            <img src={window.shoppingCart} className ="cart-icon"/>
-          </button>
+          <Link to="/cart" className='top-nav-bar-cart'>
+              <img src={window.shoppingCart} className ="cart-icon"/>
+              <div>{this.props.cartItems}</div>
+          </Link>
         </div>
         <div className='ketsy-welcome'>
             {welcomeBanner}

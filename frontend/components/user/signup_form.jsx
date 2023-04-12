@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
 
 
   render() {
-    console.log('signup form props', this.props)
+    // console.log('signup form props', this.props)
     return (
       <div className='modal-display' onClick={ e => e.stopPropagation()}>
         <div className='modal-register-signup'>

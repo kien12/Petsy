@@ -3,17 +3,41 @@ import { Link } from 'react-router-dom';
 import ReviewListContainer from '../review/review_list_container'
 import ReviewFormContainer from '../review/review_form_container'
 import BioPopup from '../modal/bio_popup';
+import { openModal } from '../../actions/modal_actions';
 
 class ProductShowPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       showBioPopup: false,
-      showCreateForm: true
+      showCreateForm: true,
+      quantity: 1,
+      productId: this.props.match.params.id,
+      userId: this.props.currentUserId,
+
+      
     };
     this.toggleBioPopup = this.toggleBioPopup.bind(this);
     this.toggleCreateForm = this.toggleCreateForm.bind(this);
+    this.addToCart = this.addToCart.bind(this);
+    // this.updateQuantity = updateQuantity.bind(this);
+  }
 
+  addToCart(e){
+    e.preventDefault();
+    if (this.props.currentUserId) {
+      const product = {
+        quantity: parseInt(this.state.quantity),
+        user_id: this.state.userId,
+        product_id: parseInt(this.state.productId)
+      }
+      // console.log('ADD TO CART PRODUCTS', product)
+      this.props.addCartItem(product)
+      this.props.openModal('cart');
+    } else {
+      alert('You must be signed in before you add to cart!');
+      this.props.openModal('login');
+    } 
   }
 
   componentDidMount(){
@@ -32,9 +56,19 @@ class ProductShowPage extends React.Component {
     });
   }
 
+  updateQuantity = (e) => {
+    this.setState({
+      quantity: e.target.value
+    })
+  }
+
+  
+
   render() {
     if(!this.props.product) return null;
-  console.log('product showpage props', this.props)
+    // console.log('product showpage props', this.props);
+    // console.log('product showpage state', this.state);
+    
 
     const product = this.props.match.params.id;
     const { 
@@ -45,6 +79,17 @@ class ProductShowPage extends React.Component {
       reviews,
       photoUrls
     } = this.props.product;
+    
+    // console.log(selectNumber);
+    // console.log(selectNumber);
+
+    const selectNumber = Array.from(Array(21).keys());
+    let selectQuantity = selectNumber.map( el => {
+      return (
+        
+        <option key={el} value={el + 1}>{el + 1}</option>
+      )
+    }) 
 
     let rightContainer = 
       <div className='review-faqs'>
@@ -79,14 +124,10 @@ class ProductShowPage extends React.Component {
             <h2 className='product-showpage-price'>${price}</h2>
             <div>
               <label className="product-quantity">Quantity</label><br/>
-                <select className="product-quantity-bar">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-              </select>
-            <button className="product-add-to-cart-button">Add to Cart</button>
+                <select className="product-quantity-bar" onChange={this.updateQuantity}>
+                  {selectQuantity}
+                </select>
+            <button className="product-add-to-cart-button" onClick={this.addToCart}>Add to Cart</button>
             </div>
             <br>
             </br>

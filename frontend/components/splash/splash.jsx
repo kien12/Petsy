@@ -20,7 +20,7 @@ class Splash extends React.Component {
       return <ProductIndexItem key={product.id} product={product} />;
     });
 
-    console.log('splash props', this.props);
+    // console.log('splash props', this.props);
 
 
 

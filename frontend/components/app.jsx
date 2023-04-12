@@ -5,6 +5,7 @@ import ProductShowPageContainer from './product/product_showpage_container';
 import GlobalNavBarContainer from './navbar/global_navbar_container';
 import ModalContainer from './modal/modal_container';
 import SplashContainer from './splash/splash_container';
+import ShoppingCartContainer from './cart_items/shopping_cart_container';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <ModalContainer/>
         <GlobalNavBarContainer/>
       <Switch>
+        <Route exact path="/cart" component={ShoppingCartContainer}/>
         <Route exact path="/" component={SplashContainer}/>
         <Route exact path="/categories/:id" component={CategoryProductShowPageContainer} />
         <Route exact path="/products/:id" component={ProductShowPageContainer} />

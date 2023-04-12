@@ -51,8 +51,8 @@ class CartModal extends React.Component {
           </div>
         </div>
         <div className='cart-button-container'>
-          <button onClick={this.viewCart}>View Cart</button><br/>
-          <button onClick={ () => this.props.closeModal()}>Keep Shopping</button>
+          <button onClick={this.viewCart} className='cart-modal-btn'>View Cart</button><br/>
+          <button onClick={ () => this.props.closeModal()} className='cart-modal-btn'>Keep Shopping</button>
         </div>
       </div>
     )

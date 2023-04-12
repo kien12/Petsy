@@ -1048,11 +1048,13 @@ var CartModal = /*#__PURE__*/function (_React$Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: this.viewCart
+        onClick: this.viewCart,
+        className: "cart-modal-btn"
       }, "View Cart"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this3.props.closeModal();
-        }
+        },
+        className: "cart-modal-btn"
       }, "Keep Shopping")));
     }
   }]);

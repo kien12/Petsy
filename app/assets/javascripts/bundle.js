@@ -542,6 +542,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
           description = _this$props$cartItem.description,
           quantity = _this$props$cartItem.quantity,
           sellerName = _this$props$cartItem.sellerName;
+      var calculateItemtotal = price * quantity;
       var startingNum = this.state.quantity;
       var selectNumber = Array.from(Array(20).keys());
       var selectQuantity = selectNumber.map(function (el) {
@@ -567,7 +568,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
         className: "cart-item-outer-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-item-price"
-      }, "$", price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "$", calculateItemtotal.toFixed(2)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-product-quantity-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-item-quantity-name"
@@ -685,8 +686,8 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.props.cartItems.length === 0) return null;
-      console.log('shopping cart props', this.props);
+      if (this.props.cartItems.length === 0) return null; // console.log('shopping cart props', this.props);
+
       var cartItems = this.props.cartItems.map(function (cartItem, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: i

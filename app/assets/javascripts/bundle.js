@@ -679,6 +679,7 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       totalPrice: 0
     };
+    _this.handleCheckout = _this.handleCheckout.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -701,6 +702,15 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
       this.props.fetchAllCartItems();
     }
   }, {
+    key: "handleCheckout",
+    value: function handleCheckout() {
+      var _this2 = this;
+
+      this.props.cartItems.forEach(function (cartItem) {
+        _this2.props.deleteCartItem(cartItem.id);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.props.cartItems.length === 0) return null; // console.log('shopping cart props', this.props);
@@ -712,7 +722,9 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
           cartItem: cartItem
         }));
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.totalPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Your Total is $", this.state.totalPrice, "!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.handleCheckout
+      }, " Proceed to Checkout")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "shopping-cart-container"
       }, cartItems));
     }
@@ -753,6 +765,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchAllCartItems: function fetchAllCartItems() {
       return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.fetchAllCartItems)());
+    },
+    deleteCartItem: function deleteCartItem(id) {
+      return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.deleteCartItem)(id));
     }
   };
 };

@@ -7,10 +7,11 @@ class ShoppingCart extends React.Component {
     this.state = { 
       totalPrice: 0
     }
+    this.handleCheckout = this.handleCheckout.bind(this);
   }
 
   componentDidUpdate( prevProps ) {
-    if (this.props.cartItems.length !== prevProps.cartItems.length) {
+    if ((this.props.cartItems.length !== prevProps.cartItems.length)) {
       let total = 0;
       this.props.cartItems.forEach( cartItem => {
         total += cartItem.quantity * cartItem.price
@@ -19,11 +20,16 @@ class ShoppingCart extends React.Component {
         totalPrice: total
       })
     }
-
   }
 
   componentDidMount(){
     this.props.fetchAllCartItems()
+  }
+
+  handleCheckout() {
+    this.props.cartItems.forEach( cartItem => {
+      this.props.deleteCartItem(cartItem.id)
+    })
   }
 
   render() {
@@ -40,7 +46,8 @@ class ShoppingCart extends React.Component {
     return(
       <div >
         <div>
-          {this.state.totalPrice}
+          Your Total is ${this.state.totalPrice}!
+          <button onClick={this.handleCheckout}> Proceed to Checkout</button>
         </div>
         <div className='shopping-cart-container'>
           {cartItems}

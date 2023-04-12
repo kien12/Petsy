@@ -10,9 +10,9 @@ class ShoppingCart extends React.Component {
     this.handleCheckout = this.handleCheckout.bind(this);
   }
 
-  componentDidUpdate( prevProps ) {
-    if ((this.props.cartItems.length !== prevProps.cartItems.length)) {
-      let total = 0;
+  componentDidUpdate(  prevProps ) {
+    if (this.props.cartItems.length !== prevProps.cartItems.length) {
+    let total = 0;
       this.props.cartItems.forEach( cartItem => {
         total += cartItem.quantity * cartItem.price
       })
@@ -21,9 +21,28 @@ class ShoppingCart extends React.Component {
       })
     }
   }
+ 
+  //  componentDidUpdate(  prevState ) {
+  //   if (prevState.totalPrice === 0) {
+  //   let total = 0;
+  //     this.props.cartItems.forEach( cartItem => {
+  //       total += cartItem.quantity * cartItem.price
+  //     })
+  //     this.setState({
+  //       totalPrice: total
+  //     })
+  //   }
+  // } 
 
   componentDidMount(){
     this.props.fetchAllCartItems()
+     let total = 0;
+      this.props.cartItems.forEach( cartItem => {
+        total += cartItem.quantity * cartItem.price
+      })
+      this.setState({
+        totalPrice: total
+      })
   }
 
   handleCheckout() {
@@ -34,6 +53,7 @@ class ShoppingCart extends React.Component {
 
   render() {
     if (this.props.cartItems.length === 0) return null;
+    // if (this.state.totalPrice === 0 ) return null;
 
     // console.log('shopping cart props', this.props);
     let cartItems = this.props.cartItems.map( (cartItem, i) => {
@@ -46,7 +66,7 @@ class ShoppingCart extends React.Component {
     return(
       <div >
         <div>
-          Your Total is ${this.state.totalPrice}!
+          Your Total is ${this.state.totalPrice.toFixed(2)}!
           <button onClick={this.handleCheckout}> Proceed to Checkout</button>
         </div>
         <div className='shopping-cart-container'>

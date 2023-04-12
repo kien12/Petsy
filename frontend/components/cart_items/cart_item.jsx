@@ -89,6 +89,9 @@ class CartItem extends React.Component {
             </div>
             <div className='cart-item-outer-container'>
               <div className='cart-item-price'>${calculateItemtotal.toFixed(2)}</div>
+              <div className='cart-item-each'>
+                (${price} each)
+              </div>
               <div className='cart-product-quantity-bar'>
                 <div className='cart-item-quantity-name'>Quantity</div>
                 <select value={this.state.quantity} className='my-select' onChange={this.updateQuantity}>

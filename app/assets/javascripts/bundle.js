@@ -567,6 +567,8 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-item-price"
       }, "$", calculateItemtotal.toFixed(2)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-item-each"
+      }, "($", price, " each)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-product-quantity-bar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-item-quantity-name"
@@ -695,11 +697,29 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
           totalPrice: total
         });
       }
-    }
+    } //  componentDidUpdate(  prevState ) {
+    //   if (prevState.totalPrice === 0) {
+    //   let total = 0;
+    //     this.props.cartItems.forEach( cartItem => {
+    //       total += cartItem.quantity * cartItem.price
+    //     })
+    //     this.setState({
+    //       totalPrice: total
+    //     })
+    //   }
+    // } 
+
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllCartItems();
+      var total = 0;
+      this.props.cartItems.forEach(function (cartItem) {
+        total += cartItem.quantity * cartItem.price;
+      });
+      this.setState({
+        totalPrice: total
+      });
     }
   }, {
     key: "handleCheckout",
@@ -713,7 +733,8 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.props.cartItems.length === 0) return null; // console.log('shopping cart props', this.props);
+      if (this.props.cartItems.length === 0) return null; // if (this.state.totalPrice === 0 ) return null;
+      // console.log('shopping cart props', this.props);
 
       var cartItems = this.props.cartItems.map(function (cartItem, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -722,7 +743,7 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
           cartItem: cartItem
         }));
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Your Total is $", this.state.totalPrice, "!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Your Total is $", this.state.totalPrice.toFixed(2), "!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: this.handleCheckout
       }, " Proceed to Checkout")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "shopping-cart-container"

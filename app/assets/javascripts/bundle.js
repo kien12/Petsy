@@ -525,8 +525,6 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
           quantity: parseInt(this.state.quantity),
           user_id: this.props.cartItem.userId,
           product_id: this.props.cartItem.productId
-        }).then(function (res) {
-          return console.log('res', res);
         });
       }
     }
@@ -551,7 +549,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
           value: el + 1
         }, el + 1);
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sold by: ", sellerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sold by: ", sellerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-item-inner-container"

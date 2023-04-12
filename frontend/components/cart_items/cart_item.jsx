@@ -23,6 +23,7 @@ class CartItem extends React.Component {
   }
 
 
+
   // handleUpdate() {
   //   this.props.updateCartItem({
   //     id: this.props.id,
@@ -41,7 +42,7 @@ class CartItem extends React.Component {
       quantity: parseInt(this.state.quantity),
       user_id: this.props.cartItem.userId,
       product_id: this.props.cartItem.productId
-    }).then( res => console.log('res', res))
+    })
     }
   }
 
@@ -51,6 +52,7 @@ class CartItem extends React.Component {
     const { name, photoUrls, price, description, quantity, sellerName} = this.props.cartItem;
 
     const calculateItemtotal = price * quantity;
+
   
   const startingNum = this.state.quantity;
    const selectNumber = Array.from(Array(20).keys());
@@ -66,6 +68,9 @@ class CartItem extends React.Component {
 
     return(
       <div>
+        <div>
+          {/* {calculateItemTotalFunc} */}
+        </div>
         <div>
           <h2>Sold by: {sellerName}</h2>
           <div className='cart-item-container'>

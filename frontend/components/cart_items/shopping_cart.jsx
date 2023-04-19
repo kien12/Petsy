@@ -10,15 +10,29 @@ class ShoppingCart extends React.Component {
     this.handleCheckout = this.handleCheckout.bind(this);
   }
 
+  updateTotalPrice = () => {
+    let total = 0;
+    this.props.cartItems.forEach( cartItem => {
+      total += cartItem.quantity * cartItem.price
+    })
+    this.setState({
+      totalPrice: total
+    })
+  }
+
   componentDidUpdate(  prevProps ) {
     if (this.props.cartItems.length !== prevProps.cartItems.length) {
-    let total = 0;
-      this.props.cartItems.forEach( cartItem => {
-        total += cartItem.quantity * cartItem.price
-      })
-      this.setState({
-        totalPrice: total
-      })
+      this.updateTotalPrice();
+    } else {
+        let sortedProps = this.props.cartItems.sort((a, b) => a - b);
+        let sortedPrevProps = prevProps.cartItems.sort((a, b ) => a - b);
+        
+        for (let i = 0; i < sortedProps.length; i++) {
+          if (sortedProps[i].quantity !== sortedPrevProps[i].quantity) {
+            this.updateTotalPrice();
+            break;
+          }
+        }
     }
   }
  
@@ -36,13 +50,7 @@ class ShoppingCart extends React.Component {
 
   componentDidMount(){
     this.props.fetchAllCartItems()
-     let total = 0;
-      this.props.cartItems.forEach( cartItem => {
-        total += cartItem.quantity * cartItem.price
-      })
-      this.setState({
-        totalPrice: total
-      })
+     this.updateTotalPrice();
   }
 
   handleCheckout() {
@@ -52,23 +60,30 @@ class ShoppingCart extends React.Component {
   }
 
   render() {
-    if (this.props.cartItems.length === 0) return null;
+
+    // if (this.props.cartItems.length > 0) return null;
     // if (this.state.totalPrice === 0 ) return null;
 
     // console.log('shopping cart props', this.props);
     let cartItems = this.props.cartItems.map( (cartItem, i) => {
       return (
-        <div key={i}>
+        <div key={`${i}-${cartItem.id}`}>
           <CartItemContainer cartItem={cartItem}/>
         </div>
       );
     });
+
     return(
       <div >
+        { (this.props.cartItems.length === 0) && ( 
+          <div> Your Cart is empty! </div>
+        )}
+        { (this.props.cartItems.length > 0) && (
         <div>
           Your Total is ${this.state.totalPrice.toFixed(2)}!
           <button onClick={this.handleCheckout}> Proceed to Checkout</button>
         </div>
+        )}
         <div className='shopping-cart-container'>
           {cartItems}
         </div>

@@ -79,10 +79,10 @@ class CartItem extends React.Component {
               <div>
                 <div className='cart-name-description-container'>
                   <div className='cart-item-product'>
-                    {name}
+                    Title: {name}
                   </div>
                   <div className='cart-item-description'>
-                  {description}
+                  Description: {description}
                   </div>
                 </div>
               </div>

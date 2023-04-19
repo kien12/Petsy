@@ -525,8 +525,6 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
           quantity: parseInt(this.state.quantity),
           user_id: this.props.cartItem.userId,
           product_id: this.props.cartItem.productId
-        }).then(function (res) {
-          return console.log('res', res);
         });
       }
     }
@@ -542,6 +540,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
           description = _this$props$cartItem.description,
           quantity = _this$props$cartItem.quantity,
           sellerName = _this$props$cartItem.sellerName;
+      var calculateItemtotal = price * quantity;
       var startingNum = this.state.quantity;
       var selectNumber = Array.from(Array(20).keys());
       var selectQuantity = selectNumber.map(function (el) {
@@ -550,19 +549,37 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
           value: el + 1
         }, el + 1);
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sold by: ", sellerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Sold by: ", sellerName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-item-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-item-inner-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "cart-product-img",
         src: photoUrls[0]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, name, " - ", description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-name-description-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-item-product"
+      }, "Title: ", name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-item-description"
+      }, "Description: ", description)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-item-outer-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-item-price"
+      }, "$", calculateItemtotal.toFixed(2)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-item-each"
+      }, "($", price, " each)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-product-quantity-bar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "cart-item-quantity-name"
+      }, "Quantity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
         value: this.state.quantity,
-        className: "product-quantity-bar",
+        className: "my-select",
         onChange: this.updateQuantity
-      }, selectQuantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, selectQuantity)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         className: "cart-item-remove-btn",
         onClick: this.handleDelete
-      }, "Remove"))));
+      }, "Remove")))));
     }
   }]);
 
@@ -647,6 +664,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -656,31 +675,96 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ShoppingCart);
 
   function ShoppingCart(props) {
+    var _this;
+
     _classCallCheck(this, ShoppingCart);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "updateTotalPrice", function () {
+      var total = 0;
+
+      _this.props.cartItems.forEach(function (cartItem) {
+        total += cartItem.quantity * cartItem.price;
+      });
+
+      _this.setState({
+        totalPrice: total
+      });
+    });
+
+    _this.state = {
+      totalPrice: 0
+    };
+    _this.handleCheckout = _this.handleCheckout.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ShoppingCart, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.cartItems.length !== prevProps.cartItems.length) {
+        this.updateTotalPrice();
+      } else {
+        var sortedProps = this.props.cartItems.sort(function (a, b) {
+          return a - b;
+        });
+        var sortedPrevProps = prevProps.cartItems.sort(function (a, b) {
+          return a - b;
+        });
+
+        for (var i = 0; i < sortedProps.length; i++) {
+          if (sortedProps[i].quantity !== sortedPrevProps[i].quantity) {
+            this.updateTotalPrice();
+            break;
+          }
+        }
+      }
+    } //  componentDidUpdate(  prevState ) {
+    //   if (prevState.totalPrice === 0) {
+    //   let total = 0;
+    //     this.props.cartItems.forEach( cartItem => {
+    //       total += cartItem.quantity * cartItem.price
+    //     })
+    //     this.setState({
+    //       totalPrice: total
+    //     })
+    //   }
+    // } 
+
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllCartItems();
+      this.updateTotalPrice();
+    }
+  }, {
+    key: "handleCheckout",
+    value: function handleCheckout() {
+      var _this2 = this;
+
+      this.props.cartItems.forEach(function (cartItem) {
+        _this2.props.deleteCartItem(cartItem.id);
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      if (this.props.cartItems.length === 0) return null;
-      console.log('shopping cart props', this.props);
+      // if (this.props.cartItems.length > 0) return null;
+      // if (this.state.totalPrice === 0 ) return null;
+      // console.log('shopping cart props', this.props);
       var cartItems = this.props.cartItems.map(function (cartItem, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-          key: i
+          key: "".concat(i, "-").concat(cartItem.id)
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_cart_item_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
           cartItem: cartItem
         }));
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.cartItems.length === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, " Your Cart is empty! "), this.props.cartItems.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Your Total is $", this.state.totalPrice.toFixed(2), "!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.handleCheckout
+      }, " Proceed to Checkout")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "shopping-cart-container"
-      }, cartItems);
+      }, cartItems));
     }
   }]);
 
@@ -719,6 +803,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchAllCartItems: function fetchAllCartItems() {
       return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.fetchAllCartItems)());
+    },
+    deleteCartItem: function deleteCartItem(id) {
+      return dispatch((0,_actions_cart_items_actions__WEBPACK_IMPORTED_MODULE_2__.deleteCartItem)(id));
     }
   };
 };
@@ -1036,21 +1123,25 @@ var CartModal = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick(e) {
           return e.stopPropagation();
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+        className: "cart-modal-length"
+      }, " You have  ", this.props.cartItems.length, " item(s) in your cart!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-top-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-modal-img"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "cart-modal-img",
         src: photoUrls[0]
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "length of shopping cart here")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "cart-button-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: this.viewCart
+        onClick: this.viewCart,
+        className: "cart-modal-btn"
       }, "View Cart"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this3.props.closeModal();
-        }
+        },
+        className: "cart-modal-btn"
       }, "Keep Shopping")));
     }
   }]);

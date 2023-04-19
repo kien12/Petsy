@@ -1,19 +1,47 @@
 .modal-cart-container {
-  width: 40%;
+  width: 20%;
   height: 100%;
   background: white;
   position: absolute;
   right: 0;
+  // border: 2px solid blue;
 }
 
 .cart-top-container {
   height: 250px;
   width: 250px;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
   display: flex;
+  margin-left: 20px;
+  // border: 2px solid red;
+}
+
+.cart-button-container {
+  margin-left: 20px;
+  // border: 2px solid green;
+}
+
+.cart-modal-length {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-family: 'Roboto Serif', serif;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .cart-modal-img {
   height: 250px;
   width: 250px;
+  border-radius: 20px;
+}
+
+.cart-modal-btn {
+  width: 85%;
+  height: 40px;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  margin-bottom: 5px;
+  // margin-left: 10px;
+  // border: 2px solid grey;
 }

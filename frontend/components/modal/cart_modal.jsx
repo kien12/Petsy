@@ -44,15 +44,15 @@ class CartModal extends React.Component {
     // console.log('cart props',this.props)
     return(
       <div className='modal-cart-container' onClick={ e => e.stopPropagation()}>
+        <h4 className='cart-modal-length'> You have  {this.props.cartItems.length} item(s) in your cart!</h4>
         <div className='cart-top-container'>
           <div className='cart-modal-img'>
             <img className='cart-modal-img' src={photoUrls[0]} />
           </div>
-          <h4>length of shopping cart here</h4>
         </div>
         <div className='cart-button-container'>
-          <button onClick={this.viewCart}>View Cart</button><br/>
-          <button onClick={ () => this.props.closeModal()}>Keep Shopping</button>
+          <button onClick={this.viewCart} className='cart-modal-btn'>View Cart</button><br/>
+          <button onClick={ () => this.props.closeModal()} className='cart-modal-btn'>Keep Shopping</button>
         </div>
       </div>
     )

@@ -79,9 +79,9 @@ class ShoppingCart extends React.Component {
           <div> Your Cart is empty! </div>
         )}
         { (this.props.cartItems.length > 0) && (
-        <div>
+        <div className="shopping-cart-total">
           Your Total is ${this.state.totalPrice.toFixed(2)}!
-          <button onClick={this.handleCheckout}> Proceed to Checkout</button>
+          <button  className="shopping-cart-checkout-btn" onClick={this.handleCheckout}> Proceed to Checkout</button>
         </div>
         )}
         <div className='shopping-cart-container'>

@@ -760,7 +760,10 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
           cartItem: cartItem
         }));
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.cartItems.length === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, " Your Cart is empty! "), this.props.cartItems.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Your Total is $", this.state.totalPrice.toFixed(2), "!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.cartItems.length === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, " Your Cart is empty! "), this.props.cartItems.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "shopping-cart-total"
+      }, "Your Total is $", this.state.totalPrice.toFixed(2), "!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "shopping-cart-checkout-btn",
         onClick: this.handleCheckout
       }, " Proceed to Checkout")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "shopping-cart-container"

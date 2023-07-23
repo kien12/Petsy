@@ -1498,6 +1498,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1512,11 +1514,26 @@ var SearchResult = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, SearchResult);
 
     _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "handleSearchChange", function (e) {
+      var value = e.target.value;
+
+      _this.setState({
+        searchText: value
+      }); // You can perform search operations or filter data here based on the value.
+      // For demonstration purposes, I'll just log the search text to the console.
+
+
+      console.log('Search Text:', value);
+    });
+
     _this.state = {
       minPrice: '',
       maxPrice: '',
-      queryStr: ''
+      queryStr: '',
+      searchText: ''
     };
+    _this.handleSearchChange = _this.handleSearchChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1526,7 +1543,9 @@ var SearchResult = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "search",
         id: "search",
-        placeholder: "Search for items or shops"
+        placeholder: "Search for items or shops",
+        value: this.state.searchText,
+        onChange: this.handleSearchChange
       }));
     }
   }]);

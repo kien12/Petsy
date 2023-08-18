@@ -1543,7 +1543,7 @@ var SearchResult = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "search",
         id: "search",
-        placeholder: "Search for items or shops",
+        placeholder: "Search for items or shopss",
         value: this.state.searchText,
         onChange: this.handleSearchChange
       }));

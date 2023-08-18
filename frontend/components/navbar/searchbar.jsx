@@ -1,4 +1,5 @@
 import React from 'react'
+// import searchResult from "./search_result";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -25,10 +26,11 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className='searchbar-container'>
-        <form className="top-nav-bar-search-bar" onSubmit={this.handleSubmit}>
+        {/* <form className="top-nav-bar-search-bar" onSubmit={this.handleSubmit}>
           <input type="search" placeholder='Search for items or shops' onChange={this.handleInput("searchInput")}/>
           <button className='search-logo'></button>
-        </form> 
+        </form>  */}
+        <searchResult/>
       </div>
     )
   }

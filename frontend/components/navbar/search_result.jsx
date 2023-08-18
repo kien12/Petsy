@@ -27,7 +27,7 @@ class SearchResult extends React.Component {
       <div>
          <input type="search"
               id="search"
-              placeholder="Search for items or shops"
+              placeholder="Search for items or shopss"
               value={this.state.searchText}
               onChange={this.handleSearchChange}
             />
